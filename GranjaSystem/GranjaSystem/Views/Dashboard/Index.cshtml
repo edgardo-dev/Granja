@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+}
+
+<!-- Ionicons -->
+<link rel="stylesheet" href="~/Content/bower_components/Ionicons/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" href="~/Content/dist/css/AdminLTE.min.css">
+<!-- AdminLTE Skins. Choose a skin from the css/skins
+     folder instead of downloading all of them to reduce the load. -->
+<link rel="stylesheet" href="~/Content/dist/css/skins/_all-skins.min.css">
+
+<div class="row content content-fluid">
+    <!-- ./col -->
+    <div class="col-lg-4 col-xs-4">
+        <!-- small box -->
+        <div class="small-box bg-blue">
+            <div class="inner">
+                <b class="text">VARRACOS</b>
+                <h5>@ViewBag.CC 1</h5>
+            </div>
+            <div class="icon">
+                <i class="fa fa-heartbeat"></i>
+            </div>
+            <a href="@Url.Action("Create","Consultas")" class="small-box-footer">Control de Varracos <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-4 col-xs-4">
+        <!-- small box -->
+        <div class="small-box bg-fuchsia">
+            <div class="inner">
+                <b class="text">CERDAS</b>
+                <h5>@ViewBag.CC 1</h5>
+            </div>
+            <div class="icon">
+                <i class="fa fa-heart"></i>
+            </div>
+            <a href="@Url.Action("Create","Consultas")" class="small-box-footer">Control de Cerdas <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-4 col-xs-4">
+        <!-- small box -->
+        <div class="small-box bg-purple">
+            <div class="inner">
+                <b class="text">FICHAS</b>
+
+                <h5>@ViewBag.CP 1</h5>
+            </div>
+            <div class="icon">
+                <i class="fa fa-archive"></i>
+            </div>
+            <a href="@Url.Action("Index","Pacientes")" class="small-box-footer">Nueva Ficha <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-4 col-xs-4">
+        <!-- small box -->
+        <div class="small-box bg-green-gradient">
+            <div class="inner">
+                <b class="text">ROLES</b>
+                <h5>@ViewBag.CE 1</h5>
+            </div>
+            <div class="icon">
+                <i class="fa fa-user-circle"></i>
+            </div>
+            <a href="@Url.Action("Index","Expedientes")" class="small-box-footer">Administrar<i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-4 col-xs-4">
+        <!-- small box -->
+        <div class="small-box bg-red">
+            <div class="inner">
+                <b class="text">USUARIOS</b>
+
+                <h5>@ViewBag.CU 1</h5>
+            </div>
+            <div class="icon">
+                <i class="ion ion-person-add"></i>
+            </div>
+            <a href="@Url.Action("Index","Usuarios")" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-4 col-xs-4">
+        <!-- small box -->
+        <div class="small-box bg-green">
+            <div class="inner">
+                <b class="text">EMPLEADOS</b>
+
+                <h5>@ViewBag.CEE 1</h5>
+            </div>
+            <div class="icon">
+                <i class="ion ion-ios-people"></i>
+            </div>
+            <a href="@Url.Action("Index","Empleados")" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,10 @@
+﻿body, html {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-image: url('img/cerdo.jpg');
+}
+.container{
+    
+    padding: 40px 40px;
+}
