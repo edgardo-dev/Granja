@@ -10,12 +10,16 @@ namespace GranjaSystem.Models
     {
         [Key]
         public int IdUsuario { get; set; }
+        
         public string Usuario { get; set; }
+
+        [Display(Name = "Contraseña")]
+        [DataType(DataType.Password)]
         public string Clave { get; set; }
-     
+        [Display(Name = "Nombre del Empleado")]
         public int IdEmpleados { get; set; }
         public virtual tblEmpleados Empleados { get; set; }
-
+        [Display(Name = "Rol del Empleado")]
         public int IdRoles { get; set; }
         public virtual tblRoles Roles { get; set; }
        

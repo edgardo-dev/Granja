@@ -2572,19 +2572,24 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\tblCerdas.cs" />
+    <Compile Include="Models\tblControlLechones.cs" />
     <Compile Include="Models\tblDetalleLote.cs" />
     <Compile Include="Models\tblEmpleados.cs" />
-    <Compile Include="Models\tblFichaCerda.cs" />
+    <Compile Include="Models\tblFichas.cs" />
     <Compile Include="Models\tblGeneticas.cs" />
     <Compile Include="Models\tblLotes.cs" />
     <Compile Include="Models\tblRoles.cs" />
     <Compile Include="Models\tblUsuarios.cs" />
+    <Compile Include="Models\tblVacunas.cs" />
     <Compile Include="Models\tblVarracos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -2984,6 +2989,21 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Dashboard\View.cshtml" />
+    <Content Include="Views\Empleados\Create.cshtml" />
+    <Content Include="Views\Empleados\Delete.cshtml" />
+    <Content Include="Views\Empleados\Details.cshtml" />
+    <Content Include="Views\Empleados\Edit.cshtml" />
+    <Content Include="Views\Empleados\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Usuarios\Create.cshtml" />
+    <Content Include="Views\Usuarios\Delete.cshtml" />
+    <Content Include="Views\Usuarios\Details.cshtml" />
+    <Content Include="Views\Usuarios\Edit.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

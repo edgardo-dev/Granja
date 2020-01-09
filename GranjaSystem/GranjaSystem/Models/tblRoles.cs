@@ -10,7 +10,9 @@ namespace GranjaSystem.Models
     {
         [Key]
         public int IdRole { get; set; }
+        
         public string Rol { get; set; }
+        [Display(Name = "Descripción")]
         public string Descripcion { get; set; }
     }
 }

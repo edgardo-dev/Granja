@@ -1,0 +1,50 @@
+﻿@model GranjaSystem.Models.tblUsuarios
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblUsuarios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Empleados.NombreEmpleado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empleados.NombreEmpleado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clave)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clave)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdRoles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdRoles)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdUsuario }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
