@@ -3,49 +3,55 @@
 @{
     ViewBag.Title = "Index";
 }
+<div class="row content container-fluid">
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <div class="panel panel-primary">
+        <div class="panel-heading">Control de Empleados</div>
+        <div class="panel-body">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Empleados.NombreEmpleado)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Usuario)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Clave)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IdRoles)
+                    </th>
+                    <th></th>
+                </tr>
 
-<h2>Index</h2>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Empleados.NombreEmpleado)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Usuario)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Clave)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdRoles)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.IdUsuario }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.IdUsuario }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.IdUsuario })
+                        </td>
+                    </tr>
+                }
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Empleados.NombreEmpleado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Usuario)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Clave)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdRoles)
-        </th>
-        <th></th>
-    </tr>
+            </table>
+        </div>
+    </div>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Empleados.NombreEmpleado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Usuario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Clave)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdRoles)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdUsuario }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdUsuario }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdUsuario })
-        </td>
-    </tr>
-}
-
-</table>
+</div>

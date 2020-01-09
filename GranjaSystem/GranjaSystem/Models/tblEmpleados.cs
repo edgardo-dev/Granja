@@ -25,7 +25,6 @@ namespace GranjaSystem.Models
 
         [DataType(DataType.DateTime)]
         [Display(Name = "Fecha Nacimiento")]
-        [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}", ApplyFormatInEditMode =true)]
         public DateTime FechaNacimiento { get; set; }
         [Display(Name = "Correo Electrónico")]
         [DataType(DataType.EmailAddress)]
