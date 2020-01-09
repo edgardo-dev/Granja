@@ -151,8 +151,8 @@ C:\Users\fidel.garcia\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\bin
 C:\Users\fidel.garcia\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Webpages.Razor.resources.dll
 C:\Users\fidel.garcia\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Helpers.resources.dll
 C:\Users\fidel.garcia\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Mvc.resources.dll
-C:\Users\fidel.garcia\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csprojAssemblyReference.cache
 C:\Users\fidel.garcia\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csproj.CoreCompileInputs.cache
 C:\Users\fidel.garcia\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csproj.CopyComplete
 C:\Users\fidel.garcia\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.dll
 C:\Users\fidel.garcia\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.pdb
+C:\Users\fidel.garcia\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csprojAssemblyReference.cache

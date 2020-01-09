@@ -4,80 +4,72 @@
     ViewBag.Title = "Index";
 }
 
-<div class="row content container-fluid">
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <div class="panel panel-primary">
-        <div class="panel-heading">Control de Empleados</div>
-        <div class="panel-body">
-            <table class="table">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.NombreEmpleado)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ApellidoEmpleado)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Telefono)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.DUI)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.NIT)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FehaRegistro)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FechaNacimiento)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Email)
-                    </th>
-                    <th></th>
-                </tr>
+<h2>Index</h2>
 
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.NombreEmpleado)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ApellidoEmpleado)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Telefono)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DUI)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.NIT)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FehaRegistro)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FechaNacimiento)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Email)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Modificar", "Edit", new { id = item.IdEmpleados }, new { @class = " btn btn-success" }) |
-                            @Html.ActionLink("Detalles", "Details", new { id = item.IdEmpleados }, new { @class = "btn btn-warnig" }) |
-                            @Html.ActionLink(" ", "Delete", new { id = item.IdEmpleados }, new { @class = "glyphicon glyphicon-trash btn btn-danger" })
-                        </td>
-                    </tr>
-                }
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreEmpleado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApellidoEmpleado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DUI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NIT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FehaRegistro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaNacimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th></th>
+    </tr>
 
-            </table>
-        </div>
-    </div>
-</div>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreEmpleado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApellidoEmpleado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Telefono)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DUI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NIT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FehaRegistro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaNacimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdEmpleados }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdEmpleados }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdEmpleados })
+        </td>
+    </tr>
+}
 
-
+</table>

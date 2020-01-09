@@ -17,6 +17,7 @@ namespace GranjaSystem.Controllers
         // GET: Empleados
         public ActionResult Index()
         {
+            ViewBag.active = "active";
             return View(db.Empleados.ToList());
         }
 
@@ -50,6 +51,7 @@ namespace GranjaSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                tblEmpleados.FehaRegistro = @DateTime.Now;
                 db.Empleados.Add(tblEmpleados);
                 db.SaveChanges();
                 return RedirectToAction("Index");
