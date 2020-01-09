@@ -23,7 +23,7 @@ namespace GranjaSystem.Models
         [Editable(allowEdit:false)]
         public DateTime FehaRegistro { get; set; }
 
-        [DataType(DataType.Date)]
+        [DataType(DataType.DateTime)]
         [Display(Name = "Fecha Nacimiento")]
         [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}", ApplyFormatInEditMode =true)]
         public DateTime FechaNacimiento { get; set; }
