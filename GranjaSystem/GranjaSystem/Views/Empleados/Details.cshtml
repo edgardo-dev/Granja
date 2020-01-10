@@ -1,82 +1,86 @@
 ﻿@model GranjaSystem.Models.tblEmpleados
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles";
 }
+    <div class="row content container-fluid">
 
-<h2>Details</h2>
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE USUARIOS</h4></div>
+            <div class="panel-body bg-gray">
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NombreEmpleado)
+                    </dt>
 
-<div>
-    <h4>tblEmpleados</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NombreEmpleado)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.NombreEmpleado)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.NombreEmpleado)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ApellidoEmpleado)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ApellidoEmpleado)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ApellidoEmpleado)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ApellidoEmpleado)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Telefono)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Telefono)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Telefono)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Telefono)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DUI)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DUI)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.DUI)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DUI)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NIT)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NIT)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.NIT)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.NIT)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FechaRegistro)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FehaRegistro)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.FechaRegistro)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.FehaRegistro)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FechaNacimiento)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaNacimiento)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.FechaNacimiento)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaNacimiento)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+                </dl>
+                <p>
+                    @Html.ActionLink("Modificar", "Edit", new { id = Model.IdEmpleados }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-success" })
+                </p>
+            </div>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdEmpleados }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </div>
+
+    </div>
+

@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Granja</title>
+    <title>@ViewBag.Title - G-Porcina</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
 
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
@@ -155,22 +155,22 @@
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MENU PRINCIPAL</li>
-                    <li class="@ViewBag.active treeview">
-                        <a href="@Url.Action("Index","Dashboard")">
-                            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
 
+                    <li>
+                        <a href="@Url.Action("Index","Dashboard")">
+                            <i class="fa fa-dashboard"></i><span>Dashboard</span>
                         </a>
                     </li>
                     <li class="treeview">
-                        <a href="#">
+                        <a href="">
                             <i class="fa fa-heartbeat"></i> <span>Varraco</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Consultas")"><i class="fa fa-search"></i>Control de Varracos</a></li>
-                            <li><a href="@Url.Action("Create","Consultas")"><i class="fa fa-plus"></i>Nuevo Varraco</a></li>
+                            <li><a href="@Url.Action("Index","Varracos")"><i class="fa fa-search"></i>Control de Varracos</a></li>
+                            <li><a href="@Url.Action("Create","Varracos")"><i class="fa fa-plus"></i>Nuevo Varraco</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -182,8 +182,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Pacientes")"><i class="fa fa-search"></i>Control de Cerdas</a></li>
-                            <li><a href="@Url.Action("Create","Pacientes")"><i class="fa fa-plus"></i>Nueva Cerda</a></li>s
+                            <li><a href="@Url.Action("Index","Cerdas")"><i class="fa fa-search"></i>Control de Cerdas</a></li>
+                            <li><a href="@Url.Action("Create","Cerdas")"><i class="fa fa-plus"></i>Nueva Cerda</a></li>s
                         </ul>
                     </li>
                     <li class="treeview">
@@ -195,8 +195,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Expedientes")"><i class="fa fa-search"></i> Control de Fichas</a></li>
-                            <li><a href="@Url.Action("Create","Expedientes")"><i class="fa fa-plus"></i>Agregar Fichas</a></li>s
+                            <li><a href="@Url.Action("Index","Fichas")"><i class="fa fa-search"></i> Control de Fichas</a></li>
+                            <li><a href="@Url.Action("Create","Fichas")"><i class="fa fa-plus"></i>Agregar Fichas</a></li>s
                         </ul>
                     </li>
                     <li class="treeview">
@@ -207,8 +207,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Consultas")"><i class="fa fa-search"></i>Control de Lotes</a></li>
-                            <li><a href="@Url.Action("Create","Consultas")"><i class="fa fa-plus"></i>Agregar Lote</a></li>
+                            <li><a href="@Url.Action("Index","Lotes")"><i class="fa fa-search"></i>Control de Lotes</a></li>
+                            <li><a href="@Url.Action("Create","Lotes")"><i class="fa fa-plus"></i>Agregar Lote</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -219,8 +219,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-search"></i>Control de Vacunas</a></li>
-                            <li><a href="#"><i class="fa fa-edit"></i>Agregar Vacuna</a></li>
+                            <li><a href="@Url.Action("Index","Vacunas")"><i class="fa fa-search"></i>Control de Vacunas</a></li>
+                            <li><a href="@Url.Action("Create","Vacunas")"><i class="fa fa-edit"></i>Agregar Vacuna</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -231,8 +231,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-search"></i>Control de Genetica</a></li>
-                            <li><a href="#"><i class="fa fa-edit"></i>Agregar Genetica</a></li>
+                            <li><a href="@Url.Action("Index","Geneticas")"><i class="fa fa-search"></i>Control de Genetica</a></li>
+                            <li><a href="@Url.Action("Create","Geneticas")"><i class="fa fa-edit"></i>Agregar Genetica</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -243,10 +243,10 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Citas")"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
-                            <li><a href="@Url.Action("Create","Citas")"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
-                            <li><a href="@Url.Action("Create","Citas")"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
-                            <li><a href="@Url.Action("Create","Citas")"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
+                            <li><a href="#"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
+                            <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
+                            <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -259,7 +259,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="@Url.Action("Index","Empleados")"><i class="fa fa-search"></i>Control de Empleados</a></li>
-                            <li><a href="@Url.Action("Create","Empleados")"><i class="fa fa-plus"></i>Nuevo Empleado</a></li>s
+                            <li><a href="@Url.Action("Create","Empleados")"><i class="fa fa-plus"></i>Nuevo Empleado</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -272,7 +272,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li><a href="@Url.Action("Index","Roles")"><i class="fa fa-search"></i>Gestión de Roles</a></li>
-                            <li><a href="@Url.Action("Create","Roles")"><i class="fa fa-plus"></i>Nuevo Rol</a></li>s
+                            <li><a href="@Url.Action("Create","Roles")"><i class="fa fa-plus"></i>Nuevo Rol</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -284,11 +284,14 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Empleados")"><i class="fa fa-search"></i>Control de Usuarios</a></li>
-                            <li><a href="@Url.Action("Create","Empleados")"><i class="fa fa-plus"></i>Nuevo Usuario</a></li>s
+                            <li><a href="@Url.Action("Index","Usuarios")"><i class="fa fa-search"></i>Control de Usuarios</a></li>
+                            <li><a href="@Url.Action("Create","Usuarios")"><i class="fa fa-plus"></i>Nuevo Usuario</a></li>
                         </ul>
                     </li>
                 </ul>
+                <div class="label label-primary">
+                    @DateTime.Now.Year - By Fidel García and Bejamin Solorzano
+                </div>
             </section>
             <!-- /.sidebar -->
         </aside>

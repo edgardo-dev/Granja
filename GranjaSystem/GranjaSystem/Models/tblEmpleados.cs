@@ -21,9 +21,10 @@ namespace GranjaSystem.Models
         public string NIT { get; set; }
 
         [Editable(allowEdit:false)]
-        public DateTime FehaRegistro { get; set; }
+        public DateTime FechaRegistro { get; set; }
+
         [Display(Name = "Fecha Nacimiento")]
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.Date)]
         public DateTime FechaNacimiento { get; set; }
         [Display(Name = "Correo Electrónico")]
         [DataType(DataType.EmailAddress)]

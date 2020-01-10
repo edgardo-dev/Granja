@@ -8,9 +8,9 @@
         @Html.ActionLink("Create New", "Create")
     </p>
     <div class="panel panel-primary">
-        <div class="panel-heading">Control de Empleados</div>
+        <div class="panel-heading"><h4>CONTROL DE USUARIO</h4></div>
         <div class="panel-body">
-            <table class="table">
+            <table class="table table-bordered table-hover">
                 <tr>
                     <th>
                         @Html.DisplayNameFor(model => model.Empleados.NombreEmpleado)
@@ -43,9 +43,9 @@
                             @Html.DisplayFor(modelItem => item.IdRoles)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.IdUsuario }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.IdUsuario }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.IdUsuario })
+                            @Html.ActionLink(" ", "Edit", new { id = item.IdUsuario }, new { @class = "fa fa-edit btn btn-success" }) |
+                            @Html.ActionLink(" ", "Details", new { id = item.IdUsuario }, new { @class = "fa fa-eye btn btn-warning" }) |
+                            @Html.ActionLink(" ", "Delete", new { id = item.IdUsuario }, new { @class = "fa fa-trash btn btn-danger" })
                         </td>
                     </tr>
                 }

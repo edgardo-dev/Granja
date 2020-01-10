@@ -17,7 +17,6 @@ namespace GranjaSystem.Controllers
         // GET: Empleados
         public ActionResult Index()
         {
-            ViewBag.active = "active";
             return View(db.Empleados.ToList());
         }
 
@@ -47,11 +46,11 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdEmpleados,NombreEmpleado,ApellidoEmpleado,Telefono,DUI,NIT,FehaRegistro,FechaNacimiento,Email")] tblEmpleados tblEmpleados)
+        public ActionResult Create([Bind(Include = "IdEmpleados,NombreEmpleado,ApellidoEmpleado,Telefono,DUI,NIT,FechaRegistro,FechaNacimiento,Email")] tblEmpleados tblEmpleados)
         {
             if (ModelState.IsValid)
             {
-                tblEmpleados.FehaRegistro = @DateTime.Now;
+                tblEmpleados.FechaRegistro = DateTime.Now;
                 db.Empleados.Add(tblEmpleados);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -80,7 +79,7 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdEmpleados,NombreEmpleado,ApellidoEmpleado,Telefono,DUI,NIT,FehaRegistro,FechaNacimiento,Email")] tblEmpleados tblEmpleados)
+        public ActionResult Edit([Bind(Include = "IdEmpleados,NombreEmpleado,ApellidoEmpleado,Telefono,DUI,NIT,FechaRegistro,FechaNacimiento,Email")] tblEmpleados tblEmpleados)
         {
             if (ModelState.IsValid)
             {
