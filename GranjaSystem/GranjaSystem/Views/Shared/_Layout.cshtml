@@ -34,7 +34,7 @@
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="@Url.Action("Index","Dashboard")" class="logo">
+            <a href="@Url.Action("Index", "Dashboard")" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini">GBD</span>
                 <!-- logo for regular state and mobile devices -->
@@ -109,17 +109,23 @@
                                 </li>
                                 <!-- Menu Body -->
                                 <li class="user-body">
-                                    <div class="row">
-                                        <div class="col-xs-4 text-center">
-                                            <a href="@Url.Action("Index","Roles")">Gestión Roles</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="@Url.Action("Index","Empleados")">Gestión Empleados</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="@Url.Action("Index","Usuarios")">Gestión Usuarios</a>
-                                        </div>
-                                    </div>
+                                    @{
+                                        if (Convert.ToString(Session["Rol"]) == "Administrador")
+                                        {
+                                            <div class="row">
+                                                <div class="col-xs-4 text-center">
+                                                    <a href="@Url.Action("Index","Roles")">Gestión Roles</a>
+                                                </div>
+                                                <div class="col-xs-4 text-center">
+                                                    <a href="@Url.Action("Index","Empleados")">Gestión Empleados</a>
+                                                </div>
+                                                <div class="col-xs-4 text-center">
+                                                    <a href="@Url.Action("Index","Usuarios")">Gestión Usuarios</a>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+
                                     <!-- /.row -->
                                 </li>
                                 <!-- Menu Footer-->
