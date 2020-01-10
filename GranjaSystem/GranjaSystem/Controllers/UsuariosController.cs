@@ -19,7 +19,7 @@ namespace GranjaSystem.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-            var usuarios = db.Usuarios.Include(t => t.Empleados);
+            var usuarios = db.Usuarios.Include(t => t.Empleados).Include(t => t.Roles);
             return View(usuarios.ToList());
         }
 
@@ -42,6 +42,7 @@ namespace GranjaSystem.Controllers
         public ActionResult Create()
         {
             ViewBag.IdEmpleados = new SelectList(db.Empleados, "IdEmpleados", "NombreEmpleado");
+            ViewBag.IdRole = new SelectList(db.Roles, "IdRole", "Rol");
             return View();
         }
 
@@ -50,7 +51,7 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdUsuario,Usuario,Clave,IdEmpleados,IdRoles")] tblUsuarios tblUsuarios)
+        public ActionResult Create([Bind(Include = "IdUsuario,Usuario,Clave,IdEmpleados,IdRole")] tblUsuarios tblUsuarios)
         {
             if (ModelState.IsValid)
             {
@@ -61,6 +62,7 @@ namespace GranjaSystem.Controllers
             }
 
             ViewBag.IdEmpleados = new SelectList(db.Empleados, "IdEmpleados", "NombreEmpleado", tblUsuarios.IdEmpleados);
+            ViewBag.IdRole = new SelectList(db.Roles, "IdRole", "Rol", tblUsuarios.IdRole);
             return View(tblUsuarios);
         }
 
@@ -77,6 +79,7 @@ namespace GranjaSystem.Controllers
                 return HttpNotFound();
             }
             ViewBag.IdEmpleados = new SelectList(db.Empleados, "IdEmpleados", "NombreEmpleado", tblUsuarios.IdEmpleados);
+            ViewBag.IdRole = new SelectList(db.Roles, "IdRole", "Rol", tblUsuarios.IdRole);
             return View(tblUsuarios);
         }
 
@@ -85,7 +88,7 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdUsuario,Usuario,Clave,IdEmpleados,IdRoles")] tblUsuarios tblUsuarios)
+        public ActionResult Edit([Bind(Include = "IdUsuario,Usuario,Clave,IdEmpleados,IdRole")] tblUsuarios tblUsuarios)
         {
             if (ModelState.IsValid)
             {
@@ -95,6 +98,7 @@ namespace GranjaSystem.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.IdEmpleados = new SelectList(db.Empleados, "IdEmpleados", "NombreEmpleado", tblUsuarios.IdEmpleados);
+            ViewBag.IdRole = new SelectList(db.Roles, "IdRole", "Rol", tblUsuarios.IdRole);
             return View(tblUsuarios);
         }
 
@@ -141,4 +145,5 @@ namespace GranjaSystem.Controllers
             return Convert.ToBase64String(Hash);
         }
     }
+
 }

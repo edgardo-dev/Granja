@@ -1,63 +1,60 @@
 ﻿@model GranjaSystem.Models.tblUsuarios
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles";
 }
 
 
-    <div class="row content container-fluid">
-        <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h4>CONTROL DE USUARIOS</h4></div>
-            <div class="panel-body bg-gray">
-                <div>
-                    <hr />
-                    <dl class="dl-horizontal">
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Empleados.NombreEmpleado)
-                        </dt>
+<div class="row content container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DE USUARIOS</h4></div>
+        <div class="panel-body bg-gray">
+            <div>
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Empleados.NombreEmpleado)
+                    </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Empleados.NombreEmpleado)
-                        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Empleados.NombreEmpleado)
+                    </dd>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Usuario)
-                        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Roles.Rol)
+                    </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Usuario)
-                        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Roles.Rol)
+                    </dd>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Clave)
-                        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Usuario)
+                    </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Clave)
-                        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Usuario)
+                    </dd>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.IdRoles)
-                        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Clave)
+                    </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.IdRoles)
-                        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Clave)
+                    </dd>
 
-                    </dl>
-                </div>
-
-
-
-
+                </dl>
             </div>
-        </div>
-        <div>
-            <p>
-                @Html.ActionLink("Modificar", "Edit", new { id = Model.IdUsuario } , new { @class = "btn btn-primary" }) |
-                @Html.ActionLink("Atras", "Index" , null, new { @class = " btn btn-success" })
-            </p>
+
+
+
+
         </div>
     </div>
-
-
+    <div>
+        <p>
+            @Html.ActionLink("Modificar", "Edit", new { id = Model.IdUsuario }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Atras", "Index", null, new { @class = " btn btn-success" })
+        </p>
+    </div>
+</div>

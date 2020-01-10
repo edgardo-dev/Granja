@@ -3,56 +3,54 @@
 @{
     ViewBag.Title = "Index";
 }
-    <div class="row content container-fluid">
-        <p>
-            @Html.ActionLink(" Agregar", "Create", null, new { @class = "fa fa-plus btn btn-primary" })
-        </p>
-        <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h4>CONTROL DE USUARIOS</h4></div>
-            <div class="panel-body bg-gray">
-                <table class="table table-bordered table-hover">
+<div class="row content container-fluid">
+    <p>
+        @Html.ActionLink(" Agregar", "Create", null, new { @class = "fa fa-plus btn btn-primary" })
+    </p>
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DE USUARIOS</h4></div>
+        <div class="panel-body bg-gray">
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Empleados.NombreEmpleado)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Usuario)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Clave)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Roles.Rol)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
                     <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Empleados.NombreEmpleado)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Usuario)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Clave)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.IdRoles)
-                        </th>
-                        <th></th>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Empleados.NombreEmpleado)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Usuario)
+                        </td>
+                        <td>
+                            ******
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Roles.Rol)
+                        </td>
+                        <td>
+                            @Html.ActionLink(" ", "Edit", new { id = item.IdUsuario }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
+                            @Html.ActionLink(" ", "Details", new { id = item.IdUsuario }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
+                            @Html.ActionLink(" ", "Delete", new { id = item.IdUsuario }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                        </td>
                     </tr>
+                }
 
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Empleados.NombreEmpleado)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Usuario)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Clave)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdRoles)
-                            </td>
-                            <td>
-                                @Html.ActionLink(" ", "Edit", new { id = item.IdUsuario }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
-                                @Html.ActionLink(" ", "Details", new { id = item.IdUsuario }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
-                                @Html.ActionLink(" ", "Delete", new { id = item.IdUsuario }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
-                            </td>
-                        </tr>
-                    }
-
-                </table>
-            </div>
+            </table>
         </div>
     </div>
-           
-      
+</div>

@@ -20,7 +20,7 @@ namespace GranjaSystem.Models
         public int IdEmpleados { get; set; }
         public virtual tblEmpleados Empleados { get; set; }
         [Display(Name = "Rol del Empleado")]
-        public int IdRoles { get; set; }
+        public int IdRole { get; set; }
         public virtual tblRoles Roles { get; set; }
        
     }

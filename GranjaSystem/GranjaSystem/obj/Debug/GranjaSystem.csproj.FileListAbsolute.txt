@@ -230,7 +230,6 @@ C:\Users\PC\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\bin\es\System
 C:\Users\PC\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Webpages.Razor.resources.dll
 C:\Users\PC\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Helpers.resources.dll
 C:\Users\PC\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Mvc.resources.dll
-C:\Users\PC\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csprojAssemblyReference.cache
 C:\Users\PC\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csproj.CoreCompileInputs.cache
 C:\Users\PC\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csproj.CopyComplete
 C:\Users\PC\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.dll
@@ -313,3 +312,4 @@ C:\Users\Ingrid Solórzano\Desktop\DemoDeliExpress\Nueva carpeta\Granja\GranjaSy
 C:\Users\Ingrid Solórzano\Desktop\DemoDeliExpress\Nueva carpeta\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csproj.CopyComplete
 C:\Users\Ingrid Solórzano\Desktop\DemoDeliExpress\Nueva carpeta\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.dll
 C:\Users\Ingrid Solórzano\Desktop\DemoDeliExpress\Nueva carpeta\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.pdb
+C:\Users\PC\Source\Repos\Misthy12\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csprojAssemblyReference.cache
