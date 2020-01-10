@@ -2573,6 +2573,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
+    <Compile Include="Controllers\GeneticasController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -3004,6 +3005,11 @@
     <Content Include="Views\Usuarios\Details.cshtml" />
     <Content Include="Views\Usuarios\Edit.cshtml" />
     <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Geneticas\Create.cshtml" />
+    <Content Include="Views\Geneticas\Delete.cshtml" />
+    <Content Include="Views\Geneticas\Details.cshtml" />
+    <Content Include="Views\Geneticas\Edit.cshtml" />
+    <Content Include="Views\Geneticas\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
