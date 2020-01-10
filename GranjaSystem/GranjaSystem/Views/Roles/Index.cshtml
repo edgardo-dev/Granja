@@ -9,9 +9,9 @@
             @Html.ActionLink(" Agregar", "Create", null, new { @class = "fa fa-plus btn btn-primary" })
         </p>
         <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h4>Control de Usuarios</h4></div>
+            <div class="panel-heading text-center"><h4>CONTROL DE ROLES</h4></div>
             <div class="panel-body bg-gray">
-                <table class="table">
+                <table class="table table-bordered table-hover">
                     <tr>
                         <th>
                             @Html.DisplayNameFor(model => model.Rol)
@@ -32,9 +32,9 @@
                                 @Html.DisplayFor(modelItem => item.Descripcion)
                             </td>
                             <td>
-                                @Html.ActionLink(" ", "Edit", new { id = item.IdRole }, new { @class = "fa fa-edit btn btn-info",title="Modificar" }) |
-                                @Html.ActionLink(" ", "Details", new { id = item.IdRole }, new { @class = "fa fa-eye btn btn-warning",title="Ver Detalles"  }) |
-                                @Html.ActionLink(" ", "Delete", new { id = item.IdRole }, new { @class = "fa fa-trash btn btn-danger",title="Eliminar"  })
+                                @Html.ActionLink(" ", "Edit", new { id = item.IdRole }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
+                                @Html.ActionLink(" ", "Details", new { id = item.IdRole }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
+                                @Html.ActionLink(" ", "Delete", new { id = item.IdRole }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
                             </td>
                         </tr>
                     }
@@ -42,5 +42,8 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div>    
+        
+      
+                   
 
