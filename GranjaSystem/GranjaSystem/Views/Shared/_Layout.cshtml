@@ -241,63 +241,67 @@
                             <li><a href="@Url.Action("Create","Geneticas")"><i class="fa fa-edit"></i>Agregar Genetica</a></li>
                         </ul>
                     </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-file-pdf-o"></i> <span>Reportes</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
-                            <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
-                            <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-vcard"></i>
-                            <span>Empleados</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Empleados")"><i class="fa fa-search"></i>Control de Empleados</a></li>
-                            <li><a href="@Url.Action("Create","Empleados")"><i class="fa fa-plus"></i>Nuevo Empleado</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-user-circle"></i>
-                            <span>Roles</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Roles")"><i class="fa fa-search"></i>Gestión de Roles</a></li>
-                            <li><a href="@Url.Action("Create","Roles")"><i class="fa fa-plus"></i>Nuevo Rol</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-users"></i>
-                            <span>Usuarios</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Usuarios")"><i class="fa fa-search"></i>Control de Usuarios</a></li>
-                            <li><a href="@Url.Action("Create","Usuarios")"><i class="fa fa-plus"></i>Nuevo Usuario</a></li>
-                        </ul>
-                    </li>
+                    @{
+                        if (Convert.ToString(Session["Rol"]) == "Administrador")
+                        {
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-file-pdf-o"></i> <span>Reportes</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="#"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
+                                    <li><a href="#"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
+                                    <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
+                                    <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-vcard"></i>
+                                    <span>Empleados</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="@Url.Action("Index","Empleados")"><i class="fa fa-search"></i>Control de Empleados</a></li>
+                                    <li><a href="@Url.Action("Create","Empleados")"><i class="fa fa-plus"></i>Nuevo Empleado</a></li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-user-circle"></i>
+                                    <span>Roles</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="@Url.Action("Index","Roles")"><i class="fa fa-search"></i>Gestión de Roles</a></li>
+                                    <li><a href="@Url.Action("Create","Roles")"><i class="fa fa-plus"></i>Nuevo Rol</a></li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-users"></i>
+                                    <span>Usuarios</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="@Url.Action("Index","Usuarios")"><i class="fa fa-search"></i>Control de Usuarios</a></li>
+                                    <li><a href="@Url.Action("Create","Usuarios")"><i class="fa fa-plus"></i>Nuevo Usuario</a></li>
+                                </ul>
+                            </li>
+                        }
+                    }
+
                 </ul>
-                <div class="label label-primary">
-                    @DateTime.Now.Year - By Fidel García and Bejamin Solorzano
-                </div>
+
             </section>
             <!-- /.sidebar -->
         </aside>
@@ -309,6 +313,9 @@
                 <hr>
                 <div class="row">
                     @RenderBody()
+                </div>
+                <div class="footer label label-info">
+                    @DateTime.Now.Year - By Fidel García and Bejamin Solorzano
                 </div>
             </div>
 

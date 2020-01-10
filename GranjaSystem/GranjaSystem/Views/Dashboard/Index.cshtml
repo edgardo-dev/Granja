@@ -54,49 +54,55 @@
             <a href="@Url.Action("Index","Pacientes")" class="small-box-footer">Nueva Ficha <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
-    <!-- ./col -->
-    <div class="col-lg-4 col-xs-4">
-        <!-- small box -->
-        <div class="small-box bg-green-gradient">
-            <div class="inner">
-                <b class="text">ROLES</b>
-                <h5>@ViewBag.CE 1</h5>
+    @{
+        if (Convert.ToString(Session["Rol"]) == "Administrador")
+        {
+            <!-- ./col -->
+            <div class="col-lg-4 col-xs-4">
+                <!-- small box -->
+                <div class="small-box bg-green-gradient">
+                    <div class="inner">
+                        <b class="text">ROLES</b>
+                        <h5>@ViewBag.CE 1</h5>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-user-circle"></i>
+                    </div>
+                    <a href="@Url.Action("Index","Expedientes")" class="small-box-footer">Administrar<i class="fa fa-arrow-circle-right"></i></a>
+                </div>
             </div>
-            <div class="icon">
-                <i class="fa fa-user-circle"></i>
-            </div>
-            <a href="@Url.Action("Index","Expedientes")" class="small-box-footer">Administrar<i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
-    <!-- ./col -->
-    <div class="col-lg-4 col-xs-4">
-        <!-- small box -->
-        <div class="small-box bg-red">
-            <div class="inner">
-                <b class="text">USUARIOS</b>
+            <!-- ./col -->
+            <div class="col-lg-4 col-xs-4">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <b class="text">USUARIOS</b>
 
-                <h5>@ViewBag.CU 1</h5>
+                        <h5>@ViewBag.CU 1</h5>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="@Url.Action("Index","Usuarios")" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
             </div>
-            <div class="icon">
-                <i class="ion ion-person-add"></i>
-            </div>
-            <a href="@Url.Action("Index","Usuarios")" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
-    <div class="col-lg-4 col-xs-4">
-        <!-- small box -->
-        <div class="small-box bg-green">
-            <div class="inner">
-                <b class="text">EMPLEADOS</b>
+            <div class="col-lg-4 col-xs-4">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <b class="text">EMPLEADOS</b>
 
-                <h5>@ViewBag.CEE 1</h5>
+                        <h5>@ViewBag.CEE 1</h5>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-ios-people"></i>
+                    </div>
+                    <a href="@Url.Action("Index","Empleados")" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
             </div>
-            <div class="icon">
-                <i class="ion ion-ios-people"></i>
-            </div>
-            <a href="@Url.Action("Index","Empleados")" class="small-box-footer">Administrar <i class="fa fa-arrow-circle-right"></i></a>
-        </div>
-    </div>
+        }
+    }
+
 
 
 
