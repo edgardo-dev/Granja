@@ -1,0 +1,43 @@
+﻿@model GranjaSystem.Models.tblGeneticas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+    <div class="row content container-fluid">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE EMPLEADOS</h4></div>
+            <div class="panel-body bg-gray">
+                <div>
+
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Genetica)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Genetica)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Observacion)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Observacion)
+                        </dd>
+
+                    </dl>
+                </div>
+                <p>
+                    @Html.ActionLink("Modificar", "Edit", new { id = Model.IdGenetica } , new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Atras", "Index" , null, new { @class = "btn btn-success" })
+                </p>
+
+
+
+
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,51 @@
+﻿@model GranjaSystem.Models.tblGeneticas
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+    <div class="row content container-fluid">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>GENETICA</h4></div>
+            <div class="panel-body bg-gray">
+                <h5 class="alert alert-danger">¿Estas Seguro de Eliminar el Registro?</h5>
+                <div>
+
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Genetica)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Genetica)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Observacion)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Observacion)
+                        </dd>
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+                            @Html.ActionLink("Atras", "Index" , null, new { @class = "btn btn-success" })
+                        </div>
+                    }
+                </div>
+
+
+
+            </div>
+        </div>
+       
+    </div>
+
