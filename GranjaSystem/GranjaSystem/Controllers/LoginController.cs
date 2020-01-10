@@ -17,18 +17,19 @@ namespace GranjaSystem.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Index(string pass, string username)
+        public ActionResult Index(string inputUser, string inputPassword)
         {
             var Db = new Contexto();
-            string nPass = Encriptar(pass);
+            string nPass = Encriptar(inputPassword);
             var Login = (from L in Db.Usuarios
-                         where L.Usuario == username && L.Clave == nPass
+                         where L.Usuario == inputUser && L.Clave == nPass
                          select L).FirstOrDefault();
 
             if (Login == null)
             {
-                ViewBag.Bandera = true;
+                
                 ViewBag.Mensaje = "Datos incorrectos.";
+                ViewBag.Clase = "alert alert-danger";
                 return View();
             }
             else

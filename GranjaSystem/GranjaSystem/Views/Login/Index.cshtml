@@ -13,12 +13,18 @@
             
             <div class="jumbotron" style="padding: 40px 40px;">
                 <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-                <img id="profile-img" class="img-responsive img-rounded" src="~/Content/img/porcino.png" />
-                <p id="profile-name" class="profile-name-card"></p>
-                <form class="form-signin">
-                    <span id="reauth-email" class="reauth-email"></span>
-                    <input type="text" id="inputUser" class="form-control" placeholder="Ingrese su Usuario" required autofocus>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Ingrese Su Contraseña" required>
+                <img id="profile-img" class="img-responsive" style="padding-left: 20%;padding-right: 20%;" src="~/Content/img/porcino.png" />
+                <p id="profile-name" class="profile-name-card text-center">Sistema de Produción de Cerdos</p>
+                <div class="@ViewBag.Clase">@ViewBag.Mensaje</div>
+                <form action="@Url.Action("Index","Login")" method="post" class="form-signin">
+                    <div class="input-group">
+                        <span class="input-group-addon glyphicon glyphicon-user"></span>
+                        <input class="form-control" placeholder="Ingrese Usuario" name="inputUser" type="text" autofocus autocomplete="off">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon glyphicon glyphicon-lock"></span>
+                        <input class="form-control" placeholder="Ingrese Contraseña" name="inputPassword" type="password" autofocus >
+                    </div>
                     <div id="remember" class="checkbox">
                         <label>
                             <input type="checkbox" value="remember-me"> Remember me

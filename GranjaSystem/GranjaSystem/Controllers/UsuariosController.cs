@@ -4,6 +4,8 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using GranjaSystem.Models;
@@ -52,6 +54,7 @@ namespace GranjaSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                tblUsuarios.Clave = Encriptar(tblUsuarios.Clave);
                 db.Usuarios.Add(tblUsuarios);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -86,6 +89,7 @@ namespace GranjaSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                tblUsuarios.Clave = Encriptar(tblUsuarios.Clave);
                 db.Entry(tblUsuarios).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -127,6 +131,14 @@ namespace GranjaSystem.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public string Encriptar(string Pass)
+        {
+            SHA1 sha1 = new SHA1CryptoServiceProvider();
+            Byte[] Hash, InsertarByte;
+            InsertarByte = (new UnicodeEncoding()).GetBytes(Pass);
+            Hash = sha1.ComputeHash(InsertarByte);
+            return Convert.ToBase64String(Hash);
         }
     }
 }
