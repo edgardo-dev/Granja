@@ -4,47 +4,60 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<div>
-    <h4>tblUsuarios</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Empleados.NombreEmpleado)
-        </dt>
+    <div class="row content container-fluid">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE USUARIOS</h4></div>
+            <div class="panel-body bg-gray">
+                <div>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Empleados.NombreEmpleado)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Empleados.NombreEmpleado)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Empleados.NombreEmpleado)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Usuario)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Usuario)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Usuario)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Usuario)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Clave)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Clave)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Clave)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Clave)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IdRoles)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.IdRoles)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IdRoles)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.IdRoles)
+                        </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdUsuario }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                    </dl>
+                </div>
+
+
+
+
+            </div>
+        </div>
+        <div>
+            <p>
+                @Html.ActionLink("Modificar", "Edit", new { id = Model.IdUsuario } , new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Atras", "Index" , null, new { @class = " btn btn-success" })
+            </p>
+        </div>
+    </div>
+
+
