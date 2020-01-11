@@ -9,8 +9,8 @@ namespace GranjaSystem.Models
     public class tblVarracos
     {
         [Key]
-        public int IdVarroco { get; set; }
-        public int NumVarroco { get; set; }
+        public int IdVarraco { get; set; }
+        public int NumVarraco { get; set; }
         public string Procedencia { get; set; }
         public string Observaciones { get; set; }
         public DateTime FechaRegistro { get; set; }
