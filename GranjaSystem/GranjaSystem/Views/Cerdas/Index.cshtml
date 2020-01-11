@@ -1,0 +1,79 @@
+﻿@model IEnumerable<GranjaSystem.Models.tblCerdas>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+    <div class="row content container-fluid">
+        <p>
+            @Html.ActionLink(" Agregar", "Create", null, new { @class = "fa fa-plus btn btn-primary" })
+        </p>
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE CERDA</h4></div>
+            <div class="panel-body bg-gray">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Genetica.Genetica)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NumCerda)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Procedencia)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Observaciones)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NumParto)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FechaRegistro)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Estado)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Genetica.Genetica)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NumCerda)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Procedencia)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Observaciones)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NumParto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FechaRegistro)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Estado)
+                            </td>
+                            <td>
+                                @Html.ActionLink(" ", "Edit", new { id = item.IdCerdas }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
+                                @Html.ActionLink(" ", "Details", new { id = item.IdCerdas }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
+                                @Html.ActionLink(" ", "Delete", new { id = item.IdCerdas }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    
+

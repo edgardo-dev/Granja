@@ -1,0 +1,89 @@
+﻿@model GranjaSystem.Models.tblCerdas
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+    <div class="row content container-fluid">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE CERDA</h4></div>
+            <div class="panel-body bg-gray">
+                <h5 class="alert alert-danger">¿Estas Seguro de Eliminar el Registro?</h5>
+                <div>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Genetica.Genetica)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Genetica.Genetica)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NumCerda)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.NumCerda)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Procedencia)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Procedencia)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Observaciones)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Observaciones)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NumParto)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.NumParto)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaRegistro)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaRegistro)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Estado)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Estado)
+                        </dd>
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+                            @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-success" })
+                        </div>
+                    }
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+

@@ -2571,6 +2571,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CerdasController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\GeneticasController.cs" />
@@ -3010,6 +3011,11 @@
     <Content Include="Views\Geneticas\Details.cshtml" />
     <Content Include="Views\Geneticas\Edit.cshtml" />
     <Content Include="Views\Geneticas\Index.cshtml" />
+    <Content Include="Views\Cerdas\Create.cshtml" />
+    <Content Include="Views\Cerdas\Delete.cshtml" />
+    <Content Include="Views\Cerdas\Details.cshtml" />
+    <Content Include="Views\Cerdas\Edit.cshtml" />
+    <Content Include="Views\Cerdas\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
