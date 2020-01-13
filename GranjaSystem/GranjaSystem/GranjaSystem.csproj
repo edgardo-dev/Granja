@@ -2382,6 +2382,7 @@
     <Content Include="Content\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
     <Content Include="Content\fonts\ubuntu\UFL.txt" />
     <Content Include="Content\img\cerdo.jpg" />
+    <Content Include="Content\img\Logo.jpg" />
     <Content Include="Content\img\porcino.png" />
     <Content Include="Content\main.css" />
     <Content Include="Content\plugins\bootstrap-slider\bootstrap-slider.js" />
@@ -2578,6 +2579,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Controllers\VarracosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -3016,6 +3018,11 @@
     <Content Include="Views\Cerdas\Details.cshtml" />
     <Content Include="Views\Cerdas\Edit.cshtml" />
     <Content Include="Views\Cerdas\Index.cshtml" />
+    <Content Include="Views\Varracos\Create.cshtml" />
+    <Content Include="Views\Varracos\Delete.cshtml" />
+    <Content Include="Views\Varracos\Details.cshtml" />
+    <Content Include="Views\Varracos\Edit.cshtml" />
+    <Content Include="Views\Varracos\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
