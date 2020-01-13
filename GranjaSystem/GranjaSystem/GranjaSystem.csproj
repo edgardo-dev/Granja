@@ -2469,6 +2469,7 @@
     <Content Include="Content\fonts\ubuntu\UFL.txt" />
     <Content Include="Content\img\cerdo.jpg" />
     <Content Include="Content\img\Logo.jpg" />
+    <Content Include="Content\img\Logo.png" />
     <Content Include="Content\img\porcino.png" />
     <Content Include="Content\main.css" />
     <Content Include="Content\plugins\bootstrap-slider\bootstrap-slider.js" />
