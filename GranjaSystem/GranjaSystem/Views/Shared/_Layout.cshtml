@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
     <link href="~/Content/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="~/Content/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
@@ -19,6 +19,11 @@
     <link rel="stylesheet" href="~/Content/dist/css/skins/_all-skins.min.css">
     <!-- Morris chart -->
     <link rel="stylesheet" href="~/Content/bower_components/morris.js/morris.css">
+    <link rel="stylesheet" href="~/Content/dist/css/skins/_all-skins.min.css">
+    <!-- Data Tables -->
+    <link href="~/Content/datatables_custom/main.css" rel="stylesheet" />
+    <link href="~/Content/datatables_custom/datatables/datatables.min.css" rel="stylesheet" />
+    <link href="~/Content/datatables_custom/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -315,7 +320,7 @@
                     @RenderBody()
                 </div>
                 <div class="footer label label-info">
-                    @DateTime.Now.Year - By Fidel García and Bejamin Solorzano
+                    @DateTime.Now.Year - By Fidel G. and Bejamin S.
                 </div>
             </div>
 
@@ -343,5 +348,18 @@
     <script src="~/Content/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="~/Content/dist/js/demo.js"></script>
+
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="~/Content/datatables_custom/popper/popper.min.js"></script>
+    <script src="~/Content/datatables_custom/main.js"></script>
+    <!-- datatables JS -->
+    <script src="~/Content/datatables_custom/datatables/datatables.min.js"></script>
+    <!-- para usar botones en datatables JS -->
+    <script src="~/Content/datatables_custom/datatables/Buttons-1.5.6/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/datatables_custom/datatables/JSZip-2.5.0/jszip.min.js"></script>
+    <script src="~/Content/datatables_custom/datatables/pdfmake-0.1.36/pdfmake.min.js"></script>
+    <script src="~/Content/datatables_custom/datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script src="~/Content/datatables_custom/datatables/Buttons-1.5.6/js/buttons.html5.min.js"></script>
+    <script src="~/Content/datatables_custom/datatables/Buttons-1.5.6/js/buttons.html5.min.js"></script>
 </body>
 </html>

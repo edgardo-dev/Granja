@@ -3,14 +3,15 @@
 @{
     ViewBag.Title = "Index";
 }
-    <div class="row content container-fluid">
-        <p>
-            @Html.ActionLink(" Agregar", "Create",null,new {@class ="fa fa-plus btn btn-primary" })
-        </p>
-        <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h4>CONTROL DE EMPLEADOS</h4></div>
-            <div class="panel-body bg-gray">
-                <table class="table table-bordered table-hover">
+<div class="row content container-fluid">
+    <p>
+        @Html.ActionLink(" Agregar", "Create", null, new { @class = "fa fa-plus btn btn-primary" })
+    </p>
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DE EMPLEADOS</h4></div>
+        <div class="panel-body bg-gray">
+            <table id="Tabla" class="table table-bordered table-hover">
+                <thead>
                     <tr>
                         <th>
                             Nombre del Empleado
@@ -28,9 +29,11 @@
 
                         <th>Acciones</th>
                     </tr>
-
+                </thead>
+                <tbody>
                     @foreach (var item in Model)
                     {
+
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.NombreEmpleado)
@@ -52,11 +55,13 @@
                                 @Html.ActionLink(" ", "Delete", new { id = item.IdEmpleados }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
                             </td>
                         </tr>
-                    }
 
-                </table >
-            </div>
+
+                    }
+                </tbody>
+                </table>
         </div>
     </div>
+</div>
 
     
