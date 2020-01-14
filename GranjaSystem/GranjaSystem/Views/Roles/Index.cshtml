@@ -11,37 +11,33 @@
         <div class="panel panel-primary">
             <div class="panel-heading text-center"><h4>CONTROL DE ROLES</h4></div>
             <div class="panel-body bg-gray">
-                <table id="Tabla" class="table table-bordered table-hover">
-                    <thead>
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Rol)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Descripcion)
+                        </th>
+                        <th>Acciones</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
                         <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Rol)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Descripcion)
-                            </th>
-                            <th>Acciones</th>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Rol)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Descripcion)
+                            </td>
+                            <td>
+                                @Html.ActionLink(" ", "Edit", new { id = item.IdRole }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
+                                @Html.ActionLink(" ", "Details", new { id = item.IdRole }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
+                                @Html.ActionLink(" ", "Delete", new { id = item.IdRole }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                            </td>
                         </tr>
-                    </thead>
-                    
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Rol)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Descripcion)
-                                </td>
-                                <td>
-                                    @Html.ActionLink(" ", "Edit", new { id = item.IdRole }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
-                                    @Html.ActionLink(" ", "Details", new { id = item.IdRole }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
-                                    @Html.ActionLink(" ", "Delete", new { id = item.IdRole }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
+                    }
 
                 </table>
             </div>

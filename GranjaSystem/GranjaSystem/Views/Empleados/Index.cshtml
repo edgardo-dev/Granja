@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<GranjaSystem.Models.tblEmpleados>
 
 @{
-    ViewBag.Title = "Control de Empleados";
+    ViewBag.Title = "Index";
 }
 <div class="row content container-fluid">
     <p>
@@ -14,10 +14,7 @@
                 <thead>
                     <tr>
                         <th>
-                            Nombres
-                        </th>
-                        <th>
-                            Apellidos
+                            Nombre del Empleado
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Telefono)
@@ -40,8 +37,7 @@
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.NombreEmpleado)
-                            </td>
-                            <td>
+
                                 @Html.DisplayFor(modelItem => item.ApellidoEmpleado)
                             </td>
                             <td>

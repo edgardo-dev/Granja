@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title</title>
+    <title>@ViewBag.Title - G-Porcina</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
 
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
@@ -107,7 +107,7 @@
                                 <!-- User image -->
                                 <li class="user-header">
 
-                                    <div class="glyphicon glyphicon-user"></div>
+                                    <img src="~/Content/img/porcino.png" class="img-circle" />
                                     <p>
                                         * @Session["Nombre"] *  @Session["Rol"]
                                     </p>
@@ -135,14 +135,11 @@
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
-                                    @if (Convert.ToString(Session["Rol"]) == "Administrador")
-                                    {
                                     <div class="pull-left">
-                                        <a href="@Url.Action("Edit/"+@Session["IdUsuario"],"Usuarios")" class="btn btn-info btn-flat">Modificar</a>
+                                        <a href="@Url.Action("Edit/"+@Session["IdUsuario"],"Usuarios")" class="btn btn-default btn-flat">Modificar</a>
                                     </div>
-                                    }
                                     <div class="pull-right">
-                                        <a href="@Url.Action("Salir","Login")" class="btn btn-danger btn-flat">Cerrar Sesión</a>
+                                        <a href="@Url.Action("Salir","Login")" class="btn btn-default btn-flat">Cerrar Sesión</a>
                                     </div>
                                 </li>
                             </ul>
@@ -158,7 +155,7 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="~/Content/img/Logo.png" class="img-circle" alt="User Image">
+                        <img src="~/Content/img/porcino.png" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
                         <p>Granja</p>
