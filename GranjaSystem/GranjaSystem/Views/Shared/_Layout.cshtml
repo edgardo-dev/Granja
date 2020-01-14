@@ -333,6 +333,18 @@
     <!-- ./wrapper -->
     <!-- jQuery 3 -->
     <script src="~/Content/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    @RenderSection("Validar", required: false)
+    <script type="text/javascript">
+        $.extend($.validator.messages, {
+            required: "Campo Requerido",
+            equalTo: "Contraseñas no coinciden",
+            range: "Su edad debe de ser 15 a 20",
+            max: "Maximo de edad 20",
+            min: "Minimo de edad 15",
+            digits: "Introduzca digitos"
+        });
+    </script>
     <!-- jQuery UI 1.11.4 -->
     <script src="~/Content/bower_components/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -346,6 +358,7 @@
     <script src="~/Content/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="~/Content/dist/js/pages/dashboard.js"></script>
+    <!--JQ VALIDATION-->
     <!-- AdminLTE for demo purposes -->
     <script src="~/Content/dist/js/demo.js"></script>
 

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<GranjaSystem.Models.tblLotes>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+    <div class="row content container-fluid">
+        <p>
+            @Html.ActionLink(" Agregar", "Create", null, new { @class = "fa fa-plus btn btn-primary" })
+        </p>
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE LOTES</h4></div>
+            <div class="panel-body bg-gray">
+                <table class="table table-bordered table-hover">
+
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NumLote)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FechaRegistro)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Estado)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NumLote)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FechaRegistro)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Estado)
+                            </td>
+                            <td>
+                                @Html.ActionLink(" ", "Edit", new { id = item.IdLotes }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
+                                @Html.ActionLink(" ", "Details", new { id = item.IdLotes}, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
+                                @Html.ActionLink(" ", "Delete", new { id = item.IdLotes }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+

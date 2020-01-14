@@ -1,0 +1,52 @@
+﻿@model GranjaSystem.Models.tblLotes
+
+@{
+    ViewBag.Title = "Details";
+}
+
+    <div class="row content container-fluid">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE LOTES</h4></div>
+            <div class="panel-body bg-gray">
+
+                <div>
+
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NumLote)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.NumLote)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaRegistro)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaRegistro)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Estado)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Estado)
+                        </dd>
+
+                    </dl>
+                </div>
+                <p>
+                    @Html.ActionLink("Modificar", "Edit", new { id = Model.IdLotes } , new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Atras", "Index" , null, new { @class = "btn btn-success" })
+                </p>
+
+
+            </div>
+        </div>
+        
+    </div>
+

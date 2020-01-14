@@ -2665,11 +2665,15 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Content\LotesController.cs" />
     <Compile Include="Controllers\CerdasController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
@@ -3121,6 +3125,11 @@
     <Content Include="Views\Varracos\Details.cshtml" />
     <Content Include="Views\Varracos\Edit.cshtml" />
     <Content Include="Views\Varracos\Index.cshtml" />
+    <Content Include="Views\Lotes\Create.cshtml" />
+    <Content Include="Views\Lotes\Delete.cshtml" />
+    <Content Include="Views\Lotes\Details.cshtml" />
+    <Content Include="Views\Lotes\Edit.cshtml" />
+    <Content Include="Views\Lotes\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
