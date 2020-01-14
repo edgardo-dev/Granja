@@ -1,0 +1,109 @@
+﻿@model GranjaSystem.Models.tblDetalleLote
+
+@{
+    ViewBag.Title = "Details";
+}
+
+    <div class="row content container-fluid">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DETALLE DE LOTES</h4></div>
+            <div class="panel-body bg-gray">
+
+
+                <div>
+
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Lotes.Estado)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Lotes.Estado)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.IdCerda)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.IdCerda)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaInseminacion)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaInseminacion)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaParto)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaParto)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.IdVarroco)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.IdVarroco)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Fvacuna1)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Fvacuna1)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Fvacuna2)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Fvacuna2)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Observaciones)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Observaciones)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaRegistro)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaRegistro)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Estado)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Estado)
+                        </dd>
+
+                    </dl>
+                </div>
+                <p>
+                    @Html.ActionLink("Modificar", "Edit", new { id = Model.IdDLotes } , new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Atras", "Index" , null, new { @class = "btn btn-success" })
+                </p>
+
+
+            </div>
+        </div>
+      
+    </div>
+

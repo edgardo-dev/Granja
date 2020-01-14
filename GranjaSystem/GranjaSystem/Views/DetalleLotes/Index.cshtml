@@ -1,0 +1,98 @@
+﻿@model IEnumerable<GranjaSystem.Models.tblDetalleLote>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+    <div class="row content container-fluid">
+        <p>
+            @Html.ActionLink(" Agregar", "Create", null, new { @class = "fa fa-plus btn btn-primary" })
+        </p>
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DETALLE DE LOTES </h4></div>
+            <div class="panel-body bg-gray">
+                <table class="table table-bordered table-hover">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Lotes.Estado)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IdCerda)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FechaInseminacion)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FechaParto)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IdVarroco)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Fvacuna1)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Fvacuna2)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Observaciones)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FechaRegistro)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Estado)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Lotes.Estado)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdCerda)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FechaInseminacion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FechaParto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdVarroco)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fvacuna1)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fvacuna2)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Observaciones)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FechaRegistro)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Estado)
+                            </td>
+                            <td>
+                                @Html.ActionLink(" ", "Edit", new { id = item.IdDLotes }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
+                                @Html.ActionLink(" ", "Details", new { id = item.IdDLotes }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
+                                @Html.ActionLink(" ", "Delete", new { id = item.IdDLotes }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+

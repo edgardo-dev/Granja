@@ -2676,6 +2676,7 @@
     <Compile Include="Content\LotesController.cs" />
     <Compile Include="Controllers\CerdasController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\DetalleLotesController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\GeneticasController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -3130,6 +3131,11 @@
     <Content Include="Views\Lotes\Details.cshtml" />
     <Content Include="Views\Lotes\Edit.cshtml" />
     <Content Include="Views\Lotes\Index.cshtml" />
+    <Content Include="Views\DetalleLotes\Create.cshtml" />
+    <Content Include="Views\DetalleLotes\Delete.cshtml" />
+    <Content Include="Views\DetalleLotes\Details.cshtml" />
+    <Content Include="Views\DetalleLotes\Edit.cshtml" />
+    <Content Include="Views\DetalleLotes\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,116 @@
+﻿@model GranjaSystem.Models.tblDetalleLote
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+    <div class="row content container-fluid">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DETALLE DE LOTES</h4></div>
+            <div class="panel-body bg-gray">
+                <h5 class="alert alert-danger">¿Estas Seguro de Eliminar el Registro?</h5>
+                <div>
+
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Lotes.Estado)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Lotes.Estado)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.IdCerda)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.IdCerda)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaInseminacion)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaInseminacion)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaParto)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaParto)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.IdVarroco)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.IdVarroco)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Fvacuna1)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Fvacuna1)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Fvacuna2)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Fvacuna2)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Observaciones)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Observaciones)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaRegistro)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaRegistro)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Estado)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Estado)
+                        </dd>
+
+                    </dl>
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+                            @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-success" })
+                        </div>
+                    }
+                </div>
+
+
+            </div>
+        </div>
+       
+    </div>
+
+
