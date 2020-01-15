@@ -1,0 +1,130 @@
+﻿@model GranjaSystem.Models.tblFichas
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblFichas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Empleados.NombreEmpleado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empleados.NombreEmpleado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Varracos.Procedencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Varracos.Procedencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCerda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdCerda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumParto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumParto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaServio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaServio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaParto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaParto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NacidosVivos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NacidosVivos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NacidosMuertos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NacidosMuertos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NacidosMomias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NacidosMomias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalNacidos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalNacidos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PesoPromedio1D)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PesoPromedio1D)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumDestetado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumDestetado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PesoPromedio28D)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PesoPromedio28D)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaDestete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaDestete)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdFicha }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
