@@ -33,7 +33,7 @@ namespace GranjaSystem.Models
         public DateTime FechaDestete { get; set; }
         
         //Relacion 
-        public int IdEmpleados { get; set; }
+        public int IdEmpleado { get; set; }
         public virtual tblEmpleados Empleados { get; set; }
 
 

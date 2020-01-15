@@ -12,7 +12,7 @@ namespace GranjaSystem.Models
         public DbSet<tblRoles> Roles { get; set; }
         public DbSet<tblUsuarios> Usuarios { get; set; }
         public DbSet<tblCerdas> Cerdas { get; set; }
-        public DbSet<tblVarracos> Varrocos { get; set; }
+        public DbSet<tblVarracos> Varracos { get; set; }
         public DbSet<tblGeneticas> Geneticas { get; set; }
         public DbSet<tblLotes> Lotes { get; set; }
         public DbSet<tblDetalleLote> DetalleLotes { get; set; }

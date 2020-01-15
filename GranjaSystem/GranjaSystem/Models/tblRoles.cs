@@ -9,7 +9,7 @@ namespace GranjaSystem.Models
     public class tblRoles
     {
         [Key]
-        public int IdRole { get; set; }
+        public int IdRol { get; set; }
         
         public string Rol { get; set; }
         [Display(Name = "Descripción")]

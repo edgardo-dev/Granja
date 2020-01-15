@@ -39,7 +39,7 @@ namespace GranjaSystem.Controllers
         // GET: DetalleLotes/Create
         public ActionResult Create()
         {
-            ViewBag.IdLotes = new SelectList(db.Lotes, "IdLotes", "Estado");
+            ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdDLotes,IdCerda,FechaInseminacion,FechaParto,IdVarroco,Fvacuna1,Fvacuna2,Observaciones,FechaRegistro,IdLotes,Estado")] tblDetalleLote tblDetalleLote)
+        public ActionResult Create([Bind(Include = "IdDLote,IdCerda,FechaInseminacion,FechaParto,IdVarraco,Fvacuna1,Fvacuna2,Observaciones,FechaRegistro,IdLote,Estado")] tblDetalleLote tblDetalleLote)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +57,7 @@ namespace GranjaSystem.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdLotes = new SelectList(db.Lotes, "IdLotes", "Estado", tblDetalleLote.IdLotes);
+            ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblDetalleLote.IdLote);
             return View(tblDetalleLote);
         }
 
@@ -73,7 +73,7 @@ namespace GranjaSystem.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IdLotes = new SelectList(db.Lotes, "IdLotes", "Estado", tblDetalleLote.IdLotes);
+            ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblDetalleLote.IdLote);
             return View(tblDetalleLote);
         }
 
@@ -82,7 +82,7 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdDLotes,IdCerda,FechaInseminacion,FechaParto,IdVarroco,Fvacuna1,Fvacuna2,Observaciones,FechaRegistro,IdLotes,Estado")] tblDetalleLote tblDetalleLote)
+        public ActionResult Edit([Bind(Include = "IdDLote,IdCerda,FechaInseminacion,FechaParto,IdVarraco,Fvacuna1,Fvacuna2,Observaciones,FechaRegistro,IdLote,Estado")] tblDetalleLote tblDetalleLote)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace GranjaSystem.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdLotes = new SelectList(db.Lotes, "IdLotes", "Estado", tblDetalleLote.IdLotes);
+            ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblDetalleLote.IdLote);
             return View(tblDetalleLote);
         }
 

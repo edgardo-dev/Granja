@@ -17,7 +17,7 @@ namespace GranjaSystem.Controllers
         // GET: Fichas
         public ActionResult Index()
         {
-            var fichas = db.Fichas.Include(t => t.Empleados).Include(t => t.Varracos);
+            var fichas = db.Fichas.Include(t => t.Empleados).Include(t => t.Varracos).Include(t => t.Cerdas);
             return View(fichas.ToList());
         }
 
@@ -39,8 +39,9 @@ namespace GranjaSystem.Controllers
         // GET: Fichas/Create
         public ActionResult Create()
         {
-            ViewBag.IdEmpleados = new SelectList(db.Empleados, "IdEmpleados", "NombreEmpleado");
-            ViewBag.IdVarraco = new SelectList(db.Varrocos, "IdVarraco", "Procedencia");
+            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado");
+            ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco");
+            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda");
             return View();
         }
 
@@ -49,7 +50,7 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdFicha,IdCerda,NumParto,FechaServio,IdVarraco,FechaParto,NacidosVivos,NacidosMuertos,NacidosMomias,TotalNacidos,PesoPromedio1D,NumDestetado,PesoPromedio28D,FechaDestete,IdEmpleados")] tblFichas tblFichas)
+        public ActionResult Create([Bind(Include = "IdFicha,IdCerda,NumParto,FechaServio,IdVarraco,FechaParto,NacidosVivos,NacidosMuertos,NacidosMomias,TotalNacidos,PesoPromedio1D,NumDestetado,PesoPromedio28D,FechaDestete,IdEmpleado")] tblFichas tblFichas)
         {
             if (ModelState.IsValid)
             {
@@ -58,8 +59,9 @@ namespace GranjaSystem.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.IdEmpleados = new SelectList(db.Empleados, "IdEmpleados", "NombreEmpleado", tblFichas.IdEmpleados);
-            ViewBag.IdVarraco = new SelectList(db.Varrocos, "IdVarraco", "Procedencia", tblFichas.IdVarraco);
+            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
+            ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
+            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda",tblFichas.IdCerda);
             return View(tblFichas);
         }
 
@@ -75,8 +77,9 @@ namespace GranjaSystem.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IdEmpleados = new SelectList(db.Empleados, "IdEmpleados", "NombreEmpleado", tblFichas.IdEmpleados);
-            ViewBag.IdVarraco = new SelectList(db.Varrocos, "IdVarraco", "Procedencia", tblFichas.IdVarraco);
+            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
+            ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
+            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblFichas.IdCerda);
             return View(tblFichas);
         }
 
@@ -85,7 +88,7 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdFicha,IdCerda,NumParto,FechaServio,IdVarraco,FechaParto,NacidosVivos,NacidosMuertos,NacidosMomias,TotalNacidos,PesoPromedio1D,NumDestetado,PesoPromedio28D,FechaDestete,IdEmpleados")] tblFichas tblFichas)
+        public ActionResult Edit([Bind(Include = "IdFicha,IdCerda,NumParto,FechaServio,IdVarraco,FechaParto,NacidosVivos,NacidosMuertos,NacidosMomias,TotalNacidos,PesoPromedio1D,NumDestetado,PesoPromedio28D,FechaDestete,IdEmpleado")] tblFichas tblFichas)
         {
             if (ModelState.IsValid)
             {
@@ -93,8 +96,9 @@ namespace GranjaSystem.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdEmpleados = new SelectList(db.Empleados, "IdEmpleados", "NombreEmpleado", tblFichas.IdEmpleados);
-            ViewBag.IdVarraco = new SelectList(db.Varrocos, "IdVarraco", "Procedencia", tblFichas.IdVarraco);
+            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
+            ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
+            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblFichas.IdCerda);
             return View(tblFichas);
         }
 

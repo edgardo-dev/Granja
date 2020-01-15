@@ -46,7 +46,7 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdRole,Rol,Descripcion")] tblRoles tblRoles)
+        public ActionResult Create([Bind(Include = "IdRol,Rol,Descripcion")] tblRoles tblRoles)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdRole,Rol,Descripcion")] tblRoles tblRoles)
+        public ActionResult Edit([Bind(Include = "IdRol,Rol,Descripcion")] tblRoles tblRoles)
         {
             if (ModelState.IsValid)
             {

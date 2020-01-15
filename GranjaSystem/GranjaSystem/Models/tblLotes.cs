@@ -9,8 +9,9 @@ namespace GranjaSystem.Models
     public class tblLotes
     {
         [Key]
-        public int IdLotes { get; set; }
+        public int IdLote { get; set; }
         public int NumLote  { get; set; }
+        [Editable(allowEdit: false)]
         public DateTime FechaRegistro { get; set; }
         public string Estado { get; set; }
 

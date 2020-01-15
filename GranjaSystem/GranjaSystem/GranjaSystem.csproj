@@ -2469,6 +2469,7 @@
     <Content Include="Content\fonts\ubuntu\UFL.txt" />
     <Content Include="Content\img\cerdo.jpg" />
     <Content Include="Content\img\Logo.jpg" />
+    <Content Include="Content\img\Logo.png" />
     <Content Include="Content\img\porcino.png" />
     <Content Include="Content\main.css" />
     <Content Include="Content\plugins\bootstrap-slider\bootstrap-slider.js" />
@@ -2687,6 +2688,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001151734266_BasePorcina.cs" />
+    <Compile Include="Migrations\202001151734266_BasePorcina.designer.cs">
+      <DependentUpon>202001151734266_BasePorcina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\tblCerdas.cs" />
     <Compile Include="Models\tblControlLechones.cs" />
@@ -3151,6 +3157,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202001151734266_BasePorcina.resx">
+      <DependentUpon>202001151734266_BasePorcina.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

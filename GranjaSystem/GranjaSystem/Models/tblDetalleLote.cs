@@ -9,28 +9,32 @@ namespace GranjaSystem.Models
     public class tblDetalleLote
     {
         [Key]
-        public int IdDLotes { get; set; }
+        public int IdDLote { get; set; }
 
         //relacion
         public int IdCerda { get; set; }
         public virtual tblCerdas Cerdas { get; set; }
 
-        public DateTime FechaInseminacion { get; set; }
-        public DateTime FechaParto { get; set; }
+        public string FechaInseminacion { get; set; }
+        public string FechaParto { get; set; }
 
         //relacion
-        public int IdVarroco { get; set; }
+        public int IdVarraco { get; set; }
         public virtual tblVarracos Varracos { get; set; }
 
-        public DateTime Fvacuna1 { get; set; }
-        public DateTime Fvacuna2 { get; set; }
+        public string Fvacuna1 { get; set; }
+        public string Fvacuna2 { get; set; }
         public string Observaciones { get; set; }
+
+        [Editable(allowEdit: false)]
         public DateTime FechaRegistro { get; set; }
 
         //relacion
-        public int IdLotes { get; set; }
+        public int IdLote { get; set; }
         public virtual tblLotes Lotes { get; set; }
 
         public string Estado { get; set; }
+
+        
     }
 }

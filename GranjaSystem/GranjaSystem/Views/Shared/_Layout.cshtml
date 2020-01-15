@@ -107,7 +107,7 @@
                                 <!-- User image -->
                                 <li class="user-header">
 
-                                    <img src="~/Content/img/porcino.png" class="img-circle" />
+                                    <img src="~/Content/img/Logo.png" class="img-circle" />
                                     <p>
                                         * @Session["Nombre"] *  @Session["Rol"]
                                     </p>
@@ -119,13 +119,13 @@
                                         {
                                             <div class="row">
                                                 <div class="col-xs-4 text-center">
-                                                    <a href="@Url.Action("Index","Roles")">Gestión Roles</a>
+                                                    <a href="@Url.Action("Index", "Roles")">Gestión Roles</a>
                                                 </div>
                                                 <div class="col-xs-4 text-center">
-                                                    <a href="@Url.Action("Index","Empleados")">Gestión Empleados</a>
+                                                    <a href="@Url.Action("Index", "Empleados")">Gestión Empleados</a>
                                                 </div>
                                                 <div class="col-xs-4 text-center">
-                                                    <a href="@Url.Action("Index","Usuarios")">Gestión Usuarios</a>
+                                                    <a href="@Url.Action("Index", "Usuarios")">Gestión Usuarios</a>
                                                 </div>
                                             </div>
                                         }
@@ -135,13 +135,18 @@
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="@Url.Action("Edit/"+@Session["IdUsuario"],"Usuarios")" class="btn btn-default btn-flat">Modificar</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="@Url.Action("Salir","Login")" class="btn btn-default btn-flat">Cerrar Sesión</a>
-                                    </div>
-                                </li>
+                                    @{
+                                        if (Convert.ToString(Session["Rol"]) == "Administrador")
+                                        {
+                                            <div class="pull-left">
+                                                <a href="@Url.Action("Edit/" + @Session["IdUsuario"], "Usuarios")" class="btn btn-default btn-flat">Modificar</a>
+                                            </div>
+                                            }
+                                        }
+                                            <div class="pull-right">
+                                                <a href="@Url.Action("Salir","Login")" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                                            </div>
+                                        </li>
                             </ul>
                         </li>
                     </ul>
@@ -155,7 +160,7 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="~/Content/img/porcino.png" class="img-circle" alt="User Image">
+                        <img src="~/Content/img/Logo.png" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
                         <p>Granja</p>
@@ -249,7 +254,7 @@
                     @{
                         if (Convert.ToString(Session["Rol"]) == "Administrador")
                         {
-                            <li class="treeview">
+                            @*<li class="treeview">
                                 <a href="#">
                                     <i class="fa fa-file-pdf-o"></i> <span>Reportes</span>
                                     <span class="pull-right-container">
@@ -262,7 +267,7 @@
                                     <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
                                     <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
                                 </ul>
-                            </li>
+                            </li>*@
                             <li class="treeview">
                                 <a href="#">
                                     <i class="fa fa-vcard"></i>

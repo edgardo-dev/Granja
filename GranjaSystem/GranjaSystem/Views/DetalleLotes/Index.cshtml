@@ -28,7 +28,7 @@
                             @Html.DisplayNameFor(model => model.FechaParto)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.IdVarroco)
+                            @Html.DisplayNameFor(model => model.IdVarraco)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Fvacuna1)
@@ -64,7 +64,7 @@
                                 @Html.DisplayFor(modelItem => item.FechaParto)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.IdVarroco)
+                                @Html.DisplayFor(modelItem => item.IdVarraco)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Fvacuna1)
@@ -82,9 +82,9 @@
                                 @Html.DisplayFor(modelItem => item.Estado)
                             </td>
                             <td>
-                                @Html.ActionLink(" ", "Edit", new { id = item.IdDLotes }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
-                                @Html.ActionLink(" ", "Details", new { id = item.IdDLotes }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
-                                @Html.ActionLink(" ", "Delete", new { id = item.IdDLotes }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                                @Html.ActionLink(" ", "Edit", new { id = item.IdDLote }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
+                                @Html.ActionLink(" ", "Details", new { id = item.IdDLote }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
+                                @Html.ActionLink(" ", "Delete", new { id = item.IdDLote }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
                             </td>
                         </tr>
                     }

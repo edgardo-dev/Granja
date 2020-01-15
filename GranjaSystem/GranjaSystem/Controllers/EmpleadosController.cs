@@ -46,7 +46,7 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdEmpleados,NombreEmpleado,ApellidoEmpleado,Telefono,DUI,NIT,FechaRegistro,FechaNacimiento,Email")] tblEmpleados tblEmpleados)
+        public ActionResult Create([Bind(Include = "IdEmpleado,NombreEmpleado,ApellidoEmpleado,Telefono,DUI,NIT,FechaRegistro,FechaNacimiento,Email")] tblEmpleados tblEmpleados)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdEmpleados,NombreEmpleado,ApellidoEmpleado,Telefono,DUI,NIT,FechaRegistro,FechaNacimiento,Email")] tblEmpleados tblEmpleados)
+        public ActionResult Edit([Bind(Include = "IdEmpleado,NombreEmpleado,ApellidoEmpleado,Telefono,DUI,NIT,FechaRegistro,FechaNacimiento,Email")] tblEmpleados tblEmpleados)
         {
             if (ModelState.IsValid)
             {

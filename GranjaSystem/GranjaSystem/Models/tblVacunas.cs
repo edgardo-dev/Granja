@@ -14,9 +14,9 @@ namespace GranjaSystem.Models
         //relacion
         public int IdCerda { get; set; }
         public virtual tblCerdas Cerdas { get; set; }
-
+        [Editable(allowEdit: false)]
         public DateTime FechaRegistro { get; set; }
-        public DateTime FechaInyeccion { get; set; }
+        public string FechaInyeccion { get; set; }
         public string Vacuna { get; set; }
         public string Descripcion { get; set; }
 

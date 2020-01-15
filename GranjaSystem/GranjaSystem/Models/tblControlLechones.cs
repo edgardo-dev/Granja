@@ -15,10 +15,10 @@ namespace GranjaSystem.Models
         public int IdLotes { get; set; }
         public virtual tblLotes Lotes { get; set; }
 
-        public DateTime FechaDestete { get; set; }
+        public string FechaDestete { get; set; }
 
         // Relacion 
-        public int IdCerdas { get; set; }
+        public int IdCerda { get; set; }
         public virtual tblCerdas Cerdas { get; set; }
 
         public int TotalLechones { get; set; }

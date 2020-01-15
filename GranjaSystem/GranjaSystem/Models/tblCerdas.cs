@@ -9,7 +9,7 @@ namespace GranjaSystem.Models
     public class tblCerdas
     {
         [Key]
-        public int IdCerdas { get; set; }
+        public int IdCerda { get; set; }
         public int NumCerda { get; set; }
         public string Procedencia { get; set; }
         public string Observaciones { get; set; }

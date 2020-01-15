@@ -12,5 +12,7 @@ namespace GranjaSystem.Models
         public int IdGenetica { get; set; }
         public string Genetica { get; set; }
         public string Observacion { get; set; }
+
+        public virtual List<tblVarracos> Varracos { get; set; }
     }
 }
