@@ -4,10 +4,12 @@
     ViewBag.Title = "Create";
 }
 
-    <div class="row content container-fluid">
-        <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h4>GENETICA</h4></div>
-            <div class="panel-body bg-gray">
+<div class="row content container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>GENETICA</h4></div>
+        <div class="panel-body bg-gray">
+            <form action="@Url.Action("Create","Geneticas")" method="post" id="Validacion">
+
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
@@ -43,12 +45,30 @@
 
 
 
+            </form>
 
 
-            </div>
+
         </div>
-        <div>
-            @Html.ActionLink(" Atras", "Index", null, new { @class = "fa fa-mail-reply btn btn-success" })
-        </div>
-
     </div>
+    <div>
+        @Html.ActionLink(" Atras", "Index", null, new { @class = "fa fa-mail-reply btn btn-success" })
+    </div>
+
+</div>
+
+@section Validar{
+    <script type="text/javascript">
+        $("#Validacion").validate({
+            rules: {
+                Genetica: {
+                    required: true
+                }
+
+            }
+        });
+    </script>
+
+
+
+}

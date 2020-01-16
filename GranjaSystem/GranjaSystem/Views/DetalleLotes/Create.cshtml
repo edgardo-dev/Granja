@@ -4,11 +4,11 @@
     ViewBag.Title = "Create";
 }
 
-    <div class="row content container-fluid">
-        <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h4>CONTROL DETALLE DE LOTES</h4></div>
-            <div class="panel-body bg-gray">
-
+<div class="row content container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DETALLE DE LOTES</h4></div>
+        <div class="panel-body bg-gray">
+            <form action="@Url.Action("Index", "DetalleLotes")" method="post" id="Validacion">
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
@@ -107,12 +107,43 @@
 
 
 
-            </div>
-        </div>
-        <div>
-            @Html.ActionLink(" Atras", "Index", null, new { @class = "fa fa-mail-reply btn btn-success" })
+            </form>
+
+
         </div>
     </div>
+    <div>
+        @Html.ActionLink(" Atras", "Index", null, new { @class = "fa fa-mail-reply btn btn-success" })
+    </div>
+</div>
 
+@section Validar{
+    <script type="text/javascript">
+        $("#Validacion").validate({
+            rules: {
+                FechaInseminacion: {
+                    required: true,
+                    date: true
+                },
 
+                FechaParto: {
+                    required: true,
+                    date : true
+                },
+                Fvacuna1: {
+                    required: true,
+                    date : true
+                },
+                Fvacuna2: {
+                    required: true,
+                    date : true
+                },
+                FechaRegistro: {
+                    required: true,
+                    date: true
+                }
 
+            }
+        });
+    </script>
+}

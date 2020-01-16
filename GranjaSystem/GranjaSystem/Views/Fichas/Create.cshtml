@@ -5,11 +5,11 @@
 }
 
 
-    <div class="row content container-fluid">
-        <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h4>CONTROL DE FICHAS</h4></div>
-            <div class="panel-body bg-gray">
-
+<div class="row content container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DE FICHAS</h4></div>
+        <div class="panel-body bg-gray">
+            <form action="@Url.Action("Create","Fichas")" method="post" id="Validacion">
 
                 @using (Html.BeginForm())
                 {
@@ -139,13 +139,68 @@
                     </div>
                 }
 
+            </form>
+
+           
 
 
-            </div>
+
         </div>
-        <div>
-            @Html.ActionLink("Atras", "Index", null, new { @class = "fa fa-mail-reply btn btn-success" })
-        </div>
-
     </div>
+    <div>
+        @Html.ActionLink("Atras", "Index", null, new { @class = "fa fa-mail-reply btn btn-success" })
+    </div>
+
+</div>
+
+@section Validar{
+    <script type="text/javascript">
+        $("#Validacion").validate({
+            rules: {
+                NumParto: {
+                    required: true
+
+                },
+
+                FechaServio: {
+                    required: true,
+                    date: true
+                },
+                FechaParto: {
+                    required: true,
+                    date: true
+                },
+                NacidosVivos: {
+                    required: true
+
+                },
+                NacidosMuertos: {
+                    required: true
+
+                },
+                NacidosMomias: {
+                    required: true
+                },
+                TotalNacidos: {
+                    required: true
+                },
+                PesoPromedio1D: {
+                    required: true
+                },
+                NumDestetado: {
+                    required: true
+
+                },
+                PesoPromedio28D: {
+                    required: true
+                },
+                FechaDestete: {
+                    required: true,
+                    date: true
+                }
+
+            }
+        });
+    </script>
+}
 
