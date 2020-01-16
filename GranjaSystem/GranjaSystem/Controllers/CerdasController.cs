@@ -52,6 +52,7 @@ namespace GranjaSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                tblCerdas.FechaRegistro = DateTime.Now;
                 db.Cerdas.Add(tblCerdas);
                 db.SaveChanges();
                 return RedirectToAction("Index");

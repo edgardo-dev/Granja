@@ -52,6 +52,7 @@ namespace GranjaSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                tblVarracos.FechaRegistro = DateTime.Now;
                 db.Varracos.Add(tblVarracos);
                 db.SaveChanges();
                 return RedirectToAction("Index");

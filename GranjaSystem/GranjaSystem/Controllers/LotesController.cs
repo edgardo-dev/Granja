@@ -50,6 +50,7 @@ namespace GranjaSystem.Content
         {
             if (ModelState.IsValid)
             {
+                tblLotes.FechaRegistro = DateTime.Now;
                 db.Lotes.Add(tblLotes);
                 db.SaveChanges();
                 return RedirectToAction("Index");
