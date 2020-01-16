@@ -16,20 +16,23 @@
     <link rel="stylesheet" href="~/Content/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="~/Content/dist/css/skins/_all-skins.min.css">
     <!-- Morris chart -->
     <link rel="stylesheet" href="~/Content/bower_components/morris.js/morris.css">
-    <link rel="stylesheet" href="~/Content/dist/css/skins/_all-skins.min.css">
+    @*<link rel="stylesheet" href="~/Content/dist/css/skins/_all-skins.min.css">*@
+    <link href="~/Content/dist/css/skins/skin-blue.min.css" rel="stylesheet" />
+    @*<link href="~/Content/dist/css/skins/skin-yellow.min.css" rel="stylesheet" />*@
     <!-- Data Tables -->
     <link href="~/Content/datatables_custom/main.css" rel="stylesheet" />
     <link href="~/Content/datatables_custom/datatables/datatables.min.css" rel="stylesheet" />
     <link href="~/Content/datatables_custom/datatables/DataTables-1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - G-Porcina</title>
+    <title>@ViewBag.Title</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
 
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
@@ -141,12 +144,12 @@
                                             <div class="pull-left">
                                                 <a href="@Url.Action("Edit/" + @Session["IdUsuario"], "Usuarios")" class="btn btn-default btn-flat">Modificar</a>
                                             </div>
-                                            }
                                         }
-                                            <div class="pull-right">
-                                                <a href="@Url.Action("Salir","Login")" class="btn btn-default btn-flat">Cerrar Sesión</a>
-                                            </div>
-                                        </li>
+                                    }
+                                    <div class="pull-right">
+                                        <a href="@Url.Action("Salir","Login")" class="btn btn-default btn-flat">Cerrar Sesión</a>
+                                    </div>
+                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -255,19 +258,19 @@
                         if (Convert.ToString(Session["Rol"]) == "Administrador")
                         {
                             @*<li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-file-pdf-o"></i> <span>Reportes</span>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="#"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
-                                    <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
-                                    <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
-                                </ul>
-                            </li>*@
+                                    <a href="#">
+                                        <i class="fa fa-file-pdf-o"></i> <span>Reportes</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="#"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
+                                        <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
+                                        <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
+                                    </ul>
+                                </li>*@
                             <li class="treeview">
                                 <a href="#">
                                     <i class="fa fa-vcard"></i>
@@ -339,15 +342,25 @@
     <!-- jQuery 3 -->
     <script src="~/Content/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
+
     @RenderSection("Validar", required: false)
     <script type="text/javascript">
         $.extend($.validator.messages, {
-            required: "Campo Requerido",
-            equalTo: "Contraseñas no coinciden",
-            range: "Su edad debe de ser 15 a 20",
-            max: "Maximo de edad 20",
-            min: "Minimo de edad 15",
-            digits: "Introduzca digitos"
+            required: "Este campo es obligatorio.",
+            remote: "Por favor, rellena este campo.",
+            email: "Por favor, escribe una dirección de correo válida",
+            url: "Por favor, escribe una URL válida.",
+            date: "Por favor, escribe una fecha válida.",
+            dateISO: "Por favor, escribe una fecha (ISO) válida.",
+            number: "Por favor, escribe un número entero válido.",
+            digits: "Por favor, escribe sólo dígitos.",
+            equalTo: "Por favor, escribe el mismo valor de nuevo.",
+            maxlength: jQuery.validator.format("Por favor, no escribas más de {0} caracteres."),
+            minlength: jQuery.validator.format("Por favor, no escribas menos de {0} caracteres."),
+            rangelength: jQuery.validator.format("Por favor, escribe un valor entre {0} y {1} caracteres."),
+            range: jQuery.validator.format("Por favor, escribe un valor entre {0} y {1}."),
+            max: jQuery.validator.format("Por favor, escribe un valor menor o igual a {0}."),
+            min: jQuery.validator.format("Por favor, escribe un valor mayor o igual a {0}.")
         });
     </script>
     <!-- jQuery UI 1.11.4 -->
