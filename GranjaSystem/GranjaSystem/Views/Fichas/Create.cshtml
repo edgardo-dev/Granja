@@ -9,165 +9,162 @@
     <div class="panel panel-primary">
         <div class="panel-heading text-center"><h4>CONTROL DE FICHAS</h4></div>
         <div class="panel-body bg-gray">
+            <form action="/" id="Validacion" method="post">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
 
+                    <div class="form-horizontal">
 
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="col-sm-6">
+                            <div class="box box-primary">
+                                <div class="box-header">
+                                    <h3 class="box-title">Datos</h3>
+                                </div>
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Num Cerda</label>
+                                        <div class="col-md-9">
+                                            @Html.DropDownList("IdCerda", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.IdCerda, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Num Varraco</label>
+                                        <div class="col-md-9">
+                                            @Html.DropDownList("IdVarraco", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.IdVarraco, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Nombre del Partero</label>
+                                        <div class="col-md-9">
+                                            @Html.DropDownList("IdEmpleado", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.IdEmpleado, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
 
-            <div class="form-horizontal">
-
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="col-sm-6">
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">Datos</h3>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
                         </div>
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Num Cerda</label>
-                                <div class="col-md-9">
-                                    @Html.DropDownList("IdCerda", null, htmlAttributes: new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.IdCerda, "", new { @class = "text-danger" })
+                        <div class="col-sm-6">
+                            <div class="box box-primary">
+                                <div class="box-header">
+                                    <h3 class="box-title">Fechas Ciclos</h3>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Num Varraco</label>
-                                <div class="col-md-9">
-                                    @Html.DropDownList("IdVarraco", null, htmlAttributes: new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.IdVarraco, "", new { @class = "text-danger" })
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Fecha Inseminación</label>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.FechaServio, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.FechaServio, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Fecha de Parto</label>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.FechaParto, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.FechaParto, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Fecha  Destete</label>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.FechaDestete, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.FechaDestete, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
                                 </div>
+                                <!-- /.box-body -->
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Nombre del Partero</label>
-                                <div class="col-md-9">
-                                    @Html.DropDownList("IdEmpleado", null, htmlAttributes: new { @class = "form-control" })
-                                    @Html.ValidationMessageFor(model => model.IdEmpleado, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
+                            <!-- /.box -->
                         </div>
-                        <!-- /.box-body -->
+                        <div class="col-sm-6">
+                            <div class="box box-primary">
+                                <div class="box-header">
+                                    <h3 class="box-title">Cantidades</h3>
+                                </div>
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">N° Parto</label>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.NumParto, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.NumParto, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">N° Vivos</label>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.NacidosVivos, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.NacidosVivos, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">N° Muertos</label>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.NacidosMuertos, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.NacidosMuertos, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">N° Momias</label>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.NacidosMomias, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.NacidosMomias, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">N° Destetetados</label>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.NumDestetado, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.NumDestetado, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="box box-primary">
+                                <div class="box-header">
+                                    <h3 class="box-title">Pesos Promedios</h3>
+                                </div>
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Peso Promedio 1 día</label>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.PesoPromedio1D, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.PesoPromedio1D, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Peso Promedio 28 días</label>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.PesoPromedio28D, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.PesoPromedio28D, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-10 col-md-2">
+                                <input type="submit" value="Guardar" class="btn btn-primary" />
+                            </div>
+                        </div>
                     </div>
-                    <!-- /.box -->
-                </div>
-                <div class="col-sm-6">
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">Fechas Ciclos</h3>
-                        </div>
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Fecha Inseminación</label>
-                                <div class="col-md-9">
-                                    @Html.EditorFor(model => model.FechaServio, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.FechaServio, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Fecha de Parto</label>
-                                <div class="col-md-9">
-                                    @Html.EditorFor(model => model.FechaParto, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.FechaParto, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Fecha  Destete</label>
-                                <div class="col-md-9">
-                                    @Html.EditorFor(model => model.FechaDestete, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.FechaDestete, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-                </div>
-                <div class="col-sm-6">
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">Cantidades</h3>
-                        </div>
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label class="control-label col-md-3">N° Parto</label>
-                                <div class="col-md-9">
-                                    @Html.EditorFor(model => model.NumParto, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.NumParto, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">N° Vivos</label>
-                                <div class="col-md-9">
-                                    @Html.EditorFor(model => model.NacidosVivos, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.NacidosVivos, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3">N° Muertos</label>
-                                <div class="col-md-9">
-                                    @Html.EditorFor(model => model.NacidosMuertos, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.NacidosMuertos, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3">N° Momias</label>
-                                <div class="col-md-9">
-                                    @Html.EditorFor(model => model.NacidosMomias, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.NacidosMomias, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">N° Destetetados</label>
-                                <div class="col-md-9">
-                                    @Html.EditorFor(model => model.NumDestetado, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.NumDestetado, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-                </div>
-                <div class="col-sm-6">
-                    <div class="box box-primary">
-                        <div class="box-header">
-                            <h3 class="box-title">Pesos Promedios</h3>
-                        </div>
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Peso Promedio 1 día</label>
-                                <div class="col-md-9">
-                                    @Html.EditorFor(model => model.PesoPromedio1D, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.PesoPromedio1D, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Peso Promedio 28 días</label>
-                                <div class="col-md-9">
-                                    @Html.EditorFor(model => model.PesoPromedio28D, new { htmlAttributes = new { @class = "form-control" } })
-                                    @Html.ValidationMessageFor(model => model.PesoPromedio28D, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-                 </div>
-                <div class="form-group">
-                    <div class="col-md-offset-10 col-md-2">
-                        <input type="submit" value="Guardar" class="btn btn-primary" />
-                    </div>
-                </div>
-            </div>
-            }
-
-
-
+                }
+            </form>
         </div>
     </div>
     <div>
@@ -179,15 +176,47 @@
     <script type="text/javascript">
         $("#Validacion").validate({
             rules: {
-                NombreEmpleado: {
+                NumParto: {
                     required: true
+
                 },
 
-                ApellidoEmpleado: {
+                FechaServio: {
+                    required: true,
+                    date: true
+                },
+                FechaParto: {
+                    required: true,
+                    date: true
+                },
+                NacidosVivos: {
+                    required: true
+
+                },
+                NacidosMuertos: {
+                    required: true
+
+                },
+                NacidosMomias: {
                     required: true
                 },
-                FechaNacimiento: {
+                TotalNacidos: {
                     required: true
+                },
+                PesoPromedio1D: {
+                    required: true
+                },
+                NumDestetado: {
+                    required: true
+
+                },
+                PesoPromedio28D: {
+                    required: true
+                    
+                },
+                FechaDestete: {
+                    required: true,
+                    date: true
                 }
 
             }
