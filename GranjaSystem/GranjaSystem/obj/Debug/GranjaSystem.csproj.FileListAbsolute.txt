@@ -792,3 +792,4 @@ C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debu
 C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.dll
 C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.pdb
 C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.tblfichas.resources
+C:\Users\fidel.garcia\Downloads\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.tblfichas.resources
