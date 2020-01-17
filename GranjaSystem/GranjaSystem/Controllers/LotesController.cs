@@ -32,7 +32,7 @@ namespace GranjaSystem.Content
             {
                 return HttpNotFound();
             }
-            ViewBag.DLotes = db.DetalleLotes.Where(h => h.IdLote == id).ToList();
+            ViewBag.DLotes = db.DetalleLotes.Where(h => h.IdLote == id).Include(t => t.Varracos).Include(t => t.Cerdas).ToList();
             return View(tblLotes);
         }
 

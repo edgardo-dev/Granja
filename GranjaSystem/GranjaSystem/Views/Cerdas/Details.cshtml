@@ -4,80 +4,192 @@
     ViewBag.Title = "Details";
 }
 
-    <div class="row content container-fluid">
-        <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h4>CONTROL DE CERDA</h4></div>
-            <div class="panel-body bg-gray">
-                <div>
+<div class="row content container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DE CERDA</h4></div>
+        <div class="panel-body bg-gray">
+            <div>
 
-                    <hr />
-                    <dl class="dl-horizontal">
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Genetica.Genetica)
-                        </dt>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Genetica.Genetica)
+                    </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Genetica.Genetica)
-                        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Genetica.Genetica)
+                    </dd>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.NumCerda)
-                        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NumCerda)
+                    </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.NumCerda)
-                        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.NumCerda)
+                    </dd>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Procedencia)
-                        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Procedencia)
+                    </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Procedencia)
-                        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Procedencia)
+                    </dd>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Observaciones)
-                        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Observaciones)
+                    </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Observaciones)
-                        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Observaciones)
+                    </dd>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.NumParto)
-                        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.NumParto)
+                    </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.NumParto)
-                        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.NumParto)
+                    </dd>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.FechaRegistro)
-                        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.FechaRegistro)
+                    </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.FechaRegistro)
-                        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.FechaRegistro)
+                    </dd>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Estado)
-                        </dt>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Estado)
+                    </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Estado)
-                        </dd>
+                    <dd>
+                        @Html.DisplayFor(model => model.Estado)
+                    </dd>
 
-                    </dl>
-                </div>
-                <p>
-                    @Html.ActionLink("Modificar", "Edit", new { id = Model.IdCerda }, new { @class = "btn btn-primary" }) |
-                    @Html.ActionLink("Atras", "Index" , null, new { @class = "btn btn-success" })
-                </p>
+                </dl>
+            </div>
+            <p>
+                @Html.ActionLink("Modificar", "Edit", new { id = Model.IdCerda }, new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-success" })
+            </p>
 
 
 
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink(" Agregar", "Create","Fichas", null, new { @class = "fa fa-plus btn btn-primary" })
+    </p>
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DE FICHAS</h4></div>
+        <div class="panel-body  table-responsive-lg bg-gray">
+            <div class="pre-scrollable">
+                <table id="Tabla" class="table table-bordered table-hover">
+
+                    <thead>
+                        <tr>
+
+                            <th>
+                                Num Cerda
+                            </th>
+                            <th>
+                                Num Parto
+                            </th>
+                            <th>
+                                Num Varraco
+                            </th>
+                            <th>
+                                Fecha Servicio
+                            </th>
+                            <th>
+                                Fecha Parto
+                            </th>
+                            <th>
+                                N° Vivos
+                            </th>
+                            <th>
+                                N° Muertos
+                            </th>
+                            <th>
+                                N° Momias
+                            </th>
+                            <th>
+                                Total
+                            </th>
+                            <th>
+                                Peso 0d
+                            </th>
+                            <th>
+                                N° Destetados
+                            </th>
+                            <th>
+                                Peso 28d
+                            </th>
+                            <th>
+                                Fecha Destete
+                            </th>
+                            <th>
+                                Partero
+                            </th>
+                        </tr>
+                    <thead>
+                    <tbody>
+
+                        @foreach (var item in ViewBag.FichasC)
+                        {
+                        <tr>
+                            <td>
+                                @item.Cerdas.NumCerda
+                            </td>
+                            <td>
+                                @item.NumParto
+                            </td>
+                            <td>
+                                @item.Varracos.NumVarraco
+                            </td>
+
+                            <td>
+                                @item.FechaServio
+                            </td>
+                            <td>
+                                @item.FechaParto
+                            </td>
+                            <td>
+                                @item.NacidosVivos
+                            </td>
+                            <td>
+                                @item.NacidosMuertos
+                            </td>
+                            <td>
+                                @item.NacidosMomias
+                            </td>
+                            <td>
+                                @item.TotalNacidos
+                            </td>
+                            <td>
+                                @item.PesoPromedio1D Lb
+                            </td>
+                            <td>
+                                @item.NumDestetado
+                            </td>
+                            <td>
+                                @item.PesoPromedio28D Lb
+                            </td>
+                            <td>
+                                @item.FechaDestete
+                            </td>
+                            <td>
+                                @item.Empleados.NombreEmpleado
+                            </td>
+
+                        </tr>
+                        }
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 
+</div>
