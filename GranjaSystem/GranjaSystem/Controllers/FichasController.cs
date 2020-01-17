@@ -54,6 +54,7 @@ namespace GranjaSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                tblFichas.TotalNacidos = tblFichas.NacidosVivos + tblFichas.NacidosMuertos + tblFichas.NacidosMomias;
                 db.Fichas.Add(tblFichas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -92,6 +93,7 @@ namespace GranjaSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                tblFichas.TotalNacidos = tblFichas.NacidosVivos + tblFichas.NacidosMuertos + tblFichas.NacidosMomias;
                 db.Entry(tblFichas).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

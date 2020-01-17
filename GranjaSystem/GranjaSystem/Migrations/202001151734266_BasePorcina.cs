@@ -92,9 +92,9 @@
                         IdFicha = c.Int(nullable: false, identity: true),
                         IdCerda = c.Int(nullable: false),
                         NumParto = c.Int(nullable: false),
-                        FechaServio = c.DateTime(nullable: false),
+                        FechaServio = c.String(),
                         IdVarraco = c.Int(nullable: false),
-                        FechaParto = c.DateTime(nullable: false),
+                        FechaParto = c.String(),
                         NacidosVivos = c.Int(nullable: false),
                         NacidosMuertos = c.Int(nullable: false),
                         NacidosMomias = c.Int(nullable: false),
@@ -102,7 +102,7 @@
                         PesoPromedio1D = c.Double(nullable: false),
                         NumDestetado = c.Int(nullable: false),
                         PesoPromedio28D = c.Double(nullable: false),
-                        FechaDestete = c.DateTime(nullable: false),
+                        FechaDestete = c.String(),
                         IdEmpleado = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.IdFicha)

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<GranjaSystem.Models.tblFichas>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Control de Fichas";
 }
 
 <div class="row content container-fluid">
@@ -12,7 +12,7 @@
         <div class="panel-heading text-center"><h4>CONTROL DE FICHAS</h4></div>
         <div class="panel-body  table-responsive-lg bg-gray">
             <table id="Tabla" class="table table-bordered table-hover">
-                <thead>
+                <thead style="font-size:10px">
                     <tr>
                         <th>
                             Partero
@@ -56,7 +56,7 @@
                         <th>
                             Fecha Destete
                         </th>
-                        <th>Acciones</th>
+                        <th></th>
                     </tr>
                 <thead>
                 <tbody>
@@ -107,9 +107,9 @@
                                 @Html.DisplayFor(modelItem => item.FechaDestete)
                             </td>
                             <td>
-                                @Html.ActionLink(" ", "Edit", new { id = item.IdFicha }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
-                                @Html.ActionLink(" ", "Details", new { id = item.IdFicha }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
-                                @Html.ActionLink(" ", "Delete", new { id = item.IdFicha }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                                @Html.ActionLink(" ", "Edit", new { id = item.IdFicha }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
+                                @Html.ActionLink(" ", "Details", new { id = item.IdFicha }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
+                                @Html.ActionLink(" ", "Delete", new { id = item.IdFicha }, new { @class = "fa fa-minus btn btn-danger", title = "Eliminar" })
                             </td>
                         </tr>
                     }

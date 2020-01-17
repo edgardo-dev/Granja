@@ -59,21 +59,45 @@
                         <tr>
                             <td>N° Cerda</td>
                             <td>Fecha inceminación</td>
-                            <td>POsible Parto</td>
+                            <td>Posible Parto</td>
+                            <td>N° Varraco</td>
                             <td>Vacuna 1</td>
                             <td>Vacuna 2</td>
                             <td>Observación</td>
+                            <td>Estado</td>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach (var item in ViewBag.DLotes)
+                        {
                         <tr>
-                            <td>10</td>
-                            <td>12/12/2020</td>
-                            <td>12/12/2020</td>
-                            <td>12/12/2020</td>
-                            <td>12/12/2020</td>
-                            <td>Ninguna</td>
+                            <td>
+                                @item.IdCerda
+                            </td>
+                            <td>
+                                @item.FechaInseminacion
+                            </td>
+                            <td>
+                                @item.FechaParto
+                            </td>
+                            <td>
+                                @item.IdVarraco
+                            </td>
+                            <td>
+                                @item.Fvacuna1
+                            </td>
+                            <td>
+                                @item.Fvacuna2
+                            </td>
+                            <td>
+                                @item.Observaciones
+                            </td>
+                            <td>
+                                @item.Estado
+                            </td>
+
                         </tr>
+                        }
                     </tbody>
 
                 </table>

@@ -2877,6 +2877,10 @@
     <Compile Include="Migrations\202001151734266_BasePorcina.designer.cs">
       <DependentUpon>202001151734266_BasePorcina.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001170439513_tblfichas.cs" />
+    <Compile Include="Migrations\202001170439513_tblfichas.designer.cs">
+      <DependentUpon>202001170439513_tblfichas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\tblCerdas.cs" />
@@ -3346,6 +3350,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202001151734266_BasePorcina.resx">
       <DependentUpon>202001151734266_BasePorcina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001170439513_tblfichas.resx">
+      <DependentUpon>202001170439513_tblfichas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

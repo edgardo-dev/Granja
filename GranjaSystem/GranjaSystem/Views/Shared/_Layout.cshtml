@@ -258,19 +258,19 @@
                         if (Convert.ToString(Session["Rol"]) == "Administrador")
                         {
                             @*<li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-file-pdf-o"></i> <span>Reportes</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="#"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
-                                        <li><a href="#"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
-                                        <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
-                                        <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
-                                    </ul>
-                                </li>*@
+                                <a href="#">
+                                    <i class="fa fa-file-pdf-o"></i> <span>Reportes</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="#"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
+                                    <li><a href="#"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
+                                    <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
+                                    <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
+                                </ul>
+                            </li>*@
                             <li class="treeview">
                                 <a href="#">
                                     <i class="fa fa-vcard"></i>
@@ -323,19 +323,20 @@
             <!-- Content Header (Page header) -->
 
             <div class="container-fluid content">
-                <hr>
                 <div class="row">
                     @RenderBody()
                 </div>
-                <div class="footer label label-info">
-                    @DateTime.Now.Year - By Fidel G. and Bejamin S.
-                </div>
-            </div>
 
+            </div>
 
             <!-- /.content -->
         </div>
-
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Versión</b> 1.0
+            </div>
+            <strong>Copyright &copy; @DateTime.Now.Year - By Fidel G. and Bejamin S.</strong> All rights reserved.
+        </footer>
         <!-- /.content-wrapper -->
     </div>
     <!-- ./wrapper -->

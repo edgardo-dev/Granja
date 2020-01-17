@@ -16,13 +16,13 @@ namespace GranjaSystem.Models
         public virtual tblCerdas Cerdas { get; set; }
 
         public int NumParto { get; set; }
-        public DateTime FechaServio { get; set; }
+        public string FechaServio { get; set; }
 
         // relacion 
         public int IdVarraco { get; set; }
         public virtual tblVarracos Varracos { get; set; }
 
-        public DateTime FechaParto { get; set; }
+        public string FechaParto { get; set; }
         public int NacidosVivos { get; set; }
         public int NacidosMuertos { get; set; }
         public int NacidosMomias { get; set; }
@@ -30,7 +30,7 @@ namespace GranjaSystem.Models
         public double PesoPromedio1D { get; set; }
         public int NumDestetado { get; set; }
         public double PesoPromedio28D { get; set; }
-        public DateTime FechaDestete { get; set; }
+        public string FechaDestete { get; set; }
         
         //Relacion 
         public int IdEmpleado { get; set; }
