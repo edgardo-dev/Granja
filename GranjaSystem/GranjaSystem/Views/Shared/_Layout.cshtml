@@ -16,11 +16,11 @@
     <link rel="stylesheet" href="~/Content/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <!-- Morris chart -->
-    <link rel="stylesheet" href="~/Content/bower_components/morris.js/morris.css">
+    <!-- bootstrap datepicker -->
+    <link href="~/Content/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" />
     @*<link rel="stylesheet" href="~/Content/dist/css/skins/_all-skins.min.css">*@
     <link href="~/Content/dist/css/skins/skin-blue.min.css" rel="stylesheet" />
-    @*<link href="~/Content/dist/css/skins/skin-yellow.min.css" rel="stylesheet" />*@
+    
     <!-- Data Tables -->
     <link href="~/Content/datatables_custom/main.css" rel="stylesheet" />
     <link href="~/Content/datatables_custom/datatables/datatables.min.css" rel="stylesheet" />
@@ -258,19 +258,19 @@
                         if (Convert.ToString(Session["Rol"]) == "Administrador")
                         {
                             @*<li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-file-pdf-o"></i> <span>Reportes</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="#"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
-                                        <li><a href="#"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
-                                        <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
-                                        <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
-                                    </ul>
-                                </li>*@
+                                <a href="#">
+                                    <i class="fa fa-file-pdf-o"></i> <span>Reportes</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="#"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
+                                    <li><a href="#"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
+                                    <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
+                                    <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
+                                </ul>
+                            </li>*@
                             <li class="treeview">
                                 <a href="#">
                                     <i class="fa fa-vcard"></i>
@@ -323,25 +323,27 @@
             <!-- Content Header (Page header) -->
 
             <div class="container-fluid content">
-                <hr>
                 <div class="row">
                     @RenderBody()
                 </div>
-                <div class="footer label label-info">
-                    @DateTime.Now.Year - By Fidel G. and Bejamin S.
-                </div>
-            </div>
 
+            </div>
 
             <!-- /.content -->
         </div>
-
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Versión</b> 1.0
+            </div>
+            <strong>Copyright &copy; @DateTime.Now.Year - By Fidel G. and Bejamin S.</strong> All rights reserved.
+        </footer>
         <!-- /.content-wrapper -->
     </div>
     <!-- ./wrapper -->
     <!-- jQuery 3 -->
     <script src="~/Content/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Content/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
 
     @RenderSection("Validar", required: false)
     <script type="text/javascript">

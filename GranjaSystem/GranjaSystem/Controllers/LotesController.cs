@@ -32,6 +32,7 @@ namespace GranjaSystem.Content
             {
                 return HttpNotFound();
             }
+            ViewBag.DLotes = db.DetalleLotes.Where(h => h.IdLote == id).ToList();
             return View(tblLotes);
         }
 
@@ -46,10 +47,11 @@ namespace GranjaSystem.Content
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdLotes,NumLote,FechaRegistro,Estado")] tblLotes tblLotes)
+        public ActionResult Create([Bind(Include = "IdLote,NumLote,FechaRegistro,Estado")] tblLotes tblLotes)
         {
             if (ModelState.IsValid)
             {
+                tblLotes.FechaRegistro = DateTime.Now;
                 db.Lotes.Add(tblLotes);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,7 +80,7 @@ namespace GranjaSystem.Content
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdLotes,NumLote,FechaRegistro,Estado")] tblLotes tblLotes)
+        public ActionResult Edit([Bind(Include = "IdLote,NumLote,FechaRegistro,Estado")] tblLotes tblLotes)
         {
             if (ModelState.IsValid)
             {

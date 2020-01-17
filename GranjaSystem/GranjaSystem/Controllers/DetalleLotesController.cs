@@ -17,7 +17,7 @@ namespace GranjaSystem.Controllers
         // GET: DetalleLotes
         public ActionResult Index()
         {
-            var detalleLotes = db.DetalleLotes.Include(t => t.Lotes);
+            var detalleLotes = db.DetalleLotes.Include(t => t.Lotes).Include(t => t.Varracos).Include(t => t.Cerdas);
             return View(detalleLotes.ToList());
         }
 
@@ -40,6 +40,8 @@ namespace GranjaSystem.Controllers
         public ActionResult Create()
         {
             ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote");
+            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda");
+            ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco");
             return View();
         }
 
@@ -52,12 +54,16 @@ namespace GranjaSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                tblDetalleLote.FechaRegistro = DateTime.Now;
                 db.DetalleLotes.Add(tblDetalleLote);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+            
             ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblDetalleLote.IdLote);
+            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblDetalleLote.IdCerda);
+            ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblDetalleLote.IdVarraco);
             return View(tblDetalleLote);
         }
 
@@ -74,6 +80,8 @@ namespace GranjaSystem.Controllers
                 return HttpNotFound();
             }
             ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblDetalleLote.IdLote);
+            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblDetalleLote.IdCerda);
+            ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblDetalleLote.IdVarraco);
             return View(tblDetalleLote);
         }
 
@@ -91,6 +99,8 @@ namespace GranjaSystem.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblDetalleLote.IdLote);
+            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblDetalleLote.IdCerda);
+            ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblDetalleLote.IdVarraco);
             return View(tblDetalleLote);
         }
 
