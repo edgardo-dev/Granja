@@ -2869,6 +2869,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Controllers\VacunasController.cs" />
     <Compile Include="Controllers\VarracosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -3337,6 +3338,11 @@
     <Content Include="Views\Fichas\Details.cshtml" />
     <Content Include="Views\Fichas\Edit.cshtml" />
     <Content Include="Views\Fichas\Index.cshtml" />
+    <Content Include="Views\Vacunas\Create.cshtml" />
+    <Content Include="Views\Vacunas\Delete.cshtml" />
+    <Content Include="Views\Vacunas\Details.cshtml" />
+    <Content Include="Views\Vacunas\Edit.cshtml" />
+    <Content Include="Views\Vacunas\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
