@@ -8,7 +8,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading text-center"><h4>CONTROL DE EMPLEADOS</h4></div>
         <div class="panel-body bg-gray">
-            <form action="/" id="Validacion" method="post">
+            <form action="@Url.Action("Edit","Empleados")" id="Validacion" method="post">
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()

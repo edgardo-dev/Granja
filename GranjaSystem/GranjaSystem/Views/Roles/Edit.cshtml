@@ -4,10 +4,11 @@
     ViewBag.Title = "Edit";
 }
 
-    <div class="row content container-fluid">
-        <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h4>CONTROL DE ROLES</h4></div>
-            <div class="panel-body bg-gray">
+<div class="row content container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DE ROLES</h4></div>
+        <div class="panel-body bg-gray">
+            <form action="@Url.Action("Edit","Roles")" method="post">
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
@@ -40,14 +41,30 @@
                     </div>
                 }
 
-                <div>
-                    @Html.ActionLink("Atras", "Index", null, new { @class = "fa fa-mail-reply btn btn-success" })
-                </div>
+            </form>
 
 
-
+            <div>
+                @Html.ActionLink("Atras", "Index", null, new { @class = "fa fa-mail-reply btn btn-success" })
             </div>
+
+
+
         </div>
-  
     </div>
 
+</div>
+
+@section Validar{
+    <script type="text/javascript">
+        $("#Validacion").validate({
+            rules: {
+                Rol: {
+                    required: true
+                }
+
+            }
+        });
+    </script>
+
+}
