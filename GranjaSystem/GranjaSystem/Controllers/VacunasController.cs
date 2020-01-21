@@ -52,6 +52,7 @@ namespace GranjaSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                tblVacunas.FechaRegistro  = DateTime.Now;
                 db.Vacunas.Add(tblVacunas);
                 db.SaveChanges();
                 return RedirectToAction("Index");

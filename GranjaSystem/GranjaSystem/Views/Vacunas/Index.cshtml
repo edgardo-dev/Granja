@@ -4,54 +4,66 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+    <div class="row content container-fluid">
+        <p>
+            @Html.ActionLink(" Agregar", "Create", null, new { @class = "fa fa-plus btn btn-primary" })
+        </p>
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE VACUNAS</h4></div>
+            <div class="panel-body bg-gray">
+                <table class="table table-bordered table-hover">
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Cerdas.Procedencia)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaRegistro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaInyeccion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Vacuna)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cerdas.Procedencia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaRegistro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FechaInyeccion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Vacuna)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdVacuna }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdVacuna }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdVacuna })
-        </td>
-    </tr>
-}
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Cerdas.Procedencia)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FechaRegistro)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FechaInyeccion)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Vacuna)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Descripcion)
+                        </th>
+                        <th></th>
+                    </tr>
 
-</table>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Cerdas.Procedencia)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FechaRegistro)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FechaInyeccion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Vacuna)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Descripcion)
+                            </td>
+                            <td>
+                            @Html.ActionLink(" ", "Edit", new { id = item.IdVacuna }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
+                            @Html.ActionLink(" ", "Details", new { id = item.IdVacuna }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
+                            @Html.ActionLink(" ", "Delete", new { id = item.IdVacuna }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                            </td>
+                        </tr>
+                    }
+
+
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+
