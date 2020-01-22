@@ -8,18 +8,16 @@
 
     <div class="row content container-fluid">
         <p>
-            @Html.ActionLink(" Agregar", "Create", null, new { @class = "fa fa-plus btn btn-primary" })
+            @Html.ActionLink(" Agregar", "CargarLote","Lotes", null, new { @class = "fa fa-plus btn btn-primary" })
         </p>
         <div class="panel panel-primary">
             <div class="panel-heading text-center"><h4>CONTROL DETALLE DE LOTES </h4></div>
             <div class="panel-body bg-gray">
                 <table class="table table-bordered table-hover">
                     <tr>
+
                         <th>
-                            @Html.DisplayNameFor(model => model.Lotes.Estado)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.IdCerda)
+                            @Html.DisplayNameFor(model => model.Cerdas.NumCerda)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.FechaInseminacion)
@@ -28,7 +26,7 @@
                             @Html.DisplayNameFor(model => model.FechaParto)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.IdVarraco)
+                            @Html.DisplayNameFor(model => model.Varracos.NumVarraco)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Fvacuna1)
@@ -52,10 +50,7 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Lotes.Estado)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IdCerda)
+                                @Html.DisplayFor(modelItem => item.Cerdas.NumCerda)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.FechaInseminacion)
@@ -64,7 +59,7 @@
                                 @Html.DisplayFor(modelItem => item.FechaParto)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.IdVarraco)
+                                @Html.DisplayFor(modelItem => item.Varracos.NumVarraco)
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Fvacuna1)

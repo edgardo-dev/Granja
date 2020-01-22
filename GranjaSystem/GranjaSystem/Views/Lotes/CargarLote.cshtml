@@ -1,23 +1,28 @@
 ﻿
 @{
     ViewBag.Title = "CargarLote";
-    var numCerda = 0; 
-    var numVarraco = 0;
 }
-
+    
 <div class="row content container-fluid">
     @*<form action="" method="post" id="frmLotes">*@
-        <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h5>LOTE</h5></div>
-            <div class="panel-body bg-gray">
-                <div class="input-group">
-                    <label>Número de Lote</label>
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>LOTE</h4></div>
+        <div class="panel-body bg-gray">
+            <div class="form-group">
+                <label class="control-label col-md-2">Número de Lote</label>
+                <div class="col-md-4">
                     <input class="form-control" type="number" name="NumLote" id="NumLote" value="" placeholder="Ingrese un Número" />
+                </div>
+                <label class="control-label col-md-2">Fecha Registro</label>
+                <div class="col-md-4">
+                    <input class="form-control" type="datetime" name="Fecha" id="Fecha" value="@DateTime.Now"  readonly/>
                 </div>
             </div>
         </div>
+    </div>
         <div class="col-sm-offset-8 col-sm-4" align="right">
             <button title="Agregar Cerda" class="btn btn-info" name="btnAgregar" id="btnAgregar"><i class="fa fa-plus"></i></button>
+            <button  title="Procesar Fechas" onclick="calcular()" class="btn btn-warning"><i class="fa fa-calendar"></i></button>
         </div>
         <div class="panel panel-primary">
             <div class="panel-heading text-center"><h5>CERDAS DEL LOTE</h5></div>
@@ -57,7 +62,7 @@
                     <div class="col-sm-4">
                         <div class="input-group">
                             <label>Inceminación</label>
-                            <input class="form-control" type="date" id="FechaInceminacion" name="FechaInceminacion" value="" />
+                            <input class="form-control" type="date" id="FechaInceminacion" name="FechaInceminacion" value=""  />
                         </div>
                         <br />
                         <div class="input-group">
@@ -87,7 +92,7 @@
         </div>
         <div class=" col-sm-offset-8 col-sm-4" align="right">
             <button title="Guardar Lote" class="btn btn-success" name="btnGuardar" id="btnGuardar"> <i class="fa fa-save"></i></button>
-            <a href="~/Views/Lotes/Index.cshtml" title="Cancelar" class="btn btn-danger"><i class="fa fa-times"></i></a>
+            <a href="~/Lotes/" title="Cancelar" class="btn btn-danger"><i class="fa fa-times"></i></a>
         </div>
         <div class="panel panel-primary">
             <div class="panel-heading text-center"><h5>DETALLES DEL LOTE</h5></div>
@@ -116,9 +121,7 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td>
-                                @*<input type="submit" class="btn btn-danger fa fa-trash-o" name="btnQuitar" id="btnQuitar" value=" " />*@
-                            </td>
+                            <td></td>
 
                         </tr>
                     </tbody>
@@ -141,11 +144,113 @@
             }
         });
     </script>
+    
 
 }
 @section EnvioDatos{
     <script>
+        function calcular() {
+            if ($("#FechaInceminacion").val() == "") {
+                alert("Por Favor Ingrese Fecha de Inceminación")
+
+            } else {
+                //la fecha
+                var fecha = new Date($('#FechaInceminacion').val());
+                var fecha2 = new Date($('#FechaInceminacion').val());
+                var fecha3 = new Date($('#FechaInceminacion').val());
+                //dias a sumar
+                //nueva fecha sumada
+                fecha.setDate(fecha.getDate() + 115);
+                fecha2.setDate(fecha2.getDate() + 85);
+                fecha3.setDate(fecha3.getDate() + 92);
+                //formato de salida para la fecha
+                if ((fecha.getMonth() + 1) >= 10 && fecha.getDate() >= 10) {
+                    var NFecha = fecha.getFullYear() + '-' + (fecha.getMonth() + 1) + '-' + fecha.getDate();
+                }
+                else if (fecha.getDate() <= 9 && (fecha.getMonth() + 1)<=9) {
+                    var NFecha = fecha.getFullYear() + '-'+ '0' + (fecha.getMonth() + 1) + '-' + '0' + fecha.getDate();
+                }
+                else if ((fecha.getMonth() + 1) <= 9) {
+                    var NFecha = fecha.getFullYear() + '-' + '0' + (fecha.getMonth() + 1) + '-' + fecha.getDate();
+                }
+                else if ((fecha.getDate() <= 9)) {
+                    var NFecha = fecha.getFullYear() + '-' + (fecha.getMonth() + 1) + '-' + '0' + fecha.getDate();
+                }
+                ////////////////////////////////////////////////////////
+                if ((fecha2.getMonth() + 1) >= 10 && fecha2.getDate() >= 10) {
+                    var NFecha2 = fecha2.getFullYear() + '-' + (fecha2.getMonth() + 1) + '-' + fecha2.getDate();
+                }
+                else if (fecha2.getDate() <= 9 && (fecha2.getMonth() + 1) <= 9) {
+                    var NFecha2 = fecha2.getFullYear() + '-' + '0' + (fecha2.getMonth() + 1) + '-' + '0' + fecha2.getDate();
+                }
+                else if ((fecha2.getMonth() + 1) <= 9) {
+                    var NFecha2 = fecha2.getFullYear() + '-' + '0' + (fecha2.getMonth() + 1) + '-' + fecha2.getDate();
+                }
+                else if ((fecha2.getDate() <= 9)) {
+                    var NFecha2 = fecha2.getFullYear() + '-' + (fecha2.getMonth() + 1) + '-' + '0' + fecha2.getDate();
+                }
+                //////////////////////////////////////////////
+                if ((fecha3.getMonth() + 1) >= 10 && fecha3.getDate() >= 10) {
+                    var NFecha3 = fecha3.getFullYear() + '-' + (fecha3.getMonth() + 1) + '-' + fecha3.getDate();
+                }
+                else if (fecha3.getDate() <= 9 && (fecha3.getMonth() + 1) <= 9) {
+                    var NFecha3 = fecha3.getFullYear() + '-' + '0' + (fecha3.getMonth() + 1) + '-' + '0' + fecha3.getDate();
+                }
+                else if ((fecha3.getMonth() + 1) <= 9) {
+                    var NFecha3 = fecha3.getFullYear() + '-' + '0' + (fecha3.getMonth() + 1) + '-' + fecha3.getDate();
+                }
+                else if ((fecha3.getDate() <= 9)) {
+                    var NFecha3 = fecha3.getFullYear() + '-' + (fecha3.getMonth() + 1) + '-' + '0' + fecha3.getDate();
+                }
+                
+
+                //if ((fecha2.getMonth() + 1) >= 10 && fecha2.getDate() >= 10) {
+                //    var NFecha2 = fecha2.getFullYear() + '-' + (fecha2.getMonth() + 1) + '-' + fecha2.getDate();
+                //}
+                //else if (fecha2.getDate() <= 9) {
+                //    var NFecha2 = fecha2.getFullYear() + '-' + (fecha2.getMonth() + 1) + '-' + '0' + fecha2.getDate();
+                //}
+                //    else if ((fecha2.getMonth() + 1) <= 9) {
+                //    var NFecha2 = fecha2.getFullYear() + '-' + '0' + (fecha2.getMonth() + 1) + '-' + fecha2.getDate();
+                //}
+                //else {
+                //    var NFecha2 = fecha2.getFullYear() + '-' + '0' + (fecha2.getMonth() + 1) + '-' + '0' + fecha2.getDate();
+                //}
+
+                //if ((fecha3.getMonth() + 1) >= 10 && fecha3.getDate() >= 10) {
+                //    var NFecha3 = fecha3.getFullYear() + '-' + (fecha3.getMonth() + 1) + '-' + fecha3.getDate();
+                //}
+                //else if (fecha3.getDate() <= 9) {
+                //    var NFecha3 = fecha3.getFullYear() + '-' + (fecha3.getMonth() + 1) + '-' + '0' + fecha3.getDate();
+                //}
+                //else if ((fecha3.getMonth() + 1) <= 9) {
+                //    var NFecha3 = fecha3.getFullYear() + '-' + '0' + (fecha3.getMonth() + 1) + '-' + fecha3.getDate();
+                //}
+                //else {
+                //    var NFecha3 = fecha3.getFullYear() + '-' + '0' + (fecha3.getMonth() + 1) + '-' + '0' + fecha3.getDate();
+                //}       
+
+                $("#FechaParto").val(NFecha);
+                $("#Vacuna1").val(NFecha2);
+                $("#Vacuna2").val(NFecha3);
+                //fecha.setDate(fecha.getDate() + diasp);
+                //console.info(fecha)
+                //nueva fecha sumada parto
+                //TuFecha.setDate(TuFecha.getDate() + diasp);
+                //$("#FechaParto").val(TuFecha);
+                ////nueva fecha sumada VAcuna 1
+                //TuFecha.setDate(TuFecha.getDate() + diasv1);
+                //$("#Vacuna1").val(TuFecha);
+                ////nueva fecha sumada parto
+                //TuFecha.setDate(TuFecha.getDate() + diasv2);
+                //$("#Vacuna2").val(TuFecha);
+
+            }
+        }
+    </script>
+    <script>
         $(document).ready(function () {
+            
             $("#btnAgregar").click(function () {
                 //var Nfila = document.getElementById("TablaCL").rows.length;
                 //var Contador = Nfila - 1;
@@ -186,6 +291,7 @@
 
                 }
             });
+
         });
     </script>
 }
