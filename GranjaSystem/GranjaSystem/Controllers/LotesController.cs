@@ -116,6 +116,70 @@ namespace GranjaSystem.Content
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult CargarLote()
+        {
+            ViewBag.Cerda = db.Cerdas.Where(h => h.Estado == "Disponible");
+            ViewBag.Varraco = db.Varracos;
+            ViewBag.Detalle = db.DetalleLotes.Where(h => h.IdLote == 12).Include(t => t.Varracos).Include(t => t.Cerdas).ToList();
+
+            return View();
+        }
+        public JsonResult CrearLote(int NumLote)
+        {
+            try
+            {
+                var Lotes = new tblLotes();
+                Lotes.NumLote = NumLote;
+                Lotes.Estado = "Iniciado";
+                Lotes.FechaRegistro = DateTime.Now;
+                db.Lotes.Add(Lotes);
+                db.SaveChanges();
+                return Json(true);
+            }
+            catch (Exception)
+            {
+                return Json(false);
+            }
+        }
+        [HttpPost]
+        public JsonResult CargarLote(int NumLote,int IdCerda,int IdVarraco,string FechaInceminacion,
+            string FechaParto, string Vacuna1, string Vacuna2,string Observacion)
+        {
+            try
+            {
+                var idlote = (from id in db.Lotes select id.IdLote).Max();
+                var DLotes = new tblDetalleLote();
+                DLotes.IdCerda = IdCerda;
+                DLotes.IdVarraco = IdVarraco;
+                DLotes.IdLote = idlote;
+                DLotes.FechaInseminacion = FechaInceminacion;
+                DLotes.FechaParto = FechaParto;
+                DLotes.Fvacuna1 = Vacuna1;
+                DLotes.Fvacuna2 = Vacuna2;
+                DLotes.Observaciones = Observacion;
+                DLotes.Estado = "Iniciado";
+                DLotes.FechaRegistro = DateTime.Now;
+                
+                var Cerda = (from C in db.Cerdas
+                                where C.IdCerda == IdCerda
+                                select C).FirstOrDefault();
+                Cerda.Estado = "Proceso";
+                db.Entry(Cerda).State = EntityState.Modified;
+                db.DetalleLotes.Add(DLotes);
+                db.SaveChanges();
+                return Json(true);
+                //var Cerdas = new tblCerdas();
+                //Cerdas.Estado = "Proceso".Where()
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return Json(false);
+            }
+            
+        }
 
         protected override void Dispose(bool disposing)
         {

@@ -64,7 +64,7 @@
                                 <span class="label label-warning">10</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="header">You have 10 notifications</li>
+                                <li class="header">Tienes</li>
                                 <li>
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
@@ -228,6 +228,7 @@
                         <ul class="treeview-menu">
                             <li><a href="@Url.Action("Index","Lotes")"><i class="fa fa-search"></i>Control de Lotes</a></li>
                             <li><a href="@Url.Action("Create","Lotes")"><i class="fa fa-plus"></i>Agregar Lote</a></li>
+                            <li><a href="@Url.Action("CargarLote","Lotes")"><i class="fa fa-plus"></i>Cargar Lote</a></li>
                         </ul>
                     </li>
                     <li class="treeview">
@@ -258,19 +259,19 @@
                         if (Convert.ToString(Session["Rol"]) == "Administrador")
                         {
                             @*<li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-file-pdf-o"></i> <span>Reportes</span>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="#"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
-                                    <li><a href="#"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
-                                    <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
-                                    <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
-                                </ul>
-                            </li>*@
+                                    <a href="#">
+                                        <i class="fa fa-file-pdf-o"></i> <span>Reportes</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="#"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
+                                        <li><a href="#"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
+                                        <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
+                                        <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
+                                    </ul>
+                                </li>*@
                             <li class="treeview">
                                 <a href="#">
                                     <i class="fa fa-vcard"></i>
@@ -365,6 +366,16 @@
             min: jQuery.validator.format("Por favor, escribe un valor mayor o igual a {0}.")
         });
     </script>
+    @RenderSection("EnvioDatos", required: false)
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".Tablas").DataTable({
+                pageLength: 25,
+                responsive: true
+            });
+        });
+    </script>
+    }
     <!-- jQuery UI 1.11.4 -->
     <script src="~/Content/bower_components/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

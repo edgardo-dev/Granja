@@ -1,0 +1,188 @@
+﻿
+@{
+    ViewBag.Title = "CargarLote";
+    var numCerda = 0; 
+    var numVarraco = 0;
+}
+
+<div class="row content container-fluid">
+    @*<form action="" method="post" id="frmLotes">*@
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h5>LOTE</h5></div>
+            <div class="panel-body bg-gray">
+                <div class="input-group">
+                    <label>Número de Lote</label>
+                    <input class="form-control" type="number" name="NumLote" id="NumLote" value="" placeholder="Ingrese un Número" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-offset-8 col-sm-4" align="right">
+            <button title="Agregar Cerda" class="btn btn-info" name="btnAgregar" id="btnAgregar"><i class="fa fa-plus"></i></button>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h5>CERDAS DEL LOTE</h5></div>
+            <div class="panel-body bg-gray">
+                <div class="col-sm-2">
+                    <div class="input-group">
+
+                        <label class="">Varraco</label>
+                        <select class="form-control" name="IdVarraco" id="IdVarraco">
+                            <option>..::Seleccione::..</option>
+                            @{
+                                foreach (var item in ViewBag.Varraco)
+                                {
+                                    <option value="@item.IdVarraco">@item.NumVarraco</option>                                    
+                                }
+                            }
+
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label class="">Cerda</label>
+                        <select class="form-control" name="IdCerda" id="IdCerda">
+                            <option>..::Seleccione::..</option>
+                            @{
+                                foreach (var item in ViewBag.Cerda)
+                                {
+                                    <option value="@item.IdCerda">@item.NumCerda</option>
+                                }
+                            }
+
+                        </select>
+                    </div>
+
+                    </div>
+
+                    <div class="col-sm-2">
+                        <div class="input-group">
+                            <label>Inceminación</label>
+                            <input class="form-control" type="date" id="FechaInceminacion" name="FechaInceminacion" value="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="input-group">
+                            <label>Posible Parto</label>
+                            <input class="form-control" type="date" id="FechaParto" name="FechaParto" value="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="input-group">
+                            <label>Vacuna Litter</label>
+                            <input class="form-control" type="date" id="Vacuna1" name="Vacuna1" value="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="input-group">
+                            <label>Vacuna Vitamina A</label>
+                            <input class="form-control" type="date" id="Vacuna2" name="Vacuna2" value="" />
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="input-group">
+                            <label>Observación</label>
+                            <input class="form-control" type="text" id="Observacion" name="Observacion" value="" />
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class=" col-sm-offset-8 col-sm-4" align="right">
+            <button title="Guardar Lote" class="btn btn-success" name="btnGuardar" id="btnGuardar"> <i class="fa fa-save"></i></button>
+            <a href="~/Views/Lotes/Index.cshtml" title="Cancelar" class="btn btn-danger"><i class="fa fa-times"></i></a>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h5>DETALLES DEL LOTE</h5></div>
+            <div class="panel-body bg-gray">
+                <!-- Date -->
+                <table id="TablaCL" class="table table-bordered table-responsive">
+                    <thead>
+                        <tr>
+                            <th>N° Cerda</th>
+                            <th>N° Varraco</th>
+                            <th>Fecha inceminación</th>
+                            <th>Posible Parto</th>
+                            <th>Vacuna 1</th>
+                            <th>Vacuna 2</th>
+                            <th>Observación</th>
+                        </tr>
+                    </thead>
+                    <tbody id="fila">
+
+                        <tr hidden>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                @*<input type="submit" class="btn btn-danger fa fa-trash-o" name="btnQuitar" id="btnQuitar" value=" " />*@
+                            </td>
+
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    @*</form>*@
+</div>
+
+@section Validar{
+
+    <script type="text/javascript">
+        $("#frmLotes").validate({
+            rules: {
+                NumLote: {
+                    required: true
+                }
+
+            }
+        });
+    </script>
+
+}
+@section EnvioDatos{
+    <script>
+        $(document).ready(function () {
+            $("#btnAgregar").click(function () {
+                //var Nfila = document.getElementById("TablaCL").rows.length;
+                //var Contador = Nfila - 1;
+                //var $row = $(this).parents('tr:first');
+                //Capturando Datos
+                var NumLote = $("#NumLote").val(); 
+                var IdVarraco = $("#IdVarraco").val();
+                var NCerda = $("#IdCerda").val();
+                var combo = document.getElementById("IdCerda");
+                var selected = combo.options[combo.selectedIndex].text;
+                alert(selected);
+                var NVarraco = $("#IdVarraco").text();
+                var FechaInceminacion = $("#FechaInceminacion").val();
+                var FechaParto = $("#FechaParto").val();
+                var Vacuna1 = $("#Vacuna1").val();
+                var Vacuna2 = $("#Vacuna2").val();
+                var Observacion = $("#Observacion").val();
+                if (NumLote == " " || IdCerda == "" || IdVarraco == "") {
+                    alert("Faltan Datos");
+
+                }
+                else {
+
+                    var contador = $("#fila").html();
+                    //precio = Number(precio).toFixed(2);
+                    //var tr = $(this).parents("tr").appendTo("#tabla tbody");
+                    var HTML = "<tr><td hidden>" + IdCerda + "</td><td hidden>" + IdVarraco + "</td><td>" + NCerda + "</td><td>" + NVarraco + "</td><td>" + FechaInceminacion + "</td><td>" + FechaParto + "</td><td>" + Vacuna1 + "</td><td>" + Vacuna2 + "</td><td>" + Observacion + "</td></tr>";
+                    $("#fila").html(contador + HTML);
+                    $("#IdCerda").val("");
+                    $("#FechaInceminacion").val("");
+                    $("#FechaParto").val("");
+                    $("#Vacuna1").val("");
+                    $("#Vacuna2").val("");
+                    $("#Observacion").val("");
+
+                }
+            });
+        });
+    </script>
+}
+

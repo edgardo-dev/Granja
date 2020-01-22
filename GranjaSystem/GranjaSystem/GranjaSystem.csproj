@@ -2782,6 +2782,7 @@
     <Content Include="Content\plugins\timepicker\bootstrap-timepicker.min.js" />
     <Content Include="Content\sidebar.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\tabla_scroll.css" />
     <Content Include="Content\util.css" />
     <Content Include="Content\vendor\animate\animate.css" />
     <Content Include="Content\vendor\animsition\css\animsition.css" />
@@ -3343,6 +3344,7 @@
     <Content Include="Views\Vacunas\Details.cshtml" />
     <Content Include="Views\Vacunas\Edit.cshtml" />
     <Content Include="Views\Vacunas\Index.cshtml" />
+    <Content Include="Views\Lotes\CargarLote.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
