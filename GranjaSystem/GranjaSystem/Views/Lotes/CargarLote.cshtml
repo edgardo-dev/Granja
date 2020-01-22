@@ -37,6 +37,7 @@
 
                         </select>
                     </div>
+                    <br />
                     <div class="input-group">
                         <label class="">Cerda</label>
                         <select class="form-control" name="IdCerda" id="IdCerda">
@@ -53,34 +54,33 @@
 
                     </div>
 
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
                         <div class="input-group">
                             <label>Inceminación</label>
                             <input class="form-control" type="date" id="FechaInceminacion" name="FechaInceminacion" value="" />
                         </div>
-                    </div>
-                    <div class="col-sm-2">
+                        <br />
                         <div class="input-group">
                             <label>Posible Parto</label>
                             <input class="form-control" type="date" id="FechaParto" name="FechaParto" value="" />
                         </div>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <div class="input-group">
                             <label>Vacuna Litter</label>
                             <input class="form-control" type="date" id="Vacuna1" name="Vacuna1" value="" />
                         </div>
-                    </div>
-                    <div class="col-sm-2">
+                        <br />
                         <div class="input-group">
-                            <label>Vacuna Vitamina A</label>
+                            <label>Vacuna Vitamina</label>
                             <input class="form-control" type="date" id="Vacuna2" name="Vacuna2" value="" />
                         </div>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <div class="input-group">
                             <label>Observación</label>
-                            <input class="form-control" type="text" id="Observacion" name="Observacion" value="" />
+                            <textarea class="form-control"id="Observacion" name="Observacion" rows="5" ></textarea>
+                            
                         </div>
                     </div>
                 </div>
@@ -103,6 +103,7 @@
                             <th>Vacuna 1</th>
                             <th>Vacuna 2</th>
                             <th>Observación</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="fila">
@@ -150,13 +151,15 @@
                 //var Contador = Nfila - 1;
                 //var $row = $(this).parents('tr:first');
                 //Capturando Datos
-                var NumLote = $("#NumLote").val(); 
+                var combo1 = document.getElementById("IdCerda");
+                var selected1 = combo1.options[combo1.selectedIndex].text;
+                var combo2 = document.getElementById("IdVarraco");
+                var selected2 = combo2.options[combo2.selectedIndex].text;
+                var NumLote = $("#NumLote").val();
                 var IdVarraco = $("#IdVarraco").val();
-                var NCerda = $("#IdCerda").val();
-                var combo = document.getElementById("IdCerda");
-                var selected = combo.options[combo.selectedIndex].text;
-                alert(selected);
-                var NVarraco = $("#IdVarraco").text();
+                var IdCerda = $("#IdCerda").val();
+                var NCerda = selected1;
+                var NVarraco = selected2;
                 var FechaInceminacion = $("#FechaInceminacion").val();
                 var FechaParto = $("#FechaParto").val();
                 var Vacuna1 = $("#Vacuna1").val();
@@ -171,9 +174,10 @@
                     var contador = $("#fila").html();
                     //precio = Number(precio).toFixed(2);
                     //var tr = $(this).parents("tr").appendTo("#tabla tbody");
-                    var HTML = "<tr><td hidden>" + IdCerda + "</td><td hidden>" + IdVarraco + "</td><td>" + NCerda + "</td><td>" + NVarraco + "</td><td>" + FechaInceminacion + "</td><td>" + FechaParto + "</td><td>" + Vacuna1 + "</td><td>" + Vacuna2 + "</td><td>" + Observacion + "</td></tr>";
+                    var HTML = "<tr><td hidden>" + IdCerda + "</td><td hidden>" + IdVarraco + "</td><td>" + NCerda + "</td><td>" + NVarraco + "</td><td>" + FechaInceminacion + "</td><td>" + FechaParto + "</td><td>" + Vacuna1 + "</td><td>" + Vacuna2 + "</td><td>" + Observacion + "</td><td><a class='btn btn-danger fa fa-trash'href='#'></a></td></tr>";
                     $("#fila").html(contador + HTML);
-                    $("#IdCerda").val("");
+                    $("#IdCerda").val("..::Seleccione::..");
+                    $("#IdVarraco").val("..::Seleccione::..");
                     $("#FechaInceminacion").val("");
                     $("#FechaParto").val("");
                     $("#Vacuna1").val("");
