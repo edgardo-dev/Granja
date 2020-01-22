@@ -9,7 +9,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading text-center"><h4>CONTROL DE VARRACOS</h4></div>
         <div class="panel-body bg-gray">
-            <form action="@Url.Action("Create","Varracos")" method="post" id=""Validacion>
+            <form action="@Url.Action("Create","Varracos")" method="post" id="Validacion">
 
                 @using (Html.BeginForm())
                 {
@@ -82,13 +82,16 @@
     <script type="text/javascript">
         $("#Validacion").validate({
             rules: {
-                NumVarraco: {
-                    required: true
+                NumVarraco :{
+                    required: true,
+                    number: true
+
+
                 }
+
 
             }
         });
     </script>
-}
-
+    }
 

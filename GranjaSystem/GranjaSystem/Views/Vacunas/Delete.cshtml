@@ -4,61 +4,72 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+    <div class="row content container-fluid">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE VACUNAS</h4></div>
+            <div class="panel-body bg-gray">
+                <h5 class="alert alert-danger">¿Estas Seguro de Eliminar el Registro?</h5>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>tblVacunas</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Cerdas.Procedencia)
-        </dt>
+                <div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cerdas.Procedencia)
-        </dd>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Cerdas.Procedencia)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaRegistro)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Cerdas.Procedencia)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaRegistro)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaRegistro)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaInyeccion)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaRegistro)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaInyeccion)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaInyeccion)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Vacuna)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaInyeccion)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Vacuna)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Vacuna)
+                        </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Vacuna)
+                        </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Descripcion)
+                        </dt>
 
-    </dl>
+                        <dd>
+                            @Html.DisplayFor(model => model.Descripcion)
+                        </dd>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+                    </dl>
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+                            @Html.ActionLink("Atras", "Index" , null, new { @class = "btn btn-success" })
+                        </div>
+                    }
+                </div>
+
+
+            </div>
         </div>
-    }
-</div>
+      
+    </div>
+

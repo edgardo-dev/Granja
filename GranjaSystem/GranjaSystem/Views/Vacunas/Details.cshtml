@@ -4,55 +4,66 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+    <div class="row content container-fluid">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE VACUNAS</h4></div>
+            <div class="panel-body bg-gray">
+                <div>
 
-<div>
-    <h4>tblVacunas</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Cerdas.Procedencia)
-        </dt>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Cerdas.Procedencia)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cerdas.Procedencia)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Cerdas.Procedencia)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaRegistro)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaRegistro)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaRegistro)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaRegistro)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaInyeccion)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaInyeccion)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaInyeccion)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaInyeccion)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Vacuna)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Vacuna)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Vacuna)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Vacuna)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Descripcion)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Descripcion)
+                        </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdVacuna }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                    </dl>
+                </div>
+                <p>
+                    @Html.ActionLink("Modificar", "Edit", new { id = Model.IdVacuna }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Atras", "Index" , null, new { @class = "btn btn-success" })
+                </p>
+
+
+
+
+            </div>
+        </div>
+     
+    </div>
+

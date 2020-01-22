@@ -9,7 +9,7 @@
         <div class="panel-heading text-center"><h4>CONTROL DE CERDA</h4></div>
         <div class="panel-body bg-gray">
             
-            <form id="Validacion" action="@Url.Action("Edit","Cerdas")" method="post">
+            <form id="Validacion" action="" method="post">
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
@@ -39,6 +39,13 @@
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.Observaciones, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Observaciones, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.FechaRegistro, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FechaRegistro, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
+                            @Html.ValidationMessageFor(model => model.FechaRegistro, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
@@ -88,16 +95,19 @@
             rules: {
                 NumCerda: {
 
-                    required: true
+                    required: true,
+                    number: true
                 },
 
                 NumParto: {
-                    required: true
+                    required: true,
+                    number: true
 
                 },
                 FechaRegistro: {
                     required: true,
                     date: true
+                   
                 }
 
             }
