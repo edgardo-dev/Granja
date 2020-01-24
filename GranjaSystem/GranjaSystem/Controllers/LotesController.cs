@@ -35,31 +35,6 @@ namespace GranjaSystem.Content
             ViewBag.DLotes = db.DetalleLotes.Where(h => h.IdLote == id).Include(t => t.Varracos).Include(t => t.Cerdas).ToList();
             return View(tblLotes);
         }
-
-        // GET: Lotes/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Lotes/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdLote,NumLote,FechaRegistro,Estado")] tblLotes tblLotes)
-        {
-            if (ModelState.IsValid)
-            {
-                tblLotes.FechaRegistro = DateTime.Now;
-                db.Lotes.Add(tblLotes);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(tblLotes);
-        }
-
         // GET: Lotes/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -119,7 +94,7 @@ namespace GranjaSystem.Content
         [HttpGet]
         public ActionResult CargarLote()
         {
-            ViewBag.Cerda = db.Cerdas.Where(h => h.Estado == "Disponible");
+            ViewBag.Cerda = db.Cerdas.Where(h => h.Estado == "Vacia");
             ViewBag.Varraco = db.Varracos;
             ViewBag.Detalle = db.DetalleLotes.Where(h => h.IdLote == 12).Include(t => t.Varracos).Include(t => t.Cerdas).ToList();
 
@@ -131,7 +106,7 @@ namespace GranjaSystem.Content
             {
                 var Lotes = new tblLotes();
                 Lotes.NumLote = NumLote;
-                Lotes.Estado = "Iniciado";
+                Lotes.Estado = "En Proceso";
                 Lotes.FechaRegistro = DateTime.Now;
                 db.Lotes.Add(Lotes);
                 db.SaveChanges();
@@ -143,7 +118,7 @@ namespace GranjaSystem.Content
             }
         }
         [HttpPost]
-        public JsonResult CargarLote(int NumLote,int IdCerda,int IdVarraco,string FechaInceminacion,
+        public JsonResult CargarLote(int IdCerda,int IdVarraco,string FechaInceminacion,
             string FechaParto, string Vacuna1, string Vacuna2,string Observacion)
         {
             try
@@ -158,13 +133,13 @@ namespace GranjaSystem.Content
                 DLotes.Fvacuna1 = Vacuna1;
                 DLotes.Fvacuna2 = Vacuna2;
                 DLotes.Observaciones = Observacion;
-                DLotes.Estado = "Iniciado";
+                DLotes.Estado = "En Proceso";
                 DLotes.FechaRegistro = DateTime.Now;
                 
                 var Cerda = (from C in db.Cerdas
                                 where C.IdCerda == IdCerda
                                 select C).FirstOrDefault();
-                Cerda.Estado = "Proceso";
+                Cerda.Estado = "Inceminada";
                 db.Entry(Cerda).State = EntityState.Modified;
                 db.DetalleLotes.Add(DLotes);
                 db.SaveChanges();

@@ -1,12 +1,12 @@
 ﻿@model GranjaSystem.Models.tblLotes
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Cerdas del Lote N°"+ Html.DisplayFor(model => model.NumLote);
 }
 
     <div class="row content container-fluid">
         <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h4>CONTROL DE LOTES</h4></div>
+            <div class="panel-heading text-center"><h4>DATOS DEL LOTE</h4></div>
             <div class="panel-body bg-gray">
 
                 <div>
@@ -48,63 +48,58 @@
         
     </div>
     <div class="col-sm-12">
-        <div class="box box-primary">
-            <div class="box-header">
-                <h3 class="box-title">Cerdas del Lote</h3>
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CERDAS DEL LOTE</h4></div>
+            <div class="panel-body bg-gray">
+                    <!-- Date -->
+                    <table id="Tabla" class="table table-bordered table-responsive table-hover">
+                        <thead>
+                            <tr>
+                                <th>N° Cerda</th>
+                                <th>Fecha inceminación</th>
+                                <th>Posible Parto</th>
+                                <th>N° Varraco</th>
+                                <th>Vacuna Litter</th>
+                                <th>Vacuna Desparacitador Vitamina A</th>
+                                <th>Observación</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in ViewBag.DLotes)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.Cerdas.NumCerda
+                                    </td>
+                                    <td>
+                                        @item.FechaInseminacion
+                                    </td>
+                                    <td>
+                                        @item.FechaParto
+                                    </td>
+                                    <td>
+                                        @item.Varracos.NumVarraco
+                                    </td>
+                                    <td>
+                                        @item.Fvacuna1
+                                    </td>
+                                    <td>
+                                        @item.Fvacuna2
+                                    </td>
+                                    <td>
+                                        @item.Observaciones
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+
+                </div>
+                <!-- /.box-body -->
             </div>
-            <div class="box-body">
-                <!-- Date -->
-                <table id="Tabla" class="table table-bordered table-responsive">
-                    <thead>
-                        <tr>
-                            <td>N° Cerda</td>
-                            <td>Fecha inceminación</td>
-                            <td>Posible Parto</td>
-                            <td>N° Varraco</td>
-                            <td>Vacuna 1</td>
-                            <td>Vacuna 2</td>
-                            <td>Observación</td>
-                            <td>Estado</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in ViewBag.DLotes)
-                        {
-                        <tr>
-                            <td>
-                                @item.Cerdas.NumCerda
-                            </td>
-                            <td>
-                                @item.FechaInseminacion
-                            </td>
-                            <td>
-                                @item.FechaParto
-                            </td>
-                            <td>
-                                @item.Varracos.NumVarraco
-                            </td>
-                            <td>
-                                @item.Fvacuna1
-                            </td>
-                            <td>
-                                @item.Fvacuna2
-                            </td>
-                            <td>
-                                @item.Observaciones
-                            </td>
-                            <td>
-                                @item.Estado
-                            </td>
-
-                        </tr>
-                        }
-                    </tbody>
-
-                </table>
-
-            </div>
-            <!-- /.box-body -->
+            <!-- /.box -->
         </div>
-        <!-- /.box -->
-    </div>
 

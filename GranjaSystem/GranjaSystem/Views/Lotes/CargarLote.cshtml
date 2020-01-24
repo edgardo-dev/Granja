@@ -1,21 +1,21 @@
 ﻿
 @{
-    ViewBag.Title = "CargarLote";
+    ViewBag.Title = "Registro de Lotes";
 }
     
 <div class="row content container-fluid">
     @*<form action="" method="post" id="frmLotes">*@
     <div class="panel panel-primary">
-        <div class="panel-heading text-center"><h4>LOTE</h4></div>
+        <div class="panel-heading text-center"><h5>LOTE</h5></div>
         <div class="panel-body bg-gray">
             <div class="form-group">
                 <label class="control-label col-md-2">Número de Lote</label>
                 <div class="col-md-4">
                     <input class="form-control" type="number" name="NumLote" id="NumLote" value="" placeholder="Ingrese un Número" />
                 </div>
-                <label class="control-label col-md-2">Fecha Registro</label>
+                <label class="control-label col-md-2">Fecha Creación</label>
                 <div class="col-md-4">
-                    <input class="form-control" type="datetime" name="Fecha" id="Fecha" value="@DateTime.Now"  readonly/>
+                    <input class="form-control" type="date" name="Fecha" id="Fecha" value="" />
                 </div>
             </div>
         </div>
@@ -25,18 +25,18 @@
             <button  title="Procesar Fechas" onclick="calcular()" class="btn btn-warning"><i class="fa fa-calendar"></i></button>
         </div>
         <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h5>CERDAS DEL LOTE</h5></div>
+            <div class="panel-heading text-center"><h5> AGREGAR CERDAS AL LOTE</h5></div>
             <div class="panel-body bg-gray">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <div class="input-group">
 
                         <label class="">Varraco</label>
                         <select class="form-control" name="IdVarraco" id="IdVarraco">
-                            <option>..::Seleccione::..</option>
+                            <option value="" >..::Seleccione::..</option>
                             @{
                                 foreach (var item in ViewBag.Varraco)
                                 {
-                                    <option value="@item.IdVarraco">@item.NumVarraco</option>                                    
+                                    <option value="@item.IdVarraco">@item.NumVarraco</option>
                                 }
                             }
 
@@ -46,7 +46,7 @@
                     <div class="input-group">
                         <label class="">Cerda</label>
                         <select class="form-control" name="IdCerda" id="IdCerda">
-                            <option>..::Seleccione::..</option>
+                            <option value="" >..::Seleccione::..</option>
                             @{
                                 foreach (var item in ViewBag.Cerda)
                                 {
@@ -57,45 +57,51 @@
                         </select>
                     </div>
 
-                    </div>
+                </div>
 
-                    <div class="col-sm-4">
-                        <div class="input-group">
-                            <label>Inceminación</label>
-                            <input class="form-control" type="date" id="FechaInceminacion" name="FechaInceminacion" value=""  />
-                        </div>
-                        <br />
-                        <div class="input-group">
-                            <label>Posible Parto</label>
-                            <input class="form-control" type="date" id="FechaParto" name="FechaParto" value="" />
-                        </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <label>Inceminación</label>
+                        <input class="form-control" type="date" id="FechaInceminacion" name="FechaInceminacion" value="" />
                     </div>
-                    <div class="col-sm-3">
-                        <div class="input-group">
-                            <label>Vacuna Litter</label>
-                            <input class="form-control" type="date" id="Vacuna1" name="Vacuna1" value="" />
-                        </div>
-                        <br />
-                        <div class="input-group">
-                            <label>Vacuna Vitamina</label>
-                            <input class="form-control" type="date" id="Vacuna2" name="Vacuna2" value="" />
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="input-group">
-                            <label>Observación</label>
-                            <textarea class="form-control"id="Observacion" name="Observacion" rows="5" ></textarea>
-                            
-                        </div>
+                    <br />
+                    <div class="input-group">
+                        <label>Posible Parto</label>
+                        <input class="form-control" type="date" id="FechaParto" name="FechaParto" value="" />
                     </div>
                 </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <label>Vacuna Litter </label> 
+                        <input type="checkbox" name="cbPrimeriza" value="" />
+                        <input class="form-control" type="date" id="Vacuna1" name="Vacuna1" value="" />
+                    </div>
+                    <br />
+                    <div class="input-group">
+                        <label>Vacuna Vitamina</label>
+                        <input class="form-control" type="date" id="Vacuna2" name="Vacuna2" value="" />
+                    </div>
+                </div>
+                
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <label>Vacuna Litter</label>
+                        <input class="form-control" type="date" id="Vacunap" name="Vacunap" value="" />
+                    </div>
+                    <div class="input-group">
+                        <label>Observación</label>
+                        <textarea class="form-control" id="Observacion" name="Observacion" rows="2"></textarea>
+
+                    </div>
+                </div>
+            </div>
         </div>
         <div class=" col-sm-offset-8 col-sm-4" align="right">
             <button title="Guardar Lote" class="btn btn-success" name="btnGuardar" id="btnGuardar"> <i class="fa fa-save"></i></button>
             <a href="~/Lotes/" title="Cancelar" class="btn btn-danger"><i class="fa fa-times"></i></a>
         </div>
         <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h5>DETALLES DEL LOTE</h5></div>
+            <div class="panel-heading text-center">DETALLES DEL LOTE</div>
             <div class="panel-body bg-gray">
                 <!-- Date -->
                 <table id="TablaCL" class="table table-bordered table-responsive">
@@ -103,7 +109,7 @@
                         <tr>
                             <th>N° Cerda</th>
                             <th>N° Varraco</th>
-                            <th>Fecha inceminación</th>
+                            <th>Inceminación</th>
                             <th>Posible Parto</th>
                             <th>Vacuna 1</th>
                             <th>Vacuna 2</th>
@@ -122,11 +128,12 @@
                             <td></td>
                             <td></td>
                             <td></td>
-
+                            
                         </tr>
                     </tbody>
 
                 </table>
+                
             </div>
         </div>
     @*</form>*@
@@ -149,6 +156,7 @@
 }
 @section EnvioDatos{
     <script>
+       
         function calcular() {
             if ($("#FechaInceminacion").val() == "") {
                 alert("Por Favor Ingrese Fecha de Inceminación")
@@ -158,11 +166,13 @@
                 var fecha = new Date($('#FechaInceminacion').val());
                 var fecha2 = new Date($('#FechaInceminacion').val());
                 var fecha3 = new Date($('#FechaInceminacion').val());
+                var fechap = new Date($('#FechaInceminacion').val());
                 //dias a sumar
                 //nueva fecha sumada
                 fecha.setDate(fecha.getDate() + 115);
-                fecha2.setDate(fecha2.getDate() + 85);
+                fecha2.setDate(fecha2.getDate() + 84);
                 fecha3.setDate(fecha3.getDate() + 92);
+                fechap.setDate(fechap.getDate() + 100);
                 //formato de salida para la fecha
                 if ((fecha.getMonth() + 1) >= 10 && fecha.getDate() >= 10) {
                     var NFecha = fecha.getFullYear() + '-' + (fecha.getMonth() + 1) + '-' + fecha.getDate();
@@ -202,48 +212,26 @@
                 else if ((fecha3.getDate() <= 9)) {
                     var NFecha3 = fecha3.getFullYear() + '-' + (fecha3.getMonth() + 1) + '-' + '0' + fecha3.getDate();
                 }
-                
-
-                //if ((fecha2.getMonth() + 1) >= 10 && fecha2.getDate() >= 10) {
-                //    var NFecha2 = fecha2.getFullYear() + '-' + (fecha2.getMonth() + 1) + '-' + fecha2.getDate();
-                //}
-                //else if (fecha2.getDate() <= 9) {
-                //    var NFecha2 = fecha2.getFullYear() + '-' + (fecha2.getMonth() + 1) + '-' + '0' + fecha2.getDate();
-                //}
-                //    else if ((fecha2.getMonth() + 1) <= 9) {
-                //    var NFecha2 = fecha2.getFullYear() + '-' + '0' + (fecha2.getMonth() + 1) + '-' + fecha2.getDate();
-                //}
-                //else {
-                //    var NFecha2 = fecha2.getFullYear() + '-' + '0' + (fecha2.getMonth() + 1) + '-' + '0' + fecha2.getDate();
-                //}
-
-                //if ((fecha3.getMonth() + 1) >= 10 && fecha3.getDate() >= 10) {
-                //    var NFecha3 = fecha3.getFullYear() + '-' + (fecha3.getMonth() + 1) + '-' + fecha3.getDate();
-                //}
-                //else if (fecha3.getDate() <= 9) {
-                //    var NFecha3 = fecha3.getFullYear() + '-' + (fecha3.getMonth() + 1) + '-' + '0' + fecha3.getDate();
-                //}
-                //else if ((fecha3.getMonth() + 1) <= 9) {
-                //    var NFecha3 = fecha3.getFullYear() + '-' + '0' + (fecha3.getMonth() + 1) + '-' + fecha3.getDate();
-                //}
-                //else {
-                //    var NFecha3 = fecha3.getFullYear() + '-' + '0' + (fecha3.getMonth() + 1) + '-' + '0' + fecha3.getDate();
-                //}       
+                //////////////////////////////////////////////
+                if ((fechap.getMonth() + 1) >= 10 && fechap.getDate() >= 10) {
+                    var NFechap = fechap.getFullYear() + '-' + (fechap.getMonth() + 1) + '-' + fechap.getDate();
+                }
+                else if (fechap.getDate() <= 9 && (fechap.getMonth() + 1) <= 9) {
+                    var NFechap = fechap.getFullYear() + '-' + '0' + (fechap.getMonth() + 1) + '-' + '0' + fechap.getDate();
+                }
+                else if ((fechap.getMonth() + 1) <= 9) {
+                    var NFechap = fechap.getFullYear() + '-' + '0' + (fechap.getMonth() + 1) + '-' + fechap.getDate();
+                }
+                else if ((fechap.getDate() <= 9)) {
+                    var NFechap = fechap.getFullYear() + '-' + (fechap.getMonth() + 1) + '-' + '0' + fechap.getDate();
+                }
+                      
 
                 $("#FechaParto").val(NFecha);
                 $("#Vacuna1").val(NFecha2);
                 $("#Vacuna2").val(NFecha3);
-                //fecha.setDate(fecha.getDate() + diasp);
-                //console.info(fecha)
-                //nueva fecha sumada parto
-                //TuFecha.setDate(TuFecha.getDate() + diasp);
-                //$("#FechaParto").val(TuFecha);
-                ////nueva fecha sumada VAcuna 1
-                //TuFecha.setDate(TuFecha.getDate() + diasv1);
-                //$("#Vacuna1").val(TuFecha);
-                ////nueva fecha sumada parto
-                //TuFecha.setDate(TuFecha.getDate() + diasv2);
-                //$("#Vacuna2").val(TuFecha);
+                $("#Vacunap").val(NFechap);
+
 
             }
         }
@@ -270,28 +258,94 @@
                 var Vacuna1 = $("#Vacuna1").val();
                 var Vacuna2 = $("#Vacuna2").val();
                 var Observacion = $("#Observacion").val();
-                if (NumLote == " " || IdCerda == "" || IdVarraco == "") {
-                    alert("Faltan Datos");
+                if (NumLote == "" || IdCerda == "" || IdVarraco == "" || FechaInceminacion == "") {
+                    alert("Por Favor Verifique Los Datos Faltantes");
 
                 }
+                else if (FechaParto == "") {
+                    calcular();
+                }
                 else {
-
+                    
                     var contador = $("#fila").html();
                     //precio = Number(precio).toFixed(2);
                     //var tr = $(this).parents("tr").appendTo("#tabla tbody");
-                    var HTML = "<tr><td hidden>" + IdCerda + "</td><td hidden>" + IdVarraco + "</td><td>" + NCerda + "</td><td>" + NVarraco + "</td><td>" + FechaInceminacion + "</td><td>" + FechaParto + "</td><td>" + Vacuna1 + "</td><td>" + Vacuna2 + "</td><td>" + Observacion + "</td><td><a class='btn btn-danger fa fa-trash'href='#'></a></td></tr>";
+                    var HTML = "<tr><td class= id hidden>" + IdCerda + "</td><td hidden>" + IdVarraco + "</td><td>" + NCerda + "</td><td>" + NVarraco + "</td><td>" + FechaInceminacion + "</td><td>" + FechaParto + "</td><td>" + Vacuna1 + "</td><td>" + Vacuna2 + "</td><td>" + Observacion + "</td><td><button id='btnDel' class='btn btn-danger'>Quitar</button></td></tr>";
                     $("#fila").html(contador + HTML);
-                    $("#IdCerda").val("..::Seleccione::..");
-                    $("#IdVarraco").val("..::Seleccione::..");
+                    $("#IdCerda").val("");
+                    $("#IdVarraco").val("");
                     $("#FechaInceminacion").val("");
                     $("#FechaParto").val("");
                     $("#Vacuna1").val("");
                     $("#Vacuna2").val("");
+                    $("#Vacunap").val("");
                     $("#Observacion").val("");
 
                 }
             });
+            //EliminarCerda
 
+        });
+
+        $("body").on('click', 'button#btnDel', function () {
+            var col = $(this).parents('tr');
+            $(this).parents('tr').remove();
+        });
+ 
+       
+               //enviar factura
+        $("#btnGuardar").click(function () {
+            var NumLote = $("#NumLote").val();
+            var Fecha = $("#Fecha").val();
+            if (NumLote == "" || Fecha == "") {
+                Swal.fire({
+                    position: 'top',
+                    type: 'warning',
+                    title: 'Faltan Datos Del LOTE.',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+            else {
+                $.ajaxSetup({ async: false });
+                //cargando datos tabla primaria
+                var urlLote = '@Url.Action("CrearLote", "Lotes")';
+                var dataLote = { NumLote: NumLote,Fecha: Fecha};
+                    $.post(urlLote, dataLote)
+                        .done(function (data) {
+                            // alert("Compra Creada con exito")
+                        })
+                        .fail(function (data) {
+                            console.log("Error: " + data.responseText);
+                        }).
+                        always(function () {
+                        });
+            //creando detalleCompra
+            $(".id").parent("tr").find("td:eq(0)").each(function () {
+                var columna = $(this).parents('tr');
+                var IdCerda = columna.find("td:eq(0)").text();
+                var IdVarraco = columna.find("td:eq(1)").text();
+                var FechaInceminacion = columna.find("td:eq(4)").text();
+                var FechaParto = columna.find("td:eq(5)").text();
+                var Vacuna1 = columna.find("td:eq(6)").text();
+                var Vacuna2 = columna.find("td:eq(7)").text();
+                var Observacion = columna.find("td:eq(8)").text();
+                var urlDLote = '@Url.Action("CargarLote", "Lotes")';
+                var dataDLote = { IdCerda: IdCerda, IdVarraco: IdVarraco, FechaInceminacion: FechaInceminacion, FechaParto: FechaParto, Vacuna1: Vacuna1, Vacuna2: Vacuna2, Observacion: Observacion };
+                alert(IdCerda + IdVarraco + FechaInceminacion + FechaParto + Vacuna1 + Vacuna2 + Observacion);
+                $.post(urlDLote, dataDLote)
+                    .done(function (data) {
+                    })
+                    .fail(function (data) {
+                        console.log("Error: " + data.responseText);
+                    }).
+                    always(function () {
+                    });
+
+            });
+                var url = '@Url.Action("Index", "Lotes")';
+                $(location).attr('href', url);
+            }
         });
     </script>
 }
