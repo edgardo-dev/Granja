@@ -40,8 +40,16 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Nombre del Partero</label>
                                         <div class="col-md-9">
-                                            @Html.DropDownList("IdEmpleado", null, htmlAttributes: new { @class = "form-control" })
-                                            @Html.ValidationMessageFor(model => model.IdEmpleado, "", new { @class = "text-danger" })
+                                            <select id="Select" class="form-control">
+                                                <option value="">Seleccionar</option>
+                                                @{
+                                                foreach (var item in ViewBag.IdEmpleado)
+                                                {
+                                                   <option value="@item.IdEmpleado">@item.NombreEmpleado</option>
+                                                }
+                                                }
+                                            </select>
+
                                         </div>
                                     </div>
 
@@ -176,12 +184,6 @@
     <script type="text/javascript">
         $("#Validacion").validate({
             rules: {
-                NumParto: {
-                    required: true,
-                    number: true
-
-                },
-
                 FechaServio: {
                     required: true,
                     date: true
@@ -190,40 +192,14 @@
                     required: true,
                     date: true
                 },
-                NacidosVivos: {
-                    required: true,
-                    number: true
-
-                },
-                NacidosMuertos: {
-                    required: true,
-                    number: true
-
-                },
-                NacidosMomias: {
-                    required: true,
-                    number : true
-                },
-                TotalNacidos: {
-                    required: true,
-                    number : true
-                },
-                PesoPromedio1D: {
-                    required: true
-                },
-                NumDestetado: {
-                    required: true,
-                    number: true
-
-                },
-                PesoPromedio28D: {
-                    required: true
-                    
-                },
                 FechaDestete: {
                     required: true,
                     date: true
                 }
+               
+                
+               
+             
 
             }
         });

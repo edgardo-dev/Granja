@@ -39,7 +39,7 @@ namespace GranjaSystem.Controllers
         // GET: Fichas/Create
         public ActionResult Create()
         {
-            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado");
+            ViewBag.IdEmpleado = db.Empleados;
             ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco");
             ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda");
             return View();
