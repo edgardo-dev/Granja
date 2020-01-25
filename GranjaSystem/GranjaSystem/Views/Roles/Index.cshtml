@@ -11,7 +11,7 @@
         <div class="panel panel-primary">
             <div class="panel-heading text-center"><h4>CONTROL DE ROLES</h4></div>
             <div class="panel-body bg-gray">
-                <table class="table table-bordered table-hover">
+                <table id="Tabla" class="table table-bordered table-hover text-center">
                     <tr>
                         <th>
                             @Html.DisplayNameFor(model => model.Rol)
@@ -19,7 +19,7 @@
                         <th>
                             @Html.DisplayNameFor(model => model.Descripcion)
                         </th>
-                        <th>Acciones</th>
+                        <th><i class="fa fa-gear"></i> </th>
                     </tr>
 
                     @foreach (var item in Model)

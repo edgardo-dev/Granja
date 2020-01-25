@@ -12,7 +12,7 @@
         <div class="panel panel-primary">
             <div class="panel-heading text-center"><h4>GENETICA</h4></div>
             <div class="panel-body bg-gray">
-                <table id="Tabla" class="table table-bordered table-hover">
+                <table id="Tabla" class="table table-bordered table-hover text-center">
                     <thead>
                         <tr>
                             <th>
@@ -21,10 +21,10 @@
                             <th>
                                 Observación
                             </th>
-                            <th>Acciones</th>
+                            <th><i class="fa fa-gear"></i> </th>
                         </tr>
                     </thead>
-                    
+
                     <tbody>
                         @foreach (var item in Model)
                         {
@@ -43,7 +43,7 @@
                             </tr>
                         }
                     </tbody>
-                    
+
                 </table>
             </div>
         </div>
