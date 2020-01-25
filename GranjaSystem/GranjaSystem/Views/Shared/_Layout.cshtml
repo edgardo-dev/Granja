@@ -207,19 +207,6 @@
                     </li>
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-archive"></i>
-                            <span>Fichas</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Fichas")"><i class="fa fa-search"></i> Control de Fichas</a></li>
-                            <li><a href="@Url.Action("Create","Fichas")"><i class="fa fa-plus"></i>Agregar Fichas</a></li>s
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
                             <i class="fa fa-object-group"></i> <span>Lotes</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -230,6 +217,19 @@
                             @*<li><a href="@Url.Action("Create","Lotes")"><i class="fa fa-plus"></i>Agregar Lote</a></li>*@
                             <li><a href="@Url.Action("CargarLote","Lotes")"><i class="fa fa-plus"></i>Agregar Lote</a></li>
                             <li><a href="@Url.Action("Index","DetalleLotes")"><i class="fa fa-list-ol"></i>Detalles Lotes</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-archive"></i>
+                            <span>Fichas</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("Index","Fichas")"><i class="fa fa-search"></i> Control de Fichas</a></li>
+                            <li><a href="@Url.Action("Create","Fichas")"><i class="fa fa-plus"></i>Agregar Fichas</a></li>s
                         </ul>
                     </li>
                     <li class="treeview">
@@ -260,19 +260,19 @@
                         if (Convert.ToString(Session["Rol"]) == "Administrador")
                         {
                             @*<li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-file-pdf-o"></i> <span>Reportes</span>
-                                        <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li><a href="#"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
-                                        <li><a href="#"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
-                                        <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
-                                        <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
-                                    </ul>
-                                </li>*@
+                    <a href="#">
+                        <i class="fa fa-file-pdf-o"></i> <span>Reportes</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="#"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
+                        <li><a href="#"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
+                        <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
+                        <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
+                    </ul>
+                </li>*@
                             <li class="treeview">
                                 <a href="#">
                                     <i class="fa fa-vcard"></i>
