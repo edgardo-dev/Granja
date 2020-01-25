@@ -332,7 +332,7 @@
                 var Observacion = columna.find("td:eq(8)").text();
                 var urlDLote = '@Url.Action("CargarLote", "Lotes")';
                 var dataDLote = { IdCerda: IdCerda, IdVarraco: IdVarraco, FechaInceminacion: FechaInceminacion, FechaParto: FechaParto, Vacuna1: Vacuna1, Vacuna2: Vacuna2, Observacion: Observacion };
-                alert(IdCerda + IdVarraco + FechaInceminacion + FechaParto + Vacuna1 + Vacuna2 + Observacion);
+                //alert(IdCerda + IdVarraco + FechaInceminacion + FechaParto + Vacuna1 + Vacuna2 + Observacion);
                 $.post(urlDLote, dataDLote)
                     .done(function (data) {
                     })

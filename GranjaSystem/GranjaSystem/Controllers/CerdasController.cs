@@ -53,7 +53,7 @@ namespace GranjaSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                tblCerdas.Estado = "Vacia";
+                tblCerdas.Estado = "Vacía";
                 tblCerdas.NumParto = 0;
                 tblCerdas.FechaRegistro = DateTime.Now;
                 db.Cerdas.Add(tblCerdas);

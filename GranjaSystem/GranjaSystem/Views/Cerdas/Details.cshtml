@@ -1,7 +1,7 @@
 ﻿@model GranjaSystem.Models.tblCerdas
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Ficha de Cerda N° " + Html.DisplayFor(model => model.NumCerda);
 }
 
 <div class="row content container-fluid">
@@ -9,8 +9,6 @@
         <div class="panel-heading text-center"><h4>CONTROL DE CERDA</h4></div>
         <div class="panel-body bg-gray">
             <div>
-
-                <hr />
                 <dl class="dl-horizontal">
                     <dt>
                         @Html.DisplayNameFor(model => model.Genetica.Genetica)
@@ -87,13 +85,14 @@
         <div class="panel-body  table-responsive-lg bg-gray">
             <div class="pre-scrollable">
                 <table id="Tabla" class="table table-bordered table-hover">
-
                     <thead>
                         <tr>
-
-                            <th>
-                                Num Cerda
-                            </th>
+                            <th>Cerda:</th>
+                            <td>@Html.DisplayFor(model => model.NumCerda)</td>
+                            <th>Genética:</th>
+                            <td>@Html.DisplayFor(model => model.Genetica.Genetica)</td>
+                        </tr>
+                        <tr>
                             <th>
                                 Num Parto
                             </th>
@@ -134,57 +133,54 @@
                                 Partero
                             </th>
                         </tr>
-                    <thead>
+<thead>
                     <tbody>
 
                         @foreach (var item in ViewBag.FichasC)
                         {
-                        <tr>
-                            <td>
-                                @item.Cerdas.NumCerda
-                            </td>
-                            <td>
-                                @item.NumParto
-                            </td>
-                            <td>
-                                @item.Varracos.NumVarraco
-                            </td>
+                            <tr>
+                                <td>
+                                    @item.NumParto
+                                </td>
+                                <td>
+                                    @item.Varracos.NumVarraco
+                                </td>
 
-                            <td>
-                                @item.FechaServio
-                            </td>
-                            <td>
-                                @item.FechaParto
-                            </td>
-                            <td>
-                                @item.NacidosVivos
-                            </td>
-                            <td>
-                                @item.NacidosMuertos
-                            </td>
-                            <td>
-                                @item.NacidosMomias
-                            </td>
-                            <td>
-                                @item.TotalNacidos
-                            </td>
-                            <td>
-                                @item.PesoPromedio1D Lb
-                            </td>
-                            <td>
-                                @item.NumDestetado
-                            </td>
-                            <td>
-                                @item.PesoPromedio28D Lb
-                            </td>
-                            <td>
-                                @item.FechaDestete
-                            </td>
-                            <td>
-                                @item.Empleados.NombreEmpleado
-                            </td>
+                                <td>
+                                    @item.FechaServio
+                                </td>
+                                <td>
+                                    @item.FechaParto
+                                </td>
+                                <td>
+                                    @item.NacidosVivos
+                                </td>
+                                <td>
+                                    @item.NacidosMuertos
+                                </td>
+                                <td>
+                                    @item.NacidosMomias
+                                </td>
+                                <td>
+                                    @item.TotalNacidos
+                                </td>
+                                <td>
+                                    @item.PesoPromedio1D Lb
+                                </td>
+                                <td>
+                                    @item.NumDestetado
+                                </td>
+                                <td>
+                                    @item.PesoPromedio28D Lb
+                                </td>
+                                <td>
+                                    @item.FechaDestete
+                                </td>
+                                <td>
+                                    @item.Empleados.NombreEmpleado
+                                </td>
 
-                        </tr>
+                            </tr>
                         }
                     </tbody>
                 </table>

@@ -39,7 +39,7 @@ namespace GranjaSystem.Controllers
         // GET: Fichas/Create
         public ActionResult Create()
         {
-            ViewBag.IdEmpleado = db.Empleados;
+            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado");
             ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco");
             ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda");
             return View();
@@ -55,6 +55,12 @@ namespace GranjaSystem.Controllers
             if (ModelState.IsValid)
             {
                 tblFichas.TotalNacidos = tblFichas.NacidosVivos + tblFichas.NacidosMuertos + tblFichas.NacidosMomias;
+                var Cerda = (from C in db.Cerdas
+                             where C.IdCerda == tblFichas.IdCerda
+                             select C).FirstOrDefault();
+                Cerda.NumParto = Cerda.NumParto+1;
+                tblFichas.NumParto = Cerda.NumParto;
+                db.Entry(Cerda).State = EntityState.Modified;
                 db.Fichas.Add(tblFichas);
                 db.SaveChanges();
                 return RedirectToAction("Index");

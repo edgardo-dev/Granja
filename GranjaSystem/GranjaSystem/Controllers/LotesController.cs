@@ -94,7 +94,7 @@ namespace GranjaSystem.Content
         [HttpGet]
         public ActionResult CargarLote()
         {
-            ViewBag.Cerda = db.Cerdas.Where(h => h.Estado == "Vacia");
+            ViewBag.Cerda = db.Cerdas.Where(h => h.Estado == "Vacía");
             ViewBag.Varraco = db.Varracos;
             ViewBag.Detalle = db.DetalleLotes.Where(h => h.IdLote == 12).Include(t => t.Varracos).Include(t => t.Cerdas).ToList();
 

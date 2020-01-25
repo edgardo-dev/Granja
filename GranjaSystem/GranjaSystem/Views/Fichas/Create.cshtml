@@ -39,18 +39,10 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Nombre del Partero</label>
-                                        <div class="col-md-9">
-                                            <select id="Select" class="form-control">
-                                                <option value="">Seleccionar</option>
-                                                @{
-                                                foreach (var item in ViewBag.IdEmpleado)
-                                                {
-                                                   <option value="@item.IdEmpleado">@item.NombreEmpleado</option>
-                                                }
-                                                }
-                                            </select>
-
-                                        </div>
+                                            <div class="col-md-10">
+                                                @Html.DropDownList("IdEmpleado", null, htmlAttributes: new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.IdEmpleado, "", new { @class = "text-danger" })
+                                            </div>
                                     </div>
 
                                 </div>
@@ -96,13 +88,6 @@
                                     <h3 class="box-title">Cantidades</h3>
                                 </div>
                                 <div class="box-body">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">N° Parto</label>
-                                        <div class="col-md-9">
-                                            @Html.EditorFor(model => model.NumParto, new { htmlAttributes = new { @class = "form-control" } })
-                                            @Html.ValidationMessageFor(model => model.NumParto, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">N° Vivos</label>
                                         <div class="col-md-9">
