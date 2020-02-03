@@ -21,7 +21,7 @@
                         @Html.HiddenFor(model => model.IdLote)
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.NumLote, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <Label class = "control-label col-md-2">Lote</Label>
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.NumLote, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.NumLote, "", new { @class = "text-danger" })
@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.FechaRegistro, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <label class = "control-label col-md-2">Fecha Registro</label>
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.FechaRegistro, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
                                 @Html.ValidationMessageFor(model => model.FechaRegistro, "", new { @class = "text-danger" })
