@@ -874,3 +874,4 @@ C:\Users\Ingrid Solórzano\source\repos\Granja3\Granja\GranjaSystem\GranjaSystem
 C:\Users\Ingrid Solórzano\source\repos\Granja3\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csproj.CopyComplete
 C:\Users\Ingrid Solórzano\source\repos\Granja3\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.dll
 C:\Users\Ingrid Solórzano\source\repos\Granja3\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.pdb
+C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.campovacuna3.resources

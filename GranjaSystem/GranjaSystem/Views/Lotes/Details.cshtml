@@ -60,7 +60,8 @@
                                 <th>Posible Parto</th>
                                 <th>N° Varraco</th>
                                 <th>Vacuna Litter</th>
-                                <th>Vacuna Desparacitador Vitamina A</th>
+                                <th>Vacuna Litter P</th>
+                                <th>Vacuna D Vitamina A</th>
                                 <th>Observación</th>
 
                             </tr>
@@ -68,30 +69,33 @@
                         <tbody>
                             @foreach (var item in ViewBag.DLotes)
                             {
-                                <tr>
-                                    <td>
-                                        @item.Cerdas.NumCerda
-                                    </td>
-                                    <td>
-                                        @item.FechaInseminacion
-                                    </td>
-                                    <td>
-                                        @item.FechaParto
-                                    </td>
-                                    <td>
-                                        @item.Varracos.NumVarraco
-                                    </td>
-                                    <td>
-                                        @item.Fvacuna1
-                                    </td>
-                                    <td>
-                                        @item.Fvacuna2
-                                    </td>
-                                    <td>
-                                        @item.Observaciones
-                                    </td>
+                            <tr>
+                                <td>
+                                    @item.Cerdas.NumCerda
+                                </td>
+                                <td>
+                                    @item.FechaInseminacion
+                                </td>
+                                <td>
+                                    @item.FechaParto
+                                </td>
+                                <td>
+                                    @item.Varracos.NumVarraco
+                                </td>
+                                <td>
+                                    @item.Fvacuna1
+                                </td>
+                                <td>
+                                    @item.Fvacuna2
+                                </td>
+                                <td>
+                                    @item.Fvacuna15
+                                </td>
+                                <td>
+                                    @item.Observaciones
+                                </td>
 
-                                </tr>
+                            </tr>
                             }
                         </tbody>
 

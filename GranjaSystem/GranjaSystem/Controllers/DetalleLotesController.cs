@@ -15,9 +15,10 @@ namespace GranjaSystem.Controllers
         private Contexto db = new Contexto();
 
         // GET: DetalleLotes
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
-            var detalleLotes = db.DetalleLotes.Include(t => t.Lotes).Include(t => t.Varracos).Include(t => t.Cerdas);
+            ViewBag.id = id;
+            var detalleLotes = db.DetalleLotes.Where(L => L.IdLote== id).Include(t => t.Lotes).Include(t => t.Varracos).Include(t => t.Cerdas);
             return View(detalleLotes.ToList());
         }
 

@@ -4,49 +4,56 @@
     ViewBag.Title = "Control de Lotes";
 }
 
-
-
     <div class="row content container-fluid">
-        <p>
-            @Html.ActionLink(" Agregar", "CargarLote","Lotes", null, new { @class = "fa fa-plus btn btn-primary" })
-        </p>
+        <div class="col-sm-offset-8 col-sm-4" align="right">
+            <form action="@Url.Action("Delete","Lotes",new {id=ViewBag.id})" method="post">
+                <button type="submit" title="Eliminar Lote" class="btn btn-danger" name="btnAgregar" id="btnAgregar"><i class="fa fa-trash"></i></button>
+            </form>
+
+        </div>
         <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h4>CONTROL DETALLE DE LOTES </h4></div>
+            <div class="panel-heading text-center"><h4>CERDAS DEL LOTES </h4></div>
             <div class="panel-body bg-gray">
                 <table id="Tabla" class="table table-bordered table-hover text-center">
-                    <tr>
-                        <th>
-                            Cerda
-                        </th>
-                        <th>
-                            Fecha Inseminacion
-                        </th>
-                        <th>
-                            Fecha Parto
-                        </th>
-                        <th>
-                            Varraco
-                        </th>
-                        <th>
-                            Vacuna Litter
-                        </th>
-                        <th>
-                            Vacuna Desparacitador VitaminaA
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Observaciones)
-                        </th>
-                        <th>
-                            Fecha Registro
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Estado)
-                        </th>
-                        <th><i class="fa fa-gear"></i> </th>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>
+                                Cerda
+                            </th>
+                            <th>
+                                Fecha Inseminacion
+                            </th>
+                            <th>
+                                Fecha Parto
+                            </th>
+                            <th>
+                                Varraco
+                            </th>
+                            <th>
+                                Vacuna Litter
+                            </th>
+                            <th>
+                                Vacuna Litter P
+                            </th>
+                            <th>
+                                Vacuna D VitaminaA
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Observaciones)
+                            </th>
+                            <th>
+                                Fecha Registro
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Estado)
+                            </th>
+                            <th><i class="fa fa-gear"></i> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                    @foreach (var item in Model)
-                    {
+                        @foreach (var item in Model)
+                        {
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Cerdas.NumCerda)
@@ -64,6 +71,9 @@
                                 @Html.DisplayFor(modelItem => item.Fvacuna1)
                             </td>
                             <td>
+                                @Html.DisplayFor(modelItem => item.Fvacuna15)
+                            </td>
+                            <td>
                                 @Html.DisplayFor(modelItem => item.Fvacuna2)
                             </td>
                             <td>
@@ -76,12 +86,13 @@
                                 @Html.DisplayFor(modelItem => item.Estado)
                             </td>
                             <td>
-                                @Html.ActionLink(" ", "Edit", new { id = item.IdDLote }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
+                                @*@Html.ActionLink(" ", "Edit", new { id = item.IdDLote }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })*@
                                 @Html.ActionLink(" ", "Details", new { id = item.IdDLote }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
                                 @Html.ActionLink(" ", "Delete", new { id = item.IdDLote }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
                             </td>
                         </tr>
-                    }
+                        }
+                    </tbody>
 
                 </table>
             </div>

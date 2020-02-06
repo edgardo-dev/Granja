@@ -73,7 +73,6 @@
                 <div class="col-sm-3">
                     <div class="input-group">
                         <label>Vacuna Litter </label> 
-                        <input type="checkbox" name="cbPrimeriza" value="" />
                         <input class="form-control" type="date" id="Vacuna1" name="Vacuna1" value="" />
                     </div>
                     <br />
@@ -85,7 +84,7 @@
                 
                 <div class="col-sm-3">
                     <div class="input-group">
-                        <label>Vacuna Litter</label>
+                        <label>Vacuna Primerisa</label>
                         <input class="form-control" type="date" id="Vacunap" name="Vacunap" value="" />
                     </div>
                     <div class="input-group">
@@ -111,8 +110,9 @@
                             <th>N° Varraco</th>
                             <th>Inceminación</th>
                             <th>Posible Parto</th>
-                            <th>Vacuna 1</th>
-                            <th>Vacuna 2</th>
+                            <th>Litler</th>
+                            
+                            <th>Vitamina</th>
                             <th>Observación</th>
                             <th>Acciones</th>
                         </tr>
@@ -256,6 +256,7 @@
                 var FechaInceminacion = $("#FechaInceminacion").val();
                 var FechaParto = $("#FechaParto").val();
                 var Vacuna1 = $("#Vacuna1").val();
+                var Vacunap = $("#Vacunap").val();
                 var Vacuna2 = $("#Vacuna2").val();
                 var Observacion = $("#Observacion").val();
                 if (NumLote == "" || IdCerda == "" || IdVarraco == "" || FechaInceminacion == "") {
@@ -271,7 +272,7 @@
                     var contador = $("#fila").html();
                     //precio = Number(precio).toFixed(2);
                     //var tr = $(this).parents("tr").appendTo("#tabla tbody");
-                    var HTML = "<tr><td class= id hidden>" + IdCerda + "</td><td hidden>" + IdVarraco + "</td><td>" + NCerda + "</td><td>" + NVarraco + "</td><td>" + FechaInceminacion + "</td><td>" + FechaParto + "</td><td>" + Vacuna1 + "</td><td>" + Vacuna2 + "</td><td>" + Observacion + "</td><td><button id='btnDel' class='btn btn-danger'>Quitar</button></td></tr>";
+                    var HTML = "<tr><td class= id hidden>" + IdCerda + "</td><td hidden>" + IdVarraco + "</td><td>" + NCerda + "</td><td>" + NVarraco + "</td><td>" + FechaInceminacion + "</td><td>" + FechaParto + "</td><td>" + Vacuna1 + "</td><td hidden>" + Vacunap + "</td><td>" + Vacuna2 + "</td><td>" + Observacion + "</td><td><button id='btnDel' class='btn btn-danger'>Quitar</button></td></tr>";
                     $("#fila").html(contador + HTML);
                     $("#IdCerda").val("");
                     $("#IdVarraco").val("");
@@ -329,10 +330,11 @@
                 var FechaInceminacion = columna.find("td:eq(4)").text();
                 var FechaParto = columna.find("td:eq(5)").text();
                 var Vacuna1 = columna.find("td:eq(6)").text();
-                var Vacuna2 = columna.find("td:eq(7)").text();
-                var Observacion = columna.find("td:eq(8)").text();
+                var Vacunap = columna.find("td:eq(7)").text();
+                var Vacuna2 = columna.find("td:eq(8)").text();
+                var Observacion = columna.find("td:eq(9)").text();
                 var urlDLote = '@Url.Action("CargarLote", "Lotes")';
-                var dataDLote = { IdCerda: IdCerda, IdVarraco: IdVarraco, FechaInceminacion: FechaInceminacion, FechaParto: FechaParto, Vacuna1: Vacuna1, Vacuna2: Vacuna2, Observacion: Observacion };
+                var dataDLote = { IdCerda: IdCerda, IdVarraco: IdVarraco, FechaInceminacion: FechaInceminacion, FechaParto: FechaParto, Vacuna1: Vacuna1,Vacunap: Vacunap, Vacuna2: Vacuna2, Observacion: Observacion };
                 //alert(IdCerda + IdVarraco + FechaInceminacion + FechaParto + Vacuna1 + Vacuna2 + Observacion);
                 $.post(urlDLote, dataDLote)
                     .done(function (data) {

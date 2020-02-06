@@ -87,6 +87,21 @@ namespace GranjaSystem.Content
         public ActionResult DeleteConfirmed(int id)
         {
             tblLotes tblLotes = db.Lotes.Find(id);
+            var CDL = (from C in db.DetalleLotes
+                          where C.IdLote == id
+                          select C).Count();
+            for (int i = 0; i < CDL; i++)
+            {
+                var DCerda = (from C in db.DetalleLotes
+                              where C.IdLote == id
+                              select C.IdCerda).FirstOrDefault();
+                var ECerda = (from C in db.Cerdas
+                              where C.IdCerda == DCerda
+                              select C).FirstOrDefault();
+                ECerda.Estado = "Vacía";
+                db.Entry(ECerda).State = EntityState.Modified;
+            }
+            
             db.Lotes.Remove(tblLotes);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -119,7 +134,7 @@ namespace GranjaSystem.Content
         }
         [HttpPost]
         public JsonResult CargarLote(int IdCerda,int IdVarraco,string FechaInceminacion,
-            string FechaParto, string Vacuna1, string Vacuna2,string Observacion)
+            string FechaParto, string Vacuna1, string Vacunap, string Vacuna2,string Observacion)
         {
             try
             {
@@ -131,14 +146,18 @@ namespace GranjaSystem.Content
                 DLotes.FechaInseminacion = FechaInceminacion;
                 DLotes.FechaParto = FechaParto;
                 DLotes.Fvacuna1 = Vacuna1;
+                var Cerda = db.Cerdas.Where(C => C.IdCerda == IdCerda).FirstOrDefault();
+                if(Cerda.NumParto == 0)
+                {
+                    DLotes.Fvacuna15 = Vacunap;
+                }else
+                {
+                    DLotes.Fvacuna15 = "No Aplica";
+                }
                 DLotes.Fvacuna2 = Vacuna2;
                 DLotes.Observaciones = Observacion;
                 DLotes.Estado = "En Proceso";
                 DLotes.FechaRegistro = DateTime.Now;
-                
-                var Cerda = (from C in db.Cerdas
-                                where C.IdCerda == IdCerda
-                                select C).FirstOrDefault();
                 Cerda.Estado = "Inceminada";
                 db.Entry(Cerda).State = EntityState.Modified;
                 db.DetalleLotes.Add(DLotes);

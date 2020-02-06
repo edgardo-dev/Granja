@@ -2883,6 +2883,10 @@
     <Compile Include="Migrations\202001170439513_tblfichas.designer.cs">
       <DependentUpon>202001170439513_tblfichas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002060247035_campovacuna3.cs" />
+    <Compile Include="Migrations\202002060247035_campovacuna3.designer.cs">
+      <DependentUpon>202002060247035_campovacuna3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\tblCerdas.cs" />
@@ -3360,6 +3364,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001170439513_tblfichas.resx">
       <DependentUpon>202001170439513_tblfichas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002060247035_campovacuna3.resx">
+      <DependentUpon>202002060247035_campovacuna3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
