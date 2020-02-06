@@ -784,7 +784,6 @@ C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\bin\es\S
 C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Webpages.Razor.resources.dll
 C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Helpers.resources.dll
 C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Mvc.resources.dll
-C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csprojAssemblyReference.cache
 C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.BasePorcina.resources
 C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csproj.GenerateResource.cache
 C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csproj.CoreCompileInputs.cache
@@ -875,3 +874,7 @@ C:\Users\Ingrid Solórzano\source\repos\Granja3\Granja\GranjaSystem\GranjaSystem
 C:\Users\Ingrid Solórzano\source\repos\Granja3\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.dll
 C:\Users\Ingrid Solórzano\source\repos\Granja3\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.pdb
 C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.campovacuna3.resources
+C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.camposCantidadesNULL.resources
+C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.camposCantidadesNULLos.resources
+C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.camposfichas.resources
+C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csprojAssemblyReference.cache

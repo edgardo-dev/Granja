@@ -2849,6 +2849,11 @@
     <Content Include="Content\bower_components\bootstrap-datepicker\README.md" />
     <Content Include="Content\bower_components\bootstrap-datepicker\tests\README.md" />
     <Content Include="Content\bower_components\bootstrap-datepicker\yarn.lock" />
+    <Content Include="Views\Fichas\Create.cshtml" />
+    <Content Include="Views\Fichas\Delete.cshtml" />
+    <Content Include="Views\Fichas\Details.cshtml" />
+    <Content Include="Views\Fichas\Edit.cshtml" />
+    <Content Include="Views\Fichas\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -2860,12 +2865,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\FichasController.cs" />
     <Compile Include="Controllers\LotesController.cs" />
     <Compile Include="Controllers\CerdasController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DetalleLotesController.cs" />
     <Compile Include="Controllers\EmpleadosController.cs" />
-    <Compile Include="Controllers\FichasController.cs" />
     <Compile Include="Controllers\GeneticasController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -2886,6 +2891,18 @@
     <Compile Include="Migrations\202002060247035_campovacuna3.cs" />
     <Compile Include="Migrations\202002060247035_campovacuna3.designer.cs">
       <DependentUpon>202002060247035_campovacuna3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002060352542_camposCantidadesNULL.cs" />
+    <Compile Include="Migrations\202002060352542_camposCantidadesNULL.designer.cs">
+      <DependentUpon>202002060352542_camposCantidadesNULL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002060407393_camposCantidadesNULLos.cs" />
+    <Compile Include="Migrations\202002060407393_camposCantidadesNULLos.designer.cs">
+      <DependentUpon>202002060407393_camposCantidadesNULLos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002060411241_camposfichas.cs" />
+    <Compile Include="Migrations\202002060411241_camposfichas.designer.cs">
+      <DependentUpon>202002060411241_camposfichas.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
@@ -3337,11 +3354,6 @@
     <Content Include="Views\DetalleLotes\Details.cshtml" />
     <Content Include="Views\DetalleLotes\Edit.cshtml" />
     <Content Include="Views\DetalleLotes\Index.cshtml" />
-    <Content Include="Views\Fichas\Create.cshtml" />
-    <Content Include="Views\Fichas\Delete.cshtml" />
-    <Content Include="Views\Fichas\Details.cshtml" />
-    <Content Include="Views\Fichas\Edit.cshtml" />
-    <Content Include="Views\Fichas\Index.cshtml" />
     <Content Include="Views\Vacunas\Create.cshtml" />
     <Content Include="Views\Vacunas\Delete.cshtml" />
     <Content Include="Views\Vacunas\Details.cshtml" />
@@ -3367,6 +3379,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002060247035_campovacuna3.resx">
       <DependentUpon>202002060247035_campovacuna3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002060352542_camposCantidadesNULL.resx">
+      <DependentUpon>202002060352542_camposCantidadesNULL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002060407393_camposCantidadesNULLos.resx">
+      <DependentUpon>202002060407393_camposCantidadesNULLos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002060411241_camposfichas.resx">
+      <DependentUpon>202002060411241_camposfichas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

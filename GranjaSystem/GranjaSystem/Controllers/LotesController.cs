@@ -82,9 +82,9 @@ namespace GranjaSystem.Content
         }
 
         // POST: Lotes/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpPost]
+
+        public ActionResult Delete(int id)
         {
             tblLotes tblLotes = db.Lotes.Find(id);
             var CDL = (from C in db.DetalleLotes
@@ -93,13 +93,16 @@ namespace GranjaSystem.Content
             for (int i = 0; i < CDL; i++)
             {
                 var DCerda = (from C in db.DetalleLotes
-                              where C.IdLote == id
-                              select C.IdCerda).FirstOrDefault();
-                var ECerda = (from C in db.Cerdas
-                              where C.IdCerda == DCerda
-                              select C).FirstOrDefault();
-                ECerda.Estado = "Vacía";
-                db.Entry(ECerda).State = EntityState.Modified;
+                                  where C.IdLote == id
+                                  select C.IdCerda).First();
+                    var ECerda = (from C in db.Cerdas
+                                  where C.IdCerda == DCerda
+                                  select C).FirstOrDefault();
+                    ECerda.Estado = "Vacía";
+                    db.Entry(ECerda).State = EntityState.Modified;
+                var tblDetalleLote = db.DetalleLotes.Where(l=> l.IdCerda ==DCerda).FirstOrDefault();
+                db.DetalleLotes.Remove(tblDetalleLote);
+                db.SaveChanges();
             }
             
             db.Lotes.Remove(tblLotes);

@@ -16,7 +16,7 @@ namespace GranjaSystem.Controllers
             ViewBag.CCerdas = db.Cerdas.Count();
             ViewBag.CVarracos = db.Varracos.Count();
             ViewBag.CLotes = db.Lotes.Count();
-            ViewBag.CFichas = db.Fichas.Count();
+           ViewBag.CFichas = db.Fichas.Count();
             ViewBag.CEmpleados = db.Empleados.Count();
             ViewBag.CUsuarios = db.Usuarios.Count();
             return View();

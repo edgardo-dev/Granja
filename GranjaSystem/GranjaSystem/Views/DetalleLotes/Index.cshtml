@@ -88,7 +88,7 @@
                             <td>
                                 @*@Html.ActionLink(" ", "Edit", new { id = item.IdDLote }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })*@
                                 @Html.ActionLink(" ", "Details", new { id = item.IdDLote }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
-                                @Html.ActionLink(" ", "Delete", new { id = item.IdDLote }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                                @Html.ActionLink(" ", "Delete", new { id = item.IdDLote,idC=item.IdCerda }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
                             </td>
                         </tr>
                         }

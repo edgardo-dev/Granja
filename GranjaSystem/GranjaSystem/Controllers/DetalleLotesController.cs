@@ -106,7 +106,7 @@ namespace GranjaSystem.Controllers
         }
 
         // GET: DetalleLotes/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id, int idC)
         {
             if (id == null)
             {
@@ -123,12 +123,18 @@ namespace GranjaSystem.Controllers
         // POST: DetalleLotes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? id, int idC)
         {
             tblDetalleLote tblDetalleLote = db.DetalleLotes.Find(id);
+
+            var Cerda = (from C in db.Cerdas
+                          where C.IdCerda == idC
+                          select C).FirstOrDefault();
+            Cerda.Estado = "Vacía";
+            db.Entry(Cerda).State = EntityState.Modified;
             db.DetalleLotes.Remove(tblDetalleLote);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index/"+tblDetalleLote.IdLote);
         }
 
         protected override void Dispose(bool disposing)

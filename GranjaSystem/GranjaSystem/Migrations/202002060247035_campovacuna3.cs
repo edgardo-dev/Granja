@@ -7,7 +7,15 @@
     {
         public override void Up()
         {
-            AddColumn("dbo.tblDetalleLotes", "Fvacuna15", c => c.String());
+            AlterColumn("dbo.tblDetalleLotes", "Fvacuna15", c => c.String());
+            AlterColumn("dbo.tblFichas", "NacidosVivos", c => c.Int(nullable: true));
+            AlterColumn("dbo.tblFichas", "NacidosMuertos", c => c.Int(nullable: true));
+            AlterColumn("dbo.tblFichas", "NacidosMomias", c => c.Int(nullable: true));
+            AlterColumn("dbo.tblFichas", "TotalNacidos", c => c.Int(nullable: true));
+            AlterColumn("dbo.tblFichas", "PesoPromedio1D", c => c.Int(nullable: true));
+            AlterColumn("dbo.tblFichas", "NumDestetado", c => c.Int(nullable: true));
+            AlterColumn("dbo.tblFichas", "PesoPromedio28D", c => c.Int(nullable: true));
+
         }
         
         public override void Down()
