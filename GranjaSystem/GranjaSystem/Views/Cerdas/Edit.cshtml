@@ -19,7 +19,7 @@
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                     @Html.HiddenFor(model => model.IdCerda)
                     <div class="form-group">
-                        @Html.LabelFor(model => model.NumCerda, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <label class = "control-label col-md-2">Cerda</label>
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.NumCerda, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.NumCerda, "", new { @class = "text-danger" })
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        @Html.LabelFor(model => model.FechaRegistro, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <label class = "control-label col-md-2">Fecha Registro</label>
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.FechaRegistro, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
                             @Html.ValidationMessageFor(model => model.FechaRegistro, "", new { @class = "text-danger" })
@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.NumParto, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <Label class = "control-label col-md-2">N° Parto </Label>
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.NumParto, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.NumParto, "", new { @class = "text-danger" })
@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="form-group">
-                        @Html.LabelFor(model => model.IdGenetica, "IdGenetica", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <Label class = "control-label col-md-2">Genética </Label>
                         <div class="col-md-10">
                             @Html.DropDownList("IdGenetica", null, htmlAttributes: new { @class = "form-control" })
                             @Html.ValidationMessageFor(model => model.IdGenetica, "", new { @class = "text-danger" })
