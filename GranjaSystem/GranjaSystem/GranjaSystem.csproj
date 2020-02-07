@@ -2896,10 +2896,6 @@
     <Compile Include="Migrations\202002060411241_camposfichas.designer.cs">
       <DependentUpon>202002060411241_camposfichas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002071515407_vacuna.cs" />
-    <Compile Include="Migrations\202002071515407_vacuna.designer.cs">
-      <DependentUpon>202002071515407_vacuna.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\tblCerdas.cs" />
@@ -3378,9 +3374,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002060411241_camposfichas.resx">
       <DependentUpon>202002060411241_camposfichas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002071515407_vacuna.resx">
-      <DependentUpon>202002071515407_vacuna.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

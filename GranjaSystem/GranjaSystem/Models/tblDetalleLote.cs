@@ -24,7 +24,6 @@ namespace GranjaSystem.Models
 
         public string Fvacuna1 { get; set; }
         public string Fvacuna15 { get; set; }
-        public string Fvacuna20 { get; set; }
         public string Fvacuna2 { get; set; }
         public string Observaciones { get; set; }
 
