@@ -2888,14 +2888,6 @@
     <Compile Include="Migrations\202001170439513_tblfichas.designer.cs">
       <DependentUpon>202001170439513_tblfichas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202002060247035_campovacuna3.cs" />
-    <Compile Include="Migrations\202002060247035_campovacuna3.designer.cs">
-      <DependentUpon>202002060247035_campovacuna3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002060352542_camposCantidadesNULL.cs" />
-    <Compile Include="Migrations\202002060352542_camposCantidadesNULL.designer.cs">
-      <DependentUpon>202002060352542_camposCantidadesNULL.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202002060407393_camposCantidadesNULLos.cs" />
     <Compile Include="Migrations\202002060407393_camposCantidadesNULLos.designer.cs">
       <DependentUpon>202002060407393_camposCantidadesNULLos.cs</DependentUpon>
@@ -2903,6 +2895,10 @@
     <Compile Include="Migrations\202002060411241_camposfichas.cs" />
     <Compile Include="Migrations\202002060411241_camposfichas.designer.cs">
       <DependentUpon>202002060411241_camposfichas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002071515407_vacuna.cs" />
+    <Compile Include="Migrations\202002071515407_vacuna.designer.cs">
+      <DependentUpon>202002071515407_vacuna.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
@@ -3377,17 +3373,14 @@
     <EmbeddedResource Include="Migrations\202001170439513_tblfichas.resx">
       <DependentUpon>202001170439513_tblfichas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002060247035_campovacuna3.resx">
-      <DependentUpon>202002060247035_campovacuna3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002060352542_camposCantidadesNULL.resx">
-      <DependentUpon>202002060352542_camposCantidadesNULL.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002060407393_camposCantidadesNULLos.resx">
       <DependentUpon>202002060407393_camposCantidadesNULLos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002060411241_camposfichas.resx">
       <DependentUpon>202002060411241_camposfichas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002071515407_vacuna.resx">
+      <DependentUpon>202002071515407_vacuna.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -112,5 +112,43 @@
         $('#FechaNacimiento').datepicker({
             autoclose: true
         });
+   //     $("#edad").keydown(function(event) {
+	  //  // Permitir tecla espaciadora y back espace
+	  //  if (event.keyCode == 46 || event.keyCode == 8) {
+	  //    // permitor no hacer nada
+	  //  } else {
+	  //    // Previniendo el precionado de caracteres por el código de carácter
+	  //    if (event.keyCode < 48 || event.keyCode > 57) {
+	  //      event.preventDefault();
+	  //    }
+	  //  }
+	  //});
+		$('#DUI').on('keydown', function(event) {
+	    if (event.keyCode == 8 || event.keyCode == 37 || event.keyCode == 39) {
+	      // ignorando tecla espacio y las de desplazamiento
+	    } else {
+	      // validar el dui
+	      inputval = $(this).val();
+	      var string = inputval.replace(/[^0-9]/g, "");
+	      var bloque1 = string.substring(0, 8);
+	      var string = (bloque1 + "-");
+	      $(this).val(string);
+	    }
+        });
+        $('#Telefono').on('keydown', function(event) {
+			if (event.keyCode == 8 || event.keyCode == 37 || event.keyCode == 39) {
+				// ignore tecla espaciadora y las de desplazamiento
+			} else {
+				// validando un numero de telefono
+				inputval = $(this).val();
+				var string = inputval.replace(/[^0-9]/g, "");
+				var area = string.substring(0, 3);
+				var bloc1 = string.substring(3, 6);
+				var bloc2 = string.substring(6, 10);
+				var string = ("(" +  + ") " + bloc1 + "-" + bloc2);
+				$(this).val(string);
+			}
+		});
+
     </script>
     }
