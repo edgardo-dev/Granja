@@ -1,9 +1,8 @@
 ﻿@model GranjaSystem.Models.tblUsuarios
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Eliminar Registro";
 }
-
     <div class="row content container-fluid">
         <div class="panel panel-primary">
             <div class="panel-heading text-center"><h4>CONTROL DE USUARIOS</h4></div>
@@ -49,14 +48,12 @@
                     {
                         @Html.AntiForgeryToken()
 
-                        <div class="form-actions no-color">
+                        <div class="col-sm-offset-9 col-sm-3" align="right">
                             <input type="submit" value="Eliminar" class="btn btn-danger" />
-
+                            @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
                         </div>
                     }
                 </div>
-
             </div>
         </div>
-        @Html.ActionLink(" Atras", "Index", null, new { @class = "fa fa-mail-reply btn btn-success" })
     </div>

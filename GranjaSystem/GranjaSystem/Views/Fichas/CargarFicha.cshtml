@@ -1,0 +1,205 @@
+﻿@model GranjaSystem.Models.tblDetalleLote
+
+@{
+    ViewBag.Title = "Crear Ficha";
+}
+
+<div class="row content container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DE FICHAS</h4></div>
+        <div class="panel-body bg-gray">
+            <form action="@Url.Action("CargarFicha","Fichas")" id="Validacion" method="post">
+
+                    <div class="form-horizontal">
+
+                        <div class="col-sm-6">
+                            <div class="box box-primary">
+                                <div class="box-header">
+                                    <h3 class="box-title">Datos</h3>
+                                </div>
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Cerda</label>
+                                        <div class="col-md-9">
+                                            @Html.DropDownList("IdCerda", null, htmlAttributes: new { @class = "form-control",@readonly="true" })
+                                            @Html.ValidationMessageFor(model => model.IdCerda, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Varraco</label>
+                                        <div class="col-md-9">
+                                            @Html.DropDownList("IdVarraco", null, htmlAttributes: new { @class = "form-control",@readonly="true" })
+                                            @Html.ValidationMessageFor(model => model.IdVarraco, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Partero</label>
+                                        <div class="col-md-9">
+                                            <select class="form-control" name="IdEmpleado" id="IdEmpleado">
+                                                @{
+                                                    foreach (var item in ViewBag.IdEmpleado)
+                                                    {
+                                                        <option value="@item.IdEmpleado">@item.NombreEmpleado @item.ApellidoEmpleado</option>
+                                                    }
+                                                }
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="box box-primary">
+                                <div class="box-header">
+                                    <h3 class="box-title">Fechas Ciclos</h3>
+                                </div>
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Fecha Inseminación</label>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.FechaInseminacion, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.FechaInseminacion, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Fecha de Parto</label>
+                                        <div class="col-md-9">
+                                            @Html.EditorFor(model => model.FechaParto, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.FechaParto, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Fecha  Destete</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="FechaDestete" id="FechaDestete" value="" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="box box-primary">
+                                <div class="box-header">
+                                    <h3 class="box-title">Cantidades</h3>
+                                </div>
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">N° Vivos</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="NacidosVivos" id="NacidosVivos" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">N° Muertos</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="NacidosMuertos" id="NacidosMuertos" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">N° Momias</label>
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control" name="NacidosMomias" id="NacidosMomias" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">N° Destetetados</label>
+                                        <div class="col-md-9">
+                                             <input type="text" class = "form-control" name="NumDestete" id="NumDestete" value="" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="box box-primary">
+                                <div class="box-header">
+                                    <h3 class="box-title">Pesos Promedios</h3>
+                                </div>
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Peso Promedio 1 día</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="PesoPromedio1D" id="PesoPromedio1D" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Peso Promedio 28 días</label>
+                                        <div class="col-md-9">
+                                            <input type="number" class="form-control" name="PesoPromedio28D" id="PesoPromedio1D" value="" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-8 col-sm-4" align="right">
+                                <input type="submit" value="Guardar" class="btn btn-primary" />
+                                @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
+                            </div>
+                        </div>
+                    </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@section Validar{
+    <script type="text/javascript">
+        $("#Validacion").validate({
+            rules: {
+                FechaInseminacion: {
+                    date: true
+                },
+                FechaParto: {
+                    date: true
+                },
+                NacidosVivos: {
+                    number: true
+                },
+                NacidosMuertos: {
+                    number: true
+
+                },
+                NacidosMomias: {
+                    number: true
+                },
+                NumDestetado: {
+                    number: true
+
+                },
+                FechaDestete: {
+                    date: true
+                }
+
+            }
+        });
+    </script>
+    <script>
+        //Date picker
+        $('#FechaInseminacion').datepicker({
+            autoclose: true
+        });
+        $('#FechaDestete').datepicker({
+            autoclose: true
+        });
+        $('#FechaParto').datepicker({
+            autoclose: true
+        });
+    </script>
+}

@@ -17,7 +17,7 @@ namespace GranjaSystem.Controllers
         // GET: Empleados
         public ActionResult Index()
         {
-            return View(db.Empleados.ToList());
+            return View(db.Empleados.Where(e=> e.NombreEmpleado != "Pendiente").ToList());
         }
 
         // GET: Empleados/Details/5

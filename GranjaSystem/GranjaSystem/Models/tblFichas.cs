@@ -23,20 +23,14 @@ namespace GranjaSystem.Models
         public virtual tblVarracos Varracos { get; set; }
 
         public string FechaParto { get; set; }
-        [Required(AllowEmptyStrings =true)]
-        public int NacidosVivos { get; set; }
-        [Required(AllowEmptyStrings = true)]
-        public int NacidosMuertos { get; set; }
-        [Required(AllowEmptyStrings = true)]
-        public int NacidosMomias { get; set; }
-        [Required(AllowEmptyStrings = true)]
-        public int TotalNacidos { get; set; }
-        [Required(AllowEmptyStrings = true)]
-        public double PesoPromedio1D { get; set; }
-        [Required(AllowEmptyStrings = true)]
-        public int NumDestetado { get; set; }
-        [Required(AllowEmptyStrings = true)]
-        public double PesoPromedio28D { get; set; }
+ 
+        public int? NacidosVivos { get; set; }
+        public int? NacidosMuertos { get; set; }
+        public int? NacidosMomias { get; set; }
+        public int? TotalNacidos { get; set; }
+        public double? PesoPromedio1D { get; set; }
+        public int? NumDestetado { get; set; }
+        public double? PesoPromedio28D { get; set; }
         public string FechaDestete { get; set; }
         
         //Relacion 

@@ -1,7 +1,7 @@
 ﻿@model GranjaSystem.Models.tblRoles
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Modificar Registro";
 }
 
 <div class="row content container-fluid">
@@ -34,27 +34,17 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Guardar" class="btn btn-primary" />
+                            <div class="col-sm-offset-9 col-sm-3" align="right">
+                                <input type="submit" value="Modificar" class="btn btn-success" />
+                                @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
                             </div>
                         </div>
                     </div>
                 }
-
             </form>
-
-
-            <div>
-                @Html.ActionLink("Atras", "Index", null, new { @class = "fa fa-mail-reply btn btn-success" })
-            </div>
-
-
-
         </div>
     </div>
-
 </div>
-
 @section Validar{
     <script type="text/javascript">
         $("#Validacion").validate({

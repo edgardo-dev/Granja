@@ -1,9 +1,8 @@
 ﻿@model GranjaSystem.Models.tblEmpleados
 
 @{
-    ViewBag.Title = "Eliminar";
+    ViewBag.Title = "Eliminar Registro";
 }
-
     <div class="row content container-fluid">
         <div class="panel panel-primary">
             <div class="panel-heading text-center"><h4>CONTROL DE EMPLEADOS</h4></div>
@@ -81,9 +80,9 @@
                     {
                         @Html.AntiForgeryToken()
 
-                        <div class="form-actions no-color">
-                            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-                            @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-success" })
+                        <div class="col-sm-offset-9 col-sm-3" align="right">
+                            <input type="submit" value="Eliminar" class="btn btn-danger" />
+                            @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
                         </div>
                     }
                 </div>

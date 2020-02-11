@@ -20,6 +20,43 @@ namespace GranjaSystem.Controllers
             var fichas = db.Fichas.Include(t => t.Empleados).Include(t => t.Varracos).Include(t => t.Cerdas);
             return View(fichas.ToList());
         }
+        public ActionResult CargarFicha(int? id)
+        {
+            tblDetalleLote tblDetalle = db.DetalleLotes.Find(id);
+            ViewBag.IdEmpleado = db.Empleados.ToList();
+            ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblDetalle.IdVarraco);
+            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblDetalle.IdCerda);
+            return View(tblDetalle);
+        }
+        [HttpPost]
+        public ActionResult CargarFicha(int IdCerda,string FechaInseminacion,int IdVarraco,string FechaParto,int? NacidosVivos,int? NacidosMuertos,int? NacidosMomias,double? PesoPromedio1D,int? NumDestete,double? PesoPromedio28D,string FechaDestete,int IdEmpleado)
+        {
+            var Fichas = new tblFichas();
+            Fichas.NacidosVivos = NacidosVivos;
+            Fichas.NacidosMuertos = NacidosMuertos;
+            Fichas.NacidosMomias = NacidosMomias;
+            Fichas.TotalNacidos = NacidosVivos + NacidosMuertos +NacidosMomias;
+            var Cerda = (from C in db.Cerdas
+                         where C.IdCerda == IdCerda
+                         select C).FirstOrDefault();
+            Cerda.NumParto += 1;
+            Fichas.NumParto = Cerda.NumParto;
+            Fichas.FechaServio = FechaInseminacion;
+            Fichas.FechaParto = FechaParto;
+            Fichas.FechaDestete = FechaDestete;
+            Fichas.IdCerda = IdCerda;
+            Fichas.IdVarraco = IdVarraco;
+            Fichas.IdEmpleado = IdEmpleado;
+            Fichas.PesoPromedio1D = PesoPromedio1D;
+            Fichas.PesoPromedio28D = PesoPromedio28D;
+            Fichas.NumDestetado = NumDestete;
+            
+            db.Entry(Cerda).State = EntityState.Modified;
+            db.Fichas.Add(Fichas);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+            
+        }
 
         // GET: Fichas/Details/5
         public ActionResult Details(int? id)

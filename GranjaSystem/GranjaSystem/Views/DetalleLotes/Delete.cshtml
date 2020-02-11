@@ -1,17 +1,13 @@
 ﻿@model GranjaSystem.Models.tblDetalleLote
-
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Eliminar Registro";
 }
-
-
     <div class="row content container-fluid">
         <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h4>CONTROL DETALLE DE LOTES</h4></div>
+            <div class="panel-heading text-center"><h4>CONTROL DE CERDAS DEL LOTE</h4></div>
             <div class="panel-body bg-gray">
                 <h5 class="alert alert-danger">¿Estas Seguro de Eliminar el Registro?</h5>
                 <div>
-
                     <dl class="dl-horizontal">
                         <dt>
                             @Html.DisplayNameFor(model => model.Lotes.Estado)
@@ -76,40 +72,31 @@
                         <dd>
                             @Html.DisplayFor(model => model.Observaciones)
                         </dd>
-
                         <dt>
                             Fecha Registro  
                         </dt>
-
                         <dd>
                             @Html.DisplayFor(model => model.FechaRegistro)
                         </dd>
-
                         <dt>
                             @Html.DisplayNameFor(model => model.Estado)
                         </dt>
-
                         <dd>
                             @Html.DisplayFor(model => model.Estado)
                         </dd>
-
                     </dl>
-
                     @using (Html.BeginForm())
                     {
                         @Html.AntiForgeryToken()
 
-                        <div class="form-actions no-color">
-                            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-                            @Html.ActionLink("Atras", "Index",new {id =Model.IdLote}, new { @class = "btn btn-success" })
-                        </div>
+                <div class="col-sm-offset-9 col-sm-3" align="right">
+                    <input type="submit" value="Eliminar" class="btn btn-danger" />
+                    @Html.ActionLink("Atras", "Index", new { id = Model.IdLote }, new { @class = "btn btn-success" })
+                </div>
                     }
                 </div>
-
-
             </div>
         </div>
-       
     </div>
 
 

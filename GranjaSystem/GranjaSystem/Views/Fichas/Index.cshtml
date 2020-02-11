@@ -4,125 +4,125 @@
     ViewBag.Title = "Control de Fichas";
 }
     <link href="~/Content/tabla_scroll.css" rel="stylesheet" />
-<div class="row content container-fluid">
-    <p>
-        @Html.ActionLink(" Agregar", "Create", null, new { @class = "fa fa-plus btn btn-primary" })
-    </p>
-    <div class="panel panel-primary"style="height:100%; width:100%">
-        <div class="panel-heading text-center"><h4>CONTROL DE FICHAS</h4></div>
-        <div class="panel-body  table-responsive-lg bg-gray">
-            <div id="main">
-                <div id="horizontal-scroll">
-                    <table id="Tabla" class="table table-bordered table-hover text-center">
+    <div class="row content container-fluid">
+        <p>
+            @Html.ActionLink(" ", "Create", null, new { @class = "fa fa-plus btn btn-success btn-lg", title = "Agregar" })
+        </p>
+        <div class="panel panel-primary" style="height:100%; width:100%">
+            <div class="panel-heading text-center"><h4>CONTROL DE FICHAS</h4></div>
+            <div class="panel-body  table-responsive-lg bg-gray">
+                <div id="main">
+                    <div id="horizontal-scroll">
+                        <table id="Tabla" class="table table-bordered table-hover text-center">
 
-                        <thead>
-                            <tr>
-
-                                <th>
-                                    N° Varraco
-                                </th>
-                                <th>
-                                    N° Cerda
-                                </th>
-                                <th>
-                                    N° Parto
-                                </th>
-                                <th>
-                                    Fecha Servicio
-                                </th>
-                                <th>
-                                    Fecha Parto
-                                </th>
-                                <th>
-                                    N° Vivos
-                                </th>
-                                <th>
-                                    N° Muertos
-                                </th>
-                                <th>
-                                    N° Momias
-                                </th>
-                                <th>
-                                    Total
-                                </th>
-                                <th>
-                                    Peso 0d
-                                </th>
-                                <th>
-                                    N° Destetados
-                                </th>
-                                <th>
-                                    Peso 28d
-                                </th>
-                                <th>
-                                    Fecha Destete
-                                </th>
-                                <th>
-                                    Partero
-                                </th>
-                                <th><i class="fa fa-gear"></i> </th>
-                            </tr>
-                        <thead>
-                        <tbody>
-
-                            @foreach (var item in Model)
-                            {
+                            <thead>
                                 <tr>
 
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Varracos.NumVarraco)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Cerdas.NumCerda)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.NumParto)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.FechaServio)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.FechaParto)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.NacidosVivos)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.NacidosMuertos)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.NacidosMomias)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.TotalNacidos)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.PesoPromedio1D) Lb
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.NumDestetado)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.PesoPromedio28D) Lb
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.FechaDestete)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Empleados.NombreEmpleado)
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink(" ", "Edit", new { id = item.IdFicha }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
-                                        @Html.ActionLink(" ", "Details", new { id = item.IdFicha }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
-                                        @Html.ActionLink(" ", "Delete", new { id = item.IdFicha }, new { @class = "fa fa-minus btn btn-danger", title = "Eliminar" })
-                                    </td>
+                                    <th>
+                                        N° Varraco
+                                    </th>
+                                    <th>
+                                        N° Cerda
+                                    </th>
+                                    <th>
+                                        N° Parto
+                                    </th>
+                                    <th>
+                                        Fecha Servicio
+                                    </th>
+                                    <th>
+                                        Fecha Parto
+                                    </th>
+                                    <th>
+                                        N° Vivos
+                                    </th>
+                                    <th>
+                                        N° Muertos
+                                    </th>
+                                    <th>
+                                        N° Momias
+                                    </th>
+                                    <th>
+                                        Total
+                                    </th>
+                                    <th>
+                                        Peso 0d
+                                    </th>
+                                    <th>
+                                        N° Destetados
+                                    </th>
+                                    <th>
+                                        Peso 28d
+                                    </th>
+                                    <th>
+                                        Fecha Destete
+                                    </th>
+                                    <th>
+                                        Partero
+                                    </th>
+                                    <th><i class="fa fa-gear"></i> </th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
+                            <thead>
+                            <tbody>
+
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Varracos.NumVarraco)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Cerdas.NumCerda)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NumParto)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FechaServio)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FechaParto)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NacidosVivos)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NacidosMuertos)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NacidosMomias)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TotalNacidos)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PesoPromedio1D) Lb
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NumDestetado)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.PesoPromedio28D) Lb
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FechaDestete)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Empleados.NombreEmpleado)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink(" ", "Edit", new { id = item.IdFicha }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
+                                            @Html.ActionLink(" ", "Details", new { id = item.IdFicha }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
+                                            @Html.ActionLink(" ", "Delete", new { id = item.IdFicha }, new { @class = "fa fa-minus btn btn-danger", title = "Eliminar" })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
-                
             </div>
         </div>
     </div>
-</div>

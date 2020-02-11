@@ -2637,6 +2637,7 @@
     <Content Include="Content\img\Logo.jpg" />
     <Content Include="Content\img\Logo.png" />
     <Content Include="Content\img\porcino.png" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="Content\plugins\bootstrap-slider\slider.css" />
@@ -2895,6 +2896,10 @@
     <Compile Include="Migrations\202002060411241_camposfichas.cs" />
     <Compile Include="Migrations\202002060411241_camposfichas.designer.cs">
       <DependentUpon>202002060411241_camposfichas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002071724255_nullcerdos.cs" />
+    <Compile Include="Migrations\202002071724255_nullcerdos.designer.cs">
+      <DependentUpon>202002071724255_nullcerdos.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
@@ -3352,6 +3357,7 @@
     <Content Include="Views\Vacunas\Edit.cshtml" />
     <Content Include="Views\Vacunas\Index.cshtml" />
     <Content Include="Views\Lotes\CargarLote.cshtml" />
+    <Content Include="Views\Fichas\CargarFicha.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3374,6 +3380,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002060411241_camposfichas.resx">
       <DependentUpon>202002060411241_camposfichas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002071724255_nullcerdos.resx">
+      <DependentUpon>202002071724255_nullcerdos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

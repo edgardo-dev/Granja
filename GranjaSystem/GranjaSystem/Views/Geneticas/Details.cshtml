@@ -1,7 +1,7 @@
 ﻿@model GranjaSystem.Models.tblGeneticas
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalles del Registro";
 }
 
     <div class="row content container-fluid">
@@ -29,14 +29,10 @@
 
                     </dl>
                 </div>
-                <p>
-                    @Html.ActionLink("Modificar", "Edit", new { id = Model.IdGenetica } , new { @class = "btn btn-primary" }) |
-                    @Html.ActionLink("Atras", "Index" , null, new { @class = "btn btn-success" })
+                <p align="right">
+                    @Html.ActionLink("Modificar", "Edit", new { id = Model.IdGenetica }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-success" })
                 </p>
-
-
-
-
             </div>
         </div>
     </div>

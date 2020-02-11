@@ -1,7 +1,7 @@
 ﻿@model GranjaSystem.Models.tblGeneticas
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Crear Genética";
 }
 
 <div class="row content container-fluid">
@@ -32,8 +32,9 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
+                            <div class="col-sm-offset-8 col-sm-4" align="right">
                                 <input type="submit" value="Guardar" class="btn btn-primary" />
+                                @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
                             </div>
                         </div>
                     </div>
@@ -41,10 +42,6 @@
             </form>
         </div>
     </div>
-    <div>
-        @Html.ActionLink(" Atras", "Index", null, new { @class = "fa fa-mail-reply btn btn-success" })
-    </div>
-
 </div>
 @section Validar{
     <script type="text/javascript">

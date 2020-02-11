@@ -1,7 +1,7 @@
 ﻿@model GranjaSystem.Models.tblLotes
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Modificar Registro";
 }
 
 <div class="row content container-fluid">
@@ -13,15 +13,12 @@
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
-
                     <div class="form-horizontal">
-
-                        <hr />
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         @Html.HiddenFor(model => model.IdLote)
 
                         <div class="form-group">
-                            <Label class = "control-label col-md-2">Lote</Label>
+                            <Label class="control-label col-md-2">Lote</Label>
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.NumLote, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.NumLote, "", new { @class = "text-danger" })
@@ -29,7 +26,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label class = "control-label col-md-2">Fecha Registro</label>
+                            <label class="control-label col-md-2">Fecha Registro</label>
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.FechaRegistro, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
                                 @Html.ValidationMessageFor(model => model.FechaRegistro, "", new { @class = "text-danger" })
@@ -45,21 +42,15 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Guardar" class="btn btn-primary" />
+                            <div class="col-sm-offset-9 col-sm-3" align="right">
+                                <input type="submit" value="Modificar" class="btn btn-success" />
+                                @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
                             </div>
                         </div>
                     </div>
                 }
             </form>
-            
-
-
-
         </div>
-    </div>
-    <div>
-        @Html.ActionLink(" Atras", "Index", null, new { @class = "fa fa-mail-reply btn btn-success" })
     </div>
 </div>
 

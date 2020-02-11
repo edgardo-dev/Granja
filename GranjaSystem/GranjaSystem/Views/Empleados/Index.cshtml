@@ -3,65 +3,65 @@
 @{
     ViewBag.Title = "Control de Empleados";
 }
-<div class="row content container-fluid">
-    <p>
-        @Html.ActionLink(" Agregar", "Create", null, new { @class = "fa fa-plus btn btn-primary" })
-    </p>
-    <div class="panel panel-primary">
-        <div class="panel-heading text-center"><h4>CONTROL DE EMPLEADOS</h4></div>
-        <div class="panel-body bg-gray">
-            <table id="Tabla" class="table table-bordered table-hover text-center">
-                <thead>
-                    <tr>
-                        <th>
-                            Nombre del Empleado
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Telefono)
-                        </th>
-
-                        <th>
-                            Fecha Registro
-                        </th>
-                        <th>
-                            Fecha Nacimiento
-                        </th>
-
-                        <th><i class="fa fa-gear"></i> </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-
+    <div class="row content container-fluid">
+        <p>
+            @Html.ActionLink(" ", "Create", null, new { @class = "fa fa-plus btn btn-success btn-lg", title = "Agregar" })
+        </p>
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE EMPLEADOS</h4></div>
+            <div class="panel-body bg-gray">
+                <table id="Tabla" class="table table-bordered table-hover text-center">
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.NombreEmpleado)
+                            <th>
+                                Nombre del Empleado
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Telefono)
+                            </th>
 
-                                @Html.DisplayFor(modelItem => item.ApellidoEmpleado)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Telefono)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.FechaRegistro)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.FechaNacimiento)
-                            </td>
-                            <td>
-                                @Html.ActionLink(" ", "Edit", new { id = item.IdEmpleado }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) |
-                                @Html.ActionLink(" ", "Details", new { id = item.IdEmpleado }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) |
-                                @Html.ActionLink(" ", "Delete", new { id = item.IdEmpleado }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
-                            </td>
+                            <th>
+                                Fecha Registro
+                            </th>
+                            <th>
+                                Fecha Nacimiento
+                            </th>
+
+                            <th><i class="fa fa-gear"></i> </th>
                         </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NombreEmpleado)
+
+                                    @Html.DisplayFor(modelItem => item.ApellidoEmpleado)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Telefono)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FechaRegistro)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                                </td>
+                                <td>
+                                    @Html.ActionLink(" ", "Edit", new { id = item.IdEmpleado }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
+                                    @Html.ActionLink(" ", "Details", new { id = item.IdEmpleado }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
+                                    @Html.ActionLink(" ", "Delete", new { id = item.IdEmpleado }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                                </td>
+                            </tr>
 
 
-                    }
-                </tbody>
-            </table>
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 
     

@@ -1,12 +1,12 @@
 ﻿@model GranjaSystem.Models.tblGeneticas
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Modificar Registro";
 }
 
 <div class="row content container-fluid">
     <div class="panel panel-primary">
-        <div class="panel-heading text-center"><h4>GENETICA</h4></div>
+        <div class="panel-heading text-center"><h4>GENÉTICA</h4></div>
         <div class="panel-body bg-gray">
 
             <form action="" id="Validaciones" method="post">
@@ -33,10 +33,10 @@
                                 @Html.ValidationMessageFor(model => model.Observacion, "", new { @class = "text-danger" })
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Guardar" class="btn btn-primary" />
+                            <div class="col-sm-offset-9 col-sm-3" align="right">
+                                <input type="submit" value="Modificar" class="btn btn-success" />
+                                @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
                             </div>
                         </div>
                     </div>
@@ -44,9 +44,6 @@
             </form>
 
         </div>
-    </div>
-    <div>
-        @Html.ActionLink("Atras", "Index", null, new { @class = "fa fa-mail-reply btn btn-success" })
     </div>
 </div>
 @section Validar{
@@ -60,9 +57,6 @@
             }
         });
     </script>
-
-
-
 }
 
 
