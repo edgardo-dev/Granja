@@ -18,8 +18,11 @@ namespace GranjaSystem.Controllers
         public ActionResult Index(int? id)
         {
             ViewBag.id = id;
-            var detalleLotes = db.DetalleLotes.Where(L => L.IdLote== id).Include(t => t.Lotes).Include(t => t.Varracos).Include(t => t.Cerdas);
-            return View(detalleLotes.ToList());
+            
+            var detalleLotes = db.DetalleLotes.Where(L => L.IdLote== id).Include(t => t.Lotes).Include(t => t.Varracos).Include(t => t.Cerdas).ToList();
+            //db.Cerdas.Where(c => c.IdCerda == detalleLotes )
+           // if ()
+                return View(detalleLotes);
         }
 
         // GET: DetalleLotes/Details/5

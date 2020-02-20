@@ -22,9 +22,9 @@ namespace GranjaSystem.Models
         public int IdVarraco { get; set; }
         public virtual tblVarracos Varracos { get; set; }
 
-        public string Fvacuna1 { get; set; }
+        public DateTime Fvacuna1 { get; set; }
         public string Fvacuna15 { get; set; }
-        public string Fvacuna2 { get; set; }
+        public DateTime Fvacuna2 { get; set; }
         public string Observaciones { get; set; }
 
         [Editable(allowEdit: false)]

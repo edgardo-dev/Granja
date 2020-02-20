@@ -40,6 +40,7 @@ namespace GranjaSystem.Controllers
                          where C.IdCerda == IdCerda
                          select C).FirstOrDefault();
             Cerda.NumParto += 1;
+            Cerda.Estado = "Inseminada";
             Fichas.NumParto = Cerda.NumParto;
             Fichas.FechaServio = FechaInseminacion;
             Fichas.FechaParto = FechaParto;
@@ -50,7 +51,14 @@ namespace GranjaSystem.Controllers
             Fichas.PesoPromedio1D = PesoPromedio1D;
             Fichas.PesoPromedio28D = PesoPromedio28D;
             Fichas.NumDestetado = NumDestete;
-            
+            var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == Fichas.IdCerda).ToList().LastOrDefault();
+            if (Fichas.NumDestetado != null && Fichas.PesoPromedio28D != null)
+            {
+                DetalleL.Estado = "Finalizado";
+                Cerda.Estado = "Vacía";
+                db.Entry(DetalleL).State = EntityState.Modified;
+            }
+
             db.Entry(Cerda).State = EntityState.Modified;
             db.Fichas.Add(Fichas);
             db.SaveChanges();
@@ -96,11 +104,20 @@ namespace GranjaSystem.Controllers
                              where C.IdCerda == tblFichas.IdCerda
                              select C).FirstOrDefault();
                 Cerda.NumParto = Cerda.NumParto+1;
+                Cerda.Estado = "Inseminada";
                 tblFichas.NumParto = Cerda.NumParto;
+                var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
+                if (tblFichas.NumDestetado != null && tblFichas.PesoPromedio28D != null)
+                {
+                    
+                    DetalleL.Estado = "Finalizado";
+                    Cerda.Estado = "Vacía";
+                    db.Entry(DetalleL).State = EntityState.Modified;
+                }
                 db.Entry(Cerda).State = EntityState.Modified;
                 db.Fichas.Add(tblFichas);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "DetalleLotes", new { id = DetalleL.IdLote });
             }
 
             ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
@@ -116,7 +133,9 @@ namespace GranjaSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             tblFichas tblFichas = db.Fichas.Find(id);
+
             if (tblFichas == null)
             {
                 return HttpNotFound();
@@ -127,6 +146,45 @@ namespace GranjaSystem.Controllers
             return View(tblFichas);
         }
 
+        public ActionResult EditarDesdeCerda(int? id)
+        {
+            var Cerda = db.Cerdas.Find(id);
+
+            tblFichas tblFichas = db.Fichas.Where(x => x.IdCerda == Cerda.IdCerda).ToList().LastOrDefault();
+            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
+            ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
+            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblFichas.IdCerda);
+           //return RedirectToAction("Edit",tblFichas);
+            return View("Edit", tblFichas);
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditarDesdeCerda([Bind(Include = "IdFicha,IdCerda,NumParto,FechaServio,IdVarraco,FechaParto,NacidosVivos,NacidosMuertos,NacidosMomias,TotalNacidos,PesoPromedio1D,NumDestetado,PesoPromedio28D,FechaDestete,IdEmpleado")] tblFichas tblFichas)
+        {
+            if (ModelState.IsValid)
+            {
+                tblFichas.TotalNacidos = tblFichas.NacidosVivos + tblFichas.NacidosMuertos + tblFichas.NacidosMomias;
+                db.Entry(tblFichas).State = EntityState.Modified;
+                var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
+                if (tblFichas.NumDestetado != null && tblFichas.PesoPromedio28D != null)
+                {
+                    var Cerda = (from C in db.Cerdas
+                                 where C.IdCerda == tblFichas.IdCerda
+                                 select C).FirstOrDefault();
+                    //var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
+                    DetalleL.Estado = "Finalizado";
+                    Cerda.Estado = "Vacía";
+                    db.Entry(DetalleL).State = EntityState.Modified;
+                }
+                db.SaveChanges();
+                return RedirectToAction("Index", "DetalleLotes", new { id = DetalleL.IdLote });
+            }
+            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
+            ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
+            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblFichas.IdCerda);
+            return View(tblFichas);
+        }
         // POST: Fichas/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -134,17 +192,30 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdFicha,IdCerda,NumParto,FechaServio,IdVarraco,FechaParto,NacidosVivos,NacidosMuertos,NacidosMomias,TotalNacidos,PesoPromedio1D,NumDestetado,PesoPromedio28D,FechaDestete,IdEmpleado")] tblFichas tblFichas)
         {
+            var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
             if (ModelState.IsValid)
             {
                 tblFichas.TotalNacidos = tblFichas.NacidosVivos + tblFichas.NacidosMuertos + tblFichas.NacidosMomias;
                 db.Entry(tblFichas).State = EntityState.Modified;
+                //var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
+                if (tblFichas.NumDestetado != null && tblFichas.PesoPromedio28D != null)
+                {
+                    var Cerda = (from C in db.Cerdas
+                                 where C.IdCerda == tblFichas.IdCerda
+                                 select C).FirstOrDefault();
+                    //var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
+                    DetalleL.Estado = "Finalizado";
+                    Cerda.Estado = "Vacía";
+                    db.Entry(DetalleL).State = EntityState.Modified;
+                }
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "DetalleLotes",new {id= DetalleL.IdLote });
             }
-            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
-            ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
-            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblFichas.IdCerda);
-            return View(tblFichas);
+            //ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
+            //ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
+            //ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblFichas.IdCerda);
+            //return View(tblFichas);
+            return RedirectToAction("Index", "DetalleLotes", new { id = DetalleL.IdLote });
         }
 
         // GET: Fichas/Delete/5

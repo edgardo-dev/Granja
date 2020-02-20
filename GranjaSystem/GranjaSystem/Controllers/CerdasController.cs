@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GranjaSystem.Models;
+using Rotativa;
 
 namespace GranjaSystem.Controllers
 {
@@ -131,6 +132,24 @@ namespace GranjaSystem.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public ActionResult ReporteCerda(int? id)
+        {
+            
+            ViewBag.Fichas = db.Fichas.Where(h => h.IdCerda == id).Include(t => t.Empleados).Include(t => t.Varracos).ToList();
+            ViewBag.Vacunas = db.Vacunas.Where(h => h.IdCerda == id).ToList();
+            ViewBag.Cerdas = db.Cerdas.Where(c=>c.IdCerda ==id).Include(g=>g.Genetica).FirstOrDefault();
+
+            return View();
+        }
+        public ActionResult Print(int id)
+        {
+            return new ActionAsPdf("ReporteCerda", new { id = id })
+            {
+                FileName = "Reporte_Fichas.pdf",
+                PageOrientation = Rotativa.Options.Orientation.Landscape,
+                PageSize = Rotativa.Options.Size.Letter
+            };
         }
     }
 }

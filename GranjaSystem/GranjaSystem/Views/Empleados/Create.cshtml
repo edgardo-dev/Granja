@@ -59,7 +59,7 @@
                             <div class="form-group">
                                 @Html.LabelFor(model => model.FechaNacimiento, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <div class="col-md-10">
-                                    @Html.EditorFor(model => model.FechaNacimiento, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.EditorFor(model => model.FechaNacimiento, new { htmlAttributes = new { @class = "form-control" ,type ="date" } })
                                     @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -104,21 +104,6 @@
         });
     </script>
     <script>
-        //Date picker
-        $('#FechaNacimiento').datepicker({
-            autoclose: true
-        });
-   //     $("#edad").keydown(function(event) {
-	  //  // Permitir tecla espaciadora y back espace
-	  //  if (event.keyCode == 46 || event.keyCode == 8) {
-	  //    // permitor no hacer nada
-	  //  } else {
-	  //    // Previniendo el precionado de caracteres por el código de carácter
-	  //    if (event.keyCode < 48 || event.keyCode > 57) {
-	  //      event.preventDefault();
-	  //    }
-	  //  }
-	  //});
 		$('#DUI').on('keydown', function(event) {
 	    if (event.keyCode == 8 || event.keyCode == 37 || event.keyCode == 39) {
 	      // ignorando tecla espacio y las de desplazamiento

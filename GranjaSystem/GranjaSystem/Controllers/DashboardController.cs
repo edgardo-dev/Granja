@@ -19,6 +19,11 @@ namespace GranjaSystem.Controllers
            ViewBag.CFichas = db.Fichas.Count();
             ViewBag.CEmpleados = db.Empleados.Where(e => e.NombreEmpleado != "Pendiente").Count();
             ViewBag.CUsuarios = db.Usuarios.Count();
+            DateTime Fecha = DateTime.Now.Date;
+            
+            ViewBag.Littler = db.DetalleLotes.Where(d => d.Fvacuna1 == Fecha).Count();
+            ViewBag.Vitamina = db.DetalleLotes.Where(d => d.Fvacuna2 == Fecha).Count();
+            ViewBag.TotalV = ViewBag.Littler + ViewBag.Vitamina;
             return View();
         }
     }

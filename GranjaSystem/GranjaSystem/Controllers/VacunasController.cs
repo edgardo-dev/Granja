@@ -39,7 +39,7 @@ namespace GranjaSystem.Controllers
         // GET: Vacunas/Create
         public ActionResult Create()
         {
-            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "Procedencia");
+            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda");
             return View();
         }
 
@@ -74,7 +74,7 @@ namespace GranjaSystem.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "Procedencia", tblVacunas.IdCerda);
+            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblVacunas.IdCerda);
             return View(tblVacunas);
         }
 
@@ -91,7 +91,7 @@ namespace GranjaSystem.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "Procedencia", tblVacunas.IdCerda);
+            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblVacunas.IdCerda);
             return View(tblVacunas);
         }
 

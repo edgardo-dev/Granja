@@ -19,6 +19,15 @@ namespace GranjaSystem.Content
         {
             return View(db.Lotes.ToList());
         }
+        public ActionResult Finalizar(int id)
+        {
+                var Lote = db.Lotes.Where(L => L.IdLote == id).FirstOrDefault();
+                Lote.Estado = "Finalizado";
+                db.Entry(Lote).State = EntityState.Modified;
+                db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
 
         // GET: Lotes/Details/5
         public ActionResult Details(int? id)
@@ -55,7 +64,7 @@ namespace GranjaSystem.Content
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdLote,NumLote,FechaRegistro,Estado")] tblLotes tblLotes)
+        public ActionResult Edit([Bind(Include = "IdLote,NumLote,FechaRegistro,Estado")] tblLotes tblLotes, DateTime Fecha)
         {
             if (ModelState.IsValid)
             {
@@ -80,7 +89,8 @@ namespace GranjaSystem.Content
             }
             return View(tblLotes);
         }
-
+        //[HttpPost]
+        //public Ac
         // POST: Lotes/Delete/5
         [HttpPost]
 
@@ -118,14 +128,14 @@ namespace GranjaSystem.Content
 
             return View();
         }
-        public JsonResult CrearLote(int NumLote)
+        public JsonResult CrearLote(int NumLote,DateTime Fecha)
         {
             try
             {
                 var Lotes = new tblLotes();
                 Lotes.NumLote = NumLote;
                 Lotes.Estado = "En Proceso";
-                Lotes.FechaRegistro = DateTime.Now;
+                Lotes.FechaRegistro = Fecha;
                 db.Lotes.Add(Lotes);
                 db.SaveChanges();
                 return Json(true);
@@ -137,7 +147,7 @@ namespace GranjaSystem.Content
         }
         [HttpPost]
         public JsonResult CargarLote(int IdCerda,int IdVarraco,string FechaInceminacion,
-            string FechaParto, string Vacuna1, string Vacunap, string Vacuna2,string Observacion)
+            string FechaParto, DateTime Vacuna1, string Vacunap, DateTime Vacuna2,string Observacion)
         {
             try
             {
@@ -161,7 +171,7 @@ namespace GranjaSystem.Content
                 DLotes.Observaciones = Observacion;
                 DLotes.Estado = "En Proceso";
                 DLotes.FechaRegistro = DateTime.Now;
-                Cerda.Estado = "Inceminada";
+                Cerda.Estado = "Inseminación";
                 db.Entry(Cerda).State = EntityState.Modified;
                 db.DetalleLotes.Add(DLotes);
                 db.SaveChanges();

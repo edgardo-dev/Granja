@@ -59,7 +59,7 @@
                         <div class="form-group">
                             @Html.LabelFor(model => model.FechaNacimiento, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.FechaNacimiento, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.EditorFor(model => model.FechaNacimiento, new { htmlAttributes = new { @class = "form-control", type = "date" } })
                                 @Html.ValidationMessageFor(model => model.FechaNacimiento, "", new { @class = "text-danger" })
                             </div>
                         </div>
@@ -104,21 +104,26 @@
                 },
                 FechaNacimiento: {
                     required: true,
-                    date:true
+                    date: true
                 }
 
             }
         });
     </script>
     <script>
-        //Date picker
-        $('#FechaNacimiento').datepicker({
-            autoclose: true
+        $('#DUI').on('keydown', function (event) {
+            if (event.keyCode == 8 || event.keyCode == 37 || event.keyCode == 39) {
+                // ignorando tecla espacio y las de desplazamiento
+            } else {
+                // validar el dui
+                inputval = $(this).val();
+                var string = inputval.replace(/[^0-9]/g, "");
+                var bloque1 = string.substring(0, 8);
+                var string = (bloque1 + "-");
+                $(this).val(string);
+            }
         });
     </script>
-
-
-
 }
 
 
