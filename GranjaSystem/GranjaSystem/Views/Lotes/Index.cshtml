@@ -9,7 +9,7 @@
             @Html.ActionLink(" ", "CargarLote", null, new { @class = "fa fa-plus btn btn-success btn-lg", title = "Agregar" })
         </p>
         <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h4>CONTROL DE LOTES</h4></div>
+            <div class="panel-heading text-center"><h4>CONTROL DE LOTES </h4></div>
             <div class="panel-body bg-gray">
                 <table id="Tabla" class="table table-bordered table-hover text-center">
                     <thead>
@@ -41,8 +41,8 @@
                                     @Html.DisplayFor(modelItem => item.Estado)
                                 </td>
                                 <td>
-                                    @Html.ActionLink(" ", "Edit", new { id = item.IdLote }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
-                                    @Html.ActionLink(" ", "Index", "DetalleLotes", new { id = item.IdLote }, new { @class = "fa fa-list btn btn-warning", title = "Ver Detalles" })
+                                    @*@Html.ActionLink(" ", "Edit", new { id = item.IdLote }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })*@
+                                    @Html.ActionLink(" ", "Index", "DetalleLotes", new { id = item.IdLote }, new { @class = "fa fa-list btn btn-info", title = "Ver Cerdas" })
                                     @Html.ActionLink(" ", "Finalizar", new { id = item.IdLote }, new { @class = "fa fa-check-square btn btn-primary", title = "Finalizar" })
                                     @Html.ActionLink(" ", "Delete", new { id = item.IdLote }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
 

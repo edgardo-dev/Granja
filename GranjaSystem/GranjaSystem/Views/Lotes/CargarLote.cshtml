@@ -238,7 +238,17 @@
     </script>
     <script>
         $(document).ready(function () {
-            
+            $("#IdCerda").change(function () {
+                var IdCerda = $("#IdCerda").val();
+                $(".id").parent("tr").find("td:eq(0)").each(function () {
+                    var columna = $(this).parents('tr');
+                    var IdCerdaC = columna.find("td:eq(0)").text();
+                    if (IdCerda == IdCerdaC) {
+                        alert("Cerda Ya Ingresada");
+                        $("#IdCerda").val("");
+                    }
+                });
+            });
             $("#btnAgregar").click(function () {
                 //var Nfila = document.getElementById("TablaCL").rows.length;
                 //var Contador = Nfila - 1;
@@ -251,6 +261,15 @@
                 var NumLote = $("#NumLote").val();
                 var IdVarraco = $("#IdVarraco").val();
                 var IdCerda = $("#IdCerda").val();
+                $(".id").parent("tr").find("td:eq(0)").each(function () {
+                    var columna = $(this).parents('tr');
+                    var IdCerdaC = columna.find("td:eq(0)").text();
+                    if (IdCerda == IdCerdaC) {
+                        alert("Esta Cerda Ya fue Insertada al Lote")
+                        
+                    }
+                });
+
                 var NCerda = selected1;
                 var NVarraco = selected2;
                 var FechaInceminacion = $("#FechaInceminacion").val();
@@ -268,14 +287,13 @@
                     alert("Por Favor Verificar Fechas")
                 }
                 else {
-                    
+
                     var contador = $("#fila").html();
                     //precio = Number(precio).toFixed(2);
                     //var tr = $(this).parents("tr").appendTo("#tabla tbody");
                     var HTML = "<tr><td class= id hidden>" + IdCerda + "</td><td hidden>" + IdVarraco + "</td><td>" + NCerda + "</td><td>" + NVarraco + "</td><td>" + FechaInceminacion + "</td><td>" + FechaParto + "</td><td>" + Vacuna1 + "</td><td hidden>" + Vacunap + "</td><td>" + Vacuna2 + "</td><td>" + Observacion + "</td><td><button id='btnDel' class='btn btn-danger'>Quitar</button></td></tr>";
                     $("#fila").html(contador + HTML);
                     $("#IdCerda").val("");
-                    $("#IdVarraco").val("");
                     $("#FechaInceminacion").val("");
                     $("#FechaParto").val("");
                     $("#Vacuna1").val("");
