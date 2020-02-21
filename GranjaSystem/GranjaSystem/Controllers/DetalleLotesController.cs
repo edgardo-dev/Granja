@@ -138,6 +138,27 @@ namespace GranjaSystem.Controllers
             db.SaveChanges();
             return RedirectToAction("Index/"+tblDetalleLote.IdLote);
         }
+        [HttpGet]
+        public ActionResult Eliminar()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Eliminar(int? id, int idC,string Observaciones)
+        {
+            tblDetalleLote tblDetalleLote = db.DetalleLotes.Find(id);
+            tblCerdas tblCerda = db.Cerdas.Find(idC);
+
+            tblCerda.Estado = "Vacía";
+            db.Entry(tblCerda).State = EntityState.Modified;
+            tblDetalleLote.Estado ="Eliminada";
+            tblDetalleLote.Observaciones = Observaciones;
+            db.Entry(tblDetalleLote).State = EntityState.Modified;
+
+            db.SaveChanges();
+            return RedirectToAction("Index/" + tblDetalleLote.IdLote);
+        }
 
         protected override void Dispose(bool disposing)
         {

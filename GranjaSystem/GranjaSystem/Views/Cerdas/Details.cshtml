@@ -84,9 +84,9 @@
 
         </div>
     </div>
-    <p>
+    @*<p>
         @Html.ActionLink(" Agregar", "Create", "Fichas", null, new { @class = "fa fa-plus btn btn-primary" })
-    </p>
+    </p>*@
     <div class="panel panel-primary">
         <div class="panel-heading text-center"><h4>CONTROL DE FICHAS</h4></div>
         <div class="panel-body  table-responsive-lg bg-gray">
@@ -94,12 +94,6 @@
                 <div id="horizontal-scroll">
                     <table id="Tabla" class="table table-bordered table-hover">
                         <thead>
-                            <tr>
-                                <th>Cerda:</th>
-                                <td>@Html.DisplayFor(model => model.NumCerda)</td>
-                                <th>Genética:</th>
-                                <td>@Html.DisplayFor(model => model.Genetica.Genetica)</td>
-                            </tr>
                             <tr>
                                 <th>
                                     Parto
