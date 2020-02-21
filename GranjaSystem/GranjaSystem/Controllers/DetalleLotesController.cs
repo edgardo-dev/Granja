@@ -99,7 +99,7 @@ namespace GranjaSystem.Controllers
             {
                 db.Entry(tblDetalleLote).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index" , "Lotes");
             }
             ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblDetalleLote.IdLote);
             ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblDetalleLote.IdCerda);

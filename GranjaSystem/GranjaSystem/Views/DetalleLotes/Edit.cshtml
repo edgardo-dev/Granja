@@ -90,10 +90,16 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <Label class="control-label col-md-2">Estado</Label>
                             <div class="col-md-10">
-                                @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
+                                <select name="Estado" class="form-control">
+                      
+                                    <option value="@Model.Estado">@Model.Estado</option>
+                                    <option value="En Proceso">En Proceso</option>
+                                    <option value="Terminada">Terminada</option>
+                                    <option value="Eliminada">Eliminada</option>
+                                   
+                                </select>
                             </div>
                         </div>
 
@@ -116,20 +122,9 @@
                 FechaInseminacion: {
                     required: true,
                     date: true
-                },
-
-                FechaParto: {
-                    required: true,
-                    date: true
-                },
-                Fvacuna1: {
-                    required: true,
-                    date: true
-                },
-                Fvacuna2: {
-                    required: true,
-                    date: true
                 }
+
+               
 
             }
         });
