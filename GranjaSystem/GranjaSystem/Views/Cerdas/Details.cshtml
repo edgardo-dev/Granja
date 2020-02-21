@@ -8,66 +8,77 @@
     <div class="panel panel-primary">
         <div class="panel-heading text-center"><h4>CONTROL DE CERDA N° @Html.DisplayFor(model => model.NumCerda)</h4></div>
         <div class="panel-body bg-gray">
-            <div>
-                <div class="col-sm-6">
-                    <dl class="dl-horizontal">
-                        <dt>
-                            Genética
-                        </dt>
+            <div style="font-size: 20px;">
+                <div class="col-md-offset-2 col-md-9">
+                    <div class="col-sm-6 ">
+                        <dl class="dl-horizontal">
+                            <dt>
+                                Genética
+                            </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Genetica.Genetica)
-                        </dd>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Procedencia)
-                        </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Genetica.Genetica)
+                            </dd>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Procedencia)
-                        </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Procedencia)
+                            </dt>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Observaciones)
-                        </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Procedencia)
+                            </dd>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Observaciones)
-                        </dd>
-                    </dl>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Observaciones)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Observaciones)
+                            </dd>
+                        </dl>
+
+                    </div>
+
+
+
+                    <div class="col-sm-6 ">
+                        <dl class="dl-horizontal ">
+                            <dt>
+                                Número de Partos
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NumParto)
+                            </dd>
+
+                            <dt>
+                                Fecha De Registro
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.FechaRegistro)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Estado)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Estado)
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <p align="right">
+                        @Html.ActionLink("Modificar", "Edit", new { id = Model.IdCerda }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
+                    </p>
                 </div>
-                <div class="col-sm-6">
-                    <dl class="dl-horizontal">
-                        <dt>
-                            Número de Partos
-                        </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.NumParto)
-                        </dd>
 
-                        <dt>
-                            Fecha De Registro
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.FechaRegistro)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Estado)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Estado)
-                        </dd>
-                    </dl>
-                </div>
             </div>
-            <p align="right">
-                @Html.ActionLink("Modificar", "Edit", new { id = Model.IdCerda }, new { @class = "btn btn-success" }) 
-                @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
-            </p>
+          
 
 
 
