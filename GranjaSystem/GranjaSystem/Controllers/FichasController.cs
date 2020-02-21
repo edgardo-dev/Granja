@@ -148,10 +148,10 @@ namespace GranjaSystem.Controllers
             return View(tblFichas);
         }
 
-        public ActionResult EditarDesdeCerda(int? id)
+        public ActionResult EditarDesdeCerda(int? id,int idL)
         {
             var Cerda = db.Cerdas.Find(id);
-
+            ViewBag.idL = idL;
             tblFichas tblFichas = db.Fichas.Where(x => x.IdCerda == Cerda.IdCerda).ToList().LastOrDefault();
             ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
             ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
