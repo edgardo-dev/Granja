@@ -7,126 +7,135 @@
         <div class="panel panel-primary">
             <div class="panel-heading text-center"><h4>CONTROL DE FICHAS</h4></div>
             <div class="panel-body bg-gray">
-                <div>
-                    <dl class="dl-horizontal">
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Empleados.NombreEmpleado)
-                        </dt>
+                <div style="font-size: 17px;">
+                    <div class="col-md-offset-2 col-md-9">
+                        <div class="col-sm-6">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                   Nombre Empleado
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Empleados.NombreEmpleado)
-                        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Empleados.NombreEmpleado)
+                                </dd>
 
-                        <dt>
-                            Varraco
-                        </dt>
+                                <dt>
+                                    Varraco
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Varracos.NumVarraco)
-                        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Varracos.NumVarraco)
+                                </dd>
 
-                        <dt>
-                            Cerda
-                        </dt>
+                                <dt>
+                                    Cerda
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Cerdas.NumCerda)
-                        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Cerdas.NumCerda)
+                                </dd>
 
-                        <dt>
-                            N° Partos
-                        </dt>
+                                <dt>
+                                    N° Partos
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.NumParto)
-                        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.NumParto)
+                                </dd>
 
-                        <dt>
-                            Fecha de Servicio
-                        </dt>
+                                <dt>
+                                    Fecha de Servicio
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.FechaServio)
-                        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.FechaServio)
+                                </dd>
 
-                        <dt>
-                            Fecha del Parto
-                        </dt>
+                                <dt>
+                                    Fecha del Parto
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.FechaParto)
-                        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.FechaParto)
+                                </dd>
 
-                        <dt>
-                            N° Nacidos Vivos
-                        </dt>
+                                <dt>
+                                    N° Nacidos Vivos
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.NacidosVivos)
-                        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.NacidosVivos)
+                                </dd>
 
-                        <dt>
-                            N° Nacidos Muertos
-                        </dt>
+                            </dl>
+                        </div>
+                        <div class="col-sm-6">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    N° Nacidos Muertos
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.NacidosMuertos)
-                        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.NacidosMuertos)
+                                </dd>
 
-                        <dt>
-                            N° Nacidos Momias
-                        </dt>
+                                <dt>
+                                    N° Nacidos Momias
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.NacidosMomias)
-                        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.NacidosMomias)
+                                </dd>
 
-                        <dt>
-                            Total Nacidos
-                        </dt>
+                                <dt>
+                                    Total Nacidos
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.TotalNacidos)
-                        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.TotalNacidos)
+                                </dd>
 
-                        <dt>
-                            Peso Promedio 1D
-                        </dt>
+                                <dt>
+                                    Peso Promedio 1D
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.PesoPromedio1D)
-                        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.PesoPromedio1D)
+                                </dd>
 
-                        <dt>
-                            N° Destetados
-                        </dt>
+                                <dt>
+                                    N° Destetados
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.NumDestetado)
-                        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.NumDestetado)
+                                </dd>
 
-                        <dt>
-                            Peso Promedio 28D
-                        </dt>
+                                <dt>
+                                    Peso Promedio 28D
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.PesoPromedio28D)
-                        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.PesoPromedio28D)
+                                </dd>
 
-                        <dt>
-                           Fecha Destete
-                        </dt>
+                                <dt>
+                                    Fecha Destete
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.FechaDestete)
-                        </dd>
-
-                    </dl>
+                                <dd>
+                                    @Html.DisplayFor(model => model.FechaDestete)
+                                </dd>
+                            </dl>
+                        </div>
+                        <p align="right">
+                            @Html.ActionLink("Modificar", "Edit", new { id = Model.IdFicha }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-success" })
+                        </p>
+                    </div>
+                    
                 </div>
-                <p align="right">
-                    @Html.ActionLink("Modificar", "Edit", new { id = Model.IdFicha }, new { @class = "btn btn-primary" }) |
-                    @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-success" })
-                </p>
+               
             </div>
         </div>
        

@@ -7,54 +7,65 @@
         <div class="panel panel-primary">
             <div class="panel-heading text-center"><h4>CONTROL DE VACUNAS</h4></div>
             <div class="panel-body bg-gray">
-                <div>
-                    <dl class="dl-horizontal">
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Cerdas.Procedencia)
-                        </dt>
+                <div style="font-size: 20px;">
+                    <div class="col-md-offset-2 col-md-9">
+                        <div class="col-sm-6">
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Cerdas.Procedencia)
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Cerdas.Procedencia)
-                        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Cerdas.Procedencia)
+                                </dd>
 
-                        <dt>
-                            Fecha Registro
-                        </dt>
+                                <dt>
+                                    Fecha Registro
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.FechaRegistro)
-                        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.FechaRegistro)
+                                </dd>
 
-                        <dt>
-                            Fecha Inyección
-                        </dt>
+                                <dt>
+                                    Fecha Inyección
+                                </dt>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.FechaInyeccion)
-                        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.FechaInyeccion)
+                                </dd>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Vacuna)
-                        </dt>
+                            </dl>
+                        </div>
+                        <div class="col-sm-6">
+                            <dl class="dl-horizontal">
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Vacuna)
-                        </dd>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Vacuna)
+                                </dt>
 
-                        <dt>
-                            Descripción
-                        </dt>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Vacuna)
+                                </dd>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Descripcion)
-                        </dd>
+                                <dt>
+                                    Descripción
+                                </dt>
 
-                    </dl>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Descripcion)
+                                </dd>
+
+                            </dl>
+                        </div>
+                        <p align="right">
+                            @Html.ActionLink("Modificar", "Edit", new { id = Model.IdVacuna }, new { @class = "btn btn-primary" }) |
+                            @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-success" })
+                        </p>
+                    </div>
+                    
                 </div>
-                <p align="right">
-                    @Html.ActionLink("Modificar", "Edit", new { id = Model.IdVacuna }, new { @class = "btn btn-primary" }) |
-                    @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-success" })
-                </p>
+               
             </div>
         </div>
      
