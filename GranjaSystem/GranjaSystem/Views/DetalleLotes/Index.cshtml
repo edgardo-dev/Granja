@@ -103,11 +103,11 @@
                                     {
                                         if (item.Cerdas.Estado == "Inseminada")
                                         {
-                                            @Html.ActionLink(" ", "EditarDesdeCerda", "Fichas", new { id = item.Cerdas.IdCerda }, new { @class = "fa fa-edit btn btn-primary", title = "Editar Ficha" })
+                                            @Html.ActionLink(" ", "EditarDesdeCerda", "Fichas", new { id = item.Cerdas.IdCerda,idL = ViewBag.id }, new { @class = "fa fa-edit btn btn-primary", title = "Editar Ficha" })
                                         }
                                         else
                                         {
-                                            @Html.ActionLink(" ", "CargarFicha", "Fichas", new { id = item.IdDLote }, new { @class = "fa fa-plus btn btn-info", title = "LLenar Ficha" })
+                                            @Html.ActionLink(" ", "CargarFicha", "Fichas", new { id = item.IdDLote,idL = ViewBag.id }, new { @class = "fa fa-plus btn btn-info", title = "LLenar Ficha" })
                                         }
                                     }
 
