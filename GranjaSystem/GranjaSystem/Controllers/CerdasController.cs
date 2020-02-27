@@ -35,6 +35,7 @@ namespace GranjaSystem.Controllers
                 return HttpNotFound();
             }
             ViewBag.FichasC = db.Fichas.Where(h => h.IdCerda == id).Include(t => t.Empleados).Include(t => t.Varracos).ToList();
+            ViewBag.Vacunas = db.Vacunas.Where(h => h.IdCerda == id).ToList();
             return View(tblCerdas);
         }
 

@@ -186,9 +186,58 @@
                             }
                         </tbody>
                     </table>
+                    
+
                 </div>
+            </div>
+
+        </div>
+
+    </div>
+    <br />
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DE VACUNAS</h4></div>
+        <div class="panel-body  table-responsive-lg bg-gray">
+            <div id="main">
+                <div align="justify">
+                    <table id="Tabla" class="table table-bordered table-responsive table-hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Fecha Inyección
+                                </th>
+                                <th>
+                                    Vacuna
+                                </th>
+                                <th>
+                                    Descipción
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in ViewBag.Vacunas)
+
+                            {
+                                <tr>
+                                    <td>
+                                        @item.FechaInyeccion
+                                    </td>
+                                    <td>
+                                        @item.Vacuna
+                                    </td>
+                                    <td>
+                                        @item.Descripcion
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+
+                </div>
+
             </div>
         </div>
     </div>
-
 </div>
