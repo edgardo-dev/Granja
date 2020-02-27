@@ -132,10 +132,12 @@ namespace GranjaSystem.Content
         {
             try
             {
-                var Lotes = new tblLotes();
-                Lotes.NumLote = NumLote;
-                Lotes.Estado = "En Proceso";
-                Lotes.FechaRegistro = Fecha;
+                var Lotes = new tblLotes
+                {
+                    NumLote = NumLote,
+                    Estado = "En Proceso",
+                    FechaRegistro = Fecha
+                };
                 db.Lotes.Add(Lotes);
                 db.SaveChanges();
                 return Json(true);
@@ -152,13 +154,15 @@ namespace GranjaSystem.Content
             try
             {
                 var idlote = (from id in db.Lotes select id.IdLote).Max();
-                var DLotes = new tblDetalleLote();
-                DLotes.IdCerda = IdCerda;
-                DLotes.IdVarraco = IdVarraco;
-                DLotes.IdLote = idlote;
-                DLotes.FechaInseminacion = FechaInceminacion;
-                DLotes.FechaParto = FechaParto;
-                DLotes.Fvacuna1 = Vacuna1;
+                var DLotes = new tblDetalleLote
+                {
+                    IdCerda = IdCerda,
+                    IdVarraco = IdVarraco,
+                    IdLote = idlote,
+                    FechaInseminacion = FechaInceminacion,
+                    FechaParto = FechaParto,
+                    Fvacuna1 = Vacuna1
+                };
                 var Cerda = db.Cerdas.Where(C => C.IdCerda == IdCerda).FirstOrDefault();
                 if(Cerda.NumParto == 0)
                 {

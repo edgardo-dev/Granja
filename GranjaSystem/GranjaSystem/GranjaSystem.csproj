@@ -2681,6 +2681,10 @@
     <Compile Include="Migrations\202002180757056_FechasVacunas.designer.cs">
       <DependentUpon>202002180757056_FechasVacunas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002271725572_tblfichaspesopromedio.cs" />
+    <Compile Include="Migrations\202002271725572_tblfichaspesopromedio.designer.cs">
+      <DependentUpon>202002271725572_tblfichaspesopromedio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\tblCerdas.cs" />
@@ -3140,6 +3144,7 @@
     <Content Include="Views\Fichas\CargarFicha.cshtml" />
     <Content Include="Views\Cerdas\ReporteCerda.cshtml" />
     <Content Include="Views\Lotes\Finalizar.cshtml" />
+    <Content Include="Views\DetalleLotes\Eliminar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3168,6 +3173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002180757056_FechasVacunas.resx">
       <DependentUpon>202002180757056_FechasVacunas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002271725572_tblfichaspesopromedio.resx">
+      <DependentUpon>202002271725572_tblfichaspesopromedio.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

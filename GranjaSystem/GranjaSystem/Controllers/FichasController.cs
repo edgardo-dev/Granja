@@ -29,13 +29,15 @@ namespace GranjaSystem.Controllers
             return View(tblDetalle);
         }
         [HttpPost]
-        public ActionResult CargarFicha(int IdCerda,string FechaInseminacion,int IdVarraco,string FechaParto,int? NacidosVivos,int? NacidosMuertos,int? NacidosMomias,double? PesoPromedio1D,int? NumDestete,double? PesoPromedio28D,string FechaDestete,int IdEmpleado)
+        public ActionResult CargarFicha(int IdCerda,string FechaInseminacion,int IdVarraco,string FechaParto,int? NacidosVivos,int? NacidosMuertos,int? NacidosMomias,decimal? PesoPromedio1D,int? NumDestete,decimal? PesoPromedio28D,string FechaDestete,int IdEmpleado)
         {
-            var Fichas = new tblFichas();
-            Fichas.NacidosVivos = NacidosVivos;
-            Fichas.NacidosMuertos = NacidosMuertos;
-            Fichas.NacidosMomias = NacidosMomias;
-            Fichas.TotalNacidos = NacidosVivos + NacidosMuertos +NacidosMomias;
+            var Fichas = new tblFichas
+            {
+                NacidosVivos = NacidosVivos,
+                NacidosMuertos = NacidosMuertos,
+                NacidosMomias = NacidosMomias,
+                TotalNacidos = NacidosVivos + NacidosMuertos + NacidosMomias
+            };
             var Cerda = (from C in db.Cerdas
                          where C.IdCerda == IdCerda
                          select C).FirstOrDefault();
@@ -98,34 +100,30 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdFicha,IdCerda,NumParto,FechaServio,IdVarraco,FechaParto,NacidosVivos,NacidosMuertos,NacidosMomias,TotalNacidos,PesoPromedio1D,NumDestetado,PesoPromedio28D,FechaDestete,IdEmpleado")] tblFichas tblFichas)
         {
-            var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
             if (ModelState.IsValid)
             {
                 tblFichas.TotalNacidos = tblFichas.NacidosVivos + tblFichas.NacidosMuertos + tblFichas.NacidosMomias;
                 var Cerda = (from C in db.Cerdas
                              where C.IdCerda == tblFichas.IdCerda
                              select C).FirstOrDefault();
-                Cerda.NumParto = Cerda.NumParto+1;
+                Cerda.NumParto += 1;
                 Cerda.Estado = "Inseminada";
                 tblFichas.NumParto = Cerda.NumParto;
                 //var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
                 if (tblFichas.NumDestetado != null && tblFichas.PesoPromedio28D != null)
                 {
-                    
-                    DetalleL.Estado = "Finalizado";
                     Cerda.Estado = "Vacía";
-                    db.Entry(DetalleL).State = EntityState.Modified;
                 }
                 db.Entry(Cerda).State = EntityState.Modified;
                 db.Fichas.Add(tblFichas);
                 db.SaveChanges();
-                return RedirectToAction("Index", "DetalleLotes", new { id = DetalleL.IdLote });
+                return RedirectToAction("Index");
             }
 
-            //ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
-            //ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
-            //ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda",tblFichas.IdCerda);
-            return RedirectToAction("Index", "DetalleLotes", new { id = DetalleL.IdLote });
+            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
+            ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
+            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda",tblFichas.IdCerda);
+            return View(tblFichas);
         }
 
         // GET: Fichas/Edit/5
@@ -164,11 +162,11 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult EditarDesdeCerda([Bind(Include = "IdFicha,IdCerda,NumParto,FechaServio,IdVarraco,FechaParto,NacidosVivos,NacidosMuertos,NacidosMomias,TotalNacidos,PesoPromedio1D,NumDestetado,PesoPromedio28D,FechaDestete,IdEmpleado")] tblFichas tblFichas)
         {
+            var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
             if (ModelState.IsValid)
             {
                 tblFichas.TotalNacidos = tblFichas.NacidosVivos + tblFichas.NacidosMuertos + tblFichas.NacidosMomias;
                 db.Entry(tblFichas).State = EntityState.Modified;
-                var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
                 if (tblFichas.NumDestetado != null && tblFichas.PesoPromedio28D != null)
                 {
                     var Cerda = (from C in db.Cerdas
@@ -182,10 +180,10 @@ namespace GranjaSystem.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index", "DetalleLotes", new { id = DetalleL.IdLote });
             }
-            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
-            ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
-            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblFichas.IdCerda);
-            return View(tblFichas);
+            //ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
+            //ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
+            //ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblFichas.IdCerda);
+            return RedirectToAction("Index", "DetalleLotes", new { id = DetalleL.IdLote });
         }
         // POST: Fichas/Edit/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
@@ -194,7 +192,7 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdFicha,IdCerda,NumParto,FechaServio,IdVarraco,FechaParto,NacidosVivos,NacidosMuertos,NacidosMomias,TotalNacidos,PesoPromedio1D,NumDestetado,PesoPromedio28D,FechaDestete,IdEmpleado")] tblFichas tblFichas)
         {
-            var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
+
             if (ModelState.IsValid)
             {
                 tblFichas.TotalNacidos = tblFichas.NacidosVivos + tblFichas.NacidosMuertos + tblFichas.NacidosMomias;
@@ -206,18 +204,15 @@ namespace GranjaSystem.Controllers
                                  where C.IdCerda == tblFichas.IdCerda
                                  select C).FirstOrDefault();
                     //var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
-                    DetalleL.Estado = "Finalizado";
                     Cerda.Estado = "Vacía";
-                    db.Entry(DetalleL).State = EntityState.Modified;
                 }
                 db.SaveChanges();
-                return RedirectToAction("Index", "DetalleLotes",new {id= DetalleL.IdLote });
+                return RedirectToAction("Index");
             }
-            //ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
-            //ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
-            //ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblFichas.IdCerda);
-            //return View(tblFichas);
-            return RedirectToAction("Index", "DetalleLotes", new { id = DetalleL.IdLote });
+            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
+            ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
+            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblFichas.IdCerda);
+            return View(tblFichas);
         }
 
         // GET: Fichas/Delete/5

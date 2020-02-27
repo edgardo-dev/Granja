@@ -28,9 +28,9 @@ namespace GranjaSystem.Models
         public int? NacidosMuertos { get; set; }
         public int? NacidosMomias { get; set; }
         public int? TotalNacidos { get; set; }
-        public double? PesoPromedio1D { get; set; }
+        public decimal? PesoPromedio1D { get; set; }
         public int? NumDestetado { get; set; }
-        public double? PesoPromedio28D { get; set; }
+        public decimal? PesoPromedio28D { get; set; }
         public string FechaDestete { get; set; }
         
         //Relacion 

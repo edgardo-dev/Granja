@@ -121,7 +121,7 @@
 
 
                                             @Html.ActionLink(" ", "Details", new { id = item.IdDLote }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
-                                            <button type="button" title="Eliminar Lote" class="btn btn-danger" data-toggle="modal" data-target="#myModal2"><i class="fa fa-trash"></i></button>
+                                            <button type="button" title="Eliminar Lote" data-id="@item.IdDLote" value="@item.IdDLote" class="btn btn-danger" data-toggle="modal" data-target="#myModal2"><i class="fa fa-trash"></i></button>
                                         }
                                         else
                                         {
