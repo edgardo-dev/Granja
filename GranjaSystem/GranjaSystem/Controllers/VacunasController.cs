@@ -87,6 +87,7 @@ namespace GranjaSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 db.Entry(tblVacunas).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
