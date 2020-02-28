@@ -3147,6 +3147,8 @@
     <Content Include="Views\Lotes\CargarLote.cshtml" />
     <Content Include="Views\Fichas\CargarFicha.cshtml" />
     <Content Include="Views\Cerdas\ReporteCerda.cshtml" />
+    <Content Include="Views\Lotes\Finalizar.cshtml" />
+    <Content Include="Views\DetalleLotes\Eliminar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
