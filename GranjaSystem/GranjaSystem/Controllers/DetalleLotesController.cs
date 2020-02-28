@@ -21,6 +21,14 @@ namespace GranjaSystem.Controllers
            
             var detalleLotes = db.DetalleLotes.Where(L => L.IdLote== id).Include(t => t.Lotes).Include(t => t.Varracos).Include(t => t.Cerdas).ToList();
             ViewBag.Lote = db.Lotes.Where(L => L.IdLote == id).FirstOrDefault();
+            var detalleLotesF = db.DetalleLotes.Where(L => L.Estado == "Finalizado" || L.Estado =="Eliminada").Count();
+            if (detalleLotes.Count() == detalleLotesF)
+            {
+                tblLotes tblLotes = db.Lotes.Find(id);
+                tblLotes.Estado = "Finalizado";
+                db.Entry(tblLotes).State = EntityState.Modified;
+                db.SaveChanges();
+            }
                 return View(detalleLotes);
         }
 
