@@ -965,3 +965,4 @@ C:\Users\Ingrid Solórzano\Desktop\MVC C#\Granja\GranjaSystem\GranjaSystem\obj\D
 C:\Users\Ingrid Solórzano\Desktop\MVC C#\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.dll
 C:\Users\Ingrid Solórzano\Desktop\MVC C#\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.pdb
 C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.tblfichaspesopromedio.resources
+C:\Users\Ingrid Solórzano\Desktop\MVC C#\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.tblfichaspesopromedio.resources
