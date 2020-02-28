@@ -2685,6 +2685,10 @@
     <Compile Include="Migrations\202002271725572_tblfichaspesopromedio.designer.cs">
       <DependentUpon>202002271725572_tblfichaspesopromedio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002280517568_fechasmodificadas.cs" />
+    <Compile Include="Migrations\202002280517568_fechasmodificadas.designer.cs">
+      <DependentUpon>202002280517568_fechasmodificadas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\tblCerdas.cs" />
@@ -3174,6 +3178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002271725572_tblfichaspesopromedio.resx">
       <DependentUpon>202002271725572_tblfichaspesopromedio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002280517568_fechasmodificadas.resx">
+      <DependentUpon>202002280517568_fechasmodificadas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

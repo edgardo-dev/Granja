@@ -140,8 +140,8 @@ namespace GranjaSystem.Content
             }
         }
         [HttpPost]
-        public JsonResult CargarLote(int IdCerda,int IdVarraco,string FechaInceminacion,
-            string FechaParto, DateTime Vacuna1, string Vacunap, DateTime Vacuna2,string Observacion)
+        public JsonResult CargarLote(int IdCerda,int IdVarraco, DateTime FechaInceminacion,
+            DateTime FechaParto, DateTime Vacuna1, DateTime Vacunap, DateTime Vacuna2,string Observacion)
         {
             try
             {
@@ -161,7 +161,7 @@ namespace GranjaSystem.Content
                     DLotes.Fvacuna15 = Vacunap;
                 }else
                 {
-                    DLotes.Fvacuna15 = "No Aplica";
+                    DLotes.Fvacuna15 = null;
                 }
                 DLotes.Fvacuna2 = Vacuna2;
                 DLotes.Observaciones = Observacion;
