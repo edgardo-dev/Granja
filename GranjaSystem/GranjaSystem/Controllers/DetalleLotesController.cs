@@ -18,7 +18,7 @@ namespace GranjaSystem.Controllers
         public ActionResult Index(int? id)
         {
             ViewBag.id = id;
-           
+            ViewBag.VacunasLote = db.VacunasLote.Where(h => h.IdLote == id).ToList();
             var detalleLotes = db.DetalleLotes.Where(L => L.IdLote== id).Include(t => t.Lotes).Include(t => t.Varracos).Include(t => t.Cerdas).ToList();
             ViewBag.Lote = db.Lotes.Where(L => L.IdLote == id).FirstOrDefault();
             var detalleLotesF = db.DetalleLotes.Where(L => L.Estado == "Finalizado" || L.Estado =="Eliminada").Count();

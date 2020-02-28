@@ -4,53 +4,69 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>tblVacunasLote</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Lotes.Estado)
-        </dt>
+<div class="row content container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>VACUNA DE LOTES @*N° @Html.DisplayFor(model => model.NumLote)*@</h4></div>
+        <div class="panel-body bg-gray">
+            <h5 class="alert alert-danger">¿Estas Seguro de Eliminar el Registro?</h5>
+            <div>
+                <div class="col-sm-6">
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Lotes.Estado)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Lotes.Estado)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Lotes.Estado)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaVacuna)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FechaVacuna)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaVacuna)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.FechaVacuna)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Vacuna)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Vacuna)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Vacuna)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Vacuna)
+                        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Descripcion)
+                        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
+                        <dd>
+                            @Html.DisplayFor(model => model.Descripcion)
+                        </dd>
 
-    </dl>
+                    </dl>
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                </div>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="col-sm-offset-9 col-sm-3" align="right">
+                        <input type="submit" value="Eliminar" class="btn btn-danger" />
+                        @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
+                    </div>
+                }
+            </div>
         </div>
-    }
+    </div>
 </div>
+
+
+
+
+    
+    
+

@@ -34,6 +34,8 @@ namespace GranjaSystem.Controllers
             {
                 return HttpNotFound();
             }
+            
+
             return View(tblVacunasLote);
         }
 
