@@ -21,9 +21,12 @@ namespace GranjaSystem.Models
         //relacion
         public int IdVarraco { get; set; }
         public virtual tblVarracos Varracos { get; set; }
-
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Fvacuna1 { get; set; }
         public string Fvacuna15 { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Fvacuna2 { get; set; }
         public string Observaciones { get; set; }
 

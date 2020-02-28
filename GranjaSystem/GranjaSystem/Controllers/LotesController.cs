@@ -17,16 +17,8 @@ namespace GranjaSystem.Content
         // GET: Lotes
         public ActionResult Index()
         {
-            return View(db.Lotes.ToList());
-        }
-        public ActionResult Finalizar(int id)
-        {
-                var Lote = db.Lotes.Where(L => L.IdLote == id).FirstOrDefault();
-                Lote.Estado = "Finalizado";
-                db.Entry(Lote).State = EntityState.Modified;
-                db.SaveChanges();
-            return RedirectToAction("Index");
 
+            return View(db.Lotes.ToList());
         }
 
         // GET: Lotes/Details/5

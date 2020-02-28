@@ -12,6 +12,8 @@ namespace GranjaSystem.Models
         public int IdLote { get; set; }
         public int NumLote  { get; set; }
         [Editable(allowEdit: false)]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime FechaRegistro { get; set; }
         public string Estado { get; set; }
 
