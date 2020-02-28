@@ -2653,6 +2653,7 @@
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
     <Compile Include="Controllers\VacunasController.cs" />
+    <Compile Include="Controllers\VacunasLotesController.cs" />
     <Compile Include="Controllers\VarracosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -2689,6 +2690,10 @@
     <Compile Include="Migrations\202002280517568_fechasmodificadas.designer.cs">
       <DependentUpon>202002280517568_fechasmodificadas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002281647220_tablavacunaslote.cs" />
+    <Compile Include="Migrations\202002281647220_tablavacunaslote.designer.cs">
+      <DependentUpon>202002281647220_tablavacunaslote.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\tblCerdas.cs" />
@@ -2701,6 +2706,7 @@
     <Compile Include="Models\tblRoles.cs" />
     <Compile Include="Models\tblUsuarios.cs" />
     <Compile Include="Models\tblVacunas.cs" />
+    <Compile Include="Models\tblVacunasLote.cs" />
     <Compile Include="Models\tblVarracos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -3147,8 +3153,12 @@
     <Content Include="Views\Lotes\CargarLote.cshtml" />
     <Content Include="Views\Fichas\CargarFicha.cshtml" />
     <Content Include="Views\Cerdas\ReporteCerda.cshtml" />
-    <Content Include="Views\Lotes\Finalizar.cshtml" />
     <Content Include="Views\DetalleLotes\Eliminar.cshtml" />
+    <Content Include="Views\VacunasLotes\Create.cshtml" />
+    <Content Include="Views\VacunasLotes\Delete.cshtml" />
+    <Content Include="Views\VacunasLotes\Details.cshtml" />
+    <Content Include="Views\VacunasLotes\Edit.cshtml" />
+    <Content Include="Views\VacunasLotes\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3183,6 +3193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002280517568_fechasmodificadas.resx">
       <DependentUpon>202002280517568_fechasmodificadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002281647220_tablavacunaslote.resx">
+      <DependentUpon>202002281647220_tablavacunaslote.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

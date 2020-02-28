@@ -17,6 +17,7 @@ namespace GranjaSystem.Models
         public DbSet<tblLotes> Lotes { get; set; }
         public DbSet<tblDetalleLote> DetalleLotes { get; set; }
         public DbSet<tblVacunas> Vacunas { get; set; }
+        public DbSet<tblVacunasLote> VacunasLote { get; set; }
         public DbSet<tblFichas> Fichas { get; set; }
         public DbSet<tblControlLechones> ControlLechones { get; set; }
     }

@@ -21,9 +21,11 @@ namespace GranjaSystem.Controllers
             ViewBag.CUsuarios = db.Usuarios.Count();
             DateTime Fecha = DateTime.Now.Date;
             
-            ViewBag.Littler = db.DetalleLotes.Where(d => d.Fvacuna1 == Fecha).Count();
-            ViewBag.Vitamina = db.DetalleLotes.Where(d => d.Fvacuna2 == Fecha).Count();
-            ViewBag.TotalV = ViewBag.Littler + ViewBag.Vitamina;
+            ViewBag.IdL = db.DetalleLotes.Where(d => d.Fvacuna1 == Fecha).ToList();
+            ViewBag.IdV = db.DetalleLotes.Where(d => d.Fvacuna2 == Fecha).ToList();
+            ViewBag.Vit = db.DetalleLotes.Where(d => d.Fvacuna1 == Fecha).Count();
+            ViewBag.Lit = db.DetalleLotes.Where(d => d.Fvacuna2 == Fecha).Count();
+            ViewBag.TotalV = ViewBag.Vit + ViewBag.Lit;
             return View();
         }
     }

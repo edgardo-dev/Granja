@@ -6,7 +6,8 @@
 
     <div class="row content container-fluid">
         <div class="col-sm-offset-8 col-sm-4" align="right">
-            <button type="button" title="Eliminar Lote" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash"></i></button>
+            <button type="button" title="Eliminar Lote" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash"></i></button>
+            @Html.ActionLink(" ", "Create", "VacunasLotes",new {id = ViewBag.id}, new { @class = "fa fa-eyedropper btn btn-info", title = "Vacunar" })
             <!-- Modal -->
             <div id="myModal" class="modal fade" role="dialog">
                 <div class="modal-dialog">

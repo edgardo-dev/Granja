@@ -37,6 +37,7 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+
     <div class="wrapper">
 
         <header class="main-header">
@@ -63,29 +64,35 @@
                                 <span class="label label-warning">@ViewBag.TotalV</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="header">ESTE DÍA HAY</li>
+                                <li class="header">VACUNAS ESTE DIA</li>
                                 <li>
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
-                                        @if (ViewBag.Littler > 0)
+                                        @if (ViewBag.Lit > 0)
                                         {
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-users text-aqua"></i> @ViewBag.Littler Vacunas Littler One
-                                                </a>
-                                            </li>
+                                            foreach (var item in ViewBag.IdL)
+                                            {
+                                                <li>
+                                                    <a href="@Url.Action("Index","DetalleLotes",new {id=item.IdLote })">
+                                                        <i class="fa fa-eyedropper text-aqua"></i> Littler en Lote N° @item.IdLote
+                                                    </a>
+                                                </li>
+                                            }
+
                                         }
-                                        @if (ViewBag.Vitamina > 0)
+                                        @if (ViewBag.Vit > 0)
                                         {
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-users text-red"></i> @ViewBag.Vitamina Vacunas de vitaminas y desparacitante
-                                                </a>
-                                            </li>
+                                            foreach (var item in ViewBag.IdV)
+                                            {
+                                                <li>
+                                                    <a href="@Url.Action("Index","DetalleLotes",new {id=item.IdLote })">
+                                                        <i class="fa fa-eyedropper text-red"></i> Desp. y Vitamina en Lote N°@item.IdLote
+                                                    </a>
+                                                </li>
+                                            }
                                         }
-                                        </ul>
+                                    </ul>
                                 </li>
-                                <li class="footer"><a href="@Url.Action("Index","Lotes")">VER LOTES</a></li>
                             </ul>
                         </li>
 
