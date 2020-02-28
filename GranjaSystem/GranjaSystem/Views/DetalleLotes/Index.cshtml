@@ -103,6 +103,7 @@
                                     @Html.DisplayFor(modelItem => item.Observaciones)
                                 </td>
                                 <td>
+                                    <input value="@item.Cerdas.IdCerda" />
                                     @{
                                         if (item.Estado != "Eliminada")
                                         {
@@ -121,7 +122,7 @@
 
 
                                             @Html.ActionLink(" ", "Details", new { id = item.IdDLote }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
-                                            <button type="button" title="Eliminar Lote" data-id="@item.IdDLote" value="@item.IdDLote" class="btn btn-danger" data-toggle="modal" data-target="#myModal2"><i class="fa fa-trash"></i></button>
+                                            <button type="button" title="Eliminar Lote" data-id="@item.IdDLote" value="@item.IdDLote" class="btn btn-danger" data-toggle="modal" data-target="@item.IdDLote"><i class="fa fa-trash"></i></button>
                                         }
                                         else
                                         {
@@ -129,7 +130,7 @@
                                         }
                                     }
                                     <!-- Modal -->
-                                    <div id="myModal2" class="modal fade" role="dialog">
+                                    <div id="@item.IdDLote" class="modal fade" role="dialog">
                                         <div class="modal-dialog">
 
                                             <!-- Modal content-->
@@ -139,7 +140,7 @@
 
                                                 </div>
                                                 <form action="@Url.Action("Eliminar","DetalleLotes",new {id =item.IdDLote,idC = item.Cerdas.IdCerda })" method="post">
-
+                                                    <input value="@item.Cerdas.IdCerda" />
                                                     <div class="modal-body">
                                                         <div class="jumbotron alert-danger text-center">
                                                             <h3>Describa el motivo por el cual se elimina la cerda del lote:</h3>
