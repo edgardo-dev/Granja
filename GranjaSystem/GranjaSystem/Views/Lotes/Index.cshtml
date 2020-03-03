@@ -7,6 +7,7 @@
     <div class="row content container-fluid">
         <p>
             @Html.ActionLink(" ", "CargarLote", null, new { @class = "fa fa-plus btn btn-success btn-lg", title = "Agregar" })
+
         </p>
         <div class="panel panel-primary">
             <div class="panel-heading text-center"><h4>CONTROL DE LOTES </h4></div>
@@ -44,6 +45,7 @@
                                     @*@Html.ActionLink(" ", "Edit", new { id = item.IdLote }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })*@
                                     @Html.ActionLink(" ", "Index", "DetalleLotes", new { id = item.IdLote }, new { @class = "fa fa-list btn btn-info", title = "Ver Cerdas" })
                                     @Html.ActionLink(" ", "Delete", new { id = item.IdLote }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                                    @Html.ActionLink(" ", "Create", "VacunasLotes", new { id = ViewBag.id }, new { @class = "fa fa-eyedropper btn btn-info", title = "Vacunar" })
 
                                 </td>
                             </tr>
