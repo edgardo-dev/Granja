@@ -17,7 +17,7 @@
         <div class="small-box bg-blue">
             <div class="inner">
                 <b class="text">VARRACOS</b>
-                <h5>@ViewBag.CVarracos</h5>
+                <h4>@ViewBag.CVarracos</h4>
             </div>
             <div class="icon">
                 <i class="fa fa-heartbeat"></i>
@@ -28,14 +28,18 @@
     <!-- ./col -->
     <div class="col-lg-4 col-xs-4">
         <!-- small box -->
+
         <div class="small-box bg-fuchsia">
             <div class="inner">
                 <b class="text">CERDAS</b>
-                <h5>@ViewBag.CCerdas</h5>
+                <h4>@ViewBag.CCerdas</h4>
             </div>
-            <div class="icon">
-                <i class="fa fa-heart"></i>
-            </div>
+            <a href="@Url.Action("Index","Cerdas")">
+                <div class="icon">
+                    <i class="fa fa-heart"></i>
+                </div>
+            </a>
+
             <a href="@Url.Action("Index","Cerdas")" class="small-box-footer">Control de Cerdas <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
@@ -46,7 +50,7 @@
             <div class="inner">
                 <b class="text">FICHAS</b>
 
-                <h5>@ViewBag.CFichas</h5>
+                <h4>@ViewBag.CFichas</h4>
             </div>
             <div class="icon">
                 <i class="fa fa-archive"></i>
@@ -63,7 +67,7 @@
                 <div class="small-box bg-green-gradient">
                     <div class="inner">
                         <b class="text">LOTES</b>
-                        <h5>@ViewBag.CLotes</h5>
+                        <h4>@ViewBag.CLotes</h4>
                     </div>
                     <div class="icon">
                         <i class="fa fa-object-group"></i>
@@ -78,7 +82,7 @@
                     <div class="inner">
                         <b class="text">USUARIOS</b>
 
-                        <h5>@ViewBag.CUsuarios</h5>
+                        <h4>@ViewBag.CUsuarios</h4>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
@@ -92,7 +96,7 @@
                     <div class="inner">
                         <b class="text">EMPLEADOS</b>
 
-                        <h5>@ViewBag.CEmpleados</h5>
+                        <h4>@ViewBag.CEmpleados</h4>
                     </div>
                     <div class="icon">
                         <i class="ion ion-ios-people"></i>

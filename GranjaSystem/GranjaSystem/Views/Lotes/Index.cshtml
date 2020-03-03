@@ -43,8 +43,8 @@
                                 <td>
                                     @*@Html.ActionLink(" ", "Edit", new { id = item.IdLote }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })*@
                                     @Html.ActionLink(" ", "Index", "DetalleLotes", new { id = item.IdLote }, new { @class = "fa fa-list btn btn-info", title = "Ver Cerdas" })
+                                    @Html.ActionLink(" ", "Create", "VacunasLotes", new { id = item.IdLote }, new { @class = "fa fa-eyedropper btn btn-warning", title = "Vacunar" })
                                     @Html.ActionLink(" ", "Delete", new { id = item.IdLote }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
-
                                 </td>
                             </tr>
                         }

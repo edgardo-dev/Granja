@@ -64,7 +64,17 @@
                                 <span class="label label-warning">@ViewBag.TotalV</span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="header">VACUNAS ESTE DIA</li>
+                                @{
+                                    if (@ViewBag.TotalV == 0)
+                                    {
+                                        <li class="header">NO HAY VACUNAS ESTE DIA</li>
+                                    }
+                                    else
+                                    {
+                                        <li class="header">VACUNAS DE ESTE DIA</li>
+                                    }
+                                }
+
                                 <li>
                                     <!-- inner menu: contains the actual data -->
                                     <ul class="menu">
@@ -74,11 +84,22 @@
                                             {
                                                 <li>
                                                     <a href="@Url.Action("Index","DetalleLotes",new {id=item.IdLote })">
-                                                        <i class="fa fa-eyedropper text-aqua"></i> Littler en Lote N° @item.IdLote
+                                                        <i class="fa fa-eyedropper text-aqua"></i> Littler en Lote N° @item.Lotes.NumLote
                                                     </a>
                                                 </li>
                                             }
 
+                                        }
+                                        @if (ViewBag.LPr > 0)
+                                        {
+                                            foreach (var item in ViewBag.IdP)
+                                            {
+                                                <li>
+                                                    <a href="@Url.Action("Index","DetalleLotes",new {id=item.IdLote })">
+                                                        <i class="fa fa-eyedropper text-bold"></i> Littler Primeriza en Lote N°@item.Lotes.NumLote
+                                                    </a>
+                                                </li>
+                                            }
                                         }
                                         @if (ViewBag.Vit > 0)
                                         {
@@ -86,11 +107,12 @@
                                             {
                                                 <li>
                                                     <a href="@Url.Action("Index","DetalleLotes",new {id=item.IdLote })">
-                                                        <i class="fa fa-eyedropper text-red"></i> Desp. y Vitamina en Lote N°@item.IdLote
+                                                        <i class="fa fa-eyedropper text-red"></i> Desp. y Vitamina en Lote N°@item.Lotes.NumLote
                                                     </a>
                                                 </li>
                                             }
                                         }
+
                                     </ul>
                                 </li>
                             </ul>
@@ -157,159 +179,147 @@
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
                 <!-- Sidebar user panel -->
-                <div class="user-panel">
-                    <div class="pull-left image">
-                        <img src="~/Content/img/Logo.png" class="img-circle" alt="User Image">
+                <a href="@Url.Action("Index","Dashboard")">
+                    <div class="user-panel">
+                        <div class="pull-left image">
+                            <img src="~/Content/img/Logo.png" class="img-circle" alt="User Image">
+                        </div>
+                        <div class="pull-left info">
+                            <p>Granja</p>
+                            <p>Bendición de Dios</p>
+                        </div>
                     </div>
-                    <div class="pull-left info">
-                        <p>Granja</p>
-                        <p>Bendición de Dios</p>
-                    </div>
-                </div>
-                <!-- /.search form -->
-                <!-- sidebar menu: : style can be found in sidebar.less -->
-                <ul class="sidebar-menu" data-widget="tree">
-                    <li class="header">MENU PRINCIPAL</li>
-
-                    <li>
-                        <a href="@Url.Action("Index","Dashboard")">
-                            <i class="fa fa-dashboard"></i><span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="treeview">
-                        <a href="">
-                            <i class="fa fa-heartbeat"></i> <span>Varraco</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Varracos")"><i class="fa fa-search"></i>Control de Varracos</a></li>
-                            <li><a href="@Url.Action("Create","Varracos")"><i class="fa fa-plus"></i>Nuevo Varraco</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-heart"></i>
-                            <span>Cerdas</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Cerdas")"><i class="fa fa-search"></i>Control de Cerdas</a></li>
-                            <li><a href="@Url.Action("Create","Cerdas")"><i class="fa fa-plus"></i>Nueva Cerda</a></li>s
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-object-group"></i> <span>Lotes</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Lotes")"><i class="fa fa-search"></i>Control de Lotes</a></li>
-                            <li><a href="@Url.Action("CargarLote","Lotes")"><i class="fa fa-plus"></i>Agregar Lote</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-archive"></i>
-                            <span>Fichas</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Fichas")"><i class="fa fa-search"></i> Control de Fichas</a></li>
-                            <li><a href="@Url.Action("Create","Fichas")"><i class="fa fa-plus"></i>Agregar Fichas</a></li>s
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-eyedropper"></i> <span>Vacunas</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Vacunas")"><i class="fa fa-search"></i>Control de Vacunas</a></li>
-                            <li><a href="@Url.Action("Create","Vacunas")"><i class="fa fa-edit"></i>Agregar Vacuna</a></li>
-                        </ul>
-                    </li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-code-fork"></i> <span>Genetica</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Geneticas")"><i class="fa fa-search"></i>Control de Genetica</a></li>
-                            <li><a href="@Url.Action("Create","Geneticas")"><i class="fa fa-edit"></i>Agregar Genetica</a></li>
-                        </ul>
-                    </li>
-                    @{
-                        if (Convert.ToString(Session["Rol"]) == "Administrador")
-                        {
-                            @*<li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-file-pdf-o"></i> <span>Reportes</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
-                        <li><a href="#"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
-                        <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
-                        <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
-                    </ul>
-                </li>*@
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-vcard"></i>
-                                    <span>Empleados</span>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("Index","Empleados")"><i class="fa fa-search"></i>Control de Empleados</a></li>
-                                    <li><a href="@Url.Action("Create","Empleados")"><i class="fa fa-plus"></i>Nuevo Empleado</a></li>
-                                </ul>
-                            </li>
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-user-circle"></i>
-                                    <span>Roles</span>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("Index","Roles")"><i class="fa fa-search"></i>Gestión de Roles</a></li>
-                                    <li><a href="@Url.Action("Create","Roles")"><i class="fa fa-plus"></i>Nuevo Rol</a></li>
-                                </ul>
-                            </li>
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-users"></i>
-                                    <span>Usuarios</span>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="@Url.Action("Index","Usuarios")"><i class="fa fa-search"></i>Control de Usuarios</a></li>
-                                    <li><a href="@Url.Action("Create","Usuarios")"><i class="fa fa-plus"></i>Nuevo Usuario</a></li>
-                                </ul>
-                            </li>
+                </a>
+                    <!-- /.search form -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                    <ul class="sidebar-menu" data-widget="tree">
+                        <li class="header">MENU PRINCIPAL</li>
+                        <li class="treeview">
+                            <a href="">
+                                <i class="fa fa-heartbeat"></i> <span>Control de Varraco</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="@Url.Action("Index","Varracos")"><i class="fa fa-search"></i>Varracos</a></li>
+                                <li><a href="@Url.Action("Create","Varracos")"><i class="fa fa-plus"></i>Nuevo Varraco</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-heart"></i>
+                                <span>Control de Cerdas</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                
+                                <li><a href="@Url.Action("Index","Cerdas")"><i class="fa fa-search"></i>Cerdas</a></li>
+                                <li><a href="@Url.Action("Create","Cerdas")"><i class="fa fa-plus"></i>Nueva Cerda</a></li>
+                                
+                                <li><a href="@Url.Action("Index","Vacunas")"><i class="fa fa-search"></i>Vacunas</a></li>
+                                <li><a href="@Url.Action("Create","Vacunas")"><i class="fa fa-edit"></i>Agregar Vacuna</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-object-group"></i> <span>Control de Lotes</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="@Url.Action("Index","Lotes")"><i class="fa fa-search"></i>Lotes</a></li>
+                                <li><a href="@Url.Action("CargarLote","Lotes")"><i class="fa fa-plus"></i>Agregar Lote</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-archive"></i>
+                                <span>Control de Fichas</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="@Url.Action("Index","Fichas")"><i class="fa fa-search"></i>Fichas</a></li>
+                                <li><a href="@Url.Action("Create","Fichas")"><i class="fa fa-plus"></i>Agregar Fichas</a></li>s
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-code-fork"></i> <span>Gestión de Genética</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="@Url.Action("Index","Geneticas")"><i class="fa fa-search"></i>Genéticas</a></li>
+                                <li><a href="@Url.Action("Create","Geneticas")"><i class="fa fa-plus"></i>Agregar Genetica</a></li>
+                            </ul>
+                        </li>
+                        @{
+                            if (Convert.ToString(Session["Rol"]) == "Administrador")
+                            {
+                                @*<li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-file-pdf-o"></i> <span>Reportes</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
+                                <li><a href="#"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
+                                <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
+                                <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
+                            </ul>
+                        </li>*@
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-vcard"></i>
+                                        <span>Control de Empleados</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="@Url.Action("Index","Empleados")"><i class="fa fa-search"></i>Empleados</a></li>
+                                        <li><a href="@Url.Action("Create","Empleados")"><i class="fa fa-plus"></i>Nuevo Empleado</a></li>
+                                    </ul>
+                                </li>
+                                @*<li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-user-circle"></i>
+                                        <span>Roles</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="@Url.Action("Index","Roles")"><i class="fa fa-search"></i>Gestión de Roles</a></li>
+                                        <li><a href="@Url.Action("Create","Roles")"><i class="fa fa-plus"></i>Nuevo Rol</a></li>
+                                    </ul>
+                                </li>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-users"></i>
+                                        <span>Usuarios</span>
+                                        <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li><a href="@Url.Action("Index","Usuarios")"><i class="fa fa-search"></i>Control de Usuarios</a></li>
+                                        <li><a href="@Url.Action("Create","Usuarios")"><i class="fa fa-plus"></i>Nuevo Usuario</a></li>
+                                    </ul>
+                                </li>*@
+                            }
                         }
-                    }
 
-                </ul>
+                    </ul>
 
             </section>
             <!-- /.sidebar -->
