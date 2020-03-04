@@ -59,11 +59,11 @@ namespace GranjaSystem.Controllers
                 tblVacunasLote.IdLote = IdLotes;
                 db.VacunasLote.Add(tblVacunasLote);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "DetalleLotes", new { id = tblVacunasLote.IdLote });
             }
 
             ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblVacunasLote.IdLote);
-            return View(tblVacunasLote);
+            return RedirectToAction("Index", "DetalleLotes", new { id = tblVacunasLote.IdLote });
         }
 
         // GET: VacunasLotes/Edit/5
