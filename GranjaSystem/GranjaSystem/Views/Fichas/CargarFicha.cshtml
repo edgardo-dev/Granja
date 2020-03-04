@@ -21,15 +21,17 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Cerda</label>
                                         <div class="col-md-9">
-                                            @Html.DropDownList("IdCerda", null, htmlAttributes: new { @class = "form-control",@readonly="true" })
+                                            @Html.DropDownList("IdCerda", null, htmlAttributes: new { @class = "form-control",@disabled ="true" })
                                             @Html.ValidationMessageFor(model => model.IdCerda, "", new { @class = "text-danger" })
+                                            <input type="text" name="IdCerda" id="IdCerda" value="@Model.IdCerda" hidden />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Varraco</label>
                                         <div class="col-md-9">
-                                            @Html.DropDownList("IdVarraco", null, htmlAttributes: new { @class = "form-control",@readonly="true" })
+                                            @Html.DropDownList("IdVarraco", null, htmlAttributes: new { @class = "form-control", @disabled = "true" })
                                             @Html.ValidationMessageFor(model => model.IdVarraco, "", new { @class = "text-danger" })
+                                            <input type="text" name="IdVarraco" id="IdVarraco" value="@Model.IdVarraco" hidden />
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -61,15 +63,13 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Fecha Inseminación</label>
                                         <div class="col-md-9">
-                                            @Html.EditorFor(model => model.FechaInseminacion, new { htmlAttributes = new { @class = "form-control",@type="date" } })
-                                            @Html.ValidationMessageFor(model => model.FechaInseminacion, "", new { @class = "text-danger" })
+                                            <input type="date" class = "form-control" name="FechaInseminacion" value="@ViewBag.FechaI" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Fecha de Parto</label>
                                         <div class="col-md-9">
-                                            @Html.EditorFor(model => model.FechaParto, new { htmlAttributes = new { @class = "form-control",@type="date" } })
-                                            @Html.ValidationMessageFor(model => model.FechaParto, "", new { @class = "text-danger" })
+                                            <input type="date" class="form-control" name="FechaParto" value="@ViewBag.FechaP" />
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -92,27 +92,27 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">N° Vivos</label>
                                         <div class="col-md-9">
-                                            <input type="number" class="form-control" name="NacidosVivos" id="NacidosVivos" value="" />
+                                            <input type="number" class="form-control" name="NacidosVivos" id="NacidosVivos" value="0" />
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="control-label col-md-3">N° Muertos</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" name="NacidosMuertos" id="NacidosMuertos" value="" />
+                                            <input type="text" class="form-control" name="NacidosMuertos" id="NacidosMuertos" value="0" />
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label class="control-label col-md-3">N° Momias</label>
                                         <div class="col-md-9">
-                                            <input type="text" class="form-control" name="NacidosMomias" id="NacidosMomias" value="" />
+                                            <input type="text" class="form-control" name="NacidosMomias" id="NacidosMomias" value="0" />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label col-md-3">N° Destetetados</label>
                                         <div class="col-md-9">
-                                             <input type="text" class = "form-control" name="NumDestete" id="NumDestete" value="" />
+                                             <input type="text" class = "form-control" name="NumDestete" id="NumDestete" value="0" />
                                         </div>
                                     </div>
 

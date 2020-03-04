@@ -26,15 +26,17 @@
                                     <div class="form-group">
                                         <label class="control-label col-md-3">Cerda</label>
                                         <div class="col-md-9">
-                                            @Html.DropDownList("IdCerda", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.DropDownList("IdCerda", null, htmlAttributes: new { @class = "form-control", @disabled = "true" })
                                             @Html.ValidationMessageFor(model => model.IdCerda, "", new { @class = "text-danger" })
+                                            <input type="text" name="IdCerda" id="IdCerda" value="@Model.IdCerda" hidden />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label col-md-3"> Varraco</label>
+                                        <label class="control-label col-md-3">Varraco</label>
                                         <div class="col-md-9">
-                                            @Html.DropDownList("IdVarraco", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.DropDownList("IdVarraco", null, htmlAttributes: new { @class = "form-control", @disabled = "true" })
                                             @Html.ValidationMessageFor(model => model.IdVarraco, "", new { @class = "text-danger" })
+                                            <input type="text" name="IdVarraco" id="IdVarraco" value="@Model.IdVarraco" hidden />
                                         </div>
                                     </div>
                                     <div class="form-group">

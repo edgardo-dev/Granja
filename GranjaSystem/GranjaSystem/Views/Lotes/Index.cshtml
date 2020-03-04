@@ -23,6 +23,7 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.Estado)
                             </th>
+                            <th> Total Lechones</th>
                             <th><i class="fa fa-gear"></i> </th>
                         </tr>
                     </thead>
@@ -41,9 +42,24 @@
                                     @Html.DisplayFor(modelItem => item.Estado)
                                 </td>
                                 <td>
+                                    @{ 
+                                        int? Lechones = 0;
+
+                                        foreach (var item2 in ViewBag.TLechones)
+                                        {
+                                            if (item2.Lote == item.IdLote)
+                                            {
+                                                Lechones += item2.NumDestetado;
+                                            }
+
+                                        }
+                                        <p>@Lechones</p>
+                                    }
+                                </td>
+                                <td>
                                     @*@Html.ActionLink(" ", "Edit", new { id = item.IdLote }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })*@
                                     @Html.ActionLink(" ", "Index", "DetalleLotes", new { id = item.IdLote }, new { @class = "fa fa-list btn btn-info", title = "Ver Cerdas" })
-                                    @Html.ActionLink(" ", "Create", "VacunasLotes", new { id = item.IdLote }, new { @class = "fa fa-eyedropper btn btn-warning", title = "Vacunar" })
+                                    @Html.ActionLink(" ", "Create", "VacunasLotes", new { id = item.IdLote }, new { @class = "fa fa-eyedropper btn btn-success", title = "Vacunar" })
                                     @Html.ActionLink(" ", "Delete", new { id = item.IdLote }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
                                 </td>
                             </tr>

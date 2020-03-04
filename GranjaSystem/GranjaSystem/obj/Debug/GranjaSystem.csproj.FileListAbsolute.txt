@@ -971,3 +971,4 @@ C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debu
 C:\Users\Ingrid Solórzano\Desktop\MVC C#\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.tblfichaspesopromedio.resources
 C:\Users\Ingrid Solórzano\Desktop\MVC C#\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.fechasmodificadas.resources
 C:\Users\Ingrid Solórzano\Desktop\MVC C#\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.tablavacunaslote.resources
+C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.fichalote.resources

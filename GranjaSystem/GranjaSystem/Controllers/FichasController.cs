@@ -22,10 +22,43 @@ namespace GranjaSystem.Controllers
         }
         public ActionResult CargarFicha(int? id)
         {
+
             tblDetalleLote tblDetalle = db.DetalleLotes.Find(id);
             ViewBag.IdEmpleado = db.Empleados.ToList();
             ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblDetalle.IdVarraco);
             ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblDetalle.IdCerda);
+            if (tblDetalle.FechaInseminacion.Month >= 10 && tblDetalle.FechaInseminacion.Day >= 10)
+            {
+                ViewBag.FechaI = tblDetalle.FechaInseminacion.Year + "-" + tblDetalle.FechaInseminacion.Month + "-" + tblDetalle.FechaInseminacion.Day;
+            }
+            else if (tblDetalle.FechaInseminacion.Month <= 9 && tblDetalle.FechaInseminacion.Day <= 9)
+            {
+                ViewBag.FechaI = tblDetalle.FechaInseminacion.Year + "-0" + tblDetalle.FechaInseminacion.Month + "-0" + tblDetalle.FechaInseminacion.Day;
+            }
+            else if (tblDetalle.FechaInseminacion.Month <= 9)
+            {
+                ViewBag.FechaI = tblDetalle.FechaInseminacion.Year + "-0" + tblDetalle.FechaInseminacion.Month + "-" + tblDetalle.FechaInseminacion.Day;
+            }
+            else if ((tblDetalle.FechaInseminacion.Day <= 9))
+            {
+                ViewBag.FechaI = tblDetalle.FechaInseminacion.Year + "-" + tblDetalle.FechaInseminacion.Month + "-0" + tblDetalle.FechaInseminacion.Day;
+            }
+            if (tblDetalle.FechaParto.Month >= 10 && tblDetalle.FechaParto.Day >= 10)
+            {
+                ViewBag.FechaP = tblDetalle.FechaParto.Year + "-" + tblDetalle.FechaParto.Month + "-" + tblDetalle.FechaParto.Day;
+            }
+            else if (tblDetalle.FechaParto.Month <= 9 && tblDetalle.FechaParto.Day <= 9)
+            {
+                ViewBag.FechaP = tblDetalle.FechaParto.Year + "-0" + tblDetalle.FechaParto.Month + "-0" + tblDetalle.FechaParto.Day;
+            }
+            else if (tblDetalle.FechaParto.Month <= 9)
+            {
+                ViewBag.FechaP = tblDetalle.FechaParto.Year + "-0" + tblDetalle.FechaParto.Month + "-" + tblDetalle.FechaParto.Day;
+            }
+            else if ((tblDetalle.FechaParto.Day <= 9))
+            {
+                ViewBag.FechaP = tblDetalle.FechaParto.Year + "-" + tblDetalle.FechaParto.Month + "-0" + tblDetalle.FechaParto.Day;
+            }
             return View(tblDetalle);
         }
         [HttpPost]
@@ -43,6 +76,7 @@ namespace GranjaSystem.Controllers
                          select C).FirstOrDefault();
             Cerda.NumParto += 1;
             Cerda.Estado = "Inseminada";
+            
             Fichas.NumParto = Cerda.NumParto;
             Fichas.FechaServio = FechaInseminacion;
             Fichas.FechaParto = FechaParto;
@@ -60,7 +94,7 @@ namespace GranjaSystem.Controllers
                 Cerda.Estado = "Vacía";
                 db.Entry(DetalleL).State = EntityState.Modified;
             }
-
+            Fichas.Lote = DetalleL.IdLote;
             db.Entry(Cerda).State = EntityState.Modified;
             db.Fichas.Add(Fichas);
             db.SaveChanges();
@@ -114,6 +148,7 @@ namespace GranjaSystem.Controllers
                 {
                     Cerda.Estado = "Vacía";
                 }
+                
                 db.Entry(Cerda).State = EntityState.Modified;
                 db.Fichas.Add(tblFichas);
                 db.SaveChanges();
@@ -166,6 +201,7 @@ namespace GranjaSystem.Controllers
             if (ModelState.IsValid)
             {
                 tblFichas.TotalNacidos = tblFichas.NacidosVivos + tblFichas.NacidosMuertos + tblFichas.NacidosMomias;
+                tblFichas.Lote = DetalleL.IdLote;
                 db.Entry(tblFichas).State = EntityState.Modified;
                 if (tblFichas.NumDestetado != null && tblFichas.PesoPromedio28D != null)
                 {

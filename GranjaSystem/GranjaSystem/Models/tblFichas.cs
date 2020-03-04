@@ -32,7 +32,8 @@ namespace GranjaSystem.Models
         public int? NumDestetado { get; set; }
         public decimal? PesoPromedio28D { get; set; }
         public string FechaDestete { get; set; }
-        
+
+        public int? Lote { get; set; }
         //Relacion 
         public int IdEmpleado { get; set; }
         public virtual tblEmpleados Empleados { get; set; }

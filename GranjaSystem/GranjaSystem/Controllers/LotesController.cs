@@ -17,7 +17,7 @@ namespace GranjaSystem.Content
         // GET: Lotes
         public ActionResult Index()
         {
-
+            ViewBag.TLechones = db.Fichas.ToList();
             return View(db.Lotes.ToList());
         }
 
@@ -33,7 +33,8 @@ namespace GranjaSystem.Content
             {
                 return HttpNotFound();
             }
-            ViewBag.DLotes = db.DetalleLotes.Where(h => h.IdLote == id).Include(t => t.Varracos).Include(t => t.Cerdas).ToList();
+            
+                ViewBag.DLotes = db.DetalleLotes.Where(h => h.IdLote == id).Include(t => t.Varracos).Include(t => t.Cerdas).ToList();
             return View(tblLotes);
         }
         // GET: Lotes/Edit/5

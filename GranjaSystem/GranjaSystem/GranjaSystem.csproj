@@ -2694,6 +2694,10 @@
     <Compile Include="Migrations\202002281647220_tablavacunaslote.designer.cs">
       <DependentUpon>202002281647220_tablavacunaslote.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003031606144_fichalote.cs" />
+    <Compile Include="Migrations\202003031606144_fichalote.designer.cs">
+      <DependentUpon>202003031606144_fichalote.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\tblCerdas.cs" />
@@ -3196,6 +3200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002281647220_tablavacunaslote.resx">
       <DependentUpon>202002281647220_tablavacunaslote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003031606144_fichalote.resx">
+      <DependentUpon>202003031606144_fichalote.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
