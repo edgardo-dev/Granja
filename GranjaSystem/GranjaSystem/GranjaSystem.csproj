@@ -2643,6 +2643,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FichasController.cs" />
+    <Compile Include="Controllers\LechonesController.cs" />
     <Compile Include="Controllers\LotesController.cs" />
     <Compile Include="Controllers\CerdasController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
@@ -2698,6 +2699,10 @@
     <Compile Include="Migrations\202003031606144_fichalote.designer.cs">
       <DependentUpon>202003031606144_fichalote.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003051318005_tbllechones.cs" />
+    <Compile Include="Migrations\202003051318005_tbllechones.designer.cs">
+      <DependentUpon>202003051318005_tbllechones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\tblCerdas.cs" />
@@ -2706,6 +2711,7 @@
     <Compile Include="Models\tblEmpleados.cs" />
     <Compile Include="Models\tblFichas.cs" />
     <Compile Include="Models\tblGeneticas.cs" />
+    <Compile Include="Models\tblLechones.cs" />
     <Compile Include="Models\tblLotes.cs" />
     <Compile Include="Models\tblRoles.cs" />
     <Compile Include="Models\tblUsuarios.cs" />
@@ -3163,6 +3169,11 @@
     <Content Include="Views\VacunasLotes\Details.cshtml" />
     <Content Include="Views\VacunasLotes\Edit.cshtml" />
     <Content Include="Views\VacunasLotes\Index.cshtml" />
+    <Content Include="Views\Lechones\Create.cshtml" />
+    <Content Include="Views\Lechones\Delete.cshtml" />
+    <Content Include="Views\Lechones\Details.cshtml" />
+    <Content Include="Views\Lechones\Edit.cshtml" />
+    <Content Include="Views\Lechones\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3203,6 +3214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003031606144_fichalote.resx">
       <DependentUpon>202003031606144_fichalote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003051318005_tbllechones.resx">
+      <DependentUpon>202003051318005_tbllechones.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
