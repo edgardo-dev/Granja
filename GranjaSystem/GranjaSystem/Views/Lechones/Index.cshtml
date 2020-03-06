@@ -12,77 +12,85 @@
             <div class="panel-heading text-center"><h4>CONTROL DE LECHONES</h4></div>
             <div class="panel-body bg-gray">
                 <table id="Tabla" class="table table-bordered table-hover text-center">
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.NumLote)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Edad)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.NCerdos)
-                        </th>
-                        @*<th>
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NumLote)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Edad)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NCerdos)
+                            </th>
+                            @*<th>
                     @Html.DisplayNameFor(model => model.NCerdas)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.NVarracos)
                 </th>*@
-                        <th>
-                            @Html.DisplayNameFor(model => model.Fases)
-                        </th>
-                        <th>
-                            Fecha Inicio
-                        </th>
-                        @*<th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Fases)
+                            </th>
+                            <th>
+                                Fecha Inicio
+                            </th>
+                            @*<th>
                     @Html.DisplayNameFor(model => model.FechaRegistro)
                 </th>*@
-                        <th>
-                            @Html.DisplayNameFor(model => model.Estado)
-                        </th>
-                        <th></th>
-                    </tr>
-
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.NumLote)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Edad)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.NCerdos)
-                            </td>
-                            @*<td>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Estado)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NumLote)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Edad)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NCerdos)
+                                </td>
+                                @*<td>
                         @Html.DisplayFor(modelItem => item.NCerdas)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.NVarracos)
                     </td>*@
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Fases)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.FechaInicio)
-                            </td>
-                            @*<td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Fases)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FechaInicio)
+                                </td>
+                                @*<td>
                         @Html.DisplayFor(modelItem => item.FechaRegistro)
                     </td>*@
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Estado)
-                            </td>
-                            <td>
-                                @Html.ActionLink(" ", "Edit", new { id = item.IdLechones }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
-                                @Html.ActionLink(" ", "Details", new { id = item.IdLechones }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
-                                @Html.ActionLink(" ", "Print", new { id = item.IdLechones }, new { @class = "fa fa-print btn btn-primary", title = "Imprimir" })
-                                @Html.ActionLink(" ", "Delete", new { id = item.IdLechones }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Estado)
+                                </td>
+                                <td>
+                                    @Html.ActionLink(" ", "Edit", new { id = item.IdLechones }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
+                                    @Html.ActionLink(" ", "Details", new { id = item.IdLechones }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
+                                    @{
+                                        if (item.Edad >= 18)
+                                        {
+                                            @Html.ActionLink(" ", " ", new { id = item.IdLechones }, new { @class = "fa fa-cart-arrow-down btn btn-primary", title = "Descartar Cerdos" })
+                                        }
+                                    }
 
-                            </td>
-                        </tr>
-                    }
+                                    @Html.ActionLink(" ", "Delete", new { id = item.IdLechones }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
 
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
                 </table>
             </div>
         </div>

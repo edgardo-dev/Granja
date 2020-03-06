@@ -26,8 +26,6 @@ namespace GranjaSystem.Models
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime FechaInicio { get; set; }
         [Editable(allowEdit: false)]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Fecha Registro")]
         public DateTime FechaRegistro { get; set; }
         public string Estado { get; set; }

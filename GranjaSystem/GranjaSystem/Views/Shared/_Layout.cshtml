@@ -194,18 +194,7 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MENU PRINCIPAL</li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-code-fork"></i> <span>Gestión de Genética</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="@Url.Action("Index","Geneticas")"><i class="fa fa-search"></i>Genéticas</a></li>
-                            <li><a href="@Url.Action("Create","Geneticas")"><i class="fa fa-plus"></i>Agregar Genetica</a></li>
-                        </ul>
-                    </li>
+
                     <li class="treeview">
                         <a href="">
                             <i class="fa fa-heartbeat"></i> <span>Control de Varraco</span>
@@ -272,7 +261,18 @@
                             <li><a href="@Url.Action("Create","Fichas")"><i class="fa fa-plus"></i>Agregar Fichas</a></li>s
                         </ul>
                     </li>
-
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-code-fork"></i> <span>Gestión de Genética</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="@Url.Action("Index","Geneticas")"><i class="fa fa-search"></i>Genéticas</a></li>
+                            <li><a href="@Url.Action("Create","Geneticas")"><i class="fa fa-plus"></i>Agregar Genetica</a></li>
+                        </ul>
+                    </li>
                     @{
                         if (Convert.ToString(Session["Rol"]) == "Administrador")
                         {

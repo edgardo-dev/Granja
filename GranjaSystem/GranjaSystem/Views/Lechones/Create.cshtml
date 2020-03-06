@@ -4,7 +4,6 @@
     ViewBag.Title = "Create";
 }
 
-
 <div class="row content container-fluid">
     <div class="panel panel-primary">
         <div class="panel-heading text-center"><h4>CONTROL DE LECHONES</h4></div>
@@ -15,8 +14,6 @@
                     @Html.AntiForgeryToken()
 
                     <div class="form-horizontal">
-
-                        <hr />
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group">
                             @Html.LabelFor(model => model.NumLote, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -26,13 +23,13 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        @*<div class="form-group">
                             @Html.LabelFor(model => model.Edad, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.Edad, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Edad, "", new { @class = "text-danger" })
                             </div>
-                        </div>
+                        </div>*@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.NCerdos, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -58,13 +55,13 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        @*<div class="form-group">
                             @Html.LabelFor(model => model.Fases, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.Fases, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Fases, "", new { @class = "text-danger" })
                             </div>
-                        </div>
+                        </div>*@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.FechaInicio, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -74,13 +71,13 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        @*<div class="form-group">
                             @Html.LabelFor(model => model.Estado, htmlAttributes: new { @class = "control-label col-md-2" })
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.Estado, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Estado, "", new { @class = "text-danger" })
                             </div>
-                        </div>
+                        </div>*@
 
                         <div class="form-group">
                             <div class="col-sm-offset-8 col-sm-4" align="right">
@@ -90,11 +87,6 @@
                         </div>
                     </div>
                 }
-
-              
-                  
-               
-
             </form>
       </div>
    </div>
