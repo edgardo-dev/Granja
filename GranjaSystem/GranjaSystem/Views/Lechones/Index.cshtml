@@ -1,81 +1,90 @@
 ﻿@model IEnumerable<GranjaSystem.Models.tblLechones>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Control de Lechones";
 }
 
-<h2>Index</h2>
+    <div class="row content container-fluid">
+        <p>
+            @Html.ActionLink(" ", "Create", null, new { @class = "fa fa-plus btn btn-success btn-lg", title = "Agregar" })
+        </p>
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE LECHONES</h4></div>
+            <div class="panel-body bg-gray">
+                <table id="Tabla" class="table table-bordered table-hover text-center">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NumLote)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Edad)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NCerdos)
+                        </th>
+                        @*<th>
+                    @Html.DisplayNameFor(model => model.NCerdas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NVarracos)
+                </th>*@
+                        <th>
+                            @Html.DisplayNameFor(model => model.Fases)
+                        </th>
+                        <th>
+                            Fecha Inicio
+                        </th>
+                        @*<th>
+                    @Html.DisplayNameFor(model => model.FechaRegistro)
+                </th>*@
+                        <th>
+                            @Html.DisplayNameFor(model => model.Estado)
+                        </th>
+                        <th></th>
+                    </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NumLote)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Edad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NCerdos)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.NCerdas)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NVarracos)
-        </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.Fases)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FechaInicio)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.FechaRegistro)
-        </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.Estado)
-        </th>
-        <th></th>
-    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NumLote)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Edad)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NCerdos)
+                            </td>
+                            @*<td>
+                        @Html.DisplayFor(modelItem => item.NCerdas)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NVarracos)
+                    </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Fases)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FechaInicio)
+                            </td>
+                            @*<td>
+                        @Html.DisplayFor(modelItem => item.FechaRegistro)
+                    </td>*@
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Estado)
+                            </td>
+                            <td>
+                                @Html.ActionLink(" ", "Edit", new { id = item.IdLechones }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
+                                @Html.ActionLink(" ", "Details", new { id = item.IdLechones }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
+                                @Html.ActionLink(" ", "Print", new { id = item.IdLechones }, new { @class = "fa fa-print btn btn-primary", title = "Imprimir" })
+                                @Html.ActionLink(" ", "Delete", new { id = item.IdLechones }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.NumLote)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Edad)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.NCerdos)
-    </td>
-    @*<td>
-            @Html.DisplayFor(modelItem => item.NCerdas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NVarracos)
-        </td>*@
-    <td>
-        @Html.DisplayFor(modelItem => item.Fases)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.FechaInicio)
-    </td>
-    @*<td>
-            @Html.DisplayFor(modelItem => item.FechaRegistro)
-        </td>*@
-    <td>
-        @Html.DisplayFor(modelItem => item.Estado)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.IdLechones }) |
-        @Html.ActionLink("Details", "Details", new { id = item.IdLechones }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.IdLechones })
-    </td>
-</tr>
-}
+                            </td>
+                        </tr>
+                    }
 
-</table>
+                </table>
+            </div>
+        </div>
+</div>
+       

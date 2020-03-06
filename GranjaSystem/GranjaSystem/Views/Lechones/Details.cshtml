@@ -1,90 +1,109 @@
 ﻿@model GranjaSystem.Models.tblLechones
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalle de Lechones";
 }
 
-<h2>Details</h2>
+    <div class="row content container-fluid">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center"><h4>CONTROL DE LECHONES</h4></div>
+            <div class="panel-body bg-gray">
+                <div style="font-size: 20px;">
+                    <div class="col-md-offset-2 col-md-9">
+                        <div class="col-sm-6 ">
 
-<div>
-    <h4>tblLechones</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NumLote)
-        </dt>
+                            @*<hr />*@
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.NumLote)
+                                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NumLote)
-        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.NumLote)
+                                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Edad)
-        </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Edad)
+                                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Edad)
-        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Edad)
+                                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NCerdos)
-        </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.NCerdos)
+                                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NCerdos)
-        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.NCerdos)
+                                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NCerdas)
-        </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.NCerdas)
+                                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NCerdas)
-        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.NCerdas)
+                                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.NVarracos)
-        </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.NVarracos)
+                                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NVarracos)
-        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.NVarracos)
+                                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Fases)
-        </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Fases)
+                                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fases)
-        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Fases)
+                                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaInicio)
-        </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.FechaInicio)
+                                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaInicio)
-        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.FechaInicio)
+                                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaRegistro)
-        </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.FechaRegistro)
+                                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FechaRegistro)
-        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.FechaRegistro)
+                                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Estado)
-        </dt>
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Estado)
+                                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
+                                <dd>
+                                    @Html.DisplayFor(model => model.Estado)
+                                </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdLechones }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                            </dl>
+
+                        </div>
+                        <p align="right">
+                            @Html.ActionLink("Modificar", "Edit", new { id = Model.IdLechones }, new { @class = "btn btn-success" }) |
+                            @Html.ActionLink("Atras", "Index" , null, new { @class = "btn btn-info" })
+                        </p>
+                    </div>
+
+
+                </div>
+           </div>
+      </div>
+  </div>
+<
+
+
+                           
+
+                               
+                           

@@ -972,3 +972,5 @@ C:\Users\Ingrid Solórzano\Desktop\MVC C#\Granja\GranjaSystem\GranjaSystem\obj\D
 C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.fichalote.resources
 C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.tbllechones.resources
 C:\Users\PC\Desktop\MVC-USAID\Avance-1\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csprojAssemblyReference.cache
+C:\Users\Ingrid Solórzano\Desktop\MVC C#\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.fichalote.resources
+C:\Users\Ingrid Solórzano\Desktop\MVC C#\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.tbllechones.resources
