@@ -17,12 +17,12 @@ namespace GranjaSystem.Controllers
             ViewBag.CCerdas = db.Cerdas.Count();
             ViewBag.CVarracos = db.Varracos.Count();
             ViewBag.CLotes = db.Lotes.Count();
-           ViewBag.CFichas = db.Fichas.Count();
-           ViewBag.CLechones = db.Lechones.Count();
+            ViewBag.CFichas = db.Fichas.Count();
+            ViewBag.CLechones = db.Lechones.Count();
             ViewBag.CEmpleados = db.Empleados.Where(e => e.NombreEmpleado != "Pendiente").Count();
             ViewBag.CUsuarios = db.Usuarios.Count();
             DateTime Fecha = DateTime.Now.Date;
-            
+
             ViewBag.IdL = db.DetalleLotes.Where(d => d.Fvacuna1 == Fecha).Include(t => t.Lotes).ToList();
             ViewBag.IdP = db.DetalleLotes.Where(d => d.Fvacuna15 == Fecha).Include(t => t.Lotes).ToList();
             ViewBag.IdV = db.DetalleLotes.Where(d => d.Fvacuna2 == Fecha).Include(t => t.Lotes).ToList();

@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Vender";
+}
+
+<div class="row content container-fluid">
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>Control de Usuarios</h4></div>
+        <div class="panel-body bg-gray">
+            <form action="" method="post">
+                <div class="form-group">
+                    <label class="control-label col-md-2">Cerdos Disponibles</label>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" name="Disponible" id="Disponible" value="@ViewBag.Lechones.NCerdos" />
+                    </div>
+                    <label class="control-label col-md-2">Cuantos se Venderan</label>
+                    <div class="col-md-4">
+                        <input class="form-control" type="number" name="Cantidad" id="Cantidad" value="" placeholder="Ingrese la Cantidad a Vender" />
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-success" name="btnVender" id="btnVender" value="Vender" />
+            </form>
+        </div>
+    </div>
+</div>
+
+@section EnvioDatos{
+    <script>
+            var Disponible = $("#Disponible").val();
+            var Cantidad = $("#Cantidad").val();
+               //enviar factura
+        $(document).ready(function () {
+
+            $("#Cantidad").change(function () {
+               var Cantidad = $("#Cantidad").val();
+
+                if (Disponible > Cantidad) {
+                        alert("La Cantidad a Vender es Mayor a la Disponible");
+                        $("#Cantidad").val("");
+                    }
+                });
+            });
+        $("#btnVender").click(function () {
+
+            if (Cantidad <= Disponible) {
+                $.ajaxSetup({ async: false });
+                //cargando datos tabla primaria
+                var urlLote = '@Url.Action("Vender", "Lechones")';
+                var dataLote = { Cantidad: Cantidad, Disponible: Disponible };
+                    $.post(urlLote, dataLote)
+                        .done(function (data) {
+                            //alert("Compra Creada con exito")
+                        })
+                        .fail(function (data) {
+                            console.log("Error: " + data.responseText);
+                        }).
+                        always(function () {
+                        });
+           
+                var url = '@Url.Action("Index", "Lechones")';
+                $(location).attr('href', url);
+                
+            }
+        });
+    </script>
+}

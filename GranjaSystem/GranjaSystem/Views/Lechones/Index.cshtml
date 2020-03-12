@@ -38,9 +38,9 @@
                             @*<th>
                     @Html.DisplayNameFor(model => model.FechaRegistro)
                 </th>*@
-                            <th>
+                            @*<th>
                                 @Html.DisplayNameFor(model => model.Estado)
-                            </th>
+                            </th>*@
                             <th></th>
                         </tr>
                     </thead>
@@ -72,22 +72,26 @@
                                 @*<td>
                         @Html.DisplayFor(modelItem => item.FechaRegistro)
                     </td>*@
-                                <td>
+                                @*<td>
                                     @Html.DisplayFor(modelItem => item.Estado)
-                                </td>
-                                <td>
-                                    @Html.ActionLink(" ", "Edit", new { id = item.IdLechones }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
-                                    @Html.ActionLink(" ", "Details", new { id = item.IdLechones }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
-                                    @{
-                                        if (item.Edad >= 18)
-                                        {
-                                            @Html.ActionLink(" ", " ", new { id = item.IdLechones }, new { @class = "fa fa-cart-arrow-down btn btn-primary", title = "Descartar Cerdos" })
-                                        }
+                                </td>*@
+                            <td>
+                                @Html.ActionLink(" ", "Edit", new { id = item.IdLechones }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
+                                @Html.ActionLink(" ", "Details", new { id = item.IdLechones }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
+                                @{
+                                    if (item.Edad >= 13 && item.Edad <=15 && item.Fases != "Final M")
+                                    {
+                                        @Html.ActionLink(" ", "Subir", new { id = item.IdLechones }, new { @class = "fa fa-arrow-circle-up btn btn-primary", title = "Subir fase" })
                                     }
+                                    else if (item.Edad >= 20)
+                                    {
+                                        @Html.ActionLink(" ", "Vender", new { id = item.IdLechones }, new { @class = "fa fa-cart-arrow-down btn btn-primary", title = "Descartar Cerdos" })
+                                    }
+                                }
 
-                                    @Html.ActionLink(" ", "Delete", new { id = item.IdLechones }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                                @Html.ActionLink(" ", "Delete", new { id = item.IdLechones }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
 
-                                </td>
+                            </td>
                             </tr>
                         }
                     </tbody>

@@ -3174,6 +3174,8 @@
     <Content Include="Views\Lechones\Details.cshtml" />
     <Content Include="Views\Lechones\Edit.cshtml" />
     <Content Include="Views\Lechones\Index.cshtml" />
+    <Content Include="Views\Lechones\Subir.cshtml" />
+    <Content Include="Views\Lechones\Vender.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
