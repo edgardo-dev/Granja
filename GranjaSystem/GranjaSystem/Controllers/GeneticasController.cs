@@ -12,7 +12,7 @@ namespace GranjaSystem.Controllers
 {
     public class GeneticasController : Controller
     {
-        private Contexto db = new Contexto();
+        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
 
         // GET: Geneticas
         public ActionResult Index()

@@ -13,12 +13,12 @@ namespace GranjaSystem.Controllers
 {
     public class CerdasController : Controller
     {
-        private Contexto db = new Contexto();
+        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
 
         // GET: Cerdas
         public ActionResult Index()
         {
-            var cerdas = db.Cerdas.Include(t => t.Genetica);
+            var cerdas = db.Cerdas.Include(t => t.tblGeneticas);
             return View(cerdas.ToList());
         }
 
@@ -34,7 +34,7 @@ namespace GranjaSystem.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.FichasC = db.Fichas.Where(h => h.IdCerda == id).Include(t => t.Empleados).Include(t => t.Varracos).ToList();
+            ViewBag.FichasC = db.Fichas.Where(h => h.IdCerda == id).Include(t => t.tblEmpleados).Include(t => t.tblVarracos).ToList();
             ViewBag.Vacunas = db.Vacunas.Where(h => h.IdCerda == id).ToList();
             return View(tblCerdas);
         }
@@ -137,9 +137,9 @@ namespace GranjaSystem.Controllers
         public ActionResult ReporteCerda(int? id)
         {
             
-            ViewBag.Fichas = db.Fichas.Where(h => h.IdCerda == id).Include(t => t.Empleados).Include(t => t.Varracos).ToList();
+            ViewBag.Fichas = db.Fichas.Where(h => h.IdCerda == id).Include(t => t.tblEmpleados).Include(t => t.tblVarracos).ToList();
             ViewBag.Vacunas = db.Vacunas.Where(h => h.IdCerda == id).ToList();
-            ViewBag.Cerdas = db.Cerdas.Where(c=>c.IdCerda ==id).Include(g=>g.Genetica).FirstOrDefault();
+            ViewBag.Cerdas = db.Cerdas.Where(c=>c.IdCerda ==id).Include(g=>g.tblGeneticas).FirstOrDefault();
 
             return View();
         }

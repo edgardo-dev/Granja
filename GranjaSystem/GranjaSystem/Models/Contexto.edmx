@@ -1,0 +1,1091 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_A460EB_PruebasNGS2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblCerdas">
+          <Key>
+            <PropertyRef Name="IdCerda" />
+          </Key>
+          <Property Name="IdCerda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumCerda" Type="int" Nullable="false" />
+          <Property Name="Procedencia" Type="nvarchar(max)" />
+          <Property Name="Observaciones" Type="nvarchar(max)" />
+          <Property Name="NumParto" Type="int" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="nvarchar(max)" />
+          <Property Name="IdGenetica" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblControlLechones">
+          <Key>
+            <PropertyRef Name="IdControlL" />
+          </Key>
+          <Property Name="IdControlL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdLotes" Type="int" Nullable="false" />
+          <Property Name="FechaDestete" Type="nvarchar(max)" />
+          <Property Name="IdCerda" Type="int" Nullable="false" />
+          <Property Name="TotalLechones" Type="int" Nullable="false" />
+          <Property Name="PesoPromedioL" Type="float" Nullable="false" />
+          <Property Name="Lotes_IdLote" Type="int" />
+        </EntityType>
+        <EntityType Name="tblDetalleLotes">
+          <Key>
+            <PropertyRef Name="IdDLote" />
+          </Key>
+          <Property Name="IdDLote" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCerda" Type="int" Nullable="false" />
+          <Property Name="FechaInseminacion" Type="datetime" Nullable="false" />
+          <Property Name="FechaParto" Type="datetime" Nullable="false" />
+          <Property Name="IdVarraco" Type="int" Nullable="false" />
+          <Property Name="Fvacuna1" Type="datetime" Nullable="false" />
+          <Property Name="Fvacuna2" Type="datetime" Nullable="false" />
+          <Property Name="Observaciones" Type="nvarchar(max)" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="IdLote" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="nvarchar(max)" />
+          <Property Name="Fvacuna15" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tblEmpleados">
+          <Key>
+            <PropertyRef Name="IdEmpleado" />
+          </Key>
+          <Property Name="IdEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreEmpleado" Type="nvarchar(max)" />
+          <Property Name="ApellidoEmpleado" Type="nvarchar(max)" />
+          <Property Name="Telefono" Type="int" Nullable="false" />
+          <Property Name="DUI" Type="nvarchar(max)" />
+          <Property Name="NIT" Type="nvarchar(max)" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblFichas">
+          <Key>
+            <PropertyRef Name="IdFicha" />
+          </Key>
+          <Property Name="IdFicha" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCerda" Type="int" Nullable="false" />
+          <Property Name="NumParto" Type="int" Nullable="false" />
+          <Property Name="FechaServio" Type="nvarchar(max)" />
+          <Property Name="IdVarraco" Type="int" Nullable="false" />
+          <Property Name="FechaParto" Type="nvarchar(max)" />
+          <Property Name="NacidosVivos" Type="int" />
+          <Property Name="NacidosMuertos" Type="int" />
+          <Property Name="NacidosMomias" Type="int" />
+          <Property Name="TotalNacidos" Type="int" />
+          <Property Name="PesoPromedio1D" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="NumDestetado" Type="int" />
+          <Property Name="PesoPromedio28D" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FechaDestete" Type="nvarchar(max)" />
+          <Property Name="IdEmpleado" Type="int" Nullable="false" />
+          <Property Name="Lote" Type="int" />
+        </EntityType>
+        <EntityType Name="tblGeneticas">
+          <Key>
+            <PropertyRef Name="IdGenetica" />
+          </Key>
+          <Property Name="IdGenetica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Genetica" Type="nvarchar(max)" />
+          <Property Name="Observacion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblLechones">
+          <Key>
+            <PropertyRef Name="IdLechones" />
+          </Key>
+          <Property Name="IdLechones" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumLote" Type="int" Nullable="false" />
+          <Property Name="Edad" Type="int" Nullable="false" />
+          <Property Name="NCerdos" Type="int" Nullable="false" />
+          <Property Name="NCerdas" Type="int" Nullable="false" />
+          <Property Name="NVarracos" Type="int" Nullable="false" />
+          <Property Name="Fases" Type="nvarchar(max)" />
+          <Property Name="FechaInicio" Type="datetime" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="nvarchar(max)" />
+          <Property Name="qqDiarios" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="qqSemanal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblLotes">
+          <Key>
+            <PropertyRef Name="IdLote" />
+          </Key>
+          <Property Name="IdLote" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumLote" Type="int" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblRoles">
+          <Key>
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rol" Type="nvarchar(max)" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblUsuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="nvarchar(max)" />
+          <Property Name="Clave" Type="nvarchar(max)" />
+          <Property Name="IdEmpleado" Type="int" Nullable="false" />
+          <Property Name="IdRol" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblVacunas">
+          <Key>
+            <PropertyRef Name="IdVacuna" />
+          </Key>
+          <Property Name="IdVacuna" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCerda" Type="int" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="FechaInyeccion" Type="nvarchar(max)" />
+          <Property Name="Vacuna" Type="nvarchar(max)" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblVacunasLotes">
+          <Key>
+            <PropertyRef Name="IdVacunaLote" />
+          </Key>
+          <Property Name="IdVacunaLote" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdLote" Type="int" Nullable="false" />
+          <Property Name="FechaVacuna" Type="datetime" Nullable="false" />
+          <Property Name="Vacuna" Type="nvarchar(max)" />
+          <Property Name="Descripcion" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tblVarracos">
+          <Key>
+            <PropertyRef Name="IdVarraco" />
+          </Key>
+          <Property Name="IdVarraco" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumVarraco" Type="int" Nullable="false" />
+          <Property Name="Procedencia" Type="nvarchar(max)" />
+          <Property Name="Observaciones" Type="nvarchar(max)" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="Estado" Type="nvarchar(max)" />
+          <Property Name="IdGenetica" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_tblCerdas_dbo_tblGeneticas_IdGenetica">
+          <End Role="tblGeneticas" Type="Self.tblGeneticas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblCerdas" Type="Self.tblCerdas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGeneticas">
+              <PropertyRef Name="IdGenetica" />
+            </Principal>
+            <Dependent Role="tblCerdas">
+              <PropertyRef Name="IdGenetica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblControlLechones_dbo_tblCerdas_IdCerda">
+          <End Role="tblCerdas" Type="Self.tblCerdas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblControlLechones" Type="Self.tblControlLechones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCerdas">
+              <PropertyRef Name="IdCerda" />
+            </Principal>
+            <Dependent Role="tblControlLechones">
+              <PropertyRef Name="IdCerda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblControlLechones_dbo_tblLotes_Lotes_IdLote">
+          <End Role="tblLotes" Type="Self.tblLotes" Multiplicity="0..1" />
+          <End Role="tblControlLechones" Type="Self.tblControlLechones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLotes">
+              <PropertyRef Name="IdLote" />
+            </Principal>
+            <Dependent Role="tblControlLechones">
+              <PropertyRef Name="Lotes_IdLote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblDetalleLotes_dbo_tblCerdas_IdCerda">
+          <End Role="tblCerdas" Type="Self.tblCerdas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblDetalleLotes" Type="Self.tblDetalleLotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCerdas">
+              <PropertyRef Name="IdCerda" />
+            </Principal>
+            <Dependent Role="tblDetalleLotes">
+              <PropertyRef Name="IdCerda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblDetalleLotes_dbo_tblLotes_IdLote">
+          <End Role="tblLotes" Type="Self.tblLotes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblDetalleLotes" Type="Self.tblDetalleLotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLotes">
+              <PropertyRef Name="IdLote" />
+            </Principal>
+            <Dependent Role="tblDetalleLotes">
+              <PropertyRef Name="IdLote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblDetalleLotes_dbo_tblVarracos_IdVarraco">
+          <End Role="tblVarracos" Type="Self.tblVarracos" Multiplicity="1" />
+          <End Role="tblDetalleLotes" Type="Self.tblDetalleLotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblVarracos">
+              <PropertyRef Name="IdVarraco" />
+            </Principal>
+            <Dependent Role="tblDetalleLotes">
+              <PropertyRef Name="IdVarraco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblFichas_dbo_tblCerdas_IdCerda">
+          <End Role="tblCerdas" Type="Self.tblCerdas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblFichas" Type="Self.tblFichas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCerdas">
+              <PropertyRef Name="IdCerda" />
+            </Principal>
+            <Dependent Role="tblFichas">
+              <PropertyRef Name="IdCerda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblFichas_dbo_tblEmpleados_IdEmpleado">
+          <End Role="tblEmpleados" Type="Self.tblEmpleados" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblFichas" Type="Self.tblFichas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmpleados">
+              <PropertyRef Name="IdEmpleado" />
+            </Principal>
+            <Dependent Role="tblFichas">
+              <PropertyRef Name="IdEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblFichas_dbo_tblVarracos_IdVarraco">
+          <End Role="tblVarracos" Type="Self.tblVarracos" Multiplicity="1" />
+          <End Role="tblFichas" Type="Self.tblFichas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblVarracos">
+              <PropertyRef Name="IdVarraco" />
+            </Principal>
+            <Dependent Role="tblFichas">
+              <PropertyRef Name="IdVarraco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblUsuarios_dbo_tblEmpleados_IdEmpleado">
+          <End Role="tblEmpleados" Type="Self.tblEmpleados" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblUsuarios" Type="Self.tblUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmpleados">
+              <PropertyRef Name="IdEmpleado" />
+            </Principal>
+            <Dependent Role="tblUsuarios">
+              <PropertyRef Name="IdEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblUsuarios_dbo_tblRoles_IdRol">
+          <End Role="tblRoles" Type="Self.tblRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblUsuarios" Type="Self.tblUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoles">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="tblUsuarios">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblVacunas_dbo_tblCerdas_IdCerda">
+          <End Role="tblCerdas" Type="Self.tblCerdas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblVacunas" Type="Self.tblVacunas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCerdas">
+              <PropertyRef Name="IdCerda" />
+            </Principal>
+            <Dependent Role="tblVacunas">
+              <PropertyRef Name="IdCerda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblVacunasLotes_dbo_tblLotes_IdLote">
+          <End Role="tblLotes" Type="Self.tblLotes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblVacunasLotes" Type="Self.tblVacunasLotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLotes">
+              <PropertyRef Name="IdLote" />
+            </Principal>
+            <Dependent Role="tblVacunasLotes">
+              <PropertyRef Name="IdLote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblVarracos_dbo_tblGeneticas_IdGenetica">
+          <End Role="tblGeneticas" Type="Self.tblGeneticas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblVarracos" Type="Self.tblVarracos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGeneticas">
+              <PropertyRef Name="IdGenetica" />
+            </Principal>
+            <Dependent Role="tblVarracos">
+              <PropertyRef Name="IdGenetica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_A460EB_PruebasNGS2ModelStoreContainer">
+          <EntitySet Name="tblCerdas" EntityType="Self.tblCerdas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblControlLechones" EntityType="Self.tblControlLechones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblDetalleLotes" EntityType="Self.tblDetalleLotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEmpleados" EntityType="Self.tblEmpleados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblFichas" EntityType="Self.tblFichas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblGeneticas" EntityType="Self.tblGeneticas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLechones" EntityType="Self.tblLechones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblLotes" EntityType="Self.tblLotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRoles" EntityType="Self.tblRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUsuarios" EntityType="Self.tblUsuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVacunas" EntityType="Self.tblVacunas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVacunasLotes" EntityType="Self.tblVacunasLotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblVarracos" EntityType="Self.tblVarracos" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_tblCerdas_dbo_tblGeneticas_IdGenetica" Association="Self.FK_dbo_tblCerdas_dbo_tblGeneticas_IdGenetica">
+            <End Role="tblGeneticas" EntitySet="tblGeneticas" />
+            <End Role="tblCerdas" EntitySet="tblCerdas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblControlLechones_dbo_tblCerdas_IdCerda" Association="Self.FK_dbo_tblControlLechones_dbo_tblCerdas_IdCerda">
+            <End Role="tblCerdas" EntitySet="tblCerdas" />
+            <End Role="tblControlLechones" EntitySet="tblControlLechones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblControlLechones_dbo_tblLotes_Lotes_IdLote" Association="Self.FK_dbo_tblControlLechones_dbo_tblLotes_Lotes_IdLote">
+            <End Role="tblLotes" EntitySet="tblLotes" />
+            <End Role="tblControlLechones" EntitySet="tblControlLechones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblDetalleLotes_dbo_tblCerdas_IdCerda" Association="Self.FK_dbo_tblDetalleLotes_dbo_tblCerdas_IdCerda">
+            <End Role="tblCerdas" EntitySet="tblCerdas" />
+            <End Role="tblDetalleLotes" EntitySet="tblDetalleLotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblDetalleLotes_dbo_tblLotes_IdLote" Association="Self.FK_dbo_tblDetalleLotes_dbo_tblLotes_IdLote">
+            <End Role="tblLotes" EntitySet="tblLotes" />
+            <End Role="tblDetalleLotes" EntitySet="tblDetalleLotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblDetalleLotes_dbo_tblVarracos_IdVarraco" Association="Self.FK_dbo_tblDetalleLotes_dbo_tblVarracos_IdVarraco">
+            <End Role="tblVarracos" EntitySet="tblVarracos" />
+            <End Role="tblDetalleLotes" EntitySet="tblDetalleLotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblFichas_dbo_tblCerdas_IdCerda" Association="Self.FK_dbo_tblFichas_dbo_tblCerdas_IdCerda">
+            <End Role="tblCerdas" EntitySet="tblCerdas" />
+            <End Role="tblFichas" EntitySet="tblFichas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblFichas_dbo_tblEmpleados_IdEmpleado" Association="Self.FK_dbo_tblFichas_dbo_tblEmpleados_IdEmpleado">
+            <End Role="tblEmpleados" EntitySet="tblEmpleados" />
+            <End Role="tblFichas" EntitySet="tblFichas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblFichas_dbo_tblVarracos_IdVarraco" Association="Self.FK_dbo_tblFichas_dbo_tblVarracos_IdVarraco">
+            <End Role="tblVarracos" EntitySet="tblVarracos" />
+            <End Role="tblFichas" EntitySet="tblFichas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblUsuarios_dbo_tblEmpleados_IdEmpleado" Association="Self.FK_dbo_tblUsuarios_dbo_tblEmpleados_IdEmpleado">
+            <End Role="tblEmpleados" EntitySet="tblEmpleados" />
+            <End Role="tblUsuarios" EntitySet="tblUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblUsuarios_dbo_tblRoles_IdRol" Association="Self.FK_dbo_tblUsuarios_dbo_tblRoles_IdRol">
+            <End Role="tblRoles" EntitySet="tblRoles" />
+            <End Role="tblUsuarios" EntitySet="tblUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblVacunas_dbo_tblCerdas_IdCerda" Association="Self.FK_dbo_tblVacunas_dbo_tblCerdas_IdCerda">
+            <End Role="tblCerdas" EntitySet="tblCerdas" />
+            <End Role="tblVacunas" EntitySet="tblVacunas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblVacunasLotes_dbo_tblLotes_IdLote" Association="Self.FK_dbo_tblVacunasLotes_dbo_tblLotes_IdLote">
+            <End Role="tblLotes" EntitySet="tblLotes" />
+            <End Role="tblVacunasLotes" EntitySet="tblVacunasLotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblVarracos_dbo_tblGeneticas_IdGenetica" Association="Self.FK_dbo_tblVarracos_dbo_tblGeneticas_IdGenetica">
+            <End Role="tblGeneticas" EntitySet="tblGeneticas" />
+            <End Role="tblVarracos" EntitySet="tblVarracos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_A460EB_PruebasNGS2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblCerdas">
+          <Key>
+            <PropertyRef Name="IdCerda" />
+          </Key>
+          <Property Name="IdCerda" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumCerda" Type="Int32" Nullable="false" />
+          <Property Name="Procedencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NumParto" Type="Int32" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdGenetica" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblGeneticas" Relationship="Self.FK_dbo_tblCerdas_dbo_tblGeneticas_IdGenetica" FromRole="tblCerdas" ToRole="tblGeneticas" />
+          <NavigationProperty Name="tblControlLechones" Relationship="Self.FK_dbo_tblControlLechones_dbo_tblCerdas_IdCerda" FromRole="tblCerdas" ToRole="tblControlLechones" />
+          <NavigationProperty Name="tblDetalleLotes" Relationship="Self.FK_dbo_tblDetalleLotes_dbo_tblCerdas_IdCerda" FromRole="tblCerdas" ToRole="tblDetalleLotes" />
+          <NavigationProperty Name="tblFichas" Relationship="Self.FK_dbo_tblFichas_dbo_tblCerdas_IdCerda" FromRole="tblCerdas" ToRole="tblFichas" />
+          <NavigationProperty Name="tblVacunas" Relationship="Self.FK_dbo_tblVacunas_dbo_tblCerdas_IdCerda" FromRole="tblCerdas" ToRole="tblVacunas" />
+        </EntityType>
+        <EntityType Name="tblControlLechones">
+          <Key>
+            <PropertyRef Name="IdControlL" />
+          </Key>
+          <Property Name="IdControlL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdLotes" Type="Int32" Nullable="false" />
+          <Property Name="FechaDestete" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdCerda" Type="Int32" Nullable="false" />
+          <Property Name="TotalLechones" Type="Int32" Nullable="false" />
+          <Property Name="PesoPromedioL" Type="Double" Nullable="false" />
+          <Property Name="Lotes_IdLote" Type="Int32" />
+          <NavigationProperty Name="tblCerdas" Relationship="Self.FK_dbo_tblControlLechones_dbo_tblCerdas_IdCerda" FromRole="tblControlLechones" ToRole="tblCerdas" />
+          <NavigationProperty Name="tblLotes" Relationship="Self.FK_dbo_tblControlLechones_dbo_tblLotes_Lotes_IdLote" FromRole="tblControlLechones" ToRole="tblLotes" />
+        </EntityType>
+        <EntityType Name="tblDetalleLotes">
+          <Key>
+            <PropertyRef Name="IdDLote" />
+          </Key>
+          <Property Name="IdDLote" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCerda" Type="Int32" Nullable="false" />
+          <Property Name="FechaInseminacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaParto" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdVarraco" Type="Int32" Nullable="false" />
+          <Property Name="Fvacuna1" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Fvacuna2" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdLote" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Fvacuna15" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblCerdas" Relationship="Self.FK_dbo_tblDetalleLotes_dbo_tblCerdas_IdCerda" FromRole="tblDetalleLotes" ToRole="tblCerdas" />
+          <NavigationProperty Name="tblLotes" Relationship="Self.FK_dbo_tblDetalleLotes_dbo_tblLotes_IdLote" FromRole="tblDetalleLotes" ToRole="tblLotes" />
+          <NavigationProperty Name="tblVarracos" Relationship="Self.FK_dbo_tblDetalleLotes_dbo_tblVarracos_IdVarraco" FromRole="tblDetalleLotes" ToRole="tblVarracos" />
+        </EntityType>
+        <EntityType Name="tblEmpleados">
+          <Key>
+            <PropertyRef Name="IdEmpleado" />
+          </Key>
+          <Property Name="IdEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreEmpleado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ApellidoEmpleado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="Int32" Nullable="false" />
+          <Property Name="DUI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NIT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaNacimiento" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblFichas" Relationship="Self.FK_dbo_tblFichas_dbo_tblEmpleados_IdEmpleado" FromRole="tblEmpleados" ToRole="tblFichas" />
+          <NavigationProperty Name="tblUsuarios" Relationship="Self.FK_dbo_tblUsuarios_dbo_tblEmpleados_IdEmpleado" FromRole="tblEmpleados" ToRole="tblUsuarios" />
+        </EntityType>
+        <EntityType Name="tblFichas">
+          <Key>
+            <PropertyRef Name="IdFicha" />
+          </Key>
+          <Property Name="IdFicha" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCerda" Type="Int32" Nullable="false" />
+          <Property Name="NumParto" Type="Int32" Nullable="false" />
+          <Property Name="FechaServio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdVarraco" Type="Int32" Nullable="false" />
+          <Property Name="FechaParto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NacidosVivos" Type="Int32" />
+          <Property Name="NacidosMuertos" Type="Int32" />
+          <Property Name="NacidosMomias" Type="Int32" />
+          <Property Name="TotalNacidos" Type="Int32" />
+          <Property Name="PesoPromedio1D" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="NumDestetado" Type="Int32" />
+          <Property Name="PesoPromedio28D" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FechaDestete" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
+          <Property Name="Lote" Type="Int32" />
+          <NavigationProperty Name="tblCerdas" Relationship="Self.FK_dbo_tblFichas_dbo_tblCerdas_IdCerda" FromRole="tblFichas" ToRole="tblCerdas" />
+          <NavigationProperty Name="tblEmpleados" Relationship="Self.FK_dbo_tblFichas_dbo_tblEmpleados_IdEmpleado" FromRole="tblFichas" ToRole="tblEmpleados" />
+          <NavigationProperty Name="tblVarracos" Relationship="Self.FK_dbo_tblFichas_dbo_tblVarracos_IdVarraco" FromRole="tblFichas" ToRole="tblVarracos" />
+        </EntityType>
+        <EntityType Name="tblGeneticas">
+          <Key>
+            <PropertyRef Name="IdGenetica" />
+          </Key>
+          <Property Name="IdGenetica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Genetica" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblCerdas" Relationship="Self.FK_dbo_tblCerdas_dbo_tblGeneticas_IdGenetica" FromRole="tblGeneticas" ToRole="tblCerdas" />
+          <NavigationProperty Name="tblVarracos" Relationship="Self.FK_dbo_tblVarracos_dbo_tblGeneticas_IdGenetica" FromRole="tblGeneticas" ToRole="tblVarracos" />
+        </EntityType>
+        <EntityType Name="tblLechones">
+          <Key>
+            <PropertyRef Name="IdLechones" />
+          </Key>
+          <Property Name="IdLechones" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumLote" Type="Int32" Nullable="false" />
+          <Property Name="Edad" Type="Int32" Nullable="false" />
+          <Property Name="NCerdos" Type="Int32" Nullable="false" />
+          <Property Name="NCerdas" Type="Int32" Nullable="false" />
+          <Property Name="NVarracos" Type="Int32" Nullable="false" />
+          <Property Name="Fases" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="qqDiarios" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="qqSemanal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblLotes">
+          <Key>
+            <PropertyRef Name="IdLote" />
+          </Key>
+          <Property Name="IdLote" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumLote" Type="Int32" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblControlLechones" Relationship="Self.FK_dbo_tblControlLechones_dbo_tblLotes_Lotes_IdLote" FromRole="tblLotes" ToRole="tblControlLechones" />
+          <NavigationProperty Name="tblDetalleLotes" Relationship="Self.FK_dbo_tblDetalleLotes_dbo_tblLotes_IdLote" FromRole="tblLotes" ToRole="tblDetalleLotes" />
+          <NavigationProperty Name="tblVacunasLotes" Relationship="Self.FK_dbo_tblVacunasLotes_dbo_tblLotes_IdLote" FromRole="tblLotes" ToRole="tblVacunasLotes" />
+        </EntityType>
+        <EntityType Name="tblRoles">
+          <Key>
+            <PropertyRef Name="IdRol" />
+          </Key>
+          <Property Name="IdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblUsuarios" Relationship="Self.FK_dbo_tblUsuarios_dbo_tblRoles_IdRol" FromRole="tblRoles" ToRole="tblUsuarios" />
+        </EntityType>
+        <EntityType Name="tblUsuarios">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Clave" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdEmpleado" Type="Int32" Nullable="false" />
+          <Property Name="IdRol" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblEmpleados" Relationship="Self.FK_dbo_tblUsuarios_dbo_tblEmpleados_IdEmpleado" FromRole="tblUsuarios" ToRole="tblEmpleados" />
+          <NavigationProperty Name="tblRoles" Relationship="Self.FK_dbo_tblUsuarios_dbo_tblRoles_IdRol" FromRole="tblUsuarios" ToRole="tblRoles" />
+        </EntityType>
+        <EntityType Name="tblVacunas">
+          <Key>
+            <PropertyRef Name="IdVacuna" />
+          </Key>
+          <Property Name="IdVacuna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCerda" Type="Int32" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaInyeccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Vacuna" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblCerdas" Relationship="Self.FK_dbo_tblVacunas_dbo_tblCerdas_IdCerda" FromRole="tblVacunas" ToRole="tblCerdas" />
+        </EntityType>
+        <EntityType Name="tblVacunasLotes">
+          <Key>
+            <PropertyRef Name="IdVacunaLote" />
+          </Key>
+          <Property Name="IdVacunaLote" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdLote" Type="Int32" Nullable="false" />
+          <Property Name="FechaVacuna" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Vacuna" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblLotes" Relationship="Self.FK_dbo_tblVacunasLotes_dbo_tblLotes_IdLote" FromRole="tblVacunasLotes" ToRole="tblLotes" />
+        </EntityType>
+        <EntityType Name="tblVarracos">
+          <Key>
+            <PropertyRef Name="IdVarraco" />
+          </Key>
+          <Property Name="IdVarraco" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumVarraco" Type="Int32" Nullable="false" />
+          <Property Name="Procedencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdGenetica" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblDetalleLotes" Relationship="Self.FK_dbo_tblDetalleLotes_dbo_tblVarracos_IdVarraco" FromRole="tblVarracos" ToRole="tblDetalleLotes" />
+          <NavigationProperty Name="tblFichas" Relationship="Self.FK_dbo_tblFichas_dbo_tblVarracos_IdVarraco" FromRole="tblVarracos" ToRole="tblFichas" />
+          <NavigationProperty Name="tblGeneticas" Relationship="Self.FK_dbo_tblVarracos_dbo_tblGeneticas_IdGenetica" FromRole="tblVarracos" ToRole="tblGeneticas" />
+        </EntityType>
+        <Association Name="FK_dbo_tblCerdas_dbo_tblGeneticas_IdGenetica">
+          <End Role="tblGeneticas" Type="Self.tblGeneticas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblCerdas" Type="Self.tblCerdas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGeneticas">
+              <PropertyRef Name="IdGenetica" />
+            </Principal>
+            <Dependent Role="tblCerdas">
+              <PropertyRef Name="IdGenetica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblControlLechones_dbo_tblCerdas_IdCerda">
+          <End Role="tblCerdas" Type="Self.tblCerdas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblControlLechones" Type="Self.tblControlLechones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCerdas">
+              <PropertyRef Name="IdCerda" />
+            </Principal>
+            <Dependent Role="tblControlLechones">
+              <PropertyRef Name="IdCerda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblDetalleLotes_dbo_tblCerdas_IdCerda">
+          <End Role="tblCerdas" Type="Self.tblCerdas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblDetalleLotes" Type="Self.tblDetalleLotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCerdas">
+              <PropertyRef Name="IdCerda" />
+            </Principal>
+            <Dependent Role="tblDetalleLotes">
+              <PropertyRef Name="IdCerda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblFichas_dbo_tblCerdas_IdCerda">
+          <End Role="tblCerdas" Type="Self.tblCerdas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblFichas" Type="Self.tblFichas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCerdas">
+              <PropertyRef Name="IdCerda" />
+            </Principal>
+            <Dependent Role="tblFichas">
+              <PropertyRef Name="IdCerda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblVacunas_dbo_tblCerdas_IdCerda">
+          <End Role="tblCerdas" Type="Self.tblCerdas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblVacunas" Type="Self.tblVacunas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblCerdas">
+              <PropertyRef Name="IdCerda" />
+            </Principal>
+            <Dependent Role="tblVacunas">
+              <PropertyRef Name="IdCerda" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblControlLechones_dbo_tblLotes_Lotes_IdLote">
+          <End Role="tblLotes" Type="Self.tblLotes" Multiplicity="0..1" />
+          <End Role="tblControlLechones" Type="Self.tblControlLechones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLotes">
+              <PropertyRef Name="IdLote" />
+            </Principal>
+            <Dependent Role="tblControlLechones">
+              <PropertyRef Name="Lotes_IdLote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblDetalleLotes_dbo_tblLotes_IdLote">
+          <End Role="tblLotes" Type="Self.tblLotes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblDetalleLotes" Type="Self.tblDetalleLotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLotes">
+              <PropertyRef Name="IdLote" />
+            </Principal>
+            <Dependent Role="tblDetalleLotes">
+              <PropertyRef Name="IdLote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblDetalleLotes_dbo_tblVarracos_IdVarraco">
+          <End Role="tblVarracos" Type="Self.tblVarracos" Multiplicity="1" />
+          <End Role="tblDetalleLotes" Type="Self.tblDetalleLotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblVarracos">
+              <PropertyRef Name="IdVarraco" />
+            </Principal>
+            <Dependent Role="tblDetalleLotes">
+              <PropertyRef Name="IdVarraco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblFichas_dbo_tblEmpleados_IdEmpleado">
+          <End Role="tblEmpleados" Type="Self.tblEmpleados" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblFichas" Type="Self.tblFichas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmpleados">
+              <PropertyRef Name="IdEmpleado" />
+            </Principal>
+            <Dependent Role="tblFichas">
+              <PropertyRef Name="IdEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblUsuarios_dbo_tblEmpleados_IdEmpleado">
+          <End Role="tblEmpleados" Type="Self.tblEmpleados" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblUsuarios" Type="Self.tblUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblEmpleados">
+              <PropertyRef Name="IdEmpleado" />
+            </Principal>
+            <Dependent Role="tblUsuarios">
+              <PropertyRef Name="IdEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblFichas_dbo_tblVarracos_IdVarraco">
+          <End Role="tblVarracos" Type="Self.tblVarracos" Multiplicity="1" />
+          <End Role="tblFichas" Type="Self.tblFichas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblVarracos">
+              <PropertyRef Name="IdVarraco" />
+            </Principal>
+            <Dependent Role="tblFichas">
+              <PropertyRef Name="IdVarraco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblVarracos_dbo_tblGeneticas_IdGenetica">
+          <End Role="tblGeneticas" Type="Self.tblGeneticas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblVarracos" Type="Self.tblVarracos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblGeneticas">
+              <PropertyRef Name="IdGenetica" />
+            </Principal>
+            <Dependent Role="tblVarracos">
+              <PropertyRef Name="IdGenetica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblVacunasLotes_dbo_tblLotes_IdLote">
+          <End Role="tblLotes" Type="Self.tblLotes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblVacunasLotes" Type="Self.tblVacunasLotes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblLotes">
+              <PropertyRef Name="IdLote" />
+            </Principal>
+            <Dependent Role="tblVacunasLotes">
+              <PropertyRef Name="IdLote" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_tblUsuarios_dbo_tblRoles_IdRol">
+          <End Role="tblRoles" Type="Self.tblRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblUsuarios" Type="Self.tblUsuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoles">
+              <PropertyRef Name="IdRol" />
+            </Principal>
+            <Dependent Role="tblUsuarios">
+              <PropertyRef Name="IdRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_A460EB_PruebasNGS2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblCerdas" EntityType="Self.tblCerdas" />
+          <EntitySet Name="tblControlLechones" EntityType="Self.tblControlLechones" />
+          <EntitySet Name="tblDetalleLotes" EntityType="Self.tblDetalleLotes" />
+          <EntitySet Name="tblEmpleados" EntityType="Self.tblEmpleados" />
+          <EntitySet Name="tblFichas" EntityType="Self.tblFichas" />
+          <EntitySet Name="tblGeneticas" EntityType="Self.tblGeneticas" />
+          <EntitySet Name="tblLechones" EntityType="Self.tblLechones" />
+          <EntitySet Name="tblLotes" EntityType="Self.tblLotes" />
+          <EntitySet Name="tblRoles" EntityType="Self.tblRoles" />
+          <EntitySet Name="tblUsuarios" EntityType="Self.tblUsuarios" />
+          <EntitySet Name="tblVacunas" EntityType="Self.tblVacunas" />
+          <EntitySet Name="tblVacunasLotes" EntityType="Self.tblVacunasLotes" />
+          <EntitySet Name="tblVarracos" EntityType="Self.tblVarracos" />
+          <AssociationSet Name="FK_dbo_tblCerdas_dbo_tblGeneticas_IdGenetica" Association="Self.FK_dbo_tblCerdas_dbo_tblGeneticas_IdGenetica">
+            <End Role="tblGeneticas" EntitySet="tblGeneticas" />
+            <End Role="tblCerdas" EntitySet="tblCerdas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblControlLechones_dbo_tblCerdas_IdCerda" Association="Self.FK_dbo_tblControlLechones_dbo_tblCerdas_IdCerda">
+            <End Role="tblCerdas" EntitySet="tblCerdas" />
+            <End Role="tblControlLechones" EntitySet="tblControlLechones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblDetalleLotes_dbo_tblCerdas_IdCerda" Association="Self.FK_dbo_tblDetalleLotes_dbo_tblCerdas_IdCerda">
+            <End Role="tblCerdas" EntitySet="tblCerdas" />
+            <End Role="tblDetalleLotes" EntitySet="tblDetalleLotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblFichas_dbo_tblCerdas_IdCerda" Association="Self.FK_dbo_tblFichas_dbo_tblCerdas_IdCerda">
+            <End Role="tblCerdas" EntitySet="tblCerdas" />
+            <End Role="tblFichas" EntitySet="tblFichas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblVacunas_dbo_tblCerdas_IdCerda" Association="Self.FK_dbo_tblVacunas_dbo_tblCerdas_IdCerda">
+            <End Role="tblCerdas" EntitySet="tblCerdas" />
+            <End Role="tblVacunas" EntitySet="tblVacunas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblControlLechones_dbo_tblLotes_Lotes_IdLote" Association="Self.FK_dbo_tblControlLechones_dbo_tblLotes_Lotes_IdLote">
+            <End Role="tblLotes" EntitySet="tblLotes" />
+            <End Role="tblControlLechones" EntitySet="tblControlLechones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblDetalleLotes_dbo_tblLotes_IdLote" Association="Self.FK_dbo_tblDetalleLotes_dbo_tblLotes_IdLote">
+            <End Role="tblLotes" EntitySet="tblLotes" />
+            <End Role="tblDetalleLotes" EntitySet="tblDetalleLotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblDetalleLotes_dbo_tblVarracos_IdVarraco" Association="Self.FK_dbo_tblDetalleLotes_dbo_tblVarracos_IdVarraco">
+            <End Role="tblVarracos" EntitySet="tblVarracos" />
+            <End Role="tblDetalleLotes" EntitySet="tblDetalleLotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblFichas_dbo_tblEmpleados_IdEmpleado" Association="Self.FK_dbo_tblFichas_dbo_tblEmpleados_IdEmpleado">
+            <End Role="tblEmpleados" EntitySet="tblEmpleados" />
+            <End Role="tblFichas" EntitySet="tblFichas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblUsuarios_dbo_tblEmpleados_IdEmpleado" Association="Self.FK_dbo_tblUsuarios_dbo_tblEmpleados_IdEmpleado">
+            <End Role="tblEmpleados" EntitySet="tblEmpleados" />
+            <End Role="tblUsuarios" EntitySet="tblUsuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblFichas_dbo_tblVarracos_IdVarraco" Association="Self.FK_dbo_tblFichas_dbo_tblVarracos_IdVarraco">
+            <End Role="tblVarracos" EntitySet="tblVarracos" />
+            <End Role="tblFichas" EntitySet="tblFichas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblVarracos_dbo_tblGeneticas_IdGenetica" Association="Self.FK_dbo_tblVarracos_dbo_tblGeneticas_IdGenetica">
+            <End Role="tblGeneticas" EntitySet="tblGeneticas" />
+            <End Role="tblVarracos" EntitySet="tblVarracos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblVacunasLotes_dbo_tblLotes_IdLote" Association="Self.FK_dbo_tblVacunasLotes_dbo_tblLotes_IdLote">
+            <End Role="tblLotes" EntitySet="tblLotes" />
+            <End Role="tblVacunasLotes" EntitySet="tblVacunasLotes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_tblUsuarios_dbo_tblRoles_IdRol" Association="Self.FK_dbo_tblUsuarios_dbo_tblRoles_IdRol">
+            <End Role="tblRoles" EntitySet="tblRoles" />
+            <End Role="tblUsuarios" EntitySet="tblUsuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_A460EB_PruebasNGS2ModelStoreContainer" CdmEntityContainer="DB_A460EB_PruebasNGS2Entities">
+          <EntitySetMapping Name="tblCerdas">
+            <EntityTypeMapping TypeName="DB_A460EB_PruebasNGS2Model.tblCerdas">
+              <MappingFragment StoreEntitySet="tblCerdas">
+                <ScalarProperty Name="IdCerda" ColumnName="IdCerda" />
+                <ScalarProperty Name="NumCerda" ColumnName="NumCerda" />
+                <ScalarProperty Name="Procedencia" ColumnName="Procedencia" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="NumParto" ColumnName="NumParto" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdGenetica" ColumnName="IdGenetica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblControlLechones">
+            <EntityTypeMapping TypeName="DB_A460EB_PruebasNGS2Model.tblControlLechones">
+              <MappingFragment StoreEntitySet="tblControlLechones">
+                <ScalarProperty Name="IdControlL" ColumnName="IdControlL" />
+                <ScalarProperty Name="IdLotes" ColumnName="IdLotes" />
+                <ScalarProperty Name="FechaDestete" ColumnName="FechaDestete" />
+                <ScalarProperty Name="IdCerda" ColumnName="IdCerda" />
+                <ScalarProperty Name="TotalLechones" ColumnName="TotalLechones" />
+                <ScalarProperty Name="PesoPromedioL" ColumnName="PesoPromedioL" />
+                <ScalarProperty Name="Lotes_IdLote" ColumnName="Lotes_IdLote" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblDetalleLotes">
+            <EntityTypeMapping TypeName="DB_A460EB_PruebasNGS2Model.tblDetalleLotes">
+              <MappingFragment StoreEntitySet="tblDetalleLotes">
+                <ScalarProperty Name="IdDLote" ColumnName="IdDLote" />
+                <ScalarProperty Name="IdCerda" ColumnName="IdCerda" />
+                <ScalarProperty Name="FechaInseminacion" ColumnName="FechaInseminacion" />
+                <ScalarProperty Name="FechaParto" ColumnName="FechaParto" />
+                <ScalarProperty Name="IdVarraco" ColumnName="IdVarraco" />
+                <ScalarProperty Name="Fvacuna1" ColumnName="Fvacuna1" />
+                <ScalarProperty Name="Fvacuna2" ColumnName="Fvacuna2" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="IdLote" ColumnName="IdLote" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fvacuna15" ColumnName="Fvacuna15" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmpleados">
+            <EntityTypeMapping TypeName="DB_A460EB_PruebasNGS2Model.tblEmpleados">
+              <MappingFragment StoreEntitySet="tblEmpleados">
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="NombreEmpleado" ColumnName="NombreEmpleado" />
+                <ScalarProperty Name="ApellidoEmpleado" ColumnName="ApellidoEmpleado" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="DUI" ColumnName="DUI" />
+                <ScalarProperty Name="NIT" ColumnName="NIT" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFichas">
+            <EntityTypeMapping TypeName="DB_A460EB_PruebasNGS2Model.tblFichas">
+              <MappingFragment StoreEntitySet="tblFichas">
+                <ScalarProperty Name="IdFicha" ColumnName="IdFicha" />
+                <ScalarProperty Name="IdCerda" ColumnName="IdCerda" />
+                <ScalarProperty Name="NumParto" ColumnName="NumParto" />
+                <ScalarProperty Name="FechaServio" ColumnName="FechaServio" />
+                <ScalarProperty Name="IdVarraco" ColumnName="IdVarraco" />
+                <ScalarProperty Name="FechaParto" ColumnName="FechaParto" />
+                <ScalarProperty Name="NacidosVivos" ColumnName="NacidosVivos" />
+                <ScalarProperty Name="NacidosMuertos" ColumnName="NacidosMuertos" />
+                <ScalarProperty Name="NacidosMomias" ColumnName="NacidosMomias" />
+                <ScalarProperty Name="TotalNacidos" ColumnName="TotalNacidos" />
+                <ScalarProperty Name="PesoPromedio1D" ColumnName="PesoPromedio1D" />
+                <ScalarProperty Name="NumDestetado" ColumnName="NumDestetado" />
+                <ScalarProperty Name="PesoPromedio28D" ColumnName="PesoPromedio28D" />
+                <ScalarProperty Name="FechaDestete" ColumnName="FechaDestete" />
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="Lote" ColumnName="Lote" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblGeneticas">
+            <EntityTypeMapping TypeName="DB_A460EB_PruebasNGS2Model.tblGeneticas">
+              <MappingFragment StoreEntitySet="tblGeneticas">
+                <ScalarProperty Name="IdGenetica" ColumnName="IdGenetica" />
+                <ScalarProperty Name="Genetica" ColumnName="Genetica" />
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLechones">
+            <EntityTypeMapping TypeName="DB_A460EB_PruebasNGS2Model.tblLechones">
+              <MappingFragment StoreEntitySet="tblLechones">
+                <ScalarProperty Name="IdLechones" ColumnName="IdLechones" />
+                <ScalarProperty Name="NumLote" ColumnName="NumLote" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="NCerdos" ColumnName="NCerdos" />
+                <ScalarProperty Name="NCerdas" ColumnName="NCerdas" />
+                <ScalarProperty Name="NVarracos" ColumnName="NVarracos" />
+                <ScalarProperty Name="Fases" ColumnName="Fases" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="qqDiarios" ColumnName="qqDiarios" />
+                <ScalarProperty Name="qqSemanal" ColumnName="qqSemanal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblLotes">
+            <EntityTypeMapping TypeName="DB_A460EB_PruebasNGS2Model.tblLotes">
+              <MappingFragment StoreEntitySet="tblLotes">
+                <ScalarProperty Name="IdLote" ColumnName="IdLote" />
+                <ScalarProperty Name="NumLote" ColumnName="NumLote" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRoles">
+            <EntityTypeMapping TypeName="DB_A460EB_PruebasNGS2Model.tblRoles">
+              <MappingFragment StoreEntitySet="tblRoles">
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsuarios">
+            <EntityTypeMapping TypeName="DB_A460EB_PruebasNGS2Model.tblUsuarios">
+              <MappingFragment StoreEntitySet="tblUsuarios">
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVacunas">
+            <EntityTypeMapping TypeName="DB_A460EB_PruebasNGS2Model.tblVacunas">
+              <MappingFragment StoreEntitySet="tblVacunas">
+                <ScalarProperty Name="IdVacuna" ColumnName="IdVacuna" />
+                <ScalarProperty Name="IdCerda" ColumnName="IdCerda" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="FechaInyeccion" ColumnName="FechaInyeccion" />
+                <ScalarProperty Name="Vacuna" ColumnName="Vacuna" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVacunasLotes">
+            <EntityTypeMapping TypeName="DB_A460EB_PruebasNGS2Model.tblVacunasLotes">
+              <MappingFragment StoreEntitySet="tblVacunasLotes">
+                <ScalarProperty Name="IdVacunaLote" ColumnName="IdVacunaLote" />
+                <ScalarProperty Name="IdLote" ColumnName="IdLote" />
+                <ScalarProperty Name="FechaVacuna" ColumnName="FechaVacuna" />
+                <ScalarProperty Name="Vacuna" ColumnName="Vacuna" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblVarracos">
+            <EntityTypeMapping TypeName="DB_A460EB_PruebasNGS2Model.tblVarracos">
+              <MappingFragment StoreEntitySet="tblVarracos">
+                <ScalarProperty Name="IdVarraco" ColumnName="IdVarraco" />
+                <ScalarProperty Name="NumVarraco" ColumnName="NumVarraco" />
+                <ScalarProperty Name="Procedencia" ColumnName="Procedencia" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IdGenetica" ColumnName="IdGenetica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

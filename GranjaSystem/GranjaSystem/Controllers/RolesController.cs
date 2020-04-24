@@ -12,7 +12,7 @@ namespace GranjaSystem.Controllers
 {
     public class RolesController : Controller
     {
-        private Contexto db = new Contexto();
+        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
 
         // GET: Roles
         public ActionResult Index()

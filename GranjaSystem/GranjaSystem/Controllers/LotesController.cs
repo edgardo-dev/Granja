@@ -12,7 +12,7 @@ namespace GranjaSystem.Content
 {
     public class LotesController : Controller
     {
-        private Contexto db = new Contexto();
+        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
 
         // GET: Lotes
         public ActionResult Index()
@@ -34,7 +34,7 @@ namespace GranjaSystem.Content
                 return HttpNotFound();
             }
             
-                ViewBag.DLotes = db.DetalleLotes.Where(h => h.IdLote == id).Include(t => t.Varracos).Include(t => t.Cerdas).ToList();
+                ViewBag.DLotes = db.DetalleLotes.Where(h => h.IdLote == id).Include(t => t.tblVarracos).Include(t => t.tblCerdas).ToList();
             return View(tblLotes);
         }
         // GET: Lotes/Edit/5
@@ -117,7 +117,7 @@ namespace GranjaSystem.Content
         {
             ViewBag.Cerda = db.Cerdas.Where(h => h.Estado == "Vacía");
             ViewBag.Varraco = db.Varracos;
-            ViewBag.Detalle = db.DetalleLotes.Where(h => h.IdLote == 12).Include(t => t.Varracos).Include(t => t.Cerdas).ToList();
+            ViewBag.Detalle = db.DetalleLotes.Where(h => h.IdLote == 12).Include(t => t.tblVarracos).Include(t => t.tblCerdas).ToList();
 
             return View();
         }
@@ -147,7 +147,7 @@ namespace GranjaSystem.Content
             try
             {
                 var idlote = (from id in db.Lotes select id.IdLote).Max();
-                var DLotes = new tblDetalleLote
+                var DLotes = new tblDetalleLotes
                 {
                     IdCerda = IdCerda,
                     IdVarraco = IdVarraco,

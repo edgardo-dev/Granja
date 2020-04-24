@@ -12,12 +12,12 @@ namespace GranjaSystem.Controllers
 {
     public class VacunasController : Controller
     {
-        private Contexto db = new Contexto();
+        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
 
         // GET: Vacunas
         public ActionResult Index()
         {
-            var vacunas = db.Vacunas.Include(t => t.Cerdas);
+            var vacunas = db.Vacunas.Include(t => t.tblCerdas);
             return View(vacunas.ToList());
         }
 

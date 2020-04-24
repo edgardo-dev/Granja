@@ -12,12 +12,12 @@ namespace GranjaSystem.Controllers
 {
     public class VarracosController : Controller
     {
-        private Contexto db = new Contexto();
+        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
 
         // GET: Varracos
         public ActionResult Index()
         {
-            var varracos = db.Varracos.Include(t => t.Genetica);
+            var varracos = db.Varracos.Include(t => t.tblGeneticas);
             return View(varracos.ToList());
         }
 

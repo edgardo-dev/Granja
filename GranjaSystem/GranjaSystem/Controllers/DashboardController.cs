@@ -10,7 +10,7 @@ namespace GranjaSystem.Controllers
 {
     public class DashboardController : Controller
     {
-        private Contexto db = new Contexto();
+        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
         // GET: Dashboard
         public ActionResult Index()
         {
@@ -23,9 +23,9 @@ namespace GranjaSystem.Controllers
             ViewBag.CUsuarios = db.Usuarios.Count();
             DateTime Fecha = DateTime.Now.Date;
 
-            ViewBag.IdL = db.DetalleLotes.Where(d => d.Fvacuna1 == Fecha).Include(t => t.Lotes).ToList();
-            ViewBag.IdP = db.DetalleLotes.Where(d => d.Fvacuna15 == Fecha).Include(t => t.Lotes).ToList();
-            ViewBag.IdV = db.DetalleLotes.Where(d => d.Fvacuna2 == Fecha).Include(t => t.Lotes).ToList();
+            ViewBag.IdL = db.DetalleLotes.Where(d => d.Fvacuna1 == Fecha).Include(t => t.tblLotes).ToList();
+            ViewBag.IdP = db.DetalleLotes.Where(d => d.Fvacuna15 == Fecha).Include(t => t.tblLotes).ToList();
+            ViewBag.IdV = db.DetalleLotes.Where(d => d.Fvacuna2 == Fecha).Include(t => t.tblLotes).ToList();
             ViewBag.Vit = db.DetalleLotes.Where(d => d.Fvacuna2 == Fecha).Count();
             ViewBag.Lit = db.DetalleLotes.Where(d => d.Fvacuna1 == Fecha).Count();
             ViewBag.LPr = db.DetalleLotes.Where(d => d.Fvacuna15 == Fecha).Count();

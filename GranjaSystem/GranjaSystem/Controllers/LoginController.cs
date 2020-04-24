@@ -19,7 +19,7 @@ namespace GranjaSystem.Controllers
         [HttpPost]
         public ActionResult Index(string inputUser, string inputPassword)
         {
-            var Db = new Contexto();
+            var Db = new DB_A460EB_PruebasNGS2Entities();
             string nPass = Encriptar(inputPassword);
             var Login = (from L in Db.Usuarios
                          where L.Usuario == inputUser && L.Clave == nPass
@@ -35,8 +35,8 @@ namespace GranjaSystem.Controllers
             else
             {
                 Session["IdUsuario"] = Login.IdUsuario;
-                Session["Nombre"] = Login.Empleados.NombreEmpleado + " " + Login.Empleados.ApellidoEmpleado;
-                Session["Rol"] = Login.Roles.Rol;
+                Session["Nombre"] = Login.tblEmpleados.NombreEmpleado + " " + Login.tblEmpleados.ApellidoEmpleado;
+                Session["Rol"] = Login.tblRoles.Rol;
                 return RedirectToAction("Index", "Dashboard");
             }
         }

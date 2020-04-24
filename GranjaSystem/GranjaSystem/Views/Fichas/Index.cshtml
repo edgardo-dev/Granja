@@ -78,10 +78,10 @@
                                         @Html.DisplayFor(modelItem => item.Lote)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Varracos.NumVarraco)
+                                        @Html.DisplayFor(modelItem => item.tblVarracos.NumVarraco)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Cerdas.NumCerda)
+                                        @Html.DisplayFor(modelItem => item.tblCerdas.NumCerda)
                                     </td>
 
                                     <td>
@@ -115,7 +115,7 @@
                                         @Html.DisplayFor(modelItem => item.FechaDestete)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Empleados.NombreEmpleado)
+                                        @Html.DisplayFor(modelItem => item.tblEmpleados.NombreEmpleado)
                                     </td>
                                     <td>
                                         @Html.ActionLink(" ", "Edit", new { id = item.IdFicha }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })

@@ -12,7 +12,7 @@ namespace GranjaSystem.Controllers
 {
     public class DetalleLotesController : Controller
     {
-        private Contexto db = new Contexto();
+        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
 
         // GET: DetalleLotes
         public ActionResult Index(int? id)
@@ -25,8 +25,8 @@ namespace GranjaSystem.Controllers
                 Lechones += item.NumDestetado;
             }
             ViewBag.TLechones = Lechones;
-            ViewBag.VacunasLote = db.VacunasLote.Where(h => h.IdLote == id).ToList();
-            var detalleLotes = db.DetalleLotes.Where(L => L.IdLote== id).Include(t => t.Lotes).Include(t => t.Varracos).Include(t => t.Cerdas).ToList();
+            ViewBag.VacunasLote = db.VacunasLotes.Where(h => h.IdLote == id).ToList();
+            var detalleLotes = db.DetalleLotes.Where(L => L.IdLote== id).Include(t => t.tblLotes).Include(t => t.tblVarracos).Include(t => t.tblCerdas).ToList();
             ViewBag.Lote = db.Lotes.Where(L => L.IdLote == id).FirstOrDefault();
             var detalleLotesF = db.DetalleLotes.Where(L => L.IdLote == id).Where(L => L.Estado == "Finalizado" || L.Estado =="Eliminada").Count();
             if (detalleLotes.Count() == detalleLotesF)
@@ -46,7 +46,7 @@ namespace GranjaSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblDetalleLote tblDetalleLote = db.DetalleLotes.Find(id);
+            tblDetalleLotes tblDetalleLote = db.DetalleLotes.Find(id);
             if (tblDetalleLote == null)
             {
                 return HttpNotFound();
@@ -68,7 +68,7 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdDLote,IdCerda,FechaInseminacion,FechaParto,IdVarraco,Fvacuna1,Fvacuna2,Observaciones,FechaRegistro,IdLote,Estado")] tblDetalleLote tblDetalleLote)
+        public ActionResult Create([Bind(Include = "IdDLote,IdCerda,FechaInseminacion,FechaParto,IdVarraco,Fvacuna1,Fvacuna2,Observaciones,FechaRegistro,IdLote,Estado")] tblDetalleLotes tblDetalleLote)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace GranjaSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblDetalleLote tblDetalleLote = db.DetalleLotes.Find(id);
+            tblDetalleLotes tblDetalleLote = db.DetalleLotes.Find(id);
             if (tblDetalleLote == null)
             {
                 return HttpNotFound();
@@ -108,7 +108,7 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdDLote,IdCerda,FechaInseminacion,FechaParto,IdVarraco,Fvacuna1,Fvacuna2,Observaciones,FechaRegistro,IdLote,Estado")] tblDetalleLote tblDetalleLote)
+        public ActionResult Edit([Bind(Include = "IdDLote,IdCerda,FechaInseminacion,FechaParto,IdVarraco,Fvacuna1,Fvacuna2,Observaciones,FechaRegistro,IdLote,Estado")] tblDetalleLotes tblDetalleLote)
         {
             if (ModelState.IsValid)
             {
@@ -129,7 +129,7 @@ namespace GranjaSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblDetalleLote tblDetalleLote = db.DetalleLotes.Find(id);
+            tblDetalleLotes tblDetalleLote = db.DetalleLotes.Find(id);
             if (tblDetalleLote == null)
             {
                 return HttpNotFound();
@@ -142,7 +142,7 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int? id, int idC)
         {
-            tblDetalleLote tblDetalleLote = db.DetalleLotes.Find(id);
+            tblDetalleLotes tblDetalleLote = db.DetalleLotes.Find(id);
 
             var Cerda = (from C in db.Cerdas
                           where C.IdCerda == idC
@@ -162,7 +162,7 @@ namespace GranjaSystem.Controllers
         [HttpPost]
         public ActionResult Eliminar(int? id, int idC,string Observaciones)
         {
-            tblDetalleLote tblDetalleLote = db.DetalleLotes.Find(id);
+            tblDetalleLotes tblDetalleLote = db.DetalleLotes.Find(id);
             tblCerdas tblCerda = db.Cerdas.Find(idC);
 
             tblCerda.Estado = "Vacía";

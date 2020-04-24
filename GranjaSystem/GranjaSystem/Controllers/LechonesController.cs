@@ -12,7 +12,7 @@ namespace GranjaSystem.Controllers
 {
     public class LechonesController : Controller
     {
-        private Contexto db = new Contexto();
+        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
 
         // GET: Lechones
         public ActionResult Index()
@@ -25,27 +25,27 @@ namespace GranjaSystem.Controllers
                 if (diferencia >= 0 && diferencia <= 6)
                 {
                     item.Edad = 0;
-                    item.Fases = "Seca";
+                    item.Fases = "Sewcak";
                 }
                 else if (diferencia >= 7 && diferencia <= 13)
                 {
                     item.Edad = 1;
-                    item.Fases = "Seca";
+                    item.Fases = "Sewcak";
                 }
                 else if (diferencia >= 14 && diferencia <= 20)
                 {
                     item.Edad = 2;
-                    item.Fases = "Seca";
+                    item.Fases = "Sewcak";
                 }
                 else if (diferencia >= 21 && diferencia <= 27)
                 {
                     item.Edad = 3;
-                    item.Fases = "Seca";
+                    item.Fases = "Sewcak";
                 }
                 else if (diferencia >= 28 && diferencia <= 34)
                 {
                     item.Edad = 4;
-                    item.Fases = "Seca";
+                    item.Fases = "Sewcak";
                 }
                 else if (diferencia >= 35 && diferencia <= 41)
                 {

@@ -12,13 +12,13 @@ namespace GranjaSystem.Controllers
 {
     public class VacunasLotesController : Controller
     {
-        private Contexto db = new Contexto();
+        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
 
         // GET: VacunasLotes
         public ActionResult Index(int? id)
         {
             
-            var vacunasLote = db.VacunasLote.Include(t => t.Lotes);
+            var vacunasLote = db.VacunasLotes.Include(t => t.tblLotes);
             return View(vacunasLote.ToList());
         }
 
@@ -29,7 +29,7 @@ namespace GranjaSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblVacunasLote tblVacunasLote = db.VacunasLote.Find(id);
+            tblVacunasLotes tblVacunasLote = db.VacunasLotes.Find(id);
             if (tblVacunasLote == null)
             {
                 return HttpNotFound();
@@ -52,12 +52,12 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdVacunaLote,IdLote,FechaVacuna,Vacuna,Descripcion")] tblVacunasLote tblVacunasLote,int IdLotes)
+        public ActionResult Create([Bind(Include = "IdVacunaLote,IdLote,FechaVacuna,Vacuna,Descripcion")] tblVacunasLotes tblVacunasLote,int IdLotes)
         {
             if (ModelState.IsValid)
             {
                 tblVacunasLote.IdLote = IdLotes;
-                db.VacunasLote.Add(tblVacunasLote);
+                db.VacunasLotes.Add(tblVacunasLote);
                 db.SaveChanges();
                 return RedirectToAction("Index", "DetalleLotes", new { id = tblVacunasLote.IdLote });
             }
@@ -73,7 +73,7 @@ namespace GranjaSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblVacunasLote tblVacunasLote = db.VacunasLote.Find(id);
+            tblVacunasLotes tblVacunasLote = db.VacunasLotes.Find(id);
             if (tblVacunasLote == null)
             {
                 return HttpNotFound();
@@ -87,7 +87,7 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdVacunaLote,IdLote,FechaVacuna,Vacuna,Descripcion")] tblVacunasLote tblVacunasLote)
+        public ActionResult Edit([Bind(Include = "IdVacunaLote,IdLote,FechaVacuna,Vacuna,Descripcion")] tblVacunasLotes tblVacunasLote)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +106,7 @@ namespace GranjaSystem.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            tblVacunasLote tblVacunasLote = db.VacunasLote.Find(id);
+            tblVacunasLotes tblVacunasLote = db.VacunasLotes.Find(id);
             if (tblVacunasLote == null)
             {
                 return HttpNotFound();
@@ -119,8 +119,8 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tblVacunasLote tblVacunasLote = db.VacunasLote.Find(id);
-            db.VacunasLote.Remove(tblVacunasLote);
+            tblVacunasLotes tblVacunasLote = db.VacunasLotes.Find(id);
+            db.VacunasLotes.Remove(tblVacunasLote);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

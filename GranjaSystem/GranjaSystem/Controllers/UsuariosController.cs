@@ -14,12 +14,12 @@ namespace GranjaSystem.Controllers
 {
     public class UsuariosController : Controller
     {
-        private Contexto db = new Contexto();
+        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
 
         // GET: Usuarios
         public ActionResult Index()
         {
-            var usuarios = db.Usuarios.Include(t => t.Empleados).Include(t => t.Roles);
+            var usuarios = db.Usuarios.Include(t => t.tblEmpleados).Include(t => t.tblRoles);
             return View(usuarios.ToList());
         }
 

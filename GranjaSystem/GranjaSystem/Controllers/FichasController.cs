@@ -12,18 +12,18 @@ namespace GranjaSystem.Controllers
 {
     public class FichasController : Controller
     {
-        private Contexto db = new Contexto();
+        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
 
         // GET: Fichas
         public ActionResult Index()
         {
-            var fichas = db.Fichas.Include(t => t.Empleados).Include(t => t.Varracos).Include(t => t.Cerdas);
+            var fichas = db.Fichas.Include(t => t.tblEmpleados).Include(t => t.tblVarracos).Include(t => t.tblCerdas);
             return View(fichas.ToList());
         }
         public ActionResult CargarFicha(int? id)
         {
 
-            tblDetalleLote tblDetalle = db.DetalleLotes.Find(id);
+            tblDetalleLotes tblDetalle = db.DetalleLotes.Find(id);
             ViewBag.IdEmpleado = db.Empleados.ToList();
             ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblDetalle.IdVarraco);
             ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblDetalle.IdCerda);
