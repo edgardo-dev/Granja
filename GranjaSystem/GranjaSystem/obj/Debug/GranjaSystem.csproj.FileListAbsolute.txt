@@ -1065,3 +1065,4 @@ C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.cspr
 C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.dll
 C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.pdb
 C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.qqComidas.resources
+C:\Users\Ingrid Solórzano\Desktop\MVC C#\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.qqComidas.resources
