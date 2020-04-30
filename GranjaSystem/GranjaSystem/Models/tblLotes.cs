@@ -11,7 +11,8 @@ namespace GranjaSystem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblLotes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,6 +25,7 @@ namespace GranjaSystem.Models
     
         public int IdLote { get; set; }
         public int NumLote { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime FechaRegistro { get; set; }
         public string Estado { get; set; }
     

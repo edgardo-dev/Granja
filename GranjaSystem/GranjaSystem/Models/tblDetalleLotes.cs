@@ -11,20 +11,26 @@ namespace GranjaSystem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblDetalleLotes
     {
         public int IdDLote { get; set; }
         public int IdCerda { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime FechaInseminacion { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime FechaParto { get; set; }
         public int IdVarraco { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime Fvacuna1 { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime Fvacuna2 { get; set; }
         public string Observaciones { get; set; }
         public System.DateTime FechaRegistro { get; set; }
         public int IdLote { get; set; }
         public string Estado { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> Fvacuna15 { get; set; }
     
         public virtual tblCerdas tblCerdas { get; set; }

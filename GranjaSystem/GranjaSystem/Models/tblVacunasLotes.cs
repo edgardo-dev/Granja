@@ -11,11 +11,13 @@ namespace GranjaSystem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblVacunasLotes
     {
         public int IdVacunaLote { get; set; }
         public int IdLote { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime FechaVacuna { get; set; }
         public string Vacuna { get; set; }
         public string Descripcion { get; set; }
