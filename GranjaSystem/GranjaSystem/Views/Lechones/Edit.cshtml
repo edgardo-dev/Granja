@@ -7,7 +7,7 @@
 
 <div class="row content container-fluid">
     <div class="panel panel-primary">
-        <div class="panel-heading text-center"><h4>CONTROL DE LECHONES</h4></div>
+        <div class="panel-heading text-center"><h4>CONTROL DE CERDOS</h4></div>
         <div class="panel-body bg-gray">
             <form id="Validacion" action="" method="post">
                 @using (Html.BeginForm())
@@ -69,7 +69,7 @@
                     <div class="form-group">
                         <label class="control-label col-md-2">Fecha Inicio</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.FechaInicio, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.FechaInicio, new { htmlAttributes = new { @class = "form-control",type="date" } })
                             @Html.ValidationMessageFor(model => model.FechaInicio, "", new { @class = "text-danger" })
                         </div>
                     </div>

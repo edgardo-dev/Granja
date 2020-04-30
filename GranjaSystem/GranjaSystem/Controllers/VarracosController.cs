@@ -53,7 +53,7 @@ namespace GranjaSystem.Controllers
             if (ModelState.IsValid)
             {
                 tblVarracos.Estado = "Activo";
-                tblVarracos.FechaRegistro = DateTime.Now;
+                tblVarracos.FechaRegistro = DateTime.UtcNow;
                 db.Varracos.Add(tblVarracos);
                 db.SaveChanges();
                 return RedirectToAction("Index");

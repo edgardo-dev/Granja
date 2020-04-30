@@ -72,7 +72,7 @@ namespace GranjaSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                tblDetalleLote.FechaRegistro = DateTime.Now;
+                tblDetalleLote.FechaRegistro = DateTime.UtcNow;
                 db.DetalleLotes.Add(tblDetalleLote);
                 db.SaveChanges();
                 return RedirectToAction("Index");

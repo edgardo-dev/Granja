@@ -20,87 +20,135 @@ namespace GranjaSystem.Controllers
             var Lechones = db.Lechones.ToList();
             foreach (var item in Lechones)
             {
-                TimeSpan dias = DateTime.Now.Date - item.FechaInicio;
+                TimeSpan dias = DateTime.UtcNow.Date - item.FechaInicio;
                 int diferencia = dias.Days;
                 if (diferencia >= 0 && diferencia <= 6)
                 {
+                    decimal cdia = 0.0M;
+                    item.qqDiarios = (item.NCerdos * cdia);
+                    item.qqSemanal = item.qqDiarios * 7;
                     item.Edad = 0;
                     item.Fases = "Sewcak";
                 }
                 else if (diferencia >= 7 && diferencia <= 13)
                 {
+                    decimal cdia = 0.05M;
+                    item.qqDiarios = (item.NCerdos * cdia);
+                    item.qqSemanal = item.qqDiarios * 7;
                     item.Edad = 1;
                     item.Fases = "Sewcak";
                 }
                 else if (diferencia >= 14 && diferencia <= 20)
                 {
+                    decimal cdia = 0.01M;
+                    item.qqDiarios = (item.NCerdos * cdia);
+                    item.qqSemanal = item.qqDiarios * 7;
                     item.Edad = 2;
                     item.Fases = "Sewcak";
                 }
                 else if (diferencia >= 21 && diferencia <= 27)
                 {
+                    decimal cdia = 0.05M;
+                    item.qqDiarios = (item.NCerdos * cdia);
+                    item.qqSemanal = item.qqDiarios * 7;
                     item.Edad = 3;
                     item.Fases = "Sewcak";
                 }
                 else if (diferencia >= 28 && diferencia <= 34)
                 {
+                    decimal cdia = 0.1M;
+                    item.qqDiarios = (item.NCerdos * cdia);
+                    item.qqSemanal = item.qqDiarios * 7;
                     item.Edad = 4;
                     item.Fases = "Sewcak";
                 }
                 else if (diferencia >= 35 && diferencia <= 41)
                 {
+                    decimal cdia = 0.714M;
+                    item.qqDiarios = (item.NCerdos * cdia);
+                    item.qqSemanal = item.qqDiarios * 7;
                     item.Edad = 5;
                     item.Fases = "Nupiy #1";
                 }
                 else if (diferencia >= 42 && diferencia <= 48)
                 {
+                    decimal cdia = 1.429M;
+                    item.qqDiarios = (item.NCerdos * cdia);
+                    item.qqSemanal = item.qqDiarios * 7;
                     item.Edad = 6;
                     item.Fases = "Nupiy #2";
                 }
                 else if (diferencia >= 49 && diferencia <= 57)
                 {
+                    decimal cdia = 2.0M;
+                    item.qqDiarios = (item.NCerdos * cdia);
+                    item.qqSemanal = item.qqDiarios * 7;
                     item.Edad = 7;
                     item.Fases = "Inicio Crecimineto";
                 }
                 else if (diferencia >= 58 && diferencia <= 62)
                 {
+                    decimal cdia = 2.4M;
+                    item.qqDiarios = (item.NCerdos * cdia);
+                    item.qqSemanal = item.qqDiarios * 7;
                     item.Edad = 8;
                     item.Fases = "Inicio Crecimineto";
                 }
                 else if (diferencia >= 63 && diferencia <= 69)
                 {
+                    decimal cdia = 2.75M;
+                    item.qqDiarios = (item.NCerdos * cdia);
+                    item.qqSemanal = item.qqDiarios * 7;
                     item.Edad = 9;
                     item.Fases = "Crecimineto";
                 }
                 else if (diferencia >= 70 && diferencia <= 76)
                 {
+                    decimal cdia = 3.0M;
+                    item.qqDiarios = (item.NCerdos * cdia);
+                    item.qqSemanal = item.qqDiarios * 7;
                     item.Edad = 10;
                     item.Fases = "Crecimineto";
                 }
                 else if (diferencia >= 77 && diferencia <= 83)
                 {
+                    decimal cdia = 3.35M;
+                    item.qqDiarios = (item.NCerdos * cdia);
+                    item.qqSemanal = item.qqDiarios * 7;
                     item.Edad = 11;
                     item.Fases = "Crecimineto";
                 }
                 else if (diferencia >= 84 && diferencia <= 90)
                 {
+                    decimal cdia = 3.55M;
+                    item.qqDiarios = (item.NCerdos * cdia);
+                    item.qqSemanal = item.qqDiarios * 7;
                     item.Edad = 12;
                     item.Fases = "Crecimineto";
                 }
                 else if (diferencia >= 91 && diferencia <= 97 )
                 {
+
                     item.Edad = 13;
                     if(item.Estado != "Mod")
                     {
+                        decimal cdia = 4.25M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Desarrollo M";
+
                     }
 
                 }
                 else if (diferencia >= 98 && diferencia <= 104 )
                 {
+
                     item.Edad = 14;
                     if (item.Estado != "Mod")
                     {
+                        decimal cdia = 4.6M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Desarrollo M";
                     }
                 }
@@ -109,6 +157,9 @@ namespace GranjaSystem.Controllers
                     item.Edad = 15;
                     if (item.Estado != "Mod")
                     {
+                        decimal cdia = 5.0M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Desarrollo N";
                     }
                 }
@@ -117,10 +168,16 @@ namespace GranjaSystem.Controllers
                     item.Edad = 16;
                     if (item.Estado != "Mod")
                     {
+                        decimal cdia = 5.3M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Desarrollo N";
                     }
                     else if(item.Fases == "Final M")
                     {
+                        decimal cdia = 6.9M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Final N";
                     }
                 }
@@ -129,10 +186,16 @@ namespace GranjaSystem.Controllers
                     item.Edad = 17;
                     if (item.Estado != "Mod")
                     {
+                        decimal cdia = 5.6M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Final M";
                     }
                     else if (item.Fases == "Final M")
                     {
+                        decimal cdia = 6.9M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Final N";
                     }
                 }
@@ -141,10 +204,16 @@ namespace GranjaSystem.Controllers
                     item.Edad = 18;
                     if (item.Estado != "Mod")
                     {
+                        decimal cdia = 6.3M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Final M";
                     }
                     else if (item.Fases == "Final M")
                     {
+                        decimal cdia = 6.9M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Final N";
                     }
 
@@ -154,10 +223,16 @@ namespace GranjaSystem.Controllers
                     item.Edad = 19;
                     if (item.Estado != "Mod")
                     {
+                        decimal cdia = 6.9M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Final N";
                     }
                     else if (item.Fases == "Final M")
                     {
+                        decimal cdia = 6.9M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Final N";
                     }
 
@@ -167,10 +242,16 @@ namespace GranjaSystem.Controllers
                     item.Edad = 20;
                     if (item.Estado != "Mod")
                     {
+                        decimal cdia = 6.9M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Final N";
                     }
                     else if (item.Fases == "Final M")
                     {
+                        decimal cdia = 6.9M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Final N";
                     }
 
@@ -180,10 +261,16 @@ namespace GranjaSystem.Controllers
                     item.Edad = 21;
                     if (item.Estado != "Mod")
                     {
+                        decimal cdia = 6.9M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Final N";
                     }
                     else if (item.Fases == "Final M")
                     {
+                        decimal cdia = 6.9M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Final N";
                     }
 
@@ -193,10 +280,16 @@ namespace GranjaSystem.Controllers
                     item.Edad = 22;
                     if (item.Estado != "Mod")
                     {
+                        decimal cdia = 6.9M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Final N";
                     }
                     else if (item.Fases == "Final M")
                     {
+                        decimal cdia = 6.9M;
+                        item.qqDiarios = (item.NCerdos * cdia);
+                        item.qqSemanal = item.qqDiarios * 7;
                         item.Fases = "Final N";
                     }
 

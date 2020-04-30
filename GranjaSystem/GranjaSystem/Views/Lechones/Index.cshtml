@@ -9,19 +9,19 @@
             @Html.ActionLink(" ", "Create", null, new { @class = "fa fa-plus btn btn-success btn-lg", title = "Agregar" })
         </p>
         <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h4>CONTROL DE LECHONES</h4></div>
+            <div class="panel-heading text-center"><h4>CONTROL DE CERDOS</h4></div>
             <div class="panel-body bg-gray" >
                 <table id="Tabla" class="table table-bordered table-hover text-center">
                     <thead>
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.NumLote)
+                                Lote
                             </th>
                             <th>
                                 @Html.DisplayNameFor(model => model.Edad)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.NCerdos)
+                                Cerdos
                             </th>
                             @*<th>
                     @Html.DisplayNameFor(model => model.NCerdas)
@@ -71,8 +71,8 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.FechaInicio)
                                 </td>
-                                <td></td>
-                                <td></td>
+                                <td>@Html.DisplayFor(modelItem => item.qqDiarios) </td>
+                                <td>@Html.DisplayFor(modelItem => item.qqSemanal) </td>
                                 @*<td>
                         @Html.DisplayFor(modelItem => item.FechaRegistro)
                     </td>*@

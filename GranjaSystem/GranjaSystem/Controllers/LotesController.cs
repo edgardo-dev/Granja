@@ -167,7 +167,7 @@ namespace GranjaSystem.Content
                 DLotes.Fvacuna2 = Vacuna2;
                 DLotes.Observaciones = Observacion;
                 DLotes.Estado = "En Proceso";
-                DLotes.FechaRegistro = DateTime.Now;
+                DLotes.FechaRegistro = DateTime.UtcNow;
                 Cerda.Estado = "Inseminación";
                 db.Entry(Cerda).State = EntityState.Modified;
                 db.DetalleLotes.Add(DLotes);

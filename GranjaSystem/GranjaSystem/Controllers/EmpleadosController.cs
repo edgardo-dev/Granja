@@ -50,7 +50,7 @@ namespace GranjaSystem.Controllers
         {
             if (ModelState.IsValid)
             {
-                tblEmpleados.FechaRegistro = DateTime.Now;
+                tblEmpleados.FechaRegistro = DateTime.UtcNow;
                 db.Empleados.Add(tblEmpleados);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -11,7 +11,8 @@ namespace GranjaSystem.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblLechones
     {
         public int IdLechones { get; set; }
@@ -21,6 +22,7 @@ namespace GranjaSystem.Models
         public int NCerdas { get; set; }
         public int NVarracos { get; set; }
         public string Fases { get; set; }
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public System.DateTime FechaInicio { get; set; }
         public System.DateTime FechaRegistro { get; set; }
         public string Estado { get; set; }

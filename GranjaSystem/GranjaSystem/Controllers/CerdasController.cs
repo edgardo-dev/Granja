@@ -57,7 +57,7 @@ namespace GranjaSystem.Controllers
             {
                 tblCerdas.Estado = "Vacía";
                 tblCerdas.NumParto = 0;
-                tblCerdas.FechaRegistro = DateTime.Now;
+                tblCerdas.FechaRegistro = DateTime.UtcNow;
                 db.Cerdas.Add(tblCerdas);
                 db.SaveChanges();
                 return RedirectToAction("Index");

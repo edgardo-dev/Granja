@@ -21,7 +21,7 @@ namespace GranjaSystem.Controllers
             ViewBag.CLechones = db.Lechones.Count();
             ViewBag.CEmpleados = db.Empleados.Where(e => e.NombreEmpleado != "Pendiente").Count();
             ViewBag.CUsuarios = db.Usuarios.Count();
-            DateTime Fecha = DateTime.Now.Date;
+            DateTime Fecha = DateTime.UtcNow.Date;
 
             ViewBag.IdL = db.DetalleLotes.Where(d => d.Fvacuna1 == Fecha).Include(t => t.tblLotes).ToList();
             ViewBag.IdP = db.DetalleLotes.Where(d => d.Fvacuna15 == Fecha).Include(t => t.tblLotes).ToList();

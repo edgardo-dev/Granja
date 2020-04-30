@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DB_A460EB_PruebasNGS2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DB_A460EB_PruebasNGS2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblCerdas">
           <Key>
             <PropertyRef Name="IdCerda" />
@@ -101,7 +101,7 @@
           <Property Name="NCerdas" Type="int" Nullable="false" />
           <Property Name="NVarracos" Type="int" Nullable="false" />
           <Property Name="Fases" Type="nvarchar(max)" />
-          <Property Name="FechaInicio" Type="datetime" Nullable="false" />
+          <Property Name="FechaInicio" Type="date" />
           <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
           <Property Name="Estado" Type="nvarchar(max)" />
           <Property Name="qqDiarios" Type="decimal" Precision="18" Scale="2" Nullable="false" />
@@ -428,8 +428,7 @@
             <End Role="tblVarracos" EntitySet="tblVarracos" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DB_A460EB_PruebasNGS2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -546,7 +545,7 @@
           <Property Name="NCerdas" Type="Int32" Nullable="false" />
           <Property Name="NVarracos" Type="Int32" Nullable="false" />
           <Property Name="Fases" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="0" />
           <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Estado" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="qqDiarios" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
