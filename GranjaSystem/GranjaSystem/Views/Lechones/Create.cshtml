@@ -16,7 +16,7 @@
                     <div class="form-horizontal">
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group">
-                            @Html.LabelFor(model => model.NumLote, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <label class="control-label col-md-2">N° Lote</label>
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.NumLote, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.NumLote, "", new { @class = "text-danger" })
@@ -32,7 +32,7 @@
                         </div>*@
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.NCerdos, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <label class="control-label col-md-2">N° Cerdos</label>
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.NCerdos, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.NCerdos, "", new { @class = "text-danger" })
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.NCerdas, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <label class="control-label col-md-2">N° Cerdas</label>
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.NCerdas, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.NCerdas, "", new { @class = "text-danger" })
@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="form-group">
-                            @Html.LabelFor(model => model.NVarracos, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <label class="control-label col-md-2">N° Varracos</label>
                             <div class="col-md-10">
                                 @Html.EditorFor(model => model.NVarracos, new { htmlAttributes = new { @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.NVarracos, "", new { @class = "text-danger" })
