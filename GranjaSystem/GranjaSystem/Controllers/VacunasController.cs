@@ -17,30 +17,45 @@ namespace GranjaSystem.Controllers
         // GET: Vacunas
         public ActionResult Index()
         {
-            var vacunas = db.Vacunas.Include(t => t.tblCerdas);
-            return View(vacunas.ToList());
+            if (Session["IdUsuario"] != null)
+            {
+                var vacunas = db.Vacunas.Include(t => t.tblCerdas);
+                return View(vacunas.ToList());
+
+            }
+                else return RedirectToAction("Index", "Login");
         }
 
         // GET: Vacunas/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblVacunas tblVacunas = db.Vacunas.Find(id);
+                if (tblVacunas == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tblVacunas);
+
             }
-            tblVacunas tblVacunas = db.Vacunas.Find(id);
-            if (tblVacunas == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tblVacunas);
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Vacunas/Create
         public ActionResult Create()
         {
-            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda");
-            return View();
+            if (Session["IdUsuario"] != null)
+            {
+                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda");
+                return View();
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: Vacunas/Create
@@ -50,32 +65,42 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdVacuna,IdCerda,FechaRegistro,FechaInyeccion,Vacuna,Descripcion")] tblVacunas tblVacunas)
         {
-            if (ModelState.IsValid)
+            if (Session["IdUsuario"] != null)
             {
-                tblVacunas.FechaRegistro  = DateTime.UtcNow;
-                db.Vacunas.Add(tblVacunas);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    tblVacunas.FechaRegistro  = DateTime.UtcNow;
+                    db.Vacunas.Add(tblVacunas);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "Procedencia", tblVacunas.IdCerda);
-            return View(tblVacunas);
+                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "Procedencia", tblVacunas.IdCerda);
+                return View(tblVacunas);
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Vacunas/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblVacunas tblVacunas = db.Vacunas.Find(id);
+                if (tblVacunas == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblVacunas.IdCerda);
+                return View(tblVacunas);
+
             }
-            tblVacunas tblVacunas = db.Vacunas.Find(id);
-            if (tblVacunas == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblVacunas.IdCerda);
-            return View(tblVacunas);
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: Vacunas/Edit/5
@@ -85,30 +110,40 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdVacuna,IdCerda,FechaRegistro,FechaInyeccion,Vacuna,Descripcion")] tblVacunas tblVacunas)
         {
-            if (ModelState.IsValid)
+            if (Session["IdUsuario"] != null)
             {
+                if (ModelState.IsValid)
+                {
                 
-                db.Entry(tblVacunas).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                    db.Entry(tblVacunas).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblVacunas.IdCerda);
+                return View(tblVacunas);
+
             }
-            ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblVacunas.IdCerda);
-            return View(tblVacunas);
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Vacunas/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblVacunas tblVacunas = db.Vacunas.Find(id);
+                if (tblVacunas == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tblVacunas);
+
             }
-            tblVacunas tblVacunas = db.Vacunas.Find(id);
-            if (tblVacunas == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tblVacunas);
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: Vacunas/Delete/5
@@ -116,10 +151,15 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tblVacunas tblVacunas = db.Vacunas.Find(id);
-            db.Vacunas.Remove(tblVacunas);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["IdUsuario"] != null)
+            {
+                tblVacunas tblVacunas = db.Vacunas.Find(id);
+                db.Vacunas.Remove(tblVacunas);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         protected override void Dispose(bool disposing)

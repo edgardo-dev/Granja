@@ -17,34 +17,48 @@ namespace GranjaSystem.Controllers
         // GET: VacunasLotes
         public ActionResult Index(int? id)
         {
-            
-            var vacunasLote = db.VacunasLotes.Include(t => t.tblLotes);
-            return View(vacunasLote.ToList());
+            if (Session["IdUsuario"] != null)
+            {
+                var vacunasLote = db.VacunasLotes.Include(t => t.tblLotes);
+                return View(vacunasLote.ToList());
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: VacunasLotes/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            tblVacunasLotes tblVacunasLote = db.VacunasLotes.Find(id);
-            if (tblVacunasLote == null)
-            {
-                return HttpNotFound();
-            }
+
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblVacunasLotes tblVacunasLote = db.VacunasLotes.Find(id);
+                if (tblVacunasLote == null)
+                {
+                    return HttpNotFound();
+                }
             
 
-            return View(tblVacunasLote);
+                return View(tblVacunasLote);
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: VacunasLotes/Create
         public ActionResult Create(int? id)
         {
-            ViewBag.idL = id;
-            ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote");
-            return View();
+            if (Session["IdUsuario"] != null)
+            {
+                ViewBag.idL = id;
+                ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote");
+                return View();
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: VacunasLotes/Create
@@ -54,32 +68,42 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdVacunaLote,IdLote,FechaVacuna,Vacuna,Descripcion")] tblVacunasLotes tblVacunasLote,int IdLotes)
         {
-            if (ModelState.IsValid)
+            if (Session["IdUsuario"] != null)
             {
-                tblVacunasLote.IdLote = IdLotes;
-                db.VacunasLotes.Add(tblVacunasLote);
-                db.SaveChanges();
+
+                if (ModelState.IsValid)
+                {
+                    tblVacunasLote.IdLote = IdLotes;
+                    db.VacunasLotes.Add(tblVacunasLote);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "DetalleLotes", new { id = tblVacunasLote.IdLote });
+                }
+
+                ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblVacunasLote.IdLote);
                 return RedirectToAction("Index", "DetalleLotes", new { id = tblVacunasLote.IdLote });
             }
-
-            ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblVacunasLote.IdLote);
-            return RedirectToAction("Index", "DetalleLotes", new { id = tblVacunasLote.IdLote });
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: VacunasLotes/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblVacunasLotes tblVacunasLote = db.VacunasLotes.Find(id);
+                if (tblVacunasLote == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblVacunasLote.IdLote);
+                return View(tblVacunasLote);
             }
-            tblVacunasLotes tblVacunasLote = db.VacunasLotes.Find(id);
-            if (tblVacunasLote == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblVacunasLote.IdLote);
-            return View(tblVacunasLote);
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: VacunasLotes/Edit/5
@@ -89,29 +113,39 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdVacunaLote,IdLote,FechaVacuna,Vacuna,Descripcion")] tblVacunasLotes tblVacunasLote)
         {
-            if (ModelState.IsValid)
+            if (Session["IdUsuario"] != null)
             {
-                db.Entry(tblVacunasLote).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+
+                if (ModelState.IsValid)
+                {
+                    db.Entry(tblVacunasLote).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblVacunasLote.IdLote);
+                return View(tblVacunasLote);
             }
-            ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblVacunasLote.IdLote);
-            return View(tblVacunasLote);
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: VacunasLotes/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblVacunasLotes tblVacunasLote = db.VacunasLotes.Find(id);
+                if (tblVacunasLote == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tblVacunasLote);
+
             }
-            tblVacunasLotes tblVacunasLote = db.VacunasLotes.Find(id);
-            if (tblVacunasLote == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tblVacunasLote);
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: VacunasLotes/Delete/5
@@ -119,10 +153,15 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tblVacunasLotes tblVacunasLote = db.VacunasLotes.Find(id);
-            db.VacunasLotes.Remove(tblVacunasLote);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["IdUsuario"] != null)
+            {
+                tblVacunasLotes tblVacunasLote = db.VacunasLotes.Find(id);
+                db.VacunasLotes.Remove(tblVacunasLote);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         protected override void Dispose(bool disposing)

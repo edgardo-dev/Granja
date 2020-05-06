@@ -17,22 +17,31 @@ namespace GranjaSystem.Controllers
         // GET: Empleados
         public ActionResult Index()
         {
-            return View(db.Empleados.Where(e=> e.NombreEmpleado != "Pendiente").ToList());
+            if (Session["IdUsuario"] != null)
+            {                
+                return View(db.Empleados.Where(e=> e.NombreEmpleado != "Pendiente").ToList());
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Empleados/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+              
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblEmpleados tblEmpleados = db.Empleados.Find(id);
+                if (tblEmpleados == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tblEmpleados);
             }
-            tblEmpleados tblEmpleados = db.Empleados.Find(id);
-            if (tblEmpleados == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tblEmpleados);
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Empleados/Create
@@ -48,30 +57,40 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdEmpleado,NombreEmpleado,ApellidoEmpleado,Telefono,DUI,NIT,FechaRegistro,FechaNacimiento,Email")] tblEmpleados tblEmpleados)
         {
-            if (ModelState.IsValid)
+            if (Session["IdUsuario"] != null)
             {
-                tblEmpleados.FechaRegistro = DateTime.UtcNow;
-                db.Empleados.Add(tblEmpleados);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    tblEmpleados.FechaRegistro = DateTime.UtcNow;
+                    db.Empleados.Add(tblEmpleados);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            return View(tblEmpleados);
+                return View(tblEmpleados);
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Empleados/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblEmpleados tblEmpleados = db.Empleados.Find(id);
+                if (tblEmpleados == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tblEmpleados);
+
             }
-            tblEmpleados tblEmpleados = db.Empleados.Find(id);
-            if (tblEmpleados == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tblEmpleados);
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: Empleados/Edit/5
@@ -81,28 +100,38 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdEmpleado,NombreEmpleado,ApellidoEmpleado,Telefono,DUI,NIT,FechaRegistro,FechaNacimiento,Email")] tblEmpleados tblEmpleados)
         {
-            if (ModelState.IsValid)
+            if (Session["IdUsuario"] != null)
             {
-                db.Entry(tblEmpleados).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+
+                if (ModelState.IsValid)
+                {
+                    db.Entry(tblEmpleados).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(tblEmpleados);
             }
-            return View(tblEmpleados);
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Empleados/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblEmpleados tblEmpleados = db.Empleados.Find(id);
+                if (tblEmpleados == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tblEmpleados);
+
             }
-            tblEmpleados tblEmpleados = db.Empleados.Find(id);
-            if (tblEmpleados == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tblEmpleados);
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: Empleados/Delete/5
@@ -110,10 +139,15 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tblEmpleados tblEmpleados = db.Empleados.Find(id);
-            db.Empleados.Remove(tblEmpleados);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["IdUsuario"] != null)
+            {
+                tblEmpleados tblEmpleados = db.Empleados.Find(id);
+                db.Empleados.Remove(tblEmpleados);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         protected override void Dispose(bool disposing)

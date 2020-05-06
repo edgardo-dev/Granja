@@ -17,28 +17,43 @@ namespace GranjaSystem.Controllers
         // GET: Roles
         public ActionResult Index()
         {
-            return View(db.Roles.ToList());
+            if (Session["IdUsuario"] != null)
+            {
+                return View(db.Roles.ToList());
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Roles/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblRoles tblRoles = db.Roles.Find(id);
+                if (tblRoles == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tblRoles);
             }
-            tblRoles tblRoles = db.Roles.Find(id);
-            if (tblRoles == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tblRoles);
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Roles/Create
         public ActionResult Create()
         {
-            return View();
+            if (Session["IdUsuario"] != null)
+            {
+                 return View();
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: Roles/Create
@@ -48,29 +63,39 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdRol,Rol,Descripcion")] tblRoles tblRoles)
         {
-            if (ModelState.IsValid)
+            if (Session["IdUsuario"] != null)
             {
-                db.Roles.Add(tblRoles);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View(tblRoles);
+                if (ModelState.IsValid)
+                {
+                    db.Roles.Add(tblRoles);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+                return View(tblRoles);
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Roles/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblRoles tblRoles = db.Roles.Find(id);
+                if (tblRoles == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tblRoles);
+
             }
-            tblRoles tblRoles = db.Roles.Find(id);
-            if (tblRoles == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tblRoles);
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: Roles/Edit/5
@@ -80,28 +105,38 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdRol,Rol,Descripcion")] tblRoles tblRoles)
         {
-            if (ModelState.IsValid)
+            if (Session["IdUsuario"] != null)
             {
-                db.Entry(tblRoles).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(tblRoles).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(tblRoles);
+
             }
-            return View(tblRoles);
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Roles/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblRoles tblRoles = db.Roles.Find(id);
+                if (tblRoles == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tblRoles);
             }
-            tblRoles tblRoles = db.Roles.Find(id);
-            if (tblRoles == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tblRoles);
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: Roles/Delete/5
@@ -109,10 +144,15 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tblRoles tblRoles = db.Roles.Find(id);
-            db.Roles.Remove(tblRoles);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["IdUsuario"] != null)
+            {
+                tblRoles tblRoles = db.Roles.Find(id);
+                db.Roles.Remove(tblRoles);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         protected override void Dispose(bool disposing)

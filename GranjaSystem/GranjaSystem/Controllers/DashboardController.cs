@@ -14,23 +14,29 @@ namespace GranjaSystem.Controllers
         // GET: Dashboard
         public ActionResult Index()
         {
-            ViewBag.CCerdas = db.Cerdas.Count();
-            ViewBag.CVarracos = db.Varracos.Count();
-            ViewBag.CLotes = db.Lotes.Count();
-            ViewBag.CFichas = db.Fichas.Count();
-            ViewBag.CLechones = db.Lechones.Count();
-            ViewBag.CEmpleados = db.Empleados.Where(e => e.NombreEmpleado != "Pendiente").Count();
-            ViewBag.CUsuarios = db.Usuarios.Count();
-            DateTime Fecha = DateTime.UtcNow.Date;
 
-            ViewBag.IdL = db.DetalleLotes.Where(d => d.Fvacuna1 == Fecha).Include(t => t.tblLotes).ToList();
-            ViewBag.IdP = db.DetalleLotes.Where(d => d.Fvacuna15 == Fecha).Include(t => t.tblLotes).ToList();
-            ViewBag.IdV = db.DetalleLotes.Where(d => d.Fvacuna2 == Fecha).Include(t => t.tblLotes).ToList();
-            ViewBag.Vit = db.DetalleLotes.Where(d => d.Fvacuna2 == Fecha).Count();
-            ViewBag.Lit = db.DetalleLotes.Where(d => d.Fvacuna1 == Fecha).Count();
-            ViewBag.LPr = db.DetalleLotes.Where(d => d.Fvacuna15 == Fecha).Count();
-            ViewBag.TotalV = ViewBag.Vit + ViewBag.Lit + ViewBag.LPr;
-            return View();
+            if (Session["IdUsuario"] != null)
+            {
+                ViewBag.CCerdas = db.Cerdas.Count();
+                ViewBag.CVarracos = db.Varracos.Count();
+                ViewBag.CLotes = db.Lotes.Count();
+                ViewBag.CFichas = db.Fichas.Count();
+                ViewBag.CLechones = db.Lechones.Count();
+                ViewBag.CEmpleados = db.Empleados.Where(e => e.NombreEmpleado != "Pendiente").Count();
+                ViewBag.CUsuarios = db.Usuarios.Count();
+                DateTime Fecha = DateTime.UtcNow.Date;
+
+                ViewBag.IdL = db.DetalleLotes.Where(d => d.Fvacuna1 == Fecha).Include(t => t.tblLotes).ToList();
+                ViewBag.IdP = db.DetalleLotes.Where(d => d.Fvacuna15 == Fecha).Include(t => t.tblLotes).ToList();
+                ViewBag.IdV = db.DetalleLotes.Where(d => d.Fvacuna2 == Fecha).Include(t => t.tblLotes).ToList();
+                ViewBag.Vit = db.DetalleLotes.Where(d => d.Fvacuna2 == Fecha).Count();
+                ViewBag.Lit = db.DetalleLotes.Where(d => d.Fvacuna1 == Fecha).Count();
+                ViewBag.LPr = db.DetalleLotes.Where(d => d.Fvacuna15 == Fecha).Count();
+                ViewBag.TotalV = ViewBag.Vit + ViewBag.Lit + ViewBag.LPr;
+                return View();
+            }
+            else return RedirectToAction("Index", "Login");
+          
         }
     }
 }

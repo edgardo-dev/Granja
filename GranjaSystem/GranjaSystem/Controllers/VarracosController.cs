@@ -17,30 +17,45 @@ namespace GranjaSystem.Controllers
         // GET: Varracos
         public ActionResult Index()
         {
-            var varracos = db.Varracos.Include(t => t.tblGeneticas);
-            return View(varracos.ToList());
+            if (Session["IdUsuario"] != null)
+            {
+                var varracos = db.Varracos.Include(t => t.tblGeneticas);
+                return View(varracos.ToList());
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Varracos/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblVarracos tblVarracos = db.Varracos.Find(id);
+                if (tblVarracos == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tblVarracos);
+
             }
-            tblVarracos tblVarracos = db.Varracos.Find(id);
-            if (tblVarracos == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tblVarracos);
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Varracos/Create
         public ActionResult Create()
         {
-            ViewBag.IdGenetica = new SelectList(db.Geneticas, "IdGenetica", "Genetica");
-            return View();
+            if (Session["IdUsuario"] != null)
+            {
+                ViewBag.IdGenetica = new SelectList(db.Geneticas, "IdGenetica", "Genetica");
+                return View();
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: Varracos/Create
@@ -50,33 +65,43 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdVarraco,NumVarraco,Procedencia,Observaciones,FechaRegistro,Estado,IdGenetica")] tblVarracos tblVarracos)
         {
-            if (ModelState.IsValid)
+            if (Session["IdUsuario"] != null)
             {
-                tblVarracos.Estado = "Activo";
-                tblVarracos.FechaRegistro = DateTime.UtcNow;
-                db.Varracos.Add(tblVarracos);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    tblVarracos.Estado = "Activo";
+                    tblVarracos.FechaRegistro = DateTime.UtcNow;
+                    db.Varracos.Add(tblVarracos);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            ViewBag.IdGenetica = new SelectList(db.Geneticas, "IdGenetica", "Genetica", tblVarracos.IdGenetica);
-            return View(tblVarracos);
+                ViewBag.IdGenetica = new SelectList(db.Geneticas, "IdGenetica", "Genetica", tblVarracos.IdGenetica);
+                return View(tblVarracos);
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Varracos/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblVarracos tblVarracos = db.Varracos.Find(id);
+                if (tblVarracos == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.IdGenetica = new SelectList(db.Geneticas, "IdGenetica", "Genetica", tblVarracos.IdGenetica);
+                return View(tblVarracos);
+
             }
-            tblVarracos tblVarracos = db.Varracos.Find(id);
-            if (tblVarracos == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.IdGenetica = new SelectList(db.Geneticas, "IdGenetica", "Genetica", tblVarracos.IdGenetica);
-            return View(tblVarracos);
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: Varracos/Edit/5
@@ -86,29 +111,39 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdVarraco,NumVarraco,Procedencia,Observaciones,FechaRegistro,Estado,IdGenetica")] tblVarracos tblVarracos)
         {
-            if (ModelState.IsValid)
+            if (Session["IdUsuario"] != null)
             {
-                db.Entry(tblVarracos).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(tblVarracos).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                ViewBag.IdGenetica = new SelectList(db.Geneticas, "IdGenetica", "Genetica", tblVarracos.IdGenetica);
+                return View(tblVarracos);
+
             }
-            ViewBag.IdGenetica = new SelectList(db.Geneticas, "IdGenetica", "Genetica", tblVarracos.IdGenetica);
-            return View(tblVarracos);
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Varracos/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblVarracos tblVarracos = db.Varracos.Find(id);
+                if (tblVarracos == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tblVarracos);
+
             }
-            tblVarracos tblVarracos = db.Varracos.Find(id);
-            if (tblVarracos == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tblVarracos);
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: Varracos/Delete/5
@@ -116,10 +151,15 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tblVarracos tblVarracos = db.Varracos.Find(id);
-            db.Varracos.Remove(tblVarracos);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["IdUsuario"] != null)
+            {
+                tblVarracos tblVarracos = db.Varracos.Find(id);
+                db.Varracos.Remove(tblVarracos);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         protected override void Dispose(bool disposing)

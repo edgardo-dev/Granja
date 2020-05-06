@@ -19,31 +19,46 @@ namespace GranjaSystem.Controllers
         // GET: Usuarios
         public ActionResult Index()
         {
-            var usuarios = db.Usuarios.Include(t => t.tblEmpleados).Include(t => t.tblRoles);
-            return View(usuarios.ToList());
+            if (Session["IdUsuario"] != null)
+            {
+                var usuarios = db.Usuarios.Include(t => t.tblEmpleados).Include(t => t.tblRoles);
+                return View(usuarios.ToList());
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Usuarios/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblUsuarios tblUsuarios = db.Usuarios.Find(id);
+                if (tblUsuarios == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tblUsuarios);
+
             }
-            tblUsuarios tblUsuarios = db.Usuarios.Find(id);
-            if (tblUsuarios == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tblUsuarios);
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Usuarios/Create
         public ActionResult Create()
         {
-            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado");
-            ViewBag.IdRol = new SelectList(db.Roles, "IdRol", "Rol");
-            return View();
+            if (Session["IdUsuario"] != null)
+            {
+                ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado");
+                ViewBag.IdRol = new SelectList(db.Roles, "IdRol", "Rol");
+                return View();
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: Usuarios/Create
@@ -53,34 +68,44 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdUsuario,Usuario,Clave,IdEmpleado,IdRol")] tblUsuarios tblUsuarios)
         {
-            if (ModelState.IsValid)
+            if (Session["IdUsuario"] != null)
             {
-                tblUsuarios.Clave = Encriptar(tblUsuarios.Clave);
-                db.Usuarios.Add(tblUsuarios);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                if (ModelState.IsValid)
+                {
+                    tblUsuarios.Clave = Encriptar(tblUsuarios.Clave);
+                    db.Usuarios.Add(tblUsuarios);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
 
-            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
-            ViewBag.IdRol = new SelectList(db.Roles, "IdRol", "Rol", tblUsuarios.IdRol);
-            return View(tblUsuarios);
+                ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
+                ViewBag.IdRol = new SelectList(db.Roles, "IdRol", "Rol", tblUsuarios.IdRol);
+                return View(tblUsuarios);
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Usuarios/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblUsuarios tblUsuarios = db.Usuarios.Find(id);
+                if (tblUsuarios == null)
+                {
+                    return HttpNotFound();
+                }
+                ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
+                ViewBag.IdRol = new SelectList(db.Roles, "IdRol", "Rol", tblUsuarios.IdRol);
+                return View(tblUsuarios);
+
             }
-            tblUsuarios tblUsuarios = db.Usuarios.Find(id);
-            if (tblUsuarios == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
-            ViewBag.IdRol = new SelectList(db.Roles, "IdRol", "Rol", tblUsuarios.IdRol);
-            return View(tblUsuarios);
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: Usuarios/Edit/5
@@ -90,31 +115,41 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "IdUsuario,Usuario,Clave,IdEmpleado,IdRol")] tblUsuarios tblUsuarios)
         {
-            if (ModelState.IsValid)
+            if (Session["IdUsuario"] != null)
             {
-                tblUsuarios.Clave = Encriptar(tblUsuarios.Clave);
-                db.Entry(tblUsuarios).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    tblUsuarios.Clave = Encriptar(tblUsuarios.Clave);
+                    db.Entry(tblUsuarios).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
+                ViewBag.IdRol = new SelectList(db.Roles, "IdRol", "Rol", tblUsuarios.IdRol);
+                return View(tblUsuarios);
+
             }
-            ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
-            ViewBag.IdRol = new SelectList(db.Roles, "IdRol", "Rol", tblUsuarios.IdRol);
-            return View(tblUsuarios);
+            else return RedirectToAction("Index", "Login");
         }
 
         // GET: Usuarios/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (Session["IdUsuario"] != null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                tblUsuarios tblUsuarios = db.Usuarios.Find(id);
+                if (tblUsuarios == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(tblUsuarios);
+
             }
-            tblUsuarios tblUsuarios = db.Usuarios.Find(id);
-            if (tblUsuarios == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tblUsuarios);
+            else return RedirectToAction("Index", "Login");
         }
 
         // POST: Usuarios/Delete/5
@@ -122,10 +157,15 @@ namespace GranjaSystem.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            tblUsuarios tblUsuarios = db.Usuarios.Find(id);
-            db.Usuarios.Remove(tblUsuarios);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            if (Session["IdUsuario"] != null)
+            {
+                tblUsuarios tblUsuarios = db.Usuarios.Find(id);
+                db.Usuarios.Remove(tblUsuarios);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            else return RedirectToAction("Index", "Login");
         }
 
         protected override void Dispose(bool disposing)
