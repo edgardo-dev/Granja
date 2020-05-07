@@ -14,6 +14,15 @@ table>tbody>tr>td {
 }
 
 /*para alinear los botones y cuadro de busqueda*/
-.btn-group, .btn-group-vertical {
+/*.btn-group, .btn-group-vertical {
     position: absolute !important;
+}*/
+@media screen and (min-width: 769px) {
+    .btn-group, .btn-group-vertical {
+        position: absolute !important;
+    }
+}
+@media screen and (max-width: 768px) {
+
+
 }
