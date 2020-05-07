@@ -3227,7 +3227,6 @@
     <Content Include="Views\Lotes\CargarLote.cshtml" />
     <Content Include="Views\Fichas\CargarFicha.cshtml" />
     <Content Include="Views\Cerdas\ReporteCerda.cshtml" />
-    <Content Include="Views\DetalleLotes\Eliminar.cshtml" />
     <Content Include="Views\VacunasLotes\Create.cshtml" />
     <Content Include="Views\VacunasLotes\Delete.cshtml" />
     <Content Include="Views\VacunasLotes\Details.cshtml" />
