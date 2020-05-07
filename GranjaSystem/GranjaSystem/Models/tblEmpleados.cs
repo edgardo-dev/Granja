@@ -24,7 +24,7 @@ namespace GranjaSystem.Models
         public int IdEmpleado { get; set; }
         public string NombreEmpleado { get; set; }
         public string ApellidoEmpleado { get; set; }
-        public int Telefono { get; set; }
+        public Nullable<int> Telefono { get; set; }
         public string DUI { get; set; }
         public string NIT { get; set; }
         public System.DateTime FechaRegistro { get; set; }

@@ -11,66 +11,67 @@
         <div class="panel panel-primary">
             <div class="panel-heading text-center"><h4>CONTROL DE LOTES </h4></div>
             <div class="panel-body bg-gray">
-                <table id="Tabla" class="table table-bordered table-hover text-center">
-                    <thead>
-                        <tr>
-                            <th>
-                                N° Lote
-                            </th>
-                            <th>
-                                Fecha Registro
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Estado)
-                            </th>
-                            <th> Total Lechones</th>
-                            <th><i class="fa fa-gear"></i> </th>
-                        </tr>
-                    </thead>
-                    
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
+                <div style="overflow-x:scroll">
+                    <table id="Tabla" class="table table-bordered table-hover text-center">
+                        <thead>
                             <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.NumLote)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.FechaRegistro)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Estado)
-                                </td>
-                                <td>
-                                    @{ 
-                                        int? Lechones = 0;
-
-                                        foreach (var item2 in ViewBag.TLechones)
-                                        {
-                                            if (item2.Lote == item.IdLote)
-                                            {
-                                                Lechones += item2.NumDestetado;
-                                            }
-
-                                        }
-                                        <p>@Lechones</p>
-                                    }
-                                </td>
-                                <td>
-                                    @*@Html.ActionLink(" ", "Edit", new { id = item.IdLote }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })*@
-                                    @Html.ActionLink(" ", "Index", "DetalleLotes", new { id = item.IdLote }, new { @class = "fa fa-list btn btn-info", title = "Ver Cerdas" })
-                                    @Html.ActionLink(" ", "Create", "VacunasLotes", new { id = item.IdLote }, new { @class = "fa fa-eyedropper btn btn-success", title = "Vacunar" })
-                                    @Html.ActionLink(" ", "Delete", new { id = item.IdLote }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
-                                </td>
+                                <th>
+                                    N° Lote
+                                </th>
+                                <th>
+                                    Fecha Registro
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Estado)
+                                </th>
+                                <th> Total Lechones</th>
+                                <th><i class="fa fa-gear"></i> </th>
                             </tr>
-                        }
-                    </tbody>
-                    
-                </table>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NumLote)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FechaRegistro)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Estado)
+                                    </td>
+                                    <td>
+                                        @{
+                                            int? Lechones = 0;
+
+                                            foreach (var item2 in ViewBag.TLechones)
+                                            {
+                                                if (item2.Lote == item.IdLote)
+                                                {
+                                                    Lechones += item2.NumDestetado;
+                                                }
+
+                                            }
+                                            <p>@Lechones</p>
+                                        }
+                                    </td>
+                                    <td>
+                                        @*@Html.ActionLink(" ", "Edit", new { id = item.IdLote }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })*@
+                                        @Html.ActionLink(" ", "Index", "DetalleLotes", new { id = item.IdLote }, new { @class = "fa fa-list btn btn-info", title = "Ver Cerdas" })
+                                        @Html.ActionLink(" ", "Create", "VacunasLotes", new { id = item.IdLote }, new { @class = "fa fa-eyedropper btn btn-success", title = "Vacunar" })
+                                        @Html.ActionLink(" ", "Delete", new { id = item.IdLote }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-
 
 
 

@@ -10,97 +10,101 @@
         </p>
         <div class="panel panel-primary">
             <div class="panel-heading text-center"><h4>CONTROL DE CERDOS</h4></div>
-            <div class="panel-body bg-gray" >
-                <table id="Tabla" class="table table-bordered table-hover text-center">
-                    <thead>
-                        <tr>
-                            <th>
-                                Lote
+            <div class="panel-body bg-gray">
+                <div id="main">
+                    <div id="horizontal-scroll">
+                        <table id="Tabla" class="table table-bordered table-hover text-center">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Lote
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Edad)
+                                    </th>
+                                    <th>
+                                        Cerdos
+                                    </th>
+                                    @*<th>
+                                @Html.DisplayNameFor(model => model.NCerdas)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Edad)
-                            </th>
-                            <th>
-                                Cerdos
-                            </th>
-                            @*<th>
-                    @Html.DisplayNameFor(model => model.NCerdas)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.NVarracos)
-                </th>*@
-                            <th>
-                                @Html.DisplayNameFor(model => model.Fases)
-                            </th>
-                            <th>
-                                Fecha Inicio
-                            </th>
-                            <th>qq Diarios</th>
-                            <th>qq Semanal</th>
-                            @*<th>
-                    @Html.DisplayNameFor(model => model.FechaRegistro)
-                </th>*@
-                            @*<th>
+                                @Html.DisplayNameFor(model => model.NVarracos)
+                            </th>*@
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Fases)
+                                    </th>
+                                    <th>
+                                        Fecha Inicio
+                                    </th>
+                                    <th>qq Diarios</th>
+                                    <th>qq Semanal</th>
+                                    @*<th>
+                                @Html.DisplayNameFor(model => model.FechaRegistro)
+                            </th>*@
+                                    @*<th>
                                 @Html.DisplayNameFor(model => model.Estado)
                             </th>*@
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.NumLote)
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NumLote)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Edad)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.NCerdos)
+                                        </td>
+                                        @*<td>
+                                    @Html.DisplayFor(modelItem => item.NCerdas)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Edad)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.NCerdos)
-                                </td>
-                                @*<td>
-                        @Html.DisplayFor(modelItem => item.NCerdas)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NVarracos)
-                    </td>*@
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Fases)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.FechaInicio)
-                                </td>
-                                <td>@Html.DisplayFor(modelItem => item.qqDiarios) </td>
-                                <td>@Html.DisplayFor(modelItem => item.qqSemanal) </td>
-                                @*<td>
-                        @Html.DisplayFor(modelItem => item.FechaRegistro)
-                    </td>*@
-                                @*<td>
+                                    @Html.DisplayFor(modelItem => item.NVarracos)
+                                </td>*@
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Fases)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FechaInicio)
+                                        </td>
+                                        <td>@Html.DisplayFor(modelItem => item.qqDiarios) </td>
+                                        <td>@Html.DisplayFor(modelItem => item.qqSemanal) </td>
+                                        @*<td>
+                                    @Html.DisplayFor(modelItem => item.FechaRegistro)
+                                </td>*@
+                                        @*<td>
                                     @Html.DisplayFor(modelItem => item.Estado)
                                 </td>*@
-                            <td>
-                                @Html.ActionLink(" ", "Edit", new { id = item.IdLechones }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
-                                @Html.ActionLink(" ", "Details", new { id = item.IdLechones }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
-                                @{
-                                    if (item.Edad >= 13 && item.Edad <=15 && item.Fases != "Final M")
-                                    {
-                                        @Html.ActionLink(" ", "Subir", new { id = item.IdLechones }, new { @class = "fa fa-arrow-circle-up btn btn-primary", title = "Subir fase" })
-                                    }
-                                    else if (item.Edad >= 20)
-                                    {
-                                        @Html.ActionLink(" ", "Vender", new { id = item.IdLechones }, new { @class = "fa fa-cart-arrow-down btn btn-primary", title = "Descartar Cerdos" })
-                                    }
+                                        <td>
+                                            @Html.ActionLink(" ", "Edit", new { id = item.IdLechones }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
+                                            @Html.ActionLink(" ", "Details", new { id = item.IdLechones }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
+                                            @{
+                                                if (item.Edad >= 13 && item.Edad <= 15 && item.Fases != "Final M")
+                                                {
+                                                    @Html.ActionLink(" ", "Subir", new { id = item.IdLechones }, new { @class = "fa fa-arrow-circle-up btn btn-primary", title = "Subir fase" })
+                                                }
+                                                else if (item.Edad >= 20)
+                                                {
+                                                    @Html.ActionLink(" ", "Vender", new { id = item.IdLechones }, new { @class = "fa fa-cart-arrow-down btn btn-primary", title = "Descartar Cerdos" })
+                                                }
+                                            }
+
+                                            @Html.ActionLink(" ", "Delete", new { id = item.IdLechones }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+
+                                        </td>
+                                    </tr>
                                 }
-
-                                @Html.ActionLink(" ", "Delete", new { id = item.IdLechones }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
-
-                            </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                    </div>
+                </div>
             </div>
-        </div>
-</div>
        

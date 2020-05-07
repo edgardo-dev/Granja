@@ -2624,6 +2624,7 @@
       <DependentUpon>Contexto.edmx</DependentUpon>
       <LastGenOutput>Contexto.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Contexto.edmx.sql" />
     <Content Include="Models\Contexto.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Contexto.edmx</DependentUpon>

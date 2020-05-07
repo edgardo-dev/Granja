@@ -7,79 +7,81 @@
 
     <div class="row content container-fluid">
         <p>
-            @Html.ActionLink(" ", "Create", null, new { @class = "fa fa-plus btn btn-success btn-lg",title ="Agregar"})
+            @Html.ActionLink(" ", "Create", null, new { @class = "fa fa-plus btn btn-success btn-lg", title = "Agregar" })
         </p>
         <div class="panel panel-primary">
             <div class="panel-heading text-center"><h4>CONTROL DE CERDAS</h4></div>
             <div class="panel-body bg-gray">
-                <table id="Tabla" class="table table-bordered table-hover text-center">
-                    <thead>
-                        <tr>
-                            <th>
-                                Genética
-                            </th>
-                            <th>
-                                 Cerda
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Procedencia)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Observaciones)
-                            </th>
-                            <th>
-                                Partos
-                            </th>
-                            @*<th>
-                               Fecha Registro
-                            </th>*@
-                            <th>
-                                @Html.DisplayNameFor(model => model.Estado)
-                            </th>
-                            <th><i class="fa fa-gear"></i> </th>
-                        </tr>
-
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                        {
+                <div style="overflow-x:scroll">
+                    <table id="Tabla" class="table table-bordered table-hover text-center" width="100%">
+                        <thead>
                             <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.tblGeneticas.Genetica)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.NumCerda)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Procedencia)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Observaciones)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.NumParto)
-                                </td>
-                                @*<td>
-                                    @Html.DisplayFor(modelItem => item.FechaRegistro)
-                                </td>*@
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Estado)
-                                </td>
-                                <td>
-                                    @Html.ActionLink(" ", "Edit", new { id = item.IdCerda }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" }) 
-                                    @Html.ActionLink(" ", "Details", new { id = item.IdCerda }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" }) 
-                                    @Html.ActionLink(" ", "Print", new { id = item.IdCerda }, new { @class = "fa fa-print btn btn-primary", title = "Imprimir" }) 
-                                    @Html.ActionLink(" ", "Delete", new { id = item.IdCerda }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
-                                </td>
+                                <th>
+                                    Genética
+                                </th>
+                                <th>
+                                    Cerda
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Procedencia)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Observaciones)
+                                </th>
+                                <th>
+                                    Partos
+                                </th>
+                                @*<th>
+                                   Fecha Registro
+                                </th>*@
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Estado)
+                                </th>
+                                <th><i class="fa fa-gear"></i> </th>
                             </tr>
-                        }
-                    </tbody>
-                        
-                </table>
+
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.tblGeneticas.Genetica)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NumCerda)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Procedencia)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Observaciones)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NumParto)
+                                    </td>
+                                    @*<td>
+                                        @Html.DisplayFor(modelItem => item.FechaRegistro)
+                                    </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Estado)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink(" ", "Edit", new { id = item.IdCerda }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
+                                        @Html.ActionLink(" ", "Details", new { id = item.IdCerda }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
+                                        @Html.ActionLink(" ", "Print", new { id = item.IdCerda }, new { @class = "fa fa-print btn btn-primary", title = "Imprimir" })
+                                        @Html.ActionLink(" ", "Delete", new { id = item.IdCerda }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
             </div>
         </div>
     </div>
 
 
-    
+
 
