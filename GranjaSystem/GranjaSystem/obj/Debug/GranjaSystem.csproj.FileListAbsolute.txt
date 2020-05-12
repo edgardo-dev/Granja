@@ -1049,17 +1049,6 @@ C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Webpages.
 C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Webpages.Razor.resources.dll
 C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Helpers.resources.dll
 C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Mvc.resources.dll
-C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.BasePorcina.resources
-C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.tblfichas.resources
-C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.camposCantidadesNULLos.resources
-C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.camposfichas.resources
-C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.nullcerdos.resources
-C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.FechasVacunas.resources
-C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.tblfichaspesopromedio.resources
-C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.fechasmodificadas.resources
-C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.tablavacunaslote.resources
-C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.fichalote.resources
-C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.tbllechones.resources
 C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csproj.GenerateResource.cache
 C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csproj.CopyComplete
 C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.dll
