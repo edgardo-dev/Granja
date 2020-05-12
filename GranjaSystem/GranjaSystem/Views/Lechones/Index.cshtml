@@ -25,11 +25,11 @@
                                 Cerdos
                             </th>
                             @*<th>
-                                    @Html.DisplayNameFor(model => model.NCerdas)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.NVarracos)
-                                </th>*@
+                    @Html.DisplayNameFor(model => model.NCerdas)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NVarracos)
+                </th>*@
                             <th>
                                 @Html.DisplayNameFor(model => model.Fases)
                             </th>
@@ -39,11 +39,11 @@
                             <th>qq Diarios</th>
                             <th>qq Semanal</th>
                             @*<th>
-                                    @Html.DisplayNameFor(model => model.FechaRegistro)
-                                </th>*@
+                    @Html.DisplayNameFor(model => model.FechaRegistro)
+                </th>*@
                             @*<th>
-                                    @Html.DisplayNameFor(model => model.Estado)
-                                </th>*@
+                    @Html.DisplayNameFor(model => model.Estado)
+                </th>*@
                             <th></th>
                         </tr>
                     </thead>
@@ -61,11 +61,11 @@
                                     @Html.DisplayFor(modelItem => item.NCerdos)
                                 </td>
                                 @*<td>
-                                        @Html.DisplayFor(modelItem => item.NCerdas)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.NVarracos)
-                                    </td>*@
+                    @Html.DisplayFor(modelItem => item.NCerdas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NVarracos)
+                </td>*@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Fases)
                                 </td>
@@ -75,34 +75,78 @@
                                 <td>@Html.DisplayFor(modelItem => item.qqDiarios) </td>
                                 <td>@Html.DisplayFor(modelItem => item.qqSemanal) </td>
                                 @*<td>
-                                        @Html.DisplayFor(modelItem => item.FechaRegistro)
-                                    </td>*@
+                    @Html.DisplayFor(modelItem => item.FechaRegistro)
+                </td>*@
                                 @*<td>
-                                        @Html.DisplayFor(modelItem => item.Estado)
-                                    </td>*@
-                                <td>
-                                    @Html.ActionLink(" ", "Edit", new { id = item.IdLechones }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
-                                    @Html.ActionLink(" ", "Details", new { id = item.IdLechones }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
-                                    @{
-                                        if (item.Edad >= 13 && item.Edad <= 15 && item.Fases != "Final M")
-                                        {
-                                            @Html.ActionLink(" ", "Subir", new { id = item.IdLechones }, new { @class = "fa fa-arrow-circle-up btn btn-primary", title = "Subir fase" })
-                                        }
-                                        else if (item.Edad >= 20)
-                                        {
-                                            @Html.ActionLink(" ", "Vender", new { id = item.IdLechones }, new { @class = "fa fa-cart-arrow-down btn btn-primary", title = "Descartar Cerdos" })
-                                        }
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>*@
+                            <td>
+                                @Html.ActionLink(" ", "Edit", new { id = item.IdLechones }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
+                                @Html.ActionLink(" ", "Details", new { id = item.IdLechones }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
+                                @{
+                                    if (item.Edad >= 13 && item.Edad <= 15 && item.Fases != "Final M")
+                                    {
+                                        @Html.ActionLink(" ", "Subir", new { id = item.IdLechones }, new { @class = "fa fa-arrow-circle-up btn btn-primary", title = "Subir fase" })
                                     }
+                                    else if (item.Edad >= 20)
+                                    {
+                                        <button onclick="modalVenta('@item.IdLechones','@item.NCerdos')" class="fa fa-cart-arrow-down  btn btn-primary" title = "Descartar Cerdos" >
+                                        </button>
+                                        @*@Html.ActionLink(" ", "Vender", new { id = item.IdLechones }, new { @class = "fa fa-cart-arrow-down btn btn-primary", title = "Descartar Cerdos" })*@
+                                    }
+                                }
 
-                                    @Html.ActionLink(" ", "Delete", new { id = item.IdLechones }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                                @Html.ActionLink(" ", "Delete", new { id = item.IdLechones }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
 
-                                </td>
+                            </td>
                             </tr>
-                        }
-                    </tbody>
+                            }
+                        </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+<div class="modal danger fade" id="modalVenta" tabindex="-1" role="dialog" aria-labelledby="CrearVenta" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-info">
+                <div id="venta">
 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+        function modalVenta(id,cerdos) {
+            var url = '@Url.Action("Vender","Lechones")';
+            var insertHtml = `<div class="modal-body">
+                <div class="row">
+                <form method="POST" action="${url}">
+                <input type="text" value="${id}" hidden name="id" />
+                    <div class="form-group">
+                        <label for="Cantidad"><h3>Cuantos se Venderan :</h3></label>
+                        <div class="col-sm-9">
+                        <input class="form-control" type="number" id="Cantidad" name="Cantidad" min="1" max="${cerdos}"  required placeholder="Ingrese la Cantidad" />
+                    </div>
+<div class="col-sm-3">
+                        <button type="submit" class="btn btn-primary">Vender</button>
+                    </div>
+                    </div>
+                    
+                </div>
+            </div>
+<div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            
+            </div>`
+            $("#modalVenta").modal("show");
+            $("#venta").html(insertHtml);
+        }
+
+        function Vender(idLechon,Cerdos) {
+
+            $.post(url, { id: idLechon, Cantidad: Cerdos }).done(function () { location.reload() });
+        }
+</script>

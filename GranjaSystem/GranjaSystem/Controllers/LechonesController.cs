@@ -339,7 +339,7 @@ namespace GranjaSystem.Controllers
             if (Session["IdUsuario"] != null)
             {
                 var Lechones = db.Lechones.Find(id);
-                if (Lechones.NCerdos <= Cantidad)
+                if (Lechones.NCerdos >= Cantidad)
                 {
                     Lechones.NCerdos = Lechones.NCerdos - Cantidad;
                 }
