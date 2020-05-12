@@ -2679,50 +2679,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202001151734266_BasePorcina.cs" />
-    <Compile Include="Migrations\202001151734266_BasePorcina.designer.cs">
-      <DependentUpon>202001151734266_BasePorcina.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202001170439513_tblfichas.cs" />
-    <Compile Include="Migrations\202001170439513_tblfichas.designer.cs">
-      <DependentUpon>202001170439513_tblfichas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002060407393_camposCantidadesNULLos.cs" />
-    <Compile Include="Migrations\202002060407393_camposCantidadesNULLos.designer.cs">
-      <DependentUpon>202002060407393_camposCantidadesNULLos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002060411241_camposfichas.cs" />
-    <Compile Include="Migrations\202002060411241_camposfichas.designer.cs">
-      <DependentUpon>202002060411241_camposfichas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002071724255_nullcerdos.cs" />
-    <Compile Include="Migrations\202002071724255_nullcerdos.designer.cs">
-      <DependentUpon>202002071724255_nullcerdos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002180757056_FechasVacunas.cs" />
-    <Compile Include="Migrations\202002180757056_FechasVacunas.designer.cs">
-      <DependentUpon>202002180757056_FechasVacunas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002271725572_tblfichaspesopromedio.cs" />
-    <Compile Include="Migrations\202002271725572_tblfichaspesopromedio.designer.cs">
-      <DependentUpon>202002271725572_tblfichaspesopromedio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002280517568_fechasmodificadas.cs" />
-    <Compile Include="Migrations\202002280517568_fechasmodificadas.designer.cs">
-      <DependentUpon>202002280517568_fechasmodificadas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202002281647220_tablavacunaslote.cs" />
-    <Compile Include="Migrations\202002281647220_tablavacunaslote.designer.cs">
-      <DependentUpon>202002281647220_tablavacunaslote.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003031606144_fichalote.cs" />
-    <Compile Include="Migrations\202003031606144_fichalote.designer.cs">
-      <DependentUpon>202003031606144_fichalote.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003051318005_tbllechones.cs" />
-    <Compile Include="Migrations\202003051318005_tbllechones.designer.cs">
-      <DependentUpon>202003051318005_tbllechones.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202004240456189_qqComidas.cs" />
     <Compile Include="Migrations\202004240456189_qqComidas.designer.cs">
       <DependentUpon>202004240456189_qqComidas.cs</DependentUpon>
@@ -3250,39 +3206,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202001151734266_BasePorcina.resx">
-      <DependentUpon>202001151734266_BasePorcina.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202001170439513_tblfichas.resx">
-      <DependentUpon>202001170439513_tblfichas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002060407393_camposCantidadesNULLos.resx">
-      <DependentUpon>202002060407393_camposCantidadesNULLos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002060411241_camposfichas.resx">
-      <DependentUpon>202002060411241_camposfichas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002071724255_nullcerdos.resx">
-      <DependentUpon>202002071724255_nullcerdos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002180757056_FechasVacunas.resx">
-      <DependentUpon>202002180757056_FechasVacunas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002271725572_tblfichaspesopromedio.resx">
-      <DependentUpon>202002271725572_tblfichaspesopromedio.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002280517568_fechasmodificadas.resx">
-      <DependentUpon>202002280517568_fechasmodificadas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202002281647220_tablavacunaslote.resx">
-      <DependentUpon>202002281647220_tablavacunaslote.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003031606144_fichalote.resx">
-      <DependentUpon>202003031606144_fichalote.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003051318005_tbllechones.resx">
-      <DependentUpon>202003051318005_tbllechones.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004240456189_qqComidas.resx">
       <DependentUpon>202004240456189_qqComidas.cs</DependentUpon>
     </EmbeddedResource>
