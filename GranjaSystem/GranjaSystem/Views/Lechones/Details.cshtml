@@ -1,7 +1,7 @@
 ﻿@model GranjaSystem.Models.tblLechones
 
 @{
-    ViewBag.Title = "Detalle de Lechones";
+    ViewBag.Title = "Detalle de Cerdos";
 }
 
     <div class="row content container-fluid">
@@ -94,7 +94,7 @@
                         </div>
                        
                         <p align="right">
-                            @Html.ActionLink("Modificar", "Edit", new { id = Model.IdLechones }, new { @class = "btn btn-success" }) |
+                            @Html.ActionLink("Modificar", "Edit", new { id = Model.IdLechones }, new { @class = "btn btn-success" })
                             @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
                         </p>
                     </div>
