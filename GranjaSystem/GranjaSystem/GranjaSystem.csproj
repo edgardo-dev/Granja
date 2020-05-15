@@ -2619,16 +2619,15 @@
     <Content Include="Content\vendor\select2\select2.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\Contexto.Context.tt">
+    <Content Include="Models\Contextos.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Contexto.edmx</DependentUpon>
-      <LastGenOutput>Contexto.Context.cs</LastGenOutput>
+      <DependentUpon>Contextos.edmx</DependentUpon>
+      <LastGenOutput>Contextos.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Contexto.edmx.sql" />
-    <Content Include="Models\Contexto.tt">
+    <Content Include="Models\Contextos.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Contexto.edmx</DependentUpon>
-      <LastGenOutput>Contexto.cs</LastGenOutput>
+      <DependentUpon>Contextos.edmx</DependentUpon>
+      <LastGenOutput>Contextos.cs</LastGenOutput>
     </Content>
     <Content Include="Rotativa\help-wkhtmltoimage.txt" />
     <Content Include="Rotativa\help-wkhtmltopdf.txt" />
@@ -2644,12 +2643,12 @@
     <Content Include="Views\Fichas\Edit.cshtml" />
     <Content Include="Views\Fichas\Index.cshtml" />
     <Content Include="App_Browsers\qt.browser" />
-    <EntityDeploy Include="Models\Contexto.edmx">
+    <EntityDeploy Include="Models\Contextos.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Contexto.Designer.cs</LastGenOutput>
+      <LastGenOutput>Contextos.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Contexto.edmx.diagram">
-      <DependentUpon>Contexto.edmx</DependentUpon>
+    <Content Include="Models\Contextos.edmx.diagram">
+      <DependentUpon>Contextos.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -2679,64 +2678,59 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004240456189_qqComidas.cs" />
-    <Compile Include="Migrations\202004240456189_qqComidas.designer.cs">
-      <DependentUpon>202004240456189_qqComidas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Contexto.Context.cs">
+    <Compile Include="Models\Contextos.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Contexto.Context.tt</DependentUpon>
+      <DependentUpon>Contextos.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Contexto.cs">
+    <Compile Include="Models\Contextos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Contexto.tt</DependentUpon>
+      <DependentUpon>Contextos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Contexto.Designer.cs">
+    <Compile Include="Models\Contextos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Contexto.edmx</DependentUpon>
+      <DependentUpon>Contextos.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\tblCerdas.cs">
-      <DependentUpon>Contexto.tt</DependentUpon>
+      <DependentUpon>Contextos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblControlLechones.cs">
-      <DependentUpon>Contexto.tt</DependentUpon>
+      <DependentUpon>Contextos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblDetalleLotes.cs">
-      <DependentUpon>Contexto.tt</DependentUpon>
+      <DependentUpon>Contextos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblEmpleados.cs">
-      <DependentUpon>Contexto.tt</DependentUpon>
+      <DependentUpon>Contextos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblFichas.cs">
-      <DependentUpon>Contexto.tt</DependentUpon>
+      <DependentUpon>Contextos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblGeneticas.cs">
-      <DependentUpon>Contexto.tt</DependentUpon>
+      <DependentUpon>Contextos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblLechones.cs">
-      <DependentUpon>Contexto.tt</DependentUpon>
+      <DependentUpon>Contextos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblLotes.cs">
-      <DependentUpon>Contexto.tt</DependentUpon>
+      <DependentUpon>Contextos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblRoles.cs">
-      <DependentUpon>Contexto.tt</DependentUpon>
+      <DependentUpon>Contextos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblUsuarios.cs">
-      <DependentUpon>Contexto.tt</DependentUpon>
+      <DependentUpon>Contextos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblVacunas.cs">
-      <DependentUpon>Contexto.tt</DependentUpon>
+      <DependentUpon>Contextos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblVacunasLotes.cs">
-      <DependentUpon>Contexto.tt</DependentUpon>
+      <DependentUpon>Contextos.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblVarracos.cs">
-      <DependentUpon>Contexto.tt</DependentUpon>
+      <DependentUpon>Contextos.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -3204,11 +3198,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004240456189_qqComidas.resx">
-      <DependentUpon>202004240456189_qqComidas.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

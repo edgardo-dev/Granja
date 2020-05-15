@@ -12,7 +12,7 @@ namespace GranjaSystem.Content
 {
     public class LotesController : Controller
     {
-        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
+             private BDGranja db = new BDGranja();
 
         // GET: Lotes
         public ActionResult Index()
@@ -20,8 +20,8 @@ namespace GranjaSystem.Content
             if (Session["IdUsuario"] != null)
             {
 
-                ViewBag.TLechones = db.Fichas.ToList();
-                return View(db.Lotes.ToList());
+                ViewBag.TLechones = db.tblFichas.ToList();
+                return View(db.tblLotes.ToList());
             }
             else return RedirectToAction("Index", "Login");
         }
@@ -36,13 +36,13 @@ namespace GranjaSystem.Content
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblLotes tblLotes = db.Lotes.Find(id);
+                tblLotes tblLotes = db.tblLotes.Find(id);
                 if (tblLotes == null)
                 {
                     return HttpNotFound();
                 }
             
-                    ViewBag.DLotes = db.DetalleLotes.Where(h => h.IdLote == id).Include(t => t.tblVarracos).Include(t => t.tblCerdas).ToList();
+                    ViewBag.DLotes = db.tblDetalleLotes.Where(h => h.IdLote == id).Include(t => t.tblVarracos).Include(t => t.tblCerdas).ToList();
                 return View(tblLotes);
             }
             else return RedirectToAction("Index", "Login");
@@ -57,7 +57,7 @@ namespace GranjaSystem.Content
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblLotes tblLotes = db.Lotes.Find(id);
+                tblLotes tblLotes = db.tblLotes.Find(id);
                 if (tblLotes == null)
                 {
                     return HttpNotFound();
@@ -97,7 +97,7 @@ namespace GranjaSystem.Content
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblLotes tblLotes = db.Lotes.Find(id);
+                tblLotes tblLotes = db.tblLotes.Find(id);
                 if (tblLotes == null)
                 {
                     return HttpNotFound();
@@ -117,26 +117,26 @@ namespace GranjaSystem.Content
             if (Session["IdUsuario"] != null)
             {
 
-                tblLotes tblLotes = db.Lotes.Find(id);
-                var CDL = (from C in db.DetalleLotes
-                              where C.IdLote == id
+                tblLotes tblLotes = db.tblLotes.Find(id);
+                var CDL = (from C in db.tblDetalleLotes
+                           where C.IdLote == id
                               select C).Count();
                 for (int i = 0; i < CDL; i++)
                 {
-                    var DCerda = (from C in db.DetalleLotes
-                                      where C.IdLote == id
+                    var DCerda = (from C in db.tblDetalleLotes
+                                  where C.IdLote == id
                                       select C.IdCerda).First();
-                        var ECerda = (from C in db.Cerdas
+                        var ECerda = (from C in db.tblCerdas
                                       where C.IdCerda == DCerda
                                       select C).FirstOrDefault();
                         ECerda.Estado = "Vacía";
                         db.Entry(ECerda).State = EntityState.Modified;
-                    var tblDetalleLote = db.DetalleLotes.Where(l=> l.IdCerda ==DCerda).FirstOrDefault();
-                    db.DetalleLotes.Remove(tblDetalleLote);
+                    var tblDetalleLote = db.tblDetalleLotes.Where(l=> l.IdCerda ==DCerda).FirstOrDefault();
+                    db.tblDetalleLotes.Remove(tblDetalleLote);
                     db.SaveChanges();
                 }
             
-                db.Lotes.Remove(tblLotes);
+                db.tblLotes.Remove(tblLotes);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -147,9 +147,9 @@ namespace GranjaSystem.Content
         {
             if (Session["IdUsuario"] != null)
             {
-                ViewBag.Cerda = db.Cerdas.Where(h => h.Estado == "Vacía");
-                ViewBag.Varraco = db.Varracos;
-                ViewBag.Detalle = db.DetalleLotes.Where(h => h.IdLote == 12).Include(t => t.tblVarracos).Include(t => t.tblCerdas).ToList();
+                ViewBag.Cerda = db.tblCerdas.Where(h => h.Estado == "Vacía");
+                ViewBag.Varraco = db.tblVarracos;
+                ViewBag.Detalle = db.tblDetalleLotes.Where(h => h.IdLote == 12).Include(t => t.tblVarracos).Include(t => t.tblCerdas).ToList();
 
                 return View();
 
@@ -166,7 +166,7 @@ namespace GranjaSystem.Content
                     Estado = "En Proceso",
                     FechaRegistro = Fecha
                 };
-                db.Lotes.Add(Lotes);
+                db.tblLotes.Add(Lotes);
                 db.SaveChanges();
                 return Json(true);
             }
@@ -181,7 +181,7 @@ namespace GranjaSystem.Content
         {
             try
             {
-                var idlote = (from id in db.Lotes select id.IdLote).Max();
+                var idlote = (from id in db.tblLotes select id.IdLote).Max();
                 var DLotes = new tblDetalleLotes
                 {
                     IdCerda = IdCerda,
@@ -191,7 +191,7 @@ namespace GranjaSystem.Content
                     FechaParto = FechaParto,
                     Fvacuna1 = Vacuna1
                 };
-                var Cerda = db.Cerdas.Where(C => C.IdCerda == IdCerda).FirstOrDefault();
+                var Cerda = db.tblCerdas.Where(C => C.IdCerda == IdCerda).FirstOrDefault();
                 if(Cerda.NumParto == 0)
                 {
                     DLotes.Fvacuna15 = Vacunap;
@@ -202,10 +202,10 @@ namespace GranjaSystem.Content
                 DLotes.Fvacuna2 = Vacuna2;
                 DLotes.Observaciones = Observacion;
                 DLotes.Estado = "En Proceso";
-                DLotes.FechaRegistro = DateTime.UtcNow;
+                DLotes.FechaRegistro = DateTime.Now;
                 Cerda.Estado = "Inseminación";
                 db.Entry(Cerda).State = EntityState.Modified;
-                db.DetalleLotes.Add(DLotes);
+                db.tblDetalleLotes.Add(DLotes);
                 db.SaveChanges();
                 return Json(true);
                 //var Cerdas = new tblCerdas();

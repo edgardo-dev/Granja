@@ -12,14 +12,14 @@ namespace GranjaSystem.Controllers
 {
     public class RolesController : Controller
     {
-        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
+             private BDGranja db = new BDGranja();
 
         // GET: Roles
         public ActionResult Index()
         {
             if (Session["IdUsuario"] != null)
             {
-                return View(db.Roles.ToList());
+                return View(db.tblRoles.ToList());
 
             }
             else return RedirectToAction("Index", "Login");
@@ -35,7 +35,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblRoles tblRoles = db.Roles.Find(id);
+                tblRoles tblRoles = db.tblRoles.Find(id);
                 if (tblRoles == null)
                 {
                     return HttpNotFound();
@@ -68,7 +68,7 @@ namespace GranjaSystem.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    db.Roles.Add(tblRoles);
+                    db.tblRoles.Add(tblRoles);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -87,7 +87,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblRoles tblRoles = db.Roles.Find(id);
+                tblRoles tblRoles = db.tblRoles.Find(id);
                 if (tblRoles == null)
                 {
                     return HttpNotFound();
@@ -129,7 +129,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblRoles tblRoles = db.Roles.Find(id);
+                tblRoles tblRoles = db.tblRoles.Find(id);
                 if (tblRoles == null)
                 {
                     return HttpNotFound();
@@ -146,8 +146,8 @@ namespace GranjaSystem.Controllers
         {
             if (Session["IdUsuario"] != null)
             {
-                tblRoles tblRoles = db.Roles.Find(id);
-                db.Roles.Remove(tblRoles);
+                tblRoles tblRoles = db.tblRoles.Find(id);
+                db.tblRoles.Remove(tblRoles);
                 db.SaveChanges();
                 return RedirectToAction("Index");
 

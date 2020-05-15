@@ -12,14 +12,14 @@ namespace GranjaSystem.Controllers
 {
     public class VarracosController : Controller
     {
-        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
+             private BDGranja db = new BDGranja();
 
         // GET: Varracos
         public ActionResult Index()
         {
             if (Session["IdUsuario"] != null)
             {
-                var varracos = db.Varracos.Include(t => t.tblGeneticas);
+                var varracos = db.tblVarracos.Include(t => t.tblGeneticas);
                 return View(varracos.ToList());
 
             }
@@ -35,7 +35,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblVarracos tblVarracos = db.Varracos.Find(id);
+                tblVarracos tblVarracos = db.tblVarracos.Find(id);
                 if (tblVarracos == null)
                 {
                     return HttpNotFound();
@@ -51,7 +51,7 @@ namespace GranjaSystem.Controllers
         {
             if (Session["IdUsuario"] != null)
             {
-                ViewBag.IdGenetica = new SelectList(db.Geneticas, "IdGenetica", "Genetica");
+                ViewBag.IdGenetica = new SelectList(db.tblGeneticas, "IdGenetica", "Genetica");
                 return View();
 
             }
@@ -70,13 +70,13 @@ namespace GranjaSystem.Controllers
                 if (ModelState.IsValid)
                 {
                     tblVarracos.Estado = "Activo";
-                    tblVarracos.FechaRegistro = DateTime.UtcNow;
-                    db.Varracos.Add(tblVarracos);
+                    tblVarracos.FechaRegistro = DateTime.Now;
+                    db.tblVarracos.Add(tblVarracos);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
 
-                ViewBag.IdGenetica = new SelectList(db.Geneticas, "IdGenetica", "Genetica", tblVarracos.IdGenetica);
+                ViewBag.IdGenetica = new SelectList(db.tblGeneticas, "IdGenetica", "Genetica", tblVarracos.IdGenetica);
                 return View(tblVarracos);
 
             }
@@ -92,12 +92,12 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblVarracos tblVarracos = db.Varracos.Find(id);
+                tblVarracos tblVarracos = db.tblVarracos.Find(id);
                 if (tblVarracos == null)
                 {
                     return HttpNotFound();
                 }
-                ViewBag.IdGenetica = new SelectList(db.Geneticas, "IdGenetica", "Genetica", tblVarracos.IdGenetica);
+                ViewBag.IdGenetica = new SelectList(db.tblGeneticas, "IdGenetica", "Genetica", tblVarracos.IdGenetica);
                 return View(tblVarracos);
 
             }
@@ -119,7 +119,7 @@ namespace GranjaSystem.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                ViewBag.IdGenetica = new SelectList(db.Geneticas, "IdGenetica", "Genetica", tblVarracos.IdGenetica);
+                ViewBag.IdGenetica = new SelectList(db.tblGeneticas, "IdGenetica", "Genetica", tblVarracos.IdGenetica);
                 return View(tblVarracos);
 
             }
@@ -135,7 +135,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblVarracos tblVarracos = db.Varracos.Find(id);
+                tblVarracos tblVarracos = db.tblVarracos.Find(id);
                 if (tblVarracos == null)
                 {
                     return HttpNotFound();
@@ -153,8 +153,8 @@ namespace GranjaSystem.Controllers
         {
             if (Session["IdUsuario"] != null)
             {
-                tblVarracos tblVarracos = db.Varracos.Find(id);
-                db.Varracos.Remove(tblVarracos);
+                tblVarracos tblVarracos = db.tblVarracos.Find(id);
+                db.tblVarracos.Remove(tblVarracos);
                 db.SaveChanges();
                 return RedirectToAction("Index");
 

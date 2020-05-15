@@ -14,14 +14,14 @@ namespace GranjaSystem.Controllers
 {
     public class UsuariosController : Controller
     {
-        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
+             private BDGranja db = new BDGranja();
 
         // GET: Usuarios
         public ActionResult Index()
         {
             if (Session["IdUsuario"] != null)
             {
-                var usuarios = db.Usuarios.Include(t => t.tblEmpleados).Include(t => t.tblRoles);
+                var usuarios = db.tblUsuarios.Include(t => t.tblEmpleados).Include(t => t.tblRoles).Where(x=>x.IdEmpleado!=1);
                 return View(usuarios.ToList());
 
             }
@@ -37,7 +37,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblUsuarios tblUsuarios = db.Usuarios.Find(id);
+                tblUsuarios tblUsuarios = db.tblUsuarios.Find(id);
                 if (tblUsuarios == null)
                 {
                     return HttpNotFound();
@@ -53,8 +53,8 @@ namespace GranjaSystem.Controllers
         {
             if (Session["IdUsuario"] != null)
             {
-                ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado");
-                ViewBag.IdRol = new SelectList(db.Roles, "IdRol", "Rol");
+                ViewBag.IdEmpleado = new SelectList(db.tblEmpleados.Where(x=>x.NombreEmpleado !="Pendiente"), "IdEmpleado", "NombreEmpleado");
+                ViewBag.IdRol = new SelectList(db.tblRoles, "IdRol", "Rol");
                 return View();
 
             }
@@ -73,13 +73,13 @@ namespace GranjaSystem.Controllers
                 if (ModelState.IsValid)
                 {
                     tblUsuarios.Clave = Encriptar(tblUsuarios.Clave);
-                    db.Usuarios.Add(tblUsuarios);
+                    db.tblUsuarios.Add(tblUsuarios);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
 
-                ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
-                ViewBag.IdRol = new SelectList(db.Roles, "IdRol", "Rol", tblUsuarios.IdRol);
+                ViewBag.IdEmpleado = new SelectList(db.tblEmpleados, "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
+                ViewBag.IdRol = new SelectList(db.tblRoles, "IdRol", "Rol", tblUsuarios.IdRol);
                 return View(tblUsuarios);
 
             }
@@ -95,13 +95,13 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblUsuarios tblUsuarios = db.Usuarios.Find(id);
+                tblUsuarios tblUsuarios = db.tblUsuarios.Find(id);
                 if (tblUsuarios == null)
                 {
                     return HttpNotFound();
                 }
-                ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
-                ViewBag.IdRol = new SelectList(db.Roles, "IdRol", "Rol", tblUsuarios.IdRol);
+                ViewBag.IdEmpleado = new SelectList(db.tblEmpleados, "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
+                ViewBag.IdRol = new SelectList(db.tblRoles, "IdRol", "Rol", tblUsuarios.IdRol);
                 return View(tblUsuarios);
 
             }
@@ -124,8 +124,8 @@ namespace GranjaSystem.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
-                ViewBag.IdRol = new SelectList(db.Roles, "IdRol", "Rol", tblUsuarios.IdRol);
+                ViewBag.IdEmpleado = new SelectList(db.tblEmpleados, "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
+                ViewBag.IdRol = new SelectList(db.tblRoles, "IdRol", "Rol", tblUsuarios.IdRol);
                 return View(tblUsuarios);
 
             }
@@ -141,7 +141,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblUsuarios tblUsuarios = db.Usuarios.Find(id);
+                tblUsuarios tblUsuarios = db.tblUsuarios.Find(id);
                 if (tblUsuarios == null)
                 {
                     return HttpNotFound();
@@ -159,8 +159,8 @@ namespace GranjaSystem.Controllers
         {
             if (Session["IdUsuario"] != null)
             {
-                tblUsuarios tblUsuarios = db.Usuarios.Find(id);
-                db.Usuarios.Remove(tblUsuarios);
+                tblUsuarios tblUsuarios = db.tblUsuarios.Find(id);
+                db.tblUsuarios.Remove(tblUsuarios);
                 db.SaveChanges();
                 return RedirectToAction("Index");
 

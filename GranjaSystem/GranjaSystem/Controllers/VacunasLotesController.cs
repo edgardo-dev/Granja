@@ -12,14 +12,14 @@ namespace GranjaSystem.Controllers
 {
     public class VacunasLotesController : Controller
     {
-        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
+             private BDGranja db = new BDGranja();
 
         // GET: VacunasLotes
         public ActionResult Index(int? id)
         {
             if (Session["IdUsuario"] != null)
             {
-                var vacunasLote = db.VacunasLotes.Include(t => t.tblLotes);
+                var vacunasLote = db.tblVacunasLotes.Include(t => t.tblLotes);
                 return View(vacunasLote.ToList());
 
             }
@@ -36,7 +36,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblVacunasLotes tblVacunasLote = db.VacunasLotes.Find(id);
+                tblVacunasLotes tblVacunasLote = db.tblVacunasLotes.Find(id);
                 if (tblVacunasLote == null)
                 {
                     return HttpNotFound();
@@ -54,7 +54,7 @@ namespace GranjaSystem.Controllers
             if (Session["IdUsuario"] != null)
             {
                 ViewBag.idL = id;
-                ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote");
+                ViewBag.IdLote = new SelectList(db.tblLotes, "IdLote", "NumLote");
                 return View();
 
             }
@@ -74,12 +74,12 @@ namespace GranjaSystem.Controllers
                 if (ModelState.IsValid)
                 {
                     tblVacunasLote.IdLote = IdLotes;
-                    db.VacunasLotes.Add(tblVacunasLote);
+                    db.tblVacunasLotes.Add(tblVacunasLote);
                     db.SaveChanges();
                     return RedirectToAction("Index", "DetalleLotes", new { id = tblVacunasLote.IdLote });
                 }
 
-                ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblVacunasLote.IdLote);
+                ViewBag.IdLote = new SelectList(db.tblLotes, "IdLote", "NumLote", tblVacunasLote.IdLote);
                 return RedirectToAction("Index", "DetalleLotes", new { id = tblVacunasLote.IdLote });
             }
             else return RedirectToAction("Index", "Login");
@@ -95,12 +95,12 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblVacunasLotes tblVacunasLote = db.VacunasLotes.Find(id);
+                tblVacunasLotes tblVacunasLote = db.tblVacunasLotes.Find(id);
                 if (tblVacunasLote == null)
                 {
                     return HttpNotFound();
                 }
-                ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblVacunasLote.IdLote);
+                ViewBag.IdLote = new SelectList(db.tblLotes, "IdLote", "NumLote", tblVacunasLote.IdLote);
                 return View(tblVacunasLote);
             }
             else return RedirectToAction("Index", "Login");
@@ -122,7 +122,7 @@ namespace GranjaSystem.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblVacunasLote.IdLote);
+                ViewBag.IdLote = new SelectList(db.tblLotes, "IdLote", "NumLote", tblVacunasLote.IdLote);
                 return View(tblVacunasLote);
             }
             else return RedirectToAction("Index", "Login");
@@ -137,7 +137,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblVacunasLotes tblVacunasLote = db.VacunasLotes.Find(id);
+                tblVacunasLotes tblVacunasLote = db.tblVacunasLotes.Find(id);
                 if (tblVacunasLote == null)
                 {
                     return HttpNotFound();
@@ -155,8 +155,8 @@ namespace GranjaSystem.Controllers
         {
             if (Session["IdUsuario"] != null)
             {
-                tblVacunasLotes tblVacunasLote = db.VacunasLotes.Find(id);
-                db.VacunasLotes.Remove(tblVacunasLote);
+                tblVacunasLotes tblVacunasLote = db.tblVacunasLotes.Find(id);
+                db.tblVacunasLotes.Remove(tblVacunasLote);
                 db.SaveChanges();
                 return RedirectToAction("Index");
 

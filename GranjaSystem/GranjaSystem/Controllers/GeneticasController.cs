@@ -12,14 +12,14 @@ namespace GranjaSystem.Controllers
 {
     public class GeneticasController : Controller
     {
-        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
+             private BDGranja db = new BDGranja();
 
         // GET: Geneticas
         public ActionResult Index()
         {
             if (Session["IdUsuario"] != null)
             {
-                return View(db.Geneticas.ToList());
+                return View(db.tblGeneticas.ToList());
 
             }
             else return RedirectToAction("Index", "Login");
@@ -34,7 +34,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblGeneticas tblGeneticas = db.Geneticas.Find(id);
+                tblGeneticas tblGeneticas = db.tblGeneticas.Find(id);
                 if (tblGeneticas == null)
                 {
                     return HttpNotFound();
@@ -67,7 +67,7 @@ namespace GranjaSystem.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    db.Geneticas.Add(tblGeneticas);
+                    db.tblGeneticas.Add(tblGeneticas);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -88,7 +88,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblGeneticas tblGeneticas = db.Geneticas.Find(id);
+                tblGeneticas tblGeneticas = db.tblGeneticas.Find(id);
                 if (tblGeneticas == null)
                 {
                     return HttpNotFound();
@@ -129,7 +129,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblGeneticas tblGeneticas = db.Geneticas.Find(id);
+                tblGeneticas tblGeneticas = db.tblGeneticas.Find(id);
                 if (tblGeneticas == null)
                 {
                     return HttpNotFound();
@@ -146,8 +146,8 @@ namespace GranjaSystem.Controllers
         {
             if (Session["IdUsuario"] != null)
             {
-                tblGeneticas tblGeneticas = db.Geneticas.Find(id);
-                db.Geneticas.Remove(tblGeneticas);
+                tblGeneticas tblGeneticas = db.tblGeneticas.Find(id);
+                db.tblGeneticas.Remove(tblGeneticas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
 

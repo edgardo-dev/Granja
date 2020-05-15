@@ -12,14 +12,14 @@ namespace GranjaSystem.Controllers
 {
     public class EmpleadosController : Controller
     {
-        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
+             private BDGranja db = new BDGranja();
 
         // GET: Empleados
         public ActionResult Index()
         {
             if (Session["IdUsuario"] != null)
             {                
-                return View(db.Empleados.Where(e=> e.NombreEmpleado != "Pendiente").ToList());
+                return View(db.tblEmpleados.Where(e=> e.NombreEmpleado != "Pendiente").ToList());
             }
             else return RedirectToAction("Index", "Login");
         }
@@ -34,7 +34,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblEmpleados tblEmpleados = db.Empleados.Find(id);
+                tblEmpleados tblEmpleados = db.tblEmpleados.Find(id);
                 if (tblEmpleados == null)
                 {
                     return HttpNotFound();
@@ -61,8 +61,8 @@ namespace GranjaSystem.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    tblEmpleados.FechaRegistro = DateTime.UtcNow;
-                    db.Empleados.Add(tblEmpleados);
+                    tblEmpleados.FechaRegistro = DateTime.Now;
+                    db.tblEmpleados.Add(tblEmpleados);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -82,7 +82,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblEmpleados tblEmpleados = db.Empleados.Find(id);
+                tblEmpleados tblEmpleados = db.tblEmpleados.Find(id);
                 if (tblEmpleados == null)
                 {
                     return HttpNotFound();
@@ -123,7 +123,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblEmpleados tblEmpleados = db.Empleados.Find(id);
+                tblEmpleados tblEmpleados = db.tblEmpleados.Find(id);
                 if (tblEmpleados == null)
                 {
                     return HttpNotFound();
@@ -141,8 +141,8 @@ namespace GranjaSystem.Controllers
         {
             if (Session["IdUsuario"] != null)
             {
-                tblEmpleados tblEmpleados = db.Empleados.Find(id);
-                db.Empleados.Remove(tblEmpleados);
+                tblEmpleados tblEmpleados = db.tblEmpleados.Find(id);
+                db.tblEmpleados.Remove(tblEmpleados);
                 db.SaveChanges();
                 return RedirectToAction("Index");
 

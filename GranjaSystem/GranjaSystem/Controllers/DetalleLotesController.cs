@@ -12,7 +12,7 @@ namespace GranjaSystem.Controllers
 {
     public class DetalleLotesController : Controller
     {
-        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
+             private BDGranja db = new BDGranja();
 
         // GET: DetalleLotes
         public ActionResult Index(int? id)
@@ -23,18 +23,18 @@ namespace GranjaSystem.Controllers
                 ViewBag.id = id;
                 int? Lechones = 0;
 
-                foreach (var item in db.Fichas.Where(L => L.Lote == id))
+                foreach (var item in db.tblFichas.Where(L => L.Lote == id))
                 {
                     Lechones += item.NumDestetado;
                 }
                 ViewBag.TLechones = Lechones;
-                ViewBag.VacunasLote = db.VacunasLotes.Where(h => h.IdLote == id).ToList();
-                var detalleLotes = db.DetalleLotes.Where(L => L.IdLote == id).Include(t => t.tblLotes).Include(t => t.tblVarracos).Include(t => t.tblCerdas).ToList();
-                ViewBag.Lote = db.Lotes.Where(L => L.IdLote == id).FirstOrDefault();
-                var detalleLotesF = db.DetalleLotes.Where(L => L.IdLote == id).Where(L => L.Estado == "Finalizado" || L.Estado == "Eliminada").Count();
+                ViewBag.VacunasLote = db.tblVacunasLotes.Where(h => h.IdLote == id).ToList();
+                var detalleLotes = db.tblDetalleLotes.Where(L => L.IdLote == id).Include(t => t.tblLotes).Include(t => t.tblVarracos).Include(t => t.tblCerdas).ToList();
+                ViewBag.Lote = db.tblLotes.Where(L => L.IdLote == id).FirstOrDefault();
+                var detalleLotesF = db.tblDetalleLotes.Where(L => L.IdLote == id).Where(L => L.Estado == "Finalizado" || L.Estado == "Eliminada").Count();
                 if (detalleLotes.Count() == detalleLotesF)
                 {
-                    tblLotes tblLotes = db.Lotes.Find(id);
+                    tblLotes tblLotes = db.tblLotes.Find(id);
                     tblLotes.Estado = "Finalizado";
                     db.Entry(tblLotes).State = EntityState.Modified;
                     db.SaveChanges();
@@ -54,7 +54,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                 tblDetalleLotes tblDetalleLote = db.DetalleLotes.Find(id);
+                 tblDetalleLotes tblDetalleLote = db.tblDetalleLotes.Find(id);
                 if (tblDetalleLote == null)
                 {
                     return HttpNotFound();
@@ -70,9 +70,9 @@ namespace GranjaSystem.Controllers
         {
             if (Session["IdUsuario"] != null)
             {
-                ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote");
-                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda");
-                ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco");
+                ViewBag.IdLote = new SelectList(db.tblLotes, "IdLote", "NumLote");
+                ViewBag.IdCerda = new SelectList(db.tblCerdas, "IdCerda", "NumCerda");
+                ViewBag.IdVarraco = new SelectList(db.tblVarracos, "IdVarraco", "NumVarraco");
                 return View();
                 
             }
@@ -91,16 +91,16 @@ namespace GranjaSystem.Controllers
                 
                 if (ModelState.IsValid)
                 {
-                    tblDetalleLote.FechaRegistro = DateTime.UtcNow;
-                    db.DetalleLotes.Add(tblDetalleLote);
+                    tblDetalleLote.FechaRegistro = DateTime.Now;
+                    db.tblDetalleLotes.Add(tblDetalleLote);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
 
             
-                ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblDetalleLote.IdLote);
-                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblDetalleLote.IdCerda);
-                ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblDetalleLote.IdVarraco);
+                ViewBag.IdLote = new SelectList(db.tblLotes, "IdLote", "NumLote", tblDetalleLote.IdLote);
+                ViewBag.IdCerda = new SelectList(db.tblCerdas, "IdCerda", "NumCerda", tblDetalleLote.IdCerda);
+                ViewBag.IdVarraco = new SelectList(db.tblVarracos, "IdVarraco", "NumVarraco", tblDetalleLote.IdVarraco);
                 return View(tblDetalleLote);
             }
             else return RedirectToAction("Index", "Login");
@@ -116,14 +116,14 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblDetalleLotes tblDetalleLote = db.DetalleLotes.Find(id);
+                tblDetalleLotes tblDetalleLote = db.tblDetalleLotes.Find(id);
                 if (tblDetalleLote == null)
                 {
                     return HttpNotFound();
                 }
-                ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblDetalleLote.IdLote);
-                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblDetalleLote.IdCerda);
-                ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblDetalleLote.IdVarraco);
+                ViewBag.IdLote = new SelectList(db.tblLotes, "IdLote", "NumLote", tblDetalleLote.IdLote);
+                ViewBag.IdCerda = new SelectList(db.tblCerdas, "IdCerda", "NumCerda", tblDetalleLote.IdCerda);
+                ViewBag.IdVarraco = new SelectList(db.tblVarracos, "IdVarraco", "NumVarraco", tblDetalleLote.IdVarraco);
                 return View(tblDetalleLote);
             }
             else return RedirectToAction("Index", "Login");
@@ -145,9 +145,9 @@ namespace GranjaSystem.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index" , "Lotes");
                 }
-                ViewBag.IdLote = new SelectList(db.Lotes, "IdLote", "NumLote", tblDetalleLote.IdLote);
-                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblDetalleLote.IdCerda);
-                ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblDetalleLote.IdVarraco);
+                ViewBag.IdLote = new SelectList(db.tblLotes, "IdLote", "NumLote", tblDetalleLote.IdLote);
+                ViewBag.IdCerda = new SelectList(db.tblCerdas, "IdCerda", "NumCerda", tblDetalleLote.IdCerda);
+                ViewBag.IdVarraco = new SelectList(db.tblVarracos, "IdVarraco", "NumVarraco", tblDetalleLote.IdVarraco);
                 return View(tblDetalleLote);
             }
             else return RedirectToAction("Index", "Login");
@@ -163,7 +163,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblDetalleLotes tblDetalleLote = db.DetalleLotes.Find(id);
+                tblDetalleLotes tblDetalleLote = db.tblDetalleLotes.Find(id);
                 if (tblDetalleLote == null)
                 {
                     return HttpNotFound();
@@ -181,14 +181,14 @@ namespace GranjaSystem.Controllers
             if (Session["IdUsuario"] != null)
             {
                 
-                tblDetalleLotes tblDetalleLote = db.DetalleLotes.Find(id);
+                tblDetalleLotes tblDetalleLote = db.tblDetalleLotes.Find(id);
 
-                var Cerda = (from C in db.Cerdas
-                              where C.IdCerda == idC
+                var Cerda = (from C in db.tblCerdas
+                             where C.IdCerda == idC
                               select C).FirstOrDefault();
                 Cerda.Estado = "Vacía";
                 db.Entry(Cerda).State = EntityState.Modified;
-                db.DetalleLotes.Remove(tblDetalleLote);
+                db.tblDetalleLotes.Remove(tblDetalleLote);
                 db.SaveChanges();
                 return RedirectToAction("Index/"+tblDetalleLote.IdLote);
             }
@@ -211,8 +211,8 @@ namespace GranjaSystem.Controllers
             if (Session["IdUsuario"] != null)
             {
                
-                tblDetalleLotes tblDetalleLote = db.DetalleLotes.Find(id);
-                tblCerdas tblCerda = db.Cerdas.Find(idC);
+                tblDetalleLotes tblDetalleLote = db.tblDetalleLotes.Find(id);
+                tblCerdas tblCerda = db.tblCerdas.Find(idC);
 
                 tblCerda.Estado = "Vacía";
                 db.Entry(tblCerda).State = EntityState.Modified;

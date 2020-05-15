@@ -1049,10 +1049,8 @@ C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Webpages.
 C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Webpages.Razor.resources.dll
 C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Helpers.resources.dll
 C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\bin\es\System.Web.Mvc.resources.dll
-C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csproj.GenerateResource.cache
 C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csproj.CopyComplete
 C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.dll
 C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.pdb
-C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.qqComidas.resources
 C:\Users\Ingrid Solórzano\Desktop\MVC C#\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.Migrations.qqComidas.resources
 C:\Users\PC\Desktop\Granja\GranjaSystem\GranjaSystem\obj\Debug\GranjaSystem.csprojAssemblyReference.cache

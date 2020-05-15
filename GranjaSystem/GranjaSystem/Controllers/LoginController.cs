@@ -19,9 +19,9 @@ namespace GranjaSystem.Controllers
         [HttpPost]
         public ActionResult Index(string inputUser, string inputPassword)
         {
-            var Db = new DB_A460EB_PruebasNGS2Entities();
+            var Db = new BDGranja();
             string nPass = Encriptar(inputPassword);
-            var Login = (from L in Db.Usuarios
+            var Login = (from L in Db.tblUsuarios
                          where L.Usuario == inputUser && L.Clave == nPass
                          select L).FirstOrDefault();
 

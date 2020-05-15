@@ -13,14 +13,14 @@ namespace GranjaSystem.Controllers
 {
     public class CerdasController : Controller
     {
-        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
+        private readonly BDGranja db = new BDGranja();
 
         // GET: Cerdas
         public ActionResult Index()
         {
             if (Session["IdUsuario"] != null)
             {
-                var cerdas = db.Cerdas.Include(t => t.tblGeneticas);
+                var cerdas = db.tblCerdas.Include(t => t.tblGeneticas);
                 return View(cerdas.ToList());
             }
             else return RedirectToAction("Index", "Login");
@@ -36,13 +36,13 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblCerdas tblCerdas = db.Cerdas.Find(id);
+                tblCerdas tblCerdas = db.tblCerdas.Find(id);
                 if (tblCerdas == null)
                 {
                     return HttpNotFound();
                 }
-                ViewBag.FichasC = db.Fichas.Where(h => h.IdCerda == id).Include(t => t.tblEmpleados).Include(t => t.tblVarracos).ToList();
-                ViewBag.Vacunas = db.Vacunas.Where(h => h.IdCerda == id).ToList();
+                ViewBag.FichasC = db.tblFichas.Where(h => h.IdCerda == id).Include(t => t.tblEmpleados).Include(t => t.tblVarracos).ToList();
+                ViewBag.Vacunas = db.tblVacunas.Where(h => h.IdCerda == id).ToList();
                 return View(tblCerdas);
             }
             else return RedirectToAction("Index", "Login");
@@ -54,7 +54,7 @@ namespace GranjaSystem.Controllers
             if (Session["IdUsuario"] != null)
             {
 
-                ViewBag.IdGenetica = new SelectList(db.Geneticas, "IdGenetica", "Genetica");
+                ViewBag.IdGenetica = new SelectList(db.tblGeneticas, "IdGenetica", "Genetica");
                 return View();
             }
             else return RedirectToAction("Index", "Login");
@@ -74,13 +74,13 @@ namespace GranjaSystem.Controllers
                 {
                     tblCerdas.Estado = "Vacía";
                     tblCerdas.NumParto = 0;
-                    tblCerdas.FechaRegistro = DateTime.UtcNow;
-                    db.Cerdas.Add(tblCerdas);
+                    tblCerdas.FechaRegistro = DateTime.Now;
+                    db.tblCerdas.Add(tblCerdas);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
 
-                ViewBag.IdGenetica = new SelectList(db.Geneticas, "IdGenetica", "Genetica", tblCerdas.IdGenetica);
+                ViewBag.IdGenetica = new SelectList(db.tblGeneticas, "IdGenetica", "Genetica", tblCerdas.IdGenetica);
                 return View(tblCerdas);
             }
             else return RedirectToAction("Index", "Login");
@@ -96,12 +96,12 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblCerdas tblCerdas = db.Cerdas.Find(id);
+                tblCerdas tblCerdas = db.tblCerdas.Find(id);
                 if (tblCerdas == null)
                 {
                     return HttpNotFound();
                 }
-                ViewBag.IdGenetica = new SelectList(db.Geneticas, "IdGenetica", "Genetica", tblCerdas.IdGenetica);
+                ViewBag.IdGenetica = new SelectList(db.tblGeneticas, "IdGenetica", "Genetica", tblCerdas.IdGenetica);
                 return View(tblCerdas);
             }
             else return RedirectToAction("Index", "Login");
@@ -123,7 +123,7 @@ namespace GranjaSystem.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                ViewBag.IdGenetica = new SelectList(db.Geneticas, "IdGenetica", "Genetica", tblCerdas.IdGenetica);
+                ViewBag.IdGenetica = new SelectList(db.tblGeneticas, "IdGenetica", "Genetica", tblCerdas.IdGenetica);
                 return View(tblCerdas);
             }
             else return RedirectToAction("Index", "Login");
@@ -139,7 +139,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblCerdas tblCerdas = db.Cerdas.Find(id);
+                tblCerdas tblCerdas = db.tblCerdas.Find(id);
                 if (tblCerdas == null)
                 {
                     return HttpNotFound();
@@ -157,8 +157,8 @@ namespace GranjaSystem.Controllers
             if (Session["IdUsuario"] != null)
             {
 
-                tblCerdas tblCerdas = db.Cerdas.Find(id);
-                db.Cerdas.Remove(tblCerdas);
+                tblCerdas tblCerdas = db.tblCerdas.Find(id);
+                db.tblCerdas.Remove(tblCerdas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -177,9 +177,9 @@ namespace GranjaSystem.Controllers
         {
             if (Session["IdUsuario"] != null)
             {
-                ViewBag.Fichas = db.Fichas.Where(h => h.IdCerda == id).Include(t => t.tblEmpleados).Include(t => t.tblVarracos).ToList();
-                ViewBag.Vacunas = db.Vacunas.Where(h => h.IdCerda == id).ToList();
-                ViewBag.Cerdas = db.Cerdas.Where(c => c.IdCerda == id).Include(g => g.tblGeneticas).FirstOrDefault();
+                ViewBag.Fichas = db.tblFichas.Where(h => h.IdCerda == id).Include(t => t.tblEmpleados).Include(t => t.tblVarracos).ToList();
+                ViewBag.Vacunas = db.tblVacunas.Where(h => h.IdCerda == id).ToList();
+                ViewBag.Cerdas = db.tblCerdas.Where(c => c.IdCerda == id).Include(g => g.tblGeneticas).FirstOrDefault();
 
                 return View();
             }

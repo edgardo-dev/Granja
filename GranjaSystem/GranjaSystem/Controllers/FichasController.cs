@@ -12,14 +12,14 @@ namespace GranjaSystem.Controllers
 {
     public class FichasController : Controller
     {
-        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
+             private BDGranja db = new BDGranja();
 
         // GET: Fichas
         public ActionResult Index()
         {
             if (Session["IdUsuario"] != null)
             {
-                var fichas = db.Fichas.Include(t => t.tblEmpleados).Include(t => t.tblVarracos).Include(t => t.tblCerdas);
+                var fichas = db.tblFichas.Include(t => t.tblEmpleados).Include(t => t.tblVarracos).Include(t => t.tblCerdas);
                 return View(fichas.ToList());
 
             }
@@ -30,10 +30,10 @@ namespace GranjaSystem.Controllers
             if (Session["IdUsuario"] != null)
             {
 
-                tblDetalleLotes tblDetalle = db.DetalleLotes.Find(id);
-                ViewBag.IdEmpleado = db.Empleados.ToList();
-                ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblDetalle.IdVarraco);
-                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblDetalle.IdCerda);
+                tblDetalleLotes tblDetalle = db.tblDetalleLotes.Find(id);
+                ViewBag.IdEmpleado = db.tblEmpleados.ToList();
+                ViewBag.IdVarraco = new SelectList(db.tblVarracos, "IdVarraco", "NumVarraco", tblDetalle.IdVarraco);
+                ViewBag.IdCerda = new SelectList(db.tblCerdas, "IdCerda", "NumCerda", tblDetalle.IdCerda);
                 if (tblDetalle.FechaInseminacion.Month >= 10 && tblDetalle.FechaInseminacion.Day >= 10)
                 {
                     ViewBag.FechaI = tblDetalle.FechaInseminacion.Year + "-" + tblDetalle.FechaInseminacion.Month + "-" + tblDetalle.FechaInseminacion.Day;
@@ -84,7 +84,7 @@ namespace GranjaSystem.Controllers
                     NacidosMomias = NacidosMomias,
                     TotalNacidos = NacidosVivos + NacidosMuertos + NacidosMomias
                 };
-                var Cerda = (from C in db.Cerdas
+                var Cerda = (from C in db.tblCerdas
                              where C.IdCerda == IdCerda
                              select C).FirstOrDefault();
                 Cerda.NumParto += 1;
@@ -100,7 +100,7 @@ namespace GranjaSystem.Controllers
                 Fichas.PesoPromedio1D = PesoPromedio1D;
                 Fichas.PesoPromedio28D = PesoPromedio28D;
                 Fichas.NumDestetado = NumDestete;
-                var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == Fichas.IdCerda).ToList().LastOrDefault();
+                var DetalleL = db.tblDetalleLotes.Where(d => d.IdCerda == Fichas.IdCerda).ToList().LastOrDefault();
                 if (Fichas.NumDestetado != null && Fichas.PesoPromedio28D != null)
                 {
                     DetalleL.Estado = "Finalizado";
@@ -109,7 +109,7 @@ namespace GranjaSystem.Controllers
                 }
                 Fichas.Lote = DetalleL.IdLote;
                 db.Entry(Cerda).State = EntityState.Modified;
-                db.Fichas.Add(Fichas);
+                db.tblFichas.Add(Fichas);
                 db.SaveChanges();
 
                 return RedirectToAction("Index", "DetalleLotes", new { id = DetalleL.IdLote });
@@ -128,7 +128,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblFichas tblFichas = db.Fichas.Find(id);
+                tblFichas tblFichas = db.tblFichas.Find(id);
                 if (tblFichas == null)
                 {
                     return HttpNotFound();
@@ -143,9 +143,9 @@ namespace GranjaSystem.Controllers
         {
             if (Session["IdUsuario"] != null)
             {
-                ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado");
-                ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco");
-                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda");
+                ViewBag.IdEmpleado = new SelectList(db.tblEmpleados, "IdEmpleado", "NombreEmpleado");
+                ViewBag.IdVarraco = new SelectList(db.tblVarracos, "IdVarraco", "NumVarraco");
+                ViewBag.IdCerda = new SelectList(db.tblCerdas, "IdCerda", "NumCerda");
                 return View();
 
             }
@@ -165,7 +165,7 @@ namespace GranjaSystem.Controllers
                 if (ModelState.IsValid)
                 {
                     tblFichas.TotalNacidos = tblFichas.NacidosVivos + tblFichas.NacidosMuertos + tblFichas.NacidosMomias;
-                    var Cerda = (from C in db.Cerdas
+                    var Cerda = (from C in db.tblCerdas
                                  where C.IdCerda == tblFichas.IdCerda
                                  select C).FirstOrDefault();
                     Cerda.NumParto += 1;
@@ -178,14 +178,14 @@ namespace GranjaSystem.Controllers
                     }
                 
                     db.Entry(Cerda).State = EntityState.Modified;
-                    db.Fichas.Add(tblFichas);
+                    db.tblFichas.Add(tblFichas);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
 
-                ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
-                ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
-                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda",tblFichas.IdCerda);
+                ViewBag.IdEmpleado = new SelectList(db.tblEmpleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
+                ViewBag.IdVarraco = new SelectList(db.tblVarracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
+                ViewBag.IdCerda = new SelectList(db.tblCerdas, "IdCerda", "NumCerda",tblFichas.IdCerda);
                 return View(tblFichas);
             }
             else return RedirectToAction("Index", "Login");
@@ -202,15 +202,15 @@ namespace GranjaSystem.Controllers
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
 
-                tblFichas tblFichas = db.Fichas.Find(id);
+                tblFichas tblFichas = db.tblFichas.Find(id);
 
                 if (tblFichas == null)
                 {
                     return HttpNotFound();
                 }
-                ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
-                ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
-                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblFichas.IdCerda);
+                ViewBag.IdEmpleado = new SelectList(db.tblEmpleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
+                ViewBag.IdVarraco = new SelectList(db.tblVarracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
+                ViewBag.IdCerda = new SelectList(db.tblCerdas, "IdCerda", "NumCerda", tblFichas.IdCerda);
                 return View(tblFichas);
             }
             else return RedirectToAction("Index", "Login");
@@ -221,12 +221,12 @@ namespace GranjaSystem.Controllers
             if (Session["IdUsuario"] != null)
             {
 
-                var Cerda = db.Cerdas.Find(id);
+                var Cerda = db.tblCerdas.Find(id);
                 ViewBag.idL = idL;
-                tblFichas tblFichas = db.Fichas.Where(x => x.IdCerda == Cerda.IdCerda).ToList().LastOrDefault();
-                ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
-                ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
-                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblFichas.IdCerda);
+                tblFichas tblFichas = db.tblFichas.Where(x => x.IdCerda == Cerda.IdCerda).ToList().LastOrDefault();
+                ViewBag.IdEmpleado = new SelectList(db.tblEmpleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
+                ViewBag.IdVarraco = new SelectList(db.tblVarracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
+                ViewBag.IdCerda = new SelectList(db.tblCerdas, "IdCerda", "NumCerda", tblFichas.IdCerda);
                //return RedirectToAction("Edit",tblFichas);
                 return View("Edit", tblFichas);
             }
@@ -240,7 +240,7 @@ namespace GranjaSystem.Controllers
             if (Session["IdUsuario"] != null)
             {
 
-                var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
+                var DetalleL = db.tblDetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
                 if (ModelState.IsValid)
                 {
                     tblFichas.TotalNacidos = tblFichas.NacidosVivos + tblFichas.NacidosMuertos + tblFichas.NacidosMomias;
@@ -248,7 +248,7 @@ namespace GranjaSystem.Controllers
                     db.Entry(tblFichas).State = EntityState.Modified;
                     if (tblFichas.NumDestetado != null && tblFichas.PesoPromedio28D != null)
                     {
-                        var Cerda = (from C in db.Cerdas
+                        var Cerda = (from C in db.tblCerdas
                                      where C.IdCerda == tblFichas.IdCerda
                                      select C).FirstOrDefault();
                         //var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
@@ -283,7 +283,7 @@ namespace GranjaSystem.Controllers
                     //var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
                     if (tblFichas.NumDestetado != null && tblFichas.PesoPromedio28D != null)
                     {
-                        var Cerda = (from C in db.Cerdas
+                        var Cerda = (from C in db.tblCerdas
                                      where C.IdCerda == tblFichas.IdCerda
                                      select C).FirstOrDefault();
                         //var DetalleL = db.DetalleLotes.Where(d => d.IdCerda == tblFichas.IdCerda).ToList().LastOrDefault();
@@ -292,9 +292,9 @@ namespace GranjaSystem.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                ViewBag.IdEmpleado = new SelectList(db.Empleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
-                ViewBag.IdVarraco = new SelectList(db.Varracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
-                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblFichas.IdCerda);
+                ViewBag.IdEmpleado = new SelectList(db.tblEmpleados, "IdEmpleado", "NombreEmpleado", tblFichas.IdEmpleado);
+                ViewBag.IdVarraco = new SelectList(db.tblVarracos, "IdVarraco", "NumVarraco", tblFichas.IdVarraco);
+                ViewBag.IdCerda = new SelectList(db.tblCerdas, "IdCerda", "NumCerda", tblFichas.IdCerda);
                 return View(tblFichas);
             }
             else return RedirectToAction("Index", "Login");
@@ -310,7 +310,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblFichas tblFichas = db.Fichas.Find(id);
+                tblFichas tblFichas = db.tblFichas.Find(id);
                 if (tblFichas == null)
                 {
                     return HttpNotFound();
@@ -328,8 +328,8 @@ namespace GranjaSystem.Controllers
             if (Session["IdUsuario"] != null)
             {
 
-                tblFichas tblFichas = db.Fichas.Find(id);
-                db.Fichas.Remove(tblFichas);
+                tblFichas tblFichas = db.tblFichas.Find(id);
+                db.tblFichas.Remove(tblFichas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

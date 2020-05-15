@@ -12,7 +12,7 @@ namespace GranjaSystem.Controllers
 {
     public class LechonesController : Controller
     {
-        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
+        private BDGranja db = new BDGranja();
 
         // GET: Lechones
         public ActionResult Index()
@@ -20,10 +20,10 @@ namespace GranjaSystem.Controllers
             if (Session["IdUsuario"] != null)
             {
 
-                var Lechones = db.Lechones.ToList();
+                var Lechones = db.tblLechones.ToList();
                 foreach (var item in Lechones)
                 {
-                    TimeSpan dias = DateTime.UtcNow.Date - item.FechaInicio;
+                    TimeSpan dias = DateTime.Now.Date - item.FechaInicio;
                     int diferencia = dias.Days;
                     if (diferencia >= 0 && diferencia <= 6)
                     {
@@ -300,7 +300,7 @@ namespace GranjaSystem.Controllers
                     db.Entry(item).State = EntityState.Modified;
                     db.SaveChanges();
                 }
-                return View(db.Lechones.ToList());
+                return View(db.tblLechones.ToList());
             }
             else return RedirectToAction("Index", "Login");
         }
@@ -309,7 +309,7 @@ namespace GranjaSystem.Controllers
             if (Session["IdUsuario"] != null)
             {
 
-                var Lechones = db.Lechones.Find(id);
+                var Lechones = db.tblLechones.Find(id);
                 Lechones.Estado = "Mod";
                 if (Lechones.Fases == "Desarrollo M")
                 {
@@ -326,7 +326,7 @@ namespace GranjaSystem.Controllers
         {
             if (Session["IdUsuario"] != null)
             {
-                var Lechones = db.Lechones.Find(id);
+                var Lechones = db.tblLechones.Find(id);
                 ViewBag.Lechones = Lechones;
                 return View();
 
@@ -338,7 +338,7 @@ namespace GranjaSystem.Controllers
         {
             if (Session["IdUsuario"] != null)
             {
-                var Lechones = db.Lechones.Find(id);
+                var Lechones = db.tblLechones.Find(id);
                 if (Lechones.NCerdos >= Cantidad)
                 {
                     Lechones.NCerdos = Lechones.NCerdos - Cantidad;
@@ -361,7 +361,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblLechones tblLechones = db.Lechones.Find(id);
+                tblLechones tblLechones = db.tblLechones.Find(id);
                 if (tblLechones == null)
                 {
                     return HttpNotFound();
@@ -509,7 +509,7 @@ namespace GranjaSystem.Controllers
                     //    tblLechones.Fases = "Reemprozo";
                     //}
                     tblLechones.Estado = "Normal";
-                    db.Lechones.Add(tblLechones);
+                    db.tblLechones.Add(tblLechones);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
@@ -529,7 +529,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblLechones tblLechones = db.Lechones.Find(id);
+                tblLechones tblLechones = db.tblLechones.Find(id);
                 if (tblLechones == null)
                 {
                     return HttpNotFound();
@@ -570,7 +570,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblLechones tblLechones = db.Lechones.Find(id);
+                tblLechones tblLechones = db.tblLechones.Find(id);
                 if (tblLechones == null)
                 {
                     return HttpNotFound();
@@ -588,8 +588,8 @@ namespace GranjaSystem.Controllers
             if (Session["IdUsuario"] != null)
             {
 
-                tblLechones tblLechones = db.Lechones.Find(id);
-                db.Lechones.Remove(tblLechones);
+                tblLechones tblLechones = db.tblLechones.Find(id);
+                db.tblLechones.Remove(tblLechones);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

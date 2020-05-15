@@ -11,45 +11,47 @@
             <div class="panel-heading text-center"><h4>CONTROL DE USUARIOS</h4></div>
             <div class="panel-body bg-gray">
                 <table id="Tabla" class="table table-bordered table-hover text-center">
-                    <tr>
-                        <th>
-                            Nombre Empleado
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Usuario)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Clave)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.tblRoles.Rol)
-                        </th>
-                        <th><i class="fa fa-gear"></i> </th>
-                    </tr>
-
-                    @foreach (var item in Model)
-                    {
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.tblEmpleados.NombreEmpleado)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Usuario)
-                            </td>
-                            <td>
-                                ******
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.tblRoles.Rol)
-                            </td>
-                            <td>
-                                @Html.ActionLink(" ", "Edit", new { id = item.IdUsuario }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
-                                @Html.ActionLink(" ", "Details", new { id = item.IdUsuario }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
-                                @Html.ActionLink(" ", "Delete", new { id = item.IdUsuario }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
-                            </td>
+                            <th>
+                                Nombre Empleado
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Usuario)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Clave)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.tblRoles.Rol)
+                            </th>
+                            <th><i class="fa fa-gear"></i> </th>
                         </tr>
-                    }
-
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.tblEmpleados.NombreEmpleado)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Usuario)
+                                </td>
+                                <td>
+                                    ******
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.tblRoles.Rol)
+                                </td>
+                                <td>
+                                    @Html.ActionLink(" ", "Edit", new { id = item.IdUsuario }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
+                                    @Html.ActionLink(" ", "Details", new { id = item.IdUsuario }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
+                                    @Html.ActionLink(" ", "Delete", new { id = item.IdUsuario }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
                 </table>
             </div>
         </div>

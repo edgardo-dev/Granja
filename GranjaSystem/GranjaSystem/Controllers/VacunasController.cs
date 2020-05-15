@@ -12,14 +12,14 @@ namespace GranjaSystem.Controllers
 {
     public class VacunasController : Controller
     {
-        private DB_A460EB_PruebasNGS2Entities db = new DB_A460EB_PruebasNGS2Entities();
+             private BDGranja db = new BDGranja();
 
         // GET: Vacunas
         public ActionResult Index()
         {
             if (Session["IdUsuario"] != null)
             {
-                var vacunas = db.Vacunas.Include(t => t.tblCerdas);
+                var vacunas = db.tblVacunas.Include(t => t.tblCerdas);
                 return View(vacunas.ToList());
 
             }
@@ -35,7 +35,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblVacunas tblVacunas = db.Vacunas.Find(id);
+                tblVacunas tblVacunas = db.tblVacunas.Find(id);
                 if (tblVacunas == null)
                 {
                     return HttpNotFound();
@@ -51,7 +51,7 @@ namespace GranjaSystem.Controllers
         {
             if (Session["IdUsuario"] != null)
             {
-                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda");
+                ViewBag.IdCerda = new SelectList(db.tblCerdas, "IdCerda", "NumCerda");
                 return View();
 
             }
@@ -69,13 +69,13 @@ namespace GranjaSystem.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    tblVacunas.FechaRegistro  = DateTime.UtcNow;
-                    db.Vacunas.Add(tblVacunas);
+                    tblVacunas.FechaRegistro  = DateTime.Now;
+                    db.tblVacunas.Add(tblVacunas);
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
 
-                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "Procedencia", tblVacunas.IdCerda);
+                ViewBag.IdCerda = new SelectList(db.tblCerdas, "IdCerda", "Procedencia", tblVacunas.IdCerda);
                 return View(tblVacunas);
 
             }
@@ -91,12 +91,12 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblVacunas tblVacunas = db.Vacunas.Find(id);
+                tblVacunas tblVacunas = db.tblVacunas.Find(id);
                 if (tblVacunas == null)
                 {
                     return HttpNotFound();
                 }
-                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblVacunas.IdCerda);
+                ViewBag.IdCerda = new SelectList(db.tblCerdas, "IdCerda", "NumCerda", tblVacunas.IdCerda);
                 return View(tblVacunas);
 
             }
@@ -119,7 +119,7 @@ namespace GranjaSystem.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                ViewBag.IdCerda = new SelectList(db.Cerdas, "IdCerda", "NumCerda", tblVacunas.IdCerda);
+                ViewBag.IdCerda = new SelectList(db.tblCerdas, "IdCerda", "NumCerda", tblVacunas.IdCerda);
                 return View(tblVacunas);
 
             }
@@ -135,7 +135,7 @@ namespace GranjaSystem.Controllers
                 {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                tblVacunas tblVacunas = db.Vacunas.Find(id);
+                tblVacunas tblVacunas = db.tblVacunas.Find(id);
                 if (tblVacunas == null)
                 {
                     return HttpNotFound();
@@ -153,8 +153,8 @@ namespace GranjaSystem.Controllers
         {
             if (Session["IdUsuario"] != null)
             {
-                tblVacunas tblVacunas = db.Vacunas.Find(id);
-                db.Vacunas.Remove(tblVacunas);
+                tblVacunas tblVacunas = db.tblVacunas.Find(id);
+                db.tblVacunas.Remove(tblVacunas);
                 db.SaveChanges();
                 return RedirectToAction("Index");
 
