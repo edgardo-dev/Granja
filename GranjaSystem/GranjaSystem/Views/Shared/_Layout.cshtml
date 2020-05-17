@@ -191,8 +191,8 @@
                         </div>
                     </div>
                 </a>
-                    <!-- /.search form -->
-                    <!-- sidebar menu: : style can be found in sidebar.less -->
+                <!-- /.search form -->
+                <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MENU PRINCIPAL</li>
 
@@ -277,20 +277,6 @@
                     @{
                         if (Convert.ToString(Session["Rol"]) == "Administrador")
                         {
-                            @*<li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-file-pdf-o"></i> <span>Reportes</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-archive"></i>Reporte de Fichas</a></li>
-                        <li><a href="#"><i class="fa fa-heart"></i>Reporte de Cerdas</a></li>
-                        <li><a href="#"><i class="fa fa-paw"></i>Reporte de Lechones</a></li>
-                        <li><a href="#"><i class="fa fa-vcard"></i>Reporte de Empleados</a></li>
-                    </ul>
-                </li>*@
                             <li class="treeview">
                                 <a href="#">
                                     <i class="fa fa-vcard"></i>
@@ -304,32 +290,19 @@
                                     <li><a href="@Url.Action("Create","Empleados")"><i class="fa fa-plus"></i>Nuevo Empleado</a></li>
                                 </ul>
                             </li>
-                            @*<li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-user-circle"></i>
-                        <span>Roles</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="@Url.Action("Index","Roles")"><i class="fa fa-search"></i>Gestión de Roles</a></li>
-                        <li><a href="@Url.Action("Create","Roles")"><i class="fa fa-plus"></i>Nuevo Rol</a></li>
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-users"></i>
-                        <span>Usuarios</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="@Url.Action("Index","Usuarios")"><i class="fa fa-search"></i>Control de Usuarios</a></li>
-                        <li><a href="@Url.Action("Create","Usuarios")"><i class="fa fa-plus"></i>Nuevo Usuario</a></li>
-                    </ul>
-                </li>*@
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-users"></i>
+                                    <span>Usuarios</span>
+                                    <span class="pull-right-container">
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <li><a href="@Url.Action("Index","Usuarios")"><i class="fa fa-search"></i>Control de Usuarios</a></li>
+                                    <li><a href="@Url.Action("Create","Usuarios")"><i class="fa fa-plus"></i>Nuevo Usuario</a></li>
+                                </ul>
+                            </li>
                         }
                     }
 
@@ -353,7 +326,7 @@
         </div>
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
-                <b>Versión</b> Beta
+                <b>Versión</b> 1.0
             </div>
             <p><strong>Copyright &copy; @DateTime.Now.Year - Granja Bendición de Dios </strong> Todos los Derechos Reservados. Desarrollado por Fidel García y Benjamin Solorzano a traves del Proyecto USAID</p>
         </footer>
