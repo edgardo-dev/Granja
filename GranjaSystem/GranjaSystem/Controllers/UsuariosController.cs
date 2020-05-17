@@ -78,7 +78,7 @@ namespace GranjaSystem.Controllers
                     return RedirectToAction("Index");
                 }
 
-                ViewBag.IdEmpleado = new SelectList(db.tblEmpleados, "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
+                ViewBag.IdEmpleado = new SelectList(db.tblEmpleados.Where(x => x.NombreEmpleado != "Pendiente"), "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
                 ViewBag.IdRol = new SelectList(db.tblRoles, "IdRol", "Rol", tblUsuarios.IdRol);
                 return View(tblUsuarios);
 
@@ -100,7 +100,7 @@ namespace GranjaSystem.Controllers
                 {
                     return HttpNotFound();
                 }
-                ViewBag.IdEmpleado = new SelectList(db.tblEmpleados, "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
+                ViewBag.IdEmpleado = new SelectList(db.tblEmpleados.Where(x => x.NombreEmpleado != "Pendiente"), "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
                 ViewBag.IdRol = new SelectList(db.tblRoles, "IdRol", "Rol", tblUsuarios.IdRol);
                 return View(tblUsuarios);
 
@@ -124,7 +124,7 @@ namespace GranjaSystem.Controllers
                     db.SaveChanges();
                     return RedirectToAction("Index");
                 }
-                ViewBag.IdEmpleado = new SelectList(db.tblEmpleados, "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
+                ViewBag.IdEmpleado = new SelectList(db.tblEmpleados.Where(x => x.NombreEmpleado != "Pendiente"), "IdEmpleado", "NombreEmpleado", tblUsuarios.IdEmpleado);
                 ViewBag.IdRol = new SelectList(db.tblRoles, "IdRol", "Rol", tblUsuarios.IdRol);
                 return View(tblUsuarios);
 
