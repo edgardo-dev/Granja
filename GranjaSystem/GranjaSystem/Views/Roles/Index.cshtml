@@ -4,46 +4,52 @@
     ViewBag.Title = "Control de Roles";
 }
 
-    <div class="row content container-fluid">
-        <p>
-            @Html.ActionLink(" ", "Create", null, new { @class = "fa fa-plus btn btn-success btn-lg", title = "Agregar" })
-        </p>
-        <div class="panel panel-primary">
-            <div class="panel-heading text-center"><h4>CONTROL DE ROLES</h4></div>
-            <div class="panel-body bg-gray">
+<div class="row content container-fluid">
+    <p>
+        @Html.ActionLink(" ", "Create", null, new { @class = "fa fa-plus btn btn-success btn-lg", title = "Agregar" })
+    </p>
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center"><h4>CONTROL DE ROLES</h4></div>
+        <div class="panel-body bg-gray">
+            <div style="overflow-x:scroll">
                 <table id="Tabla" class="table table-bordered table-hover text-center">
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Rol)
-                        </th>
-                        <th>
-                            Descripción
-                        </th>
-                        <th><i class="fa fa-gear"></i> </th>
-                    </tr>
-
-                    @foreach (var item in Model)
-                    {
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Rol)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Descripcion)
-                            </td>
-                            <td>
-                                @Html.ActionLink(" ", "Edit", new { id = item.IdRol }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
-                                @Html.ActionLink(" ", "Details", new { id = item.IdRol }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
-                                @Html.ActionLink(" ", "Delete", new { id = item.IdRol }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
-                            </td>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Rol)
+                            </th>
+                            <th>
+                                Descripción
+                            </th>
+                            <th><i class="fa fa-gear"></i> </th>
                         </tr>
-                    }
+                    </thead>
+                    <tbody>
 
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Rol)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </td>
+                                <td>
+                                    @Html.ActionLink(" ", "Edit", new { id = item.IdRol }, new { @class = "fa fa-edit btn btn-info", title = "Modificar" })
+                                    @Html.ActionLink(" ", "Details", new { id = item.IdRol }, new { @class = "fa fa-eye btn btn-warning", title = "Ver Detalles" })
+                                    @Html.ActionLink(" ", "Delete", new { id = item.IdRol }, new { @class = "fa fa-trash btn btn-danger", title = "Eliminar" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
                 </table>
             </div>
+            </div>
         </div>
-    </div>    
-        
-      
-                   
+</div>
+
+
+
 
