@@ -1,7 +1,7 @@
 ﻿@model GranjaSystem.Models.tblFichas
 
 @{
-    ViewBag.Title = "Modificar Empleado";
+    ViewBag.Title = "Modificar Ficha";
 }
 <div class="row content container-fluid">
     <div class="panel panel-primary">
@@ -162,7 +162,18 @@
                         <div class="form-group">
                             <div class="col-sm-offset-9 col-sm-3" align="right">
                                 <input type="submit" value="Modificar" class="btn btn-success" />
-                                @Html.ActionLink("Atras", "Index",null, new { @class = "btn btn-info" })
+                                @{
+                                    if (ViewBag.idL != null)
+                                    {
+                                        @Html.ActionLink("Atras", "Index", "DetalleLotes", new { id = ViewBag.idL }, new { @class = "btn btn-info" })
+                                                        }
+                                    else
+                                    {
+                                        @Html.ActionLink("Atras", "Index", null, new { @class = "btn btn-info" })
+                                    }
+
+                                }
+
                             </div>
                         </div>
                     </div>

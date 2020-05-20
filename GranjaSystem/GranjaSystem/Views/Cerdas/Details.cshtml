@@ -90,105 +90,102 @@
     <div class="panel panel-primary">
         <div class="panel-heading text-center"><h4>CONTROL DE FICHAS</h4></div>
         <div class="panel-body  table-responsive-lg bg-gray">
-            <div id="main">
-                <div id="horizontal-scroll">
-                    <table id="Tabla" class="table table-bordered table-hover">
-                        <thead>
+            <div style="overflow-x:scroll">
+
+                <table id="Tabla" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                Parto
+                            </th>
+                            <th>
+                                Varraco
+                            </th>
+                            <th>
+                                Fecha Servicio
+                            </th>
+                            <th>
+                                Fecha Parto
+                            </th>
+                            <th>
+                                N° Vivos
+                            </th>
+                            <th>
+                                N° Muertos
+                            </th>
+                            <th>
+                                N° Momias
+                            </th>
+                            <th>
+                                Total
+                            </th>
+                            <th>
+                                Peso 0d
+                            </th>
+                            <th>
+                                N° Destetados
+                            </th>
+                            <th>
+                                Peso 28d
+                            </th>
+                            <th>
+                                Fecha Destete
+                            </th>
+                            <th>
+                                Partero
+                            </th>
+                        </tr>
+                    <thead>
+                    <tbody>
+
+                        @foreach (var item in ViewBag.FichasC)
+                        {
                             <tr>
-                                <th>
-                                    Parto
-                                </th>
-                                <th>
-                                    Varraco
-                                </th>
-                                <th>
-                                    Fecha Servicio
-                                </th>
-                                <th>
-                                    Fecha Parto
-                                </th>
-                                <th>
-                                    N° Vivos
-                                </th>
-                                <th>
-                                    N° Muertos
-                                </th>
-                                <th>
-                                    N° Momias
-                                </th>
-                                <th>
-                                    Total
-                                </th>
-                                <th>
-                                    Peso 0d
-                                </th>
-                                <th>
-                                    N° Destetados
-                                </th>
-                                <th>
-                                    Peso 28d
-                                </th>
-                                <th>
-                                    Fecha Destete
-                                </th>
-                                <th>
-                                    Partero
-                                </th>
+                                <td>
+                                    @item.NumParto
+                                </td>
+                                <td>
+                                    @item.Varracos.NumVarraco
+                                </td>
+
+                                <td>
+                                    @item.FechaServio
+                                </td>
+                                <td>
+                                    @item.FechaParto
+                                </td>
+                                <td>
+                                    @item.NacidosVivos
+                                </td>
+                                <td>
+                                    @item.NacidosMuertos
+                                </td>
+                                <td>
+                                    @item.NacidosMomias
+                                </td>
+                                <td>
+                                    @item.TotalNacidos
+                                </td>
+                                <td>
+                                    @item.PesoPromedio1D Lb
+                                </td>
+                                <td>
+                                    @item.NumDestetado
+                                </td>
+                                <td>
+                                    @item.PesoPromedio28D Lb
+                                </td>
+                                <td>
+                                    @item.FechaDestete
+                                </td>
+                                <td>
+                                    @item.Empleados.NombreEmpleado
+                                </td>
+
                             </tr>
-                        <thead>
-                        <tbody>
-
-                            @foreach (var item in ViewBag.FichasC)
-                            {
-                                <tr>
-                                    <td>
-                                        @item.NumParto
-                                    </td>
-                                    <td>
-                                        @item.Varracos.NumVarraco
-                                    </td>
-
-                                    <td>
-                                        @item.FechaServio
-                                    </td>
-                                    <td>
-                                        @item.FechaParto
-                                    </td>
-                                    <td>
-                                        @item.NacidosVivos
-                                    </td>
-                                    <td>
-                                        @item.NacidosMuertos
-                                    </td>
-                                    <td>
-                                        @item.NacidosMomias
-                                    </td>
-                                    <td>
-                                        @item.TotalNacidos
-                                    </td>
-                                    <td>
-                                        @item.PesoPromedio1D Lb
-                                    </td>
-                                    <td>
-                                        @item.NumDestetado
-                                    </td>
-                                    <td>
-                                        @item.PesoPromedio28D Lb
-                                    </td>
-                                    <td>
-                                        @item.FechaDestete
-                                    </td>
-                                    <td>
-                                        @item.Empleados.NombreEmpleado
-                                    </td>
-
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                    
-
-                </div>
+                        }
+                    </tbody>
+                </table>
             </div>
 
         </div>
@@ -198,42 +195,44 @@
     <div class="panel panel-primary">
         <div class="panel-heading text-center"><h4>CONTROL DE VACUNAS</h4></div>
         <div class="panel-body  table-responsive-lg bg-gray">
-                <div align="justify">
+            <div align="justify">
+                <div style="overflow-x:scroll">
                     <table id="Tabla" class="table table-bordered table-responsive table-hover">
                         @*<thead>*@
-                            <tr>
-                                <th>
-                                    Fecha Inyección
-                                </th>
-                                <th>
-                                    Vacuna
-                                </th>
-                                <th>
-                                    Descipción
-                                </th>
-                            </tr>
+                        <tr>
+                            <th>
+                                Fecha Inyección
+                            </th>
+                            <th>
+                                Vacuna
+                            </th>
+                            <th>
+                                Descipción
+                            </th>
+                        </tr>
                         @*</thead>*@
 
                         @*<tbody>*@
-                            @foreach (var item in ViewBag.Vacunas)
+                        @foreach (var item in ViewBag.Vacunas)
 
-                            {
-                                <tr>
-                                    <td>
-                                        @item.FechaInyeccion
-                                    </td>
-                                    <td>
-                                        @item.Vacuna
-                                    </td>
-                                    <td>
-                                        @item.Descripcion
-                                    </td>
-                                </tr>
-                            }
-                       
+                        {
+                            <tr>
+                                <td>
+                                    @item.FechaInyeccion
+                                </td>
+                                <td>
+                                    @item.Vacuna
+                                </td>
+                                <td>
+                                    @item.Descripcion
+                                </td>
+                            </tr>
+                        }
+
 
                     </table>
 
+                </div>
                 </div>
 
             </div>

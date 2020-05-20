@@ -175,28 +175,23 @@ namespace GranjaSystem.Controllers
         }
         public ActionResult ReporteCerda(int? id)
         {
-            if (Session["IdUsuario"] != null)
-            {
+
                 ViewBag.Fichas = db.tblFichas.Where(h => h.IdCerda == id).Include(t => t.tblEmpleados).Include(t => t.tblVarracos).ToList();
                 ViewBag.Vacunas = db.tblVacunas.Where(h => h.IdCerda == id).ToList();
                 ViewBag.Cerdas = db.tblCerdas.Where(c => c.IdCerda == id).Include(g => g.tblGeneticas).FirstOrDefault();
 
                 return View();
-            }
-            else return RedirectToAction("Index", "Login");
+
         }
         public ActionResult Print(int id)
         {
-            if (Session["IdUsuario"] != null)
-            {
                 return new ActionAsPdf("ReporteCerda", new { id = id })
                 {
                     FileName = "Reporte_Fichas.pdf",
                     PageOrientation = Rotativa.Options.Orientation.Landscape,
                     PageSize = Rotativa.Options.Size.Letter
                 };
-            }
-            else return RedirectToAction("Index", "Login");
+
         } 
     }
 }
