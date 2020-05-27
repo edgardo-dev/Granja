@@ -17,7 +17,7 @@
     </div>
     <div class="row">
         <div align="right">
-            <label>N° DE CERDA:</label> @ViewBag.Cerdas.NumCerda
+            <lbel>N° DE CERDA:</lbel> @ViewBag.Cerdas.NumCerda
             <label>GENÉTICA:</label> @ViewBag.Cerdas.tblGeneticas.Genetica
             <label>FECHA :</label> @DateTime.Now
         </div>
@@ -30,6 +30,9 @@
                     <tr>
                         <th>
                             Parto
+                        </th>
+                        <th>
+                            Lote
                         </th>
                         <th>
                             Varraco
@@ -73,49 +76,52 @@
 
                     @foreach (var item in ViewBag.Fichas)
                     {
-                        <tr>
-                            <td>
-                                @item.NumParto
-                            </td>
-                            <td>
-                                @item.Varracos.NumVarraco
-                            </td>
+                    <tr>
+                        <td>
+                            @item.NumParto
+                        </td>
+                        <td>
+                            @item.Lote
+                        </td>
+                        <td>
+                            @item.tblVarracos.NumVarraco
+                        </td>
 
-                            <td>
-                                @item.FechaServio
-                            </td>
-                            <td>
-                                @item.FechaParto
-                            </td>
-                            <td>
-                                @item.NacidosVivos
-                            </td>
-                            <td>
-                                @item.NacidosMuertos
-                            </td>
-                            <td>
-                                @item.NacidosMomias
-                            </td>
-                            <td>
-                                @item.TotalNacidos
-                            </td>
-                            <td>
-                                @item.PesoPromedio1D Lb
-                            </td>
-                            <td>
-                                @item.NumDestetado
-                            </td>
-                            <td>
-                                @item.PesoPromedio28D Lb
-                            </td>
-                            <td>
-                                @item.FechaDestete
-                            </td>
-                            <td>
-                                @item.Empleados.NombreEmpleado
-                            </td>
+                        <td>
+                            @item.FechaServio
+                        </td>
+                        <td>
+                            @item.FechaParto
+                        </td>
+                        <td>
+                            @item.NacidosVivos
+                        </td>
+                        <td>
+                            @item.NacidosMuertos
+                        </td>
+                        <td>
+                            @item.NacidosMomias
+                        </td>
+                        <td>
+                            @item.TotalNacidos
+                        </td>
+                        <td>
+                            @item.PesoPromedio1D Lb
+                        </td>
+                        <td>
+                            @item.NumDestetado
+                        </td>
+                        <td>
+                            @item.PesoPromedio28D Lb
+                        </td>
+                        <td>
+                            @item.FechaDestete
+                        </td>
+                        <td>
+                            @item.tblEmpleados.NombreEmpleado
+                        </td>
 
-                        </tr>
+                    </tr>
                     }
                 </tbody>
             </table>
@@ -133,7 +139,7 @@
                         Vacuna
                     </th>
                     <th>
-                        Descipción
+                        Descripción
                     </th>
                 </tr>
 
@@ -141,7 +147,7 @@
                 {
                     <tr>
                         <td>
-                            @item.FechaInyeccion
+                            Fecha de inyección
                         </td>
                         <td>
                             @item.Vacuna

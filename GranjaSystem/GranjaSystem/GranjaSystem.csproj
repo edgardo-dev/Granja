@@ -2619,16 +2619,6 @@
     <Content Include="Content\vendor\select2\select2.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\Contextos.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Contextos.edmx</DependentUpon>
-      <LastGenOutput>Contextos.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\Contextos.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Contextos.edmx</DependentUpon>
-      <LastGenOutput>Contextos.cs</LastGenOutput>
-    </Content>
     <Content Include="Rotativa\help-wkhtmltoimage.txt" />
     <Content Include="Rotativa\help-wkhtmltopdf.txt" />
     <Content Include="Rotativa\wkhtmltoimage.exe" />
@@ -2643,13 +2633,6 @@
     <Content Include="Views\Fichas\Edit.cshtml" />
     <Content Include="Views\Fichas\Index.cshtml" />
     <Content Include="App_Browsers\qt.browser" />
-    <EntityDeploy Include="Models\Contextos.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Contextos.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Contextos.edmx.diagram">
-      <DependentUpon>Contextos.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -2678,60 +2661,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Contextos.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Contextos.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Contextos.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Contextos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Contextos.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Contextos.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblCerdas.cs">
-      <DependentUpon>Contextos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblControlLechones.cs">
-      <DependentUpon>Contextos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblDetalleLotes.cs">
-      <DependentUpon>Contextos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblEmpleados.cs">
-      <DependentUpon>Contextos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblFichas.cs">
-      <DependentUpon>Contextos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblGeneticas.cs">
-      <DependentUpon>Contextos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblLechones.cs">
-      <DependentUpon>Contextos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblLotes.cs">
-      <DependentUpon>Contextos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblRoles.cs">
-      <DependentUpon>Contextos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblUsuarios.cs">
-      <DependentUpon>Contextos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblVacunas.cs">
-      <DependentUpon>Contextos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblVacunasLotes.cs">
-      <DependentUpon>Contextos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblVarracos.cs">
-      <DependentUpon>Contextos.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\BDGranja.cs" />
+    <Compile Include="Models\tblCerdas.cs" />
+    <Compile Include="Models\tblControlLechones.cs" />
+    <Compile Include="Models\tblDetalleLotes.cs" />
+    <Compile Include="Models\tblEmpleados.cs" />
+    <Compile Include="Models\tblFichas.cs" />
+    <Compile Include="Models\tblGeneticas.cs" />
+    <Compile Include="Models\tblLechones.cs" />
+    <Compile Include="Models\tblLotes.cs" />
+    <Compile Include="Models\tblRoles.cs" />
+    <Compile Include="Models\tblUsuarios.cs" />
+    <Compile Include="Models\tblVacunas.cs" />
+    <Compile Include="Models\tblVacunasLotes.cs" />
+    <Compile Include="Models\tblVarracos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

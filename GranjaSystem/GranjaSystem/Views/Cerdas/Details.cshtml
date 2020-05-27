@@ -99,6 +99,9 @@
                                 Parto
                             </th>
                             <th>
+                                Lote
+                            </th>
+                            <th>
                                 Varraco
                             </th>
                             <th>
@@ -140,49 +143,52 @@
 
                         @foreach (var item in ViewBag.FichasC)
                         {
-                            <tr>
-                                <td>
-                                    @item.NumParto
-                                </td>
-                                <td>
-                                    @item.Varracos.NumVarraco
-                                </td>
+                        <tr>
+                            <td>
+                                @item.NumParto
+                            </td>
+                            <td>
+                                @item.Lote
+                            </td>
+                            <td>
+                                @item.tblVarracos.NumVarraco
+                            </td>
 
-                                <td>
-                                    @item.FechaServio
-                                </td>
-                                <td>
-                                    @item.FechaParto
-                                </td>
-                                <td>
-                                    @item.NacidosVivos
-                                </td>
-                                <td>
-                                    @item.NacidosMuertos
-                                </td>
-                                <td>
-                                    @item.NacidosMomias
-                                </td>
-                                <td>
-                                    @item.TotalNacidos
-                                </td>
-                                <td>
-                                    @item.PesoPromedio1D Lb
-                                </td>
-                                <td>
-                                    @item.NumDestetado
-                                </td>
-                                <td>
-                                    @item.PesoPromedio28D Lb
-                                </td>
-                                <td>
-                                    @item.FechaDestete
-                                </td>
-                                <td>
-                                    @item.Empleados.NombreEmpleado
-                                </td>
+                            <td>
+                                @item.FechaServio
+                            </td>
+                            <td>
+                                @item.FechaParto
+                            </td>
+                            <td>
+                                @item.NacidosVivos
+                            </td>
+                            <td>
+                                @item.NacidosMuertos
+                            </td>
+                            <td>
+                                @item.NacidosMomias
+                            </td>
+                            <td>
+                                @item.TotalNacidos
+                            </td>
+                            <td>
+                                @item.PesoPromedio1D Lb
+                            </td>
+                            <td>
+                                @item.NumDestetado
+                            </td>
+                            <td>
+                                @item.PesoPromedio28D Lb
+                            </td>
+                            <td>
+                                @item.FechaDestete
+                            </td>
+                            <td>
+                                @item.tblEmpleados.NombreEmpleado
+                            </td>
 
-                            </tr>
+                        </tr>
                         }
                     </tbody>
                 </table>

@@ -107,7 +107,10 @@ namespace GranjaSystem.Controllers
                     Cerda.Estado = "Vacía";
                     db.Entry(DetalleL).State = EntityState.Modified;
                 }
-                Fichas.Lote = DetalleL.IdLote;
+                var NLote = (from N in db.tblLotes
+                                         where N.IdLote == DetalleL.IdLote
+                                         select N.NumLote).FirstOrDefault();
+                Fichas.Lote = NLote;
                 db.Entry(Cerda).State = EntityState.Modified;
                 db.tblFichas.Add(Fichas);
                 db.SaveChanges();
@@ -157,7 +160,7 @@ namespace GranjaSystem.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdFicha,IdCerda,NumParto,FechaServio,IdVarraco,FechaParto,NacidosVivos,NacidosMuertos,NacidosMomias,TotalNacidos,PesoPromedio1D,NumDestetado,PesoPromedio28D,FechaDestete,IdEmpleado")] tblFichas tblFichas)
+        public ActionResult Create([Bind(Include = "IdFicha,Lote,IdCerda,NumParto,FechaServio,IdVarraco,FechaParto,NacidosVivos,NacidosMuertos,NacidosMomias,TotalNacidos,PesoPromedio1D,NumDestetado,PesoPromedio28D,FechaDestete,IdEmpleado")] tblFichas tblFichas)
         {
             if (Session["IdUsuario"] != null)
             {

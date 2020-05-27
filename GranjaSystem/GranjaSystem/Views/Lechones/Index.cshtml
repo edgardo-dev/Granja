@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Control de Cerdos";
+    
 }
 
 <div class="row content container-fluid">
@@ -36,8 +37,8 @@
                             <th>
                                 Fecha Inicio
                             </th>
-                            <th>qq Diarios</th>
-                            <th>qq Semanal</th>
+                            <th>Diarios</th>
+                            <th>Semanal</th>
                             @*<th>
                     @Html.DisplayNameFor(model => model.FechaRegistro)
                 </th>*@
@@ -72,8 +73,8 @@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.FechaInicio)
                                 </td>
-                                <td>@Html.DisplayFor(modelItem => item.qqDiarios) </td>
-                                <td>@Html.DisplayFor(modelItem => item.qqSemanal) </td>
+                                <td>@Html.DisplayFor(modelItem => item.qqDiarios) qq </td>
+                                <td>@Html.DisplayFor(modelItem => item.qqSemanal) qq </td>
                                 @*<td>
                     @Html.DisplayFor(modelItem => item.FechaRegistro)
                 </td>*@
